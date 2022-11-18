@@ -1,0 +1,487 @@
+
+ **** INPUT FILE VPSC.IN FOR THIS RUN ****
+1                          number of elements (nelem)                                                                             
+1                          number of phases (nph)                                                                                 
+1.0  0.0                   relative vol. fract. of phases (wph(i))                                                                
+*INFORMATION ABOUT PHASE #1                                                                                                       
+0   0   25                    grain shape contrl, fragmentn, crit aspect ratio                                                    
+1.0  1.0  1.0                 initial ellipsoid ratios (dummy if ishape=4)                                                        
+0.0  0.0  0.0                 init Eul ang ellips axes (dummy if ishape=3,4)                                                      
+* name and path of texture file (filetext)                                                                                        
+ex14_growth\rand1000_sobol.tex                                                                                                    
+* name and path of single crystal file (filecrys)                                                                                 
+ex14_growth\zr_irr_creep.sx                                                                                                       
+* name and path of grain shape file (dummy if ishape=0) (fileaxes)                                                                
+shape1.100                                                                                                                        
+* name and path of diffraction file (dummy if idiff=0)                                                                            
+0                                                                                                                                 
+dummy                                                                                                                             
+*PRECISION SETTINGS FOR CONVERGENCE PROCEDURES (default values)                                                                   
+1.e-3  1.e-3  1.e-3   0.01     errs,errd,errm,errso                                                                               
+100 100 25     itmax:   max # of iter, external, internal and SO loops                                                            
+0  2  10  2   irsvar & jrsini,jrsfin,jrstep (dummy if irsvar=0)                                                                   
+*INPUT/OUTPUT SETTINGS FOR THE RUN (default is zero)                                                                              
+0              irecover:read grain states from POSTMORT.IN (1) or not (0)?                                                        
+0              isave:   write grain states in POSTMORT.OUT at step 'isave'?                                                       
+0              icubcomp:calculate fcc rolling components?                                                                         
+0              nwrite (frequency of texture downloads)                                                                            
+*MODELING CONDITIONS FOR THE RUN                                                                                                  
+1              interaction (0:FC,1:affine,2:secant,3:neff,4:tangent,5:SO)                                                         
+1  1  1        iupdate: update orient, grain shape, hardening                                                                     
+0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
+0              iflu (0: don't calc, 1: calc fluctuations)                                                                         
+*NUMBER OF PROCESSES (Lij const; Lij variable; PCYS ;LANKFORD; rigid rotatn)                                                      
+1                                                                                                                                 
+*IVGVAR AND PATH\NAME OF FILE FOR EACH PROCESS (dummy if ivgvar=2,3)                                                              
+0                                                                                                                                 
+ex14_growth\tube_pressure.s22                                                                                                     
+                                                                                                                                  
+ex14_growth\TENS_CREEP.3                                                                                                          
+                                                                                                                                  
+ex14_growth\TENS_RATE.3                                                                                                           
+                                                                                                                                 
+
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES   180.00    90.00   180.00
+  EIGNVAL   1.0000                     1.0000                     1.0000
+  EIGNVEC   1.0000   0.0000   0.0000  -0.0000  -0.0000  -1.0000   0.0000   1.0000   0.0000
+
+ **** CRYSTAL DATA FILE ****
+*Material: zirconium                                                                                                              
+HEXAGONAL                                crysym                                                                                   
+1.  1.  1.594     90.  90.  120.         cdim(i),cang(i)                                                                          
+*Elastic stiffness of single crystal [MPa]                                                                                        
+  143.5e3    72.5e3    65.4e3     0.0     0.0     0.0                                                                             
+   72.5e3   143.5e3    65.4e3     0.0     0.0     0.0                                                                             
+   65.4e3    65.4e3   164.9e3     0.0     0.0     0.0                                                                             
+    0.0     0.0     0.0    32.1e3     0.0e3     0.0e3                                                                             
+    0.0     0.0     0.0     0.0e3    32.1e3     0.0e3                                                                             
+    0.0     0.0     0.0     0.0e3     0.0e3    35.5e3                                                                             
+*Thermal expansion coefficients of single crystal[K^(-1)]                                                                         
+  5.7e-6   5.7e-6  10.3e-6   0.0e0   0.0e0   0.0e0                                                                                
+SLIP AND TWINNING MODES                                                                                                           
+4                               nmodesx                                                                                           
+3                               nmodes                                                                                            
+1  2  4                       mode(i)                                                                                             
+PRISMATIC <a>                                                                                                                     
+  1    3   1   0                       modex,nsmx,isensex,itwtypex                                                                
+ 1  0 -1  0    -1  2 -1  0                                                                                                        
+ 0 -1  1  0     2 -1 -1  0                                                                                                        
+ -1  1  0  0    -1 -1  2  0                                                                                                       
+BASAL <a>                                                                                                                         
+  2    3   1   0                       modex,nsmx,isensex,itwtypex                                                                
+ 0  0  0  1     2 -1 -1  0                                                                                                        
+ 0  0  0  1    -1  2 -1  0                                                                                                        
+ 0  0  0  1    -1 -1  2  0                                                                                                        
+PYRAMIDAL<a>                                                                                                                      
+  3    6   1   0                       modex,nsmx,isensex,itwtypex                                                                
+ 1  0 -1  1    -1  2 -1  0                                                                                                        
+ 0 -1  1  1     2 -1 -1  0                                                                                                        
+ -1  1  0  1    -1 -1  2  0                                                                                                       
+ -1  0  1  1    -1  2 -1  0                                                                                                       
+ 0  1 -1  1     2 -1 -1  0                                                                                                        
+ 1 -1  0  1     1  1 -2  0                                                                                                        
+PYRAMIDAL<c+a>                                                                                                                    
+  4   12   1   0                       modex,nsmx,isensex,itwtypex                                                                
+ 1  0 -1  1    -1 -1  2  3                                                                                                        
+ 1  0 -1  1    -2  1  1  3                                                                                                        
+ 0 -1  1  1     1  1 -2  3                                                                                                        
+ 0 -1  1  1    -1  2 -1  3                                                                                                        
+ -1  1  0  1     2 -1 -1  3                                                                                                       
+ -1  1  0  1     1 -2  1  3                                                                                                       
+ -1  0  1  1     2 -1 -1  3                                                                                                       
+ -1  0  1  1     1  1 -2  3                                                                                                       
+ 0  1 -1  1    -1 -1  2  3                                                                                                        
+ 0  1 -1  1     1 -2  1  3                                                                                                        
+ 1 -1  0  1    -2  1  1  3                                                                                                        
+ 1 -1  0  1    -1  2 -1  3                                                                                                        
+*Constitutive law                                                                                                                 
+   30      Voce=0, MTS=1, Voce+growthrate=30                                                                                      
+    1      iratesens (0:rate insensitive, 1:rate sensitive)                                                                       
+   25     grsze --> grain size only matters if HPfactor is non-zero                                                               
+ PRISMATIC <a> SLIP -------------------------------------------                                                                   
+  1                               nrsx                                                                                            
+  100.    0.    0.    0.   0.      tau0x,tau1x,thet0,thet1, hpfac                                                                 
+ 1.0    1.0    1.0              hlatex(1,im),im=1,nmodes                                                                          
+BASAL <a> SLIP -------------------------------------------                                                                        
+  1                               nrsx                                                                                            
+  250.    0.    0.    0.   0.      tau0x,tau1x,thet0,thet1, hpfac                                                                 
+ 1.0    1.0    1.0              hlatex(1,im),im=1,nmodes                                                                          
+ PYRAMIDAL <c+a> SLIP -------------------------------------------                                                                 
+  1                               nrsx                                                                                            
+  900.     0.    0.    0.   0.      tau0x,tau1x,thet0,thet1, hpfac                                                                
+ 1.0    1.0    1.0              hlatex(1,im),im=1,nmodes                                                                          
+* GAMD0 for irradiation creep law                                                                                                 
+   1.e-2                                                                                                                          
+* Growth rate tensor (DG_TRANSXc)                                                                                                 
+   1.E-2   0.      0.                                                                                                             
+   0.      1.E-2   0.                                                                                                             
+   0.      0.     -2.E-2                                                                                                          
+**** END OF CRYSTAL DATA FILE ****
+
+
+ CHECKING THAT CELCC*SELCC-ID6=0   0.2319549E-15
+ *********** PHASE   1
+ RANDOM PX BULK & POISSON MODULI   95388.889       0.330
+ RANDOM PX ELASTIC CTES C11, C12, C44  144073.333   71046.667   36513.333
+
+ INSIDE SUBROUTINE DATA_CRYSTAL
+ SHEAR MODULUS FOR MODE  1 IN PHASE  1 IS   35500.000
+ N & B FOR MODE  1 IN PHASE  1
+     0.866     0.500     0.000       -0.500     0.866     0.000
+     0.000    -1.000     0.000        1.000     0.000     0.000
+    -0.866     0.500     0.000       -0.500    -0.866     0.000
+ SHEAR MODULUS FOR MODE  2 IN PHASE  1 IS   32100.000
+ N & B FOR MODE  2 IN PHASE  1
+     0.000     0.000     1.000        1.000     0.000     0.000
+     0.000     0.000     1.000       -0.500     0.866     0.000
+     0.000     0.000     1.000       -0.500    -0.866     0.000
+ SHEAR MODULUS FOR MODE  3 IN PHASE  1 IS   40331.548
+ N & B FOR MODE  3 IN PHASE  1
+     0.761     0.439     0.477       -0.266    -0.460     0.847
+     0.761     0.439     0.477       -0.531     0.000     0.847
+     0.000    -0.879     0.477        0.266     0.460     0.847
+     0.000    -0.879     0.477       -0.266     0.460     0.847
+    -0.761     0.439     0.477        0.531     0.000     0.847
+    -0.761     0.439     0.477        0.266    -0.460     0.847
+    -0.761    -0.439     0.477        0.531     0.000     0.847
+    -0.761    -0.439     0.477        0.266     0.460     0.847
+     0.000     0.879     0.477       -0.266    -0.460     0.847
+     0.000     0.879     0.477        0.266    -0.460     0.847
+     0.761    -0.439     0.477       -0.531     0.000     0.847
+     0.761    -0.439     0.477       -0.266     0.460     0.847
+ GAMDO IN IRRADIATION CREEP LAW
+    0.010000
+ CARTESIAN CRYSTAL GROWTH RATE
+    0.010000    0.000000    0.000000
+    0.000000    0.010000    0.000000
+    0.000000    0.000000   -0.020000
+ b-BASIS CRYSTAL GROWTH RATE
+    0.000000   -0.024495    0.000000    0.000000    0.000000
+    0.000000
+
+ **** CRYST TEXTURE (FIRST FEW LINES) ****
+* 1000 random orientations obtained with Sobol method / specific for ortho tropic SX simetry                                      
+* passed by Ricardo lebensohn on 2020-06-25                                                                                       
+* based on favoring equidistant points in Euler space                                                                             
+B   1003                                                                                                                          
+      0.0     0.0    0.0     1.e-06                                                                                               
+      0.0    90.0    0.0     1.e-06                                                                                               
+     90.0    90.0    0.0     1.e-06                                                                                               
+    45.000    60.000   135.000  2.00000E-04                                                                                       
+   135.000   120.000    45.000  2.00000E-04                                                                                       
+   157.500    41.410   157.500  2.00000E-04                                                                                       
+    67.500   104.478    67.500  2.00000E-04                                                                                       
+    22.500   138.590   112.500  2.00000E-04                                                                                       
+   112.500    75.522    22.500  2.00000E-04                                                                                       
+   123.750   128.682   146.250  2.00000E-04                                                                                       
+    33.750    67.976    56.250  2.00000E-04                                                                                       
+    78.750    28.955   101.250  2.00000E-04                                                                                       
+   168.750    97.181    11.250  2.00000E-04                                                                                       
+   146.250    82.819   123.750  2.00000E-04                                                                                       
+    56.250   151.045    33.750  2.00000E-04                                                                                       
+    11.250   112.024   168.750  2.00000E-04                                                                                       
+    .........................
+ **** END OF CRYST TEXTURE DATA FILE ****
+
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES   180.00    90.00   180.00
+  EIGNVAL   1.0000                     1.0000                     1.0000
+  EIGNVEC   1.0000   0.0000   0.0000  -0.0000  -0.0000  -1.0000   0.0000   1.0000   0.0000
+
+ UB THERMAL TENSOR (VOIGT NOTATION)
+  0.7283E-05  0.7287E-05  0.7284E-05  0.2740E-08  0.2669E-08 -0.5462E-08
+
+ UB ELASTIC STIFFNESS (VOIGT NOTATION)
+  0.1441E+06  0.7106E+05  0.7104E+05  0.1374E+02 -0.1966E+01 -0.8874E+01
+  0.7106E+05  0.1441E+06  0.7106E+05 -0.1022E+02 -0.3847E+01 -0.1829E+02
+  0.7104E+05  0.7106E+05  0.1441E+06  0.3055E+01  0.1221E+02  0.1405E+02
+  0.1374E+02 -0.1022E+02  0.3055E+01  0.3652E+05  0.1065E+02 -0.2190E+01
+ -0.1966E+01 -0.3847E+01  0.1221E+02  0.1065E+02  0.3651E+05  0.1544E+02
+ -0.8874E+01 -0.1829E+02  0.1405E+02 -0.2190E+01  0.1544E+02  0.3653E+05
+
+ LB THERMAL TENSOR (VOIGT NOTATION)
+  0.7232E-05  0.7235E-05  0.7233E-05  0.2116E-08  0.2059E-08 -0.4218E-08
+
+ LB ELASTIC STIFFNESS (VOIGT NOTATION)
+  0.1429E+06  0.7139E+05  0.7138E+05  0.1212E+02 -0.2174E+01 -0.6620E+01
+  0.7139E+05  0.1429E+06  0.7139E+05 -0.9267E+01 -0.2990E+01 -0.1469E+02
+  0.7138E+05  0.7139E+05  0.1429E+06  0.2120E+01  0.9995E+01  0.1141E+02
+  0.1212E+02 -0.9267E+01  0.2120E+01  0.3578E+05  0.9968E+01 -0.2279E+01
+ -0.2174E+01 -0.2990E+01  0.9995E+01  0.9968E+01  0.3576E+05  0.1284E+02
+ -0.6620E+01 -0.1469E+02  0.1141E+02 -0.2279E+01  0.1284E+02  0.3578E+05
+
+
+*** LOAD CONDITIONS FOR THIS RUN
+  10    2     0.1    523.   523.        nsteps  ictrl  eqincr  temp_ini   temp_fin                                                
+* boundary conditions                                                                                                             
+    0       0       0           iudot    |    flag for vel.grad.                                                                  
+    1       0       0                    |    (0:unknown-1:known)                                                                 
+    1       1       0                    |                                                                                        
+                                                                                                                                  
+    0.0001     0.      0.          udot     |    vel.grad                                                                         
+    0.      0.0002     0.                   |                                                                                     
+    0.      0.         -0.0003              |                                                                                     
+                                                                                                                                  
+    1       1       1           iscau    |    flag for Cauchy                                                                     
+            1       1                    |                                                                                        
+                    1                    |                                                                                        
+                                                                                                                                  
+    1.     0.      0.          scauchy  |    Cauchy stress                                                                        
+           2.      0.                   |                                                                                         
+                    0.                                                                                                            
+
+*******   STEP   1      *** AFFINE CALCULATION                 
+    3   0.314E-03   0.314E-04   0.266E-04
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR     0.0000    0.0000   -0.0000
+  LIJBAR     0.0000    0.0000   -0.0000
+  LIJBAR     0.0000    0.0000   -0.0000
+  FIJ        1.0000    0.0000   -0.0000
+  FIJ        0.0000    1.0000   -0.0000
+  FIJ        0.0000    0.0000    1.0000
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES   123.01     8.42  -151.37
+  EIGNVAL   1.0000                     1.0000                     1.0000
+  EIGNVEC   0.8756  -0.4779  -0.0702   0.4671   0.8748  -0.1286   0.1228   0.0798   0.9892
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH      0.0000    0.0000   -0.0000
+  LIJPH     -0.0000    0.0000   -0.0000
+  LIJPH      0.0000    0.0000   -0.0000
+  FIJ        1.0000    0.0000   -0.0000
+  FIJ       -0.0000    1.0000   -0.0000
+  FIJ        0.0000    0.0000    1.0000
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES   117.29     4.23  -126.83
+  EIGNVAL   1.0000                     1.0000                     1.0000
+  EIGNVEC   0.9842  -0.1667  -0.0591   0.1643   0.9854  -0.0442   0.0656   0.0338   0.9973
+
+*******   STEP   2      *** AFFINE CALCULATION                 
+    3   0.314E-03   0.313E-04   0.266E-04
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR     0.0000    0.0001   -0.0000
+  LIJBAR     0.0000    0.0000   -0.0000
+  LIJBAR     0.0000    0.0000   -0.0000
+  FIJ        1.0000    0.0000   -0.0000
+  FIJ        0.0000    1.0000   -0.0000
+  FIJ       -0.0000   -0.0000    1.0000
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES   121.39    11.28  -154.95
+  EIGNVAL   1.0000                     1.0000                     1.0000
+  EIGNVEC   0.8263  -0.5570  -0.0828   0.5378   0.8242  -0.1773   0.1670   0.1019   0.9807
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH      0.0000    0.0000   -0.0000
+  LIJPH     -0.0000    0.0000   -0.0000
+  LIJPH      0.0000    0.0000   -0.0000
+  FIJ        1.0000    0.0000   -0.0000
+  FIJ       -0.0000    1.0000   -0.0000
+  FIJ        0.0000    0.0000    1.0000
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES   117.29     4.23  -126.83
+  EIGNVAL   1.0000                     1.0000                     1.0000
+  EIGNVEC   0.9842  -0.1667  -0.0591   0.1643   0.9854  -0.0442   0.0656   0.0338   0.9973
+
+*******   STEP   3      *** AFFINE CALCULATION                 
+    3   0.314E-03   0.313E-04   0.265E-04
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR     0.0000    0.0001   -0.0000
+  LIJBAR     0.0000    0.0000   -0.0000
+  LIJBAR     0.0000    0.0000   -0.0000
+  FIJ        1.0000    0.0000   -0.0000
+  FIJ        0.0000    1.0000   -0.0000
+  FIJ       -0.0000   -0.0000    1.0000
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES   120.77    12.10  -155.50
+  EIGNVAL   1.0000                     1.0000                     1.0000
+  EIGNVEC   0.8140  -0.5744  -0.0870   0.5523   0.8115  -0.1908   0.1802   0.1073   0.9778
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH      0.0000    0.0000   -0.0000
+  LIJPH     -0.0000    0.0000   -0.0000
+  LIJPH      0.0000    0.0000   -0.0000
+  FIJ        1.0000    0.0000   -0.0000
+  FIJ       -0.0000    1.0000   -0.0000
+  FIJ        0.0000    0.0000    1.0000
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES   117.29     4.23  -126.83
+  EIGNVAL   1.0000                     1.0000                     1.0000
+  EIGNVEC   0.9842  -0.1668  -0.0591   0.1643   0.9854  -0.0442   0.0656   0.0338   0.9973
+
+*******   STEP   4      *** AFFINE CALCULATION                 
+    3   0.314E-03   0.313E-04   0.265E-04
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR     0.0000    0.0001   -0.0000
+  LIJBAR     0.0000    0.0000   -0.0000
+  LIJBAR     0.0000    0.0000   -0.0000
+  FIJ        1.0000    0.0000   -0.0000
+  FIJ        0.0000    1.0000   -0.0000
+  FIJ       -0.0000   -0.0000    1.0000
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES   120.44    12.50  -155.68
+  EIGNVAL   1.0000                     1.0000                     1.0000
+  EIGNVEC   0.8083  -0.5820  -0.0891   0.5584   0.8058  -0.1972   0.1865   0.1096   0.9763
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH      0.0000    0.0000   -0.0000
+  LIJPH     -0.0000    0.0000   -0.0000
+  LIJPH      0.0000    0.0000   -0.0000
+  FIJ        1.0000    0.0000   -0.0000
+  FIJ       -0.0000    1.0000   -0.0000
+  FIJ        0.0000    0.0000    1.0000
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES   117.29     4.23  -126.83
+  EIGNVAL   1.0000                     1.0000                     1.0000
+  EIGNVEC   0.9842  -0.1668  -0.0591   0.1643   0.9854  -0.0442   0.0656   0.0338   0.9973
+
+*******   STEP   5      *** AFFINE CALCULATION                 
+    3   0.314E-03   0.313E-04   0.265E-04
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR     0.0000    0.0001   -0.0000
+  LIJBAR     0.0000    0.0000   -0.0000
+  LIJBAR     0.0000    0.0000   -0.0000
+  FIJ        1.0000    0.0000   -0.0000
+  FIJ        0.0000    1.0000   -0.0000
+  FIJ       -0.0000   -0.0000    1.0000
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES   120.24    12.72  -155.77
+  EIGNVAL   1.0000                     1.0000                     1.0000
+  EIGNVEC   0.8051  -0.5862  -0.0904   0.5618   0.8025  -0.2008   0.1903   0.1109   0.9754
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH      0.0000    0.0000   -0.0000
+  LIJPH     -0.0000    0.0000   -0.0000
+  LIJPH      0.0000    0.0000   -0.0000
+  FIJ        1.0000    0.0000   -0.0000
+  FIJ        0.0000    1.0000   -0.0000
+  FIJ       -0.0000   -0.0000    1.0000
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES   117.29     4.23  -126.83
+  EIGNVAL   1.0000                     1.0000                     1.0000
+  EIGNVEC   0.9842  -0.1668  -0.0591   0.1643   0.9854  -0.0443   0.0656   0.0338   0.9973
+
+*******   STEP   6      *** AFFINE CALCULATION                 
+    3   0.314E-03   0.313E-04   0.265E-04
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR     0.0000    0.0001   -0.0000
+  LIJBAR     0.0000    0.0000   -0.0000
+  LIJBAR     0.0000    0.0000   -0.0000
+  FIJ        1.0000    0.0000   -0.0000
+  FIJ        0.0000    1.0000   -0.0000
+  FIJ       -0.0000   -0.0000    1.0000
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES   120.10    12.87  -155.81
+  EIGNVAL   1.0000                     1.0000                     1.0000
+  EIGNVEC   0.8030  -0.5889  -0.0913   0.5639   0.8004  -0.2032   0.1928   0.1117   0.9749
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH      0.0000    0.0000   -0.0000
+  LIJPH     -0.0000    0.0000   -0.0000
+  LIJPH      0.0000    0.0000   -0.0000
+  FIJ        1.0000    0.0000   -0.0000
+  FIJ        0.0000    1.0000   -0.0000
+  FIJ       -0.0000   -0.0000    1.0000
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES   117.29     4.23  -126.84
+  EIGNVAL   1.0000                     1.0000                     1.0000
+  EIGNVEC   0.9842  -0.1668  -0.0591   0.1644   0.9854  -0.0443   0.0656   0.0338   0.9973
+
+*******   STEP   7      *** AFFINE CALCULATION                 
+    3   0.314E-03   0.313E-04   0.265E-04
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR     0.0000    0.0001   -0.0000
+  LIJBAR     0.0000    0.0000   -0.0000
+  LIJBAR     0.0000    0.0000   -0.0000
+  FIJ        1.0000    0.0000   -0.0000
+  FIJ        0.0000    1.0000   -0.0000
+  FIJ       -0.0000   -0.0000    1.0000
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES   119.99    12.98  -155.84
+  EIGNVAL   1.0000                     1.0000                     1.0000
+  EIGNVEC   0.8015  -0.5908  -0.0919   0.5654   0.7989  -0.2049   0.1945   0.1123   0.9745
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH      0.0000    0.0000   -0.0000
+  LIJPH     -0.0000    0.0000   -0.0000
+  LIJPH      0.0000    0.0000   -0.0000
+  FIJ        1.0000    0.0000   -0.0000
+  FIJ        0.0000    1.0000   -0.0000
+  FIJ       -0.0000   -0.0000    1.0000
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES   117.29     4.23  -126.84
+  EIGNVAL   1.0000                     1.0000                     1.0000
+  EIGNVEC   0.9842  -0.1668  -0.0591   0.1644   0.9854  -0.0443   0.0656   0.0339   0.9973
+
+*******   STEP   8      *** AFFINE CALCULATION                 
+    3   0.314E-03   0.313E-04   0.265E-04
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR     0.0000    0.0001   -0.0000
+  LIJBAR     0.0000    0.0000   -0.0000
+  LIJBAR     0.0000    0.0000   -0.0000
+  FIJ        1.0000    0.0000   -0.0000
+  FIJ        0.0000    1.0000   -0.0000
+  FIJ       -0.0000   -0.0000    1.0000
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES   119.92    13.06  -155.86
+  EIGNVAL   1.0000                     1.0001                     1.0000
+  EIGNVEC   0.8005  -0.5922  -0.0924   0.5665   0.7978  -0.2062   0.1958   0.1127   0.9741
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH      0.0000    0.0000   -0.0000
+  LIJPH     -0.0000    0.0000   -0.0000
+  LIJPH      0.0000    0.0000   -0.0000
+  FIJ        1.0000    0.0000   -0.0000
+  FIJ        0.0000    1.0000   -0.0000
+  FIJ       -0.0000   -0.0000    1.0000
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES   117.29     4.23  -126.84
+  EIGNVAL   1.0000                     1.0000                     1.0000
+  EIGNVEC   0.9842  -0.1669  -0.0591   0.1644   0.9854  -0.0443   0.0656   0.0339   0.9973
+
+*******   STEP   9      *** AFFINE CALCULATION                 
+    3   0.314E-03   0.313E-04   0.265E-04
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR     0.0000    0.0001   -0.0000
+  LIJBAR     0.0000    0.0000   -0.0000
+  LIJBAR     0.0000    0.0000   -0.0000
+  FIJ        1.0000    0.0000   -0.0000
+  FIJ        0.0000    1.0000   -0.0000
+  FIJ       -0.0000   -0.0000    1.0000
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES   119.86    13.12  -155.87
+  EIGNVAL   1.0000                     1.0001                     1.0000
+  EIGNVEC   0.7996  -0.5933  -0.0928   0.5673   0.7970  -0.2071   0.1968   0.1130   0.9739
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH      0.0000    0.0000   -0.0000
+  LIJPH     -0.0000    0.0000   -0.0000
+  LIJPH      0.0000    0.0000   -0.0000
+  FIJ        1.0000    0.0000   -0.0000
+  FIJ        0.0000    1.0000   -0.0000
+  FIJ       -0.0000   -0.0000    1.0000
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES   117.29     4.23  -126.84
+  EIGNVAL   1.0000                     1.0000                     1.0000
+  EIGNVEC   0.9842  -0.1669  -0.0591   0.1644   0.9854  -0.0443   0.0656   0.0339   0.9973
+
+*******   STEP  10      *** AFFINE CALCULATION                 
+    3   0.314E-03   0.313E-04   0.265E-04
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR     0.0000    0.0001   -0.0000
+  LIJBAR     0.0000    0.0000   -0.0000
+  LIJBAR     0.0000    0.0000   -0.0000
+  FIJ        1.0000    0.0000   -0.0000
+  FIJ        0.0000    1.0000   -0.0000
+  FIJ       -0.0000   -0.0000    1.0000
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES   119.81    13.17  -155.88
+  EIGNVAL   1.0000                     1.0001                     0.9999
+  EIGNVEC   0.7990  -0.5941  -0.0931   0.5680   0.7963  -0.2079   0.1976   0.1132   0.9737
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH      0.0000    0.0000   -0.0000
+  LIJPH     -0.0000    0.0000   -0.0000
+  LIJPH      0.0000    0.0000   -0.0000
+  FIJ        1.0000    0.0000   -0.0000
+  FIJ        0.0000    1.0000   -0.0000
+  FIJ       -0.0000   -0.0000    1.0000
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES   117.29     4.24  -126.84
+  EIGNVAL   1.0000                     1.0000                     1.0000
+  EIGNVEC   0.9842  -0.1669  -0.0591   0.1645   0.9854  -0.0443   0.0656   0.0339   0.9973
+
+*******   STEP  11      *** AFFINE CALCULATION                 
+    3   0.314E-03   0.313E-04   0.265E-04
+
+ TIME ELAPSED    2.55secs

@@ -1,0 +1,295 @@
+
+ **** INPUT FILE VPSC.IN FOR THIS RUN ****
+1                          number of elements (nelem)                                                                             
+1                          number of phases (nph)                                                                                 
+1.0  0.0                   relative vol. fract. of phases (wph(i))                                                                
+*INFORMATION ABOUT PHASE #1                                                                                                       
+0   0   25                     grain shape contrl, fragmentn, crit aspect ratio                                                   
+1.0  1.0  1.0                 initial ellipsoid ratios (dummy if ishape=3)                                                        
+0.0  0.0  0.0                 init Eul ang ellips axes (dummy if ishape=3)                                                        
+* name and path of texture file (filetext)                                                                                        
+ex07_MTS\Al_roll.tex                                                                                                              
+* name and path of single crystal file (filecrys)                                                                                 
+ex07_MTS\Al_5182.MTS                                                                                                              
+* name and path of grain shape file (dummy if ishape=0) (fileaxes)                                                                
+dummy                                                                                                                             
+* name and path of diffraction file (dummy if idiff=0)                                                                            
+0                                                                                                                                 
+dummy                                                                                                                             
+*PRECISION SETTINGS FOR CONVERGENCE PROCEDURES (default values)                                                                   
+1.e-3 1.e-3 1.e-3 0.01     errs,errd,errm,errso                                                                                   
+100 100 25     itmax:   max # of iter, external, internal and SO loops                                                            
+0  2  10  2    irsvar & jrsini,jrsfin,jrstep (dummy if irsvar=0)                                                                  
+*INPUT/OUTPUT SETTINGS FOR THE RUN (default is zero)                                                                              
+0              irecover:read grain states from POSTMORT.IN (1) or not (0)?                                                        
+0              isave:   write grain states in POSTMORT.OUT at step 'isave'?                                                       
+0              icubcomp:calculate fcc rolling components?                                                                         
+0              nwrite (frequency of texture downloads)                                                                            
+*MODELING CONDITIONS FOR THE RUN                                                                                                  
+3              interaction (0:FC,1:affine,2:secant,3:neff=10,4:tangent,5:SO)                                                      
+1  1  1        iupdate: update orient, grain shape, hardening                                                                     
+0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
+0              iflu (0: don't calc, 1: calc fluctuations)                                                                         
+*NUMBER OF PROCESSES (Lij const; Lij variable; PCYS ;LANKFORD; rigid rotatn)                                                      
+2                                                                                                                                 
+*IVGVAR AND PATH\NAME OF FILE FOR EACH PROCESS                                                                                    
+0                  -->   10% compression, low T, low rate                                                                         
+ex07_MTS\comp_rf1.15                                                                                                              
+0                  -->   10% compression, low T, high rate                                                                        
+ex07_MTS\comp_hr1.15                                                                                                              
+
+
+ **** CRYSTAL DATA FILE ****
+*Material: Al5182 with MTS parameters at the end                                                                                  
+CUBIC                 crysym                                                                                                      
+   1.0   1.0   1.0   90.   90.   90.   unit cell axes and angles                                                                  
+Elastic stiffness (single crystal [GPa]) (aluminum 300C, Simmons & Wang)                                                          
+ 106.8    60.7    60.7   000.0   000.0   000.0                                                                                    
+  60.7   106.8    60.7   000.0   000.0   000.0                                                                                    
+  60.7    60.7   106.8   000.0   000.0   000.0                                                                                    
+ 000.0   000.0   000.0    28.2   000.0   000.0                                                                                    
+ 000.0   000.0   000.0   000.0    28.2   000.0                                                                                    
+ 000.0   000.0   000.0   000.0   000.0    28.2                                                                                    
+*Thermal expansion coefficients:                                                                                                  
+  0.0e-6   0.0e-6   0.0e-6   0.0e0   0.0e0   0.0e0            "alfacc"                                                            
+*Info about slip & twinning modes in this file:                                                                                   
+   1              nmodesx (total # of modes listed in the file)                                                                   
+   1              nmodes  (# of modes to be used in the calculation)                                                              
+   1              mode(i) (label of the modes to be used)                                                                         
+   <110>(111) SLIP                                                                                                                
+ 1  12  1   0                       modex,nsmx,isensex,itwtypex                                                                   
+   1    1   -1      0    1    1     slip (n & b)                                                                                  
+   1    1   -1      1    0    1                                                                                                   
+   1    1   -1      1   -1    0                                                                                                   
+   1   -1   -1      0    1   -1                                                                                                   
+   1   -1   -1      1    0    1                                                                                                   
+   1   -1   -1      1    1    0                                                                                                   
+   1   -1    1      0    1    1                                                                                                   
+   1   -1    1      1    0   -1                                                                                                   
+   1   -1    1      1    1    0                                                                                                   
+   1    1    1      0    1   -1                                                                                                   
+   1    1    1      1    0   -1                                                                                                   
+   1    1    1      1   -1    0                                                                                                   
+*Constitutive law                                                                                                                 
+   1      Voce=0, MTS=1                                                                                                           
+   0      iratesens (0:rate insensitive, 1:rate sensitive)                                                                        
+MTS PARAMETERS FOR Al5182 (from KOK et al.)                                                                                       
+  0.5899  28815    0.1194   215        KOVB3 [MPa/K] / MU0 [MPa] / D0 / T0 [K]                                                    
+  3.333   99.075   0.0      800   2.0  TAUa,TAUi,TAUeini,TH0 [MPa] / KAP                                                          
+  1.196   1.e7     1.5      0.5        G0i / ED0i [1/s] / QQi / PPi                                                               
+  1.6     1.e7     1.0      0.666666   G0e / ED0e [1/s] / QQe / PPe                                                               
+  0.1058  1.e7     665.3               G0esat / EDesat0 [1/s] / TAUesat0 [MPa]                                                    
+  0.00    16.6                         PSI    /RHO [Mg/m^3]        --> Ta!                                                        
+  0.1455  9544.e-9 -68.9               Cp1,Cp2,Cp3 [MPa m^3/Mg/K]  --> Ta!                                                        
+**** END OF CRYSTAL DATA FILE ****
+
+
+ CHECKING THAT CELCC*SELCC-ID6=0   0.1110223E-15
+ *********** PHASE   1
+ RANDOM PX BULK & POISSON MODULI      76.067       0.346
+ RANDOM PX ELASTIC CTES C11, C12, C44     110.920      58.640      26.140
+
+ INSIDE SUBROUTINE DATA_CRYSTAL
+ SHEAR MODULUS FOR MODE  1 IN PHASE  1 IS      24.767
+ N & B FOR MODE  1 IN PHASE  1
+     0.577     0.577    -0.577        0.000     0.707     0.707
+     0.577     0.577    -0.577        0.707     0.000     0.707
+     0.577     0.577    -0.577        0.707    -0.707     0.000
+     0.577    -0.577    -0.577        0.000     0.707    -0.707
+     0.577    -0.577    -0.577        0.707     0.000     0.707
+     0.577    -0.577    -0.577        0.707     0.707     0.000
+     0.577    -0.577     0.577        0.000     0.707     0.707
+     0.577    -0.577     0.577        0.707     0.000    -0.707
+     0.577    -0.577     0.577        0.707     0.707     0.000
+     0.577     0.577     0.577        0.000     0.707    -0.707
+     0.577     0.577     0.577        0.707     0.000    -0.707
+     0.577     0.577     0.577        0.707    -0.707     0.000
+
+ **** CRYST TEXTURE (FIRST FEW LINES) ****
+* cold strip Al texture (Olaf Engler, Oct 9 2003)                                                                                 
+* ColdStrip z                                                                                                                     
+* PHI2 22                                                                                                                         
+B   956                                                                                                                           
+  356.54  137.93    2.98    1.000000    0.0                                                                                       
+  183.46   42.07    2.98    1.000000    0.0                                                                                       
+  190.38   42.07    2.98    1.000000    0.0                                                                                       
+  190.38   42.07    2.98    1.000000    0.0                                                                                       
+  349.62  137.93    2.98    1.000000    0.0                                                                                       
+  169.62  137.93    2.98    1.000000    0.0                                                                                       
+  349.62  137.93    2.98    1.000000    0.0                                                                                       
+  342.69  137.93    2.98    1.000000    0.0                                                                                       
+  197.31   42.07    2.98    1.000000    0.0                                                                                       
+  342.69  137.93    2.98    1.000000    0.0                                                                                       
+  197.31   42.07    2.98    1.000000    0.0                                                                                       
+  197.31   42.07    2.98    1.000000    0.0                                                                                       
+  155.77  137.93    2.98    1.000000    0.0                                                                                       
+  335.77  137.93    2.98    1.000000    0.0                                                                                       
+  335.77  137.93    2.98    1.000000    0.0                                                                                       
+  204.23   42.07    2.98    1.000000    0.0                                                                                       
+    .........................
+ **** END OF CRYST TEXTURE DATA FILE ****
+
+
+*** RUNNING INTERACTION NEFF=   10.00
+
+
+ UB THERMAL TENSOR (VOIGT NOTATION)
+  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+
+ UB ELASTIC STIFFNESS (VOIGT NOTATION)
+  0.1113E+03  0.5795E+02  0.5891E+02 -0.7836E-02  0.1640E-01 -0.7337E-02
+  0.5795E+02  0.1119E+03  0.5833E+02 -0.4596E-01  0.1270E-01 -0.9426E-02
+  0.5891E+02  0.5833E+02  0.1110E+03  0.5379E-01 -0.2910E-01  0.1676E-01
+ -0.7836E-02 -0.4596E-01  0.5379E-01  0.2583E+02  0.1676E-01  0.1270E-01
+  0.1640E-01  0.1270E-01 -0.2910E-01  0.1676E-01  0.2641E+02 -0.7836E-02
+ -0.7337E-02 -0.9426E-02  0.1676E-01  0.1270E-01 -0.7836E-02  0.2545E+02
+
+ LB THERMAL TENSOR (VOIGT NOTATION)
+  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+
+ LB ELASTIC STIFFNESS (VOIGT NOTATION)
+  0.1110E+03  0.5808E+02  0.5909E+02 -0.7082E-02  0.1688E-01 -0.7210E-02
+  0.5808E+02  0.1116E+03  0.5847E+02 -0.4799E-01  0.1343E-01 -0.9686E-02
+  0.5909E+02  0.5847E+02  0.1106E+03  0.5507E-01 -0.3031E-01  0.1690E-01
+ -0.7082E-02 -0.4799E-01  0.5507E-01  0.2557E+02  0.1720E-01  0.1261E-01
+  0.1688E-01  0.1343E-01 -0.3031E-01  0.1720E-01  0.2616E+02 -0.7955E-02
+ -0.7210E-02 -0.9686E-02  0.1690E-01  0.1261E-01 -0.7955E-02  0.2520E+02
+
+
+*** LOAD CONDITIONS FOR THIS RUN
+   15   1   0.01    298   298          nsteps   ictrl   eqincr   tempini   temfin                                                 
+* boundary conditions                                                                                                             
+    1       1       1           iudot     |    flag for vel.grad.                                                                 
+    1       0       1                     |    (0:unknown-1:known)                                                                
+    1       1       0                     |                                                                                       
+                                          |                                                                                       
+   -0.001   0.      0.          udot      |    vel.grad                                                                           
+    0.      0.0005  0.                    |                                                                                       
+    0.      0.      0.0005                |                                                                                       
+                                          |                                                                                       
+    0       0        0           iscau    |    flag for Cauchy                                                                    
+            1        0                    |                                                                                       
+                     1                    |                                                                                       
+                                          |                                                                                       
+    0.      0.       0.          scauchy  |    Cauchy stress                                                                      
+            0.       0.                   |                                                                                       
+                     0.                   @                                                                                       
+                                                                                                                                 
+
+*******   STEP   1      *** N_EFF=cte CALCULATION              
+   70   0.105E-03   0.956E-03   0.304E-04
+
+*******   STEP   2      *** N_EFF=cte CALCULATION              
+   47   0.119E-03   0.973E-03   0.422E-04
+
+*******   STEP   3      *** N_EFF=cte CALCULATION              
+   41   0.115E-03   0.916E-03   0.527E-04
+
+*******   STEP   4      *** N_EFF=cte CALCULATION              
+   36   0.113E-03   0.932E-03   0.860E-04
+
+*******   STEP   5      *** N_EFF=cte CALCULATION              
+   31   0.134E-03   0.969E-03   0.701E-04
+
+*******   STEP   6      *** N_EFF=cte CALCULATION              
+   29   0.113E-03   0.954E-03   0.191E-03
+
+*******   STEP   7      *** N_EFF=cte CALCULATION              
+   28   0.972E-04   0.911E-03   0.234E-04
+
+*******   STEP   8      *** N_EFF=cte CALCULATION              
+   24   0.154E-03   0.970E-03   0.110E-03
+
+*******   STEP   9      *** N_EFF=cte CALCULATION              
+   23   0.133E-03   0.945E-03   0.182E-03
+
+*******   STEP  10      *** N_EFF=cte CALCULATION              
+   22   0.111E-03   0.940E-03   0.121E-03
+
+*******   STEP  11      *** N_EFF=cte CALCULATION              
+   21   0.107E-03   0.967E-03   0.285E-04
+
+*******   STEP  12      *** N_EFF=cte CALCULATION              
+   19   0.118E-03   0.999E-03   0.163E-03
+
+*******   STEP  13      *** N_EFF=cte CALCULATION              
+   18   0.142E-03   0.967E-03   0.533E-04
+
+*******   STEP  14      *** N_EFF=cte CALCULATION              
+   17   0.153E-03   0.980E-03   0.911E-04
+
+*******   STEP  15      *** N_EFF=cte CALCULATION              
+   17   0.144E-03   0.923E-03   0.786E-04
+
+*******   STEP  16      *** N_EFF=cte CALCULATION              
+   16   0.119E-03   0.974E-03   0.390E-03
+
+*** LOAD CONDITIONS FOR THIS RUN
+   15   1   0.01    298   298       nsteps   ictrl   eqincr   tempini   temfin                                                    
+* boundary conditions                                                                                                             
+    1       1       1           iudot     |    flag for vel.grad.                                                                 
+    1       0       1                     |    (0:unknown-1:known)                                                                
+    1       1       0                     |                                                                                       
+                                          |                                                                                       
+   -1000.   0.      0.          udot      |    vel.grad                                                                           
+    0.      500.    0.                    |                                                                                       
+    0.      0.      500.                  |                                                                                       
+                                          |                                                                                       
+    0       0        0           iscau    |    flag for Cauchy                                                                    
+            1        0                    |                                                                                       
+                     1                    |                                                                                       
+                                          |                                                                                       
+    0.      0.       0.          scauchy  |    Cauchy stress                                                                      
+            0.       0.                   |                                                                                       
+                     0.                   @                                                                                       
+                                                                                                                                 
+
+*******   STEP   1      *** N_EFF=cte CALCULATION              
+   68   0.132E-03   0.968E-03   0.460E-04
+
+*******   STEP   2      *** N_EFF=cte CALCULATION              
+   24   0.170E-03   0.954E-03   0.379E-04
+
+*******   STEP   3      *** N_EFF=cte CALCULATION              
+   26   0.122E-03   0.993E-03   0.195E-03
+
+*******   STEP   4      *** N_EFF=cte CALCULATION              
+   24   0.164E-03   0.967E-03   0.534E-04
+
+*******   STEP   5      *** N_EFF=cte CALCULATION              
+   23   0.171E-03   0.983E-03   0.112E-03
+
+*******   STEP   6      *** N_EFF=cte CALCULATION              
+   23   0.158E-03   0.900E-03   0.963E-04
+
+*******   STEP   7      *** N_EFF=cte CALCULATION              
+   22   0.143E-03   0.936E-03   0.149E-03
+
+*******   STEP   8      *** N_EFF=cte CALCULATION              
+   22   0.134E-03   0.863E-03   0.130E-03
+
+*******   STEP   9      *** N_EFF=cte CALCULATION              
+   22   0.139E-03   0.867E-03   0.125E-03
+
+*******   STEP  10      *** N_EFF=cte CALCULATION              
+   21   0.126E-03   0.866E-03   0.489E-04
+
+*******   STEP  11      *** N_EFF=cte CALCULATION              
+   20   0.146E-03   0.956E-03   0.112E-03
+
+*******   STEP  12      *** N_EFF=cte CALCULATION              
+   19   0.162E-03   0.989E-03   0.173E-03
+
+*******   STEP  13      *** N_EFF=cte CALCULATION              
+   19   0.158E-03   0.929E-03   0.158E-03
+
+*******   STEP  14      *** N_EFF=cte CALCULATION              
+   18   0.184E-03   0.956E-03   0.754E-04
+
+*******   STEP  15      *** N_EFF=cte CALCULATION              
+   18   0.180E-03   0.912E-03   0.576E-04
+
+*******   STEP  16      *** N_EFF=cte CALCULATION              
+   17   0.195E-03   0.992E-03   0.547E-04
+
+ TIME ELAPSED   13.81secs

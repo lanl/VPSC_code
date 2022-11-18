@@ -1,0 +1,83 @@
+*Material: Cobalt
+HEXAGONAL                                crysym
+1.  1.  1.620     90.  90.  120.         cdim(i),ca
+*Elastic stiffness of single crystal [GPa]
+  354.0   173.0   132.0     0.0     0.0     0.0
+  173.0   354.0   132.0     0.0     0.0     0.0
+  132.0   132.0   415.0     0.0     0.0     0.0
+    0.0     0.0     0.0    92.0     0.0     0.0
+    0.0     0.0     0.0     0.0    92.0     0.0
+    0.0     0.0     0.0     0.0     0.0    91.0
+*Thermal expansion coefficients of single crystal (in crystal axis)
+  0.0e-6   0.0e-6   0.0e-6   0.0e0   0.0e0   0.0e0
+SLIP AND TWINNING MODES
+  6                         nmodesx
+  4                         nmodes
+  1  2  4  6                mode(i)
+PRISMATIC
+  1    3   20   1                     modex,nsmx,nrsx,isensex
+ 0.000   0.000   0.000   0.000        stw,twvol,gamdthr,tauprop
+ 1.0  0.0    0.2    0.2    0.  0.     tau0x,tau1x,thet0,thet1
+ 1.0  1.0  1.0  1.0  1.0  1.0  1.0    hlatx(1,im,iph),im=1,nmodesx
+ 1  0 -1  0    -1  2 -1  0
+ 0 -1  1  0     2 -1 -1  0
+-1  1  0  0    -1 -1  2  0
+BASAL
+  2    3   20   1                     modex,nsmx,nrsx,isensex
+ 0.000   0.000   0.000   0.000        stw,twvol,gamdthr,tauprop
+ 0.20  0.000   0.200  0.200  0.  0.   tau0x,tau1x,thet0,thet1
+ 1.0  1.0  1.0  1.0  1.0  1.0  1.0    hlatx(1,im,iph),im=1,nmodesx
+ 0  0  0  1     2 -1 -1  0
+ 0  0  0  1    -1  2 -1  0
+ 0  0  0  1    -1 -1  2  0
+PYRAMIDAL<a>
+  3    6   20   1                     modex,nsmx,nrsx,isensex
+ 0.000   0.000   0.000   0.000        stw,twvol,gamdthr,tauprop
+  .10   0.0    1.0   1.0  0.  0.      tau0x,tau1x,thet0,thet1
+ 1.0  1.0  1.0  1.0  1.0  1.0  1.0    hlatx(1,im,iph),im=1,nmodesx
+ 1  0 -1  1    -1  2 -1  0
+ 0 -1  1  1     2 -1 -1  0
+-1  1  0  1    -1 -1  2  0
+-1  0  1  1    -1  2 -1  0
+ 0  1 -1  1     2 -1 -1  0
+ 1 -1  0  1     1  1 -2  0
+PYRAMIDAL<c+a>
+  4   12   20   1                     modex,nsmx,nrsx,isensex
+ 0.000   0.000   0.000   0.000        stw,twvol,gamdthr,tauprop
+  5.00  0.   0.2   0.2  0.  0.        tau0x,tau1x,thet0,thet1
+ 1.0  1.0  1.0  1.0  1.0  1.0  1.0    hlatx(1,im,iph),im=1,nmodesx
+ 1  0 -1  1    -1 -1  2  3
+ 1  0 -1  1    -2  1  1  3
+ 0 -1  1  1     1  1 -2  3
+ 0 -1  1  1    -1  2 -1  3
+-1  1  0  1     2 -1 -1  3
+-1  1  0  1     1 -2  1  3
+-1  0  1  1     2 -1 -1  3
+-1  0  1  1     1  1 -2  3
+ 0  1 -1  1    -1 -1  2  3
+ 0  1 -1  1     1 -2  1  3
+ 1 -1  0  1    -2  1  1  3
+ 1 -1  0  1    -1  2 -1  3
+TENSILE TWINNING (TT1)
+  5    6   20   0                     modex,nsmx,nrsx,isensex
+ 0.133   0.000   0.000   0.000        stw,twvol,gamdthr,tauprop
+ 0.100   0.    0.400   0.400  0.  0.  tau0x,tau1x,thet0,thet1
+ 1.0  1.0  1.0  1.0  1.0  1.0  1.0    hlatx(1,im,iph),im=1,nmodesx
+ 1  0 -1  2    -1  0  1  1
+ 0  1 -1  2     0 -1  1  1
+-1  1  0  2     1 -1  0  1
+-1  0  1  2     1  0 -1  1
+ 0 -1  1  2     0  1 -1  1
+ 1 -1  0  2    -1  1  0  1
+COMPRESSIVE TWINNING (CT1)
+  6    6   20   0                     modex,nsmx,nrsx,isensex
+ 0.258   0.000   0.000   0.000        stw,twvol,gamdthr,tauprop
+  0.7   0.0    1.0   1.0  0.  0.      tau0x,tau1x,thet0,thet1
+ 1.0  1.0  1.0  1.0  1.0  1.0  1.0    hlatx(1,im,iph),im=1,nmodesx
+ 2 -1 -1  2     2 -1 -1 -3
+ 1  1 -2  2     1  1 -2 -3
+-1  2 -1  2    -1  2 -1 -3
+-2  1  1  2    -2  1  1 -3
+-1 -1  2  2    -1 -1  2 -3
+ 1 -2  1  2     1 -2  1 -3
+

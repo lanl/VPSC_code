@@ -1,0 +1,142 @@
+*** rng case --> random, no growth, (100,200,0) pressure
+
+* name and path of texture file (filetext)                                                                                        
+ex14_growth\rand1000_sobol.tex                                                                                                    
+* name and path of single crystal file (filecrys)                                                                                 
+ex14_growth\zr_irr_creep.sx                                                                                                       
+* name and path of grain shape file (dummy if ishape=0) (fileaxes)                                                                
+shape1.100                                                                                                                        
+* name and path of diffraction file (dummy if idiff=0)                                                                            
+0                                                                                                                                 
+dummy                                                                                                                             
+...                                                                     
+*MODELING CONDITIONS FOR THE RUN                                                                                                  
+1              interaction (0:FC,1:affine,2:secant,3:neff,4:tangent,5:SO)                                                         
+1  1  1        iupdate: update orient, grain shape, hardening                                                                     
+0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
+0              iflu (0: don't calc, 1: calc fluctuations)                                                                         
+*NUMBER OF PROCESSES (Lij const; Lij variable; PCYS ;LANKFORD; rigid rotatn)                                                      
+1                                                                                                                                 
+*IVGVAR AND PATH\NAME OF FILE FOR EACH PROCESS (dummy if ivgvar=2,3)                                                              
+0                                                                                                                                 
+ex14_growth\tube_pressure.s22    
+
+
+*** rnp case  --> random, (1,1,-2)e-2 growth, (1,2,0) (no) pressure
+
+* name and path of texture file (filetext)                                                                                        
+ex14_growth\rand1000_sobol.tex                                                                                                    
+* name and path of single crystal file (filecrys)                                                                                 
+ex14_growth\zr_irr_creep.sx                                                                                                       
+* name and path of grain shape file (dummy if ishape=0) (fileaxes)                                                                
+shape1.100                                                                                                                        
+* name and path of diffraction file (dummy if idiff=0)                                                                            
+0                                                                                                                                 
+dummy                                                                                                                             
+.....                                                             
+*MODELING CONDITIONS FOR THE RUN                                                                                                  
+1              interaction (0:FC,1:affine,2:secant,3:neff,4:tangent,5:SO)                                                         
+1  1  1        iupdate: update orient, grain shape, hardening                                                                     
+0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
+0              iflu (0: don't calc, 1: calc fluctuations)                                                                         
+*NUMBER OF PROCESSES (Lij const; Lij variable; PCYS ;LANKFORD; rigid rotatn)                                                      
+1                                                                                                                                 
+*IVGVAR AND PATH\NAME OF FILE FOR EACH PROCESS (dummy if ivgvar=2,3)                                                              
+0                                                                                                                                 
+ex14_growth\tube_pressure.s22 
+
+
+*** rgp case--> random, (1,1,-2)e-2 growth, (100,200,0) pressure
+
+* name and path of texture file (filetext)                                                                                        
+ex14_growth\rand1000_sobol.tex                                                                                                    
+* name and path of single crystal file (filecrys)                                                                                 
+ex14_growth\zr_irr_creep.sx                                                                                                       
+* name and path of grain shape file (dummy if ishape=0) (fileaxes)                                                                
+shape1.100                                                                                                                        
+* name and path of diffraction file (dummy if idiff=0)                                                                            
+0                                                                                                                                 
+dummy                                                                                                                             
+....                                          
+*MODELING CONDITIONS FOR THE RUN                                                                                                  
+1              interaction (0:FC,1:affine,2:secant,3:neff,4:tangent,5:SO)                                                         
+1  1  1        iupdate: update orient, grain shape, hardening                                                                     
+0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
+0              iflu (0: don't calc, 1: calc fluctuations)                                                                         
+*NUMBER OF PROCESSES (Lij const; Lij variable; PCYS ;LANKFORD; rigid rotatn)                                                      
+1                                                                                                                                 
+*IVGVAR AND PATH\NAME OF FILE FOR EACH PROCESS (dummy if ivgvar=2,3)                                                              
+0                                                                                                                                 
+ex14_growth\tube_pressure.s22    
+
+
+*** tng case --> textured, no growth, (100,200,0) pressure
+
+* name and path of texture file (filetext)                                                                                        
+ex14_growth\h190m_1816.tex                                                                                                        
+* name and path of single crystal file (filecrys)                                                                                 
+ex14_growth\zr_irr_creep.sx                                                                                                       
+* name and path of grain shape file (dummy if ishape=0) (fileaxes)                                                                
+shape1.100                                                                                                                        
+* name and path of diffraction file (dummy if idiff=0)                                                                            
+0                                                                                                                                 
+dummy                                                                                                                             
+....
+*MODELING CONDITIONS FOR THE RUN                                                                                                  
+1              interaction (0:FC,1:affine,2:secant,3:neff,4:tangent,5:SO)                                                         
+1  1  1        iupdate: update orient, grain shape, hardening                                                                     
+0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
+0              iflu (0: don't calc, 1: calc fluctuations)                                                                         
+*NUMBER OF PROCESSES (Lij const; Lij variable; PCYS ;LANKFORD; rigid rotatn)                                                      
+1                                                                                                                                 
+*IVGVAR AND PATH\NAME OF FILE FOR EACH PROCESS (dummy if ivgvar=2,3)                                                              
+0                                                                                                                                 
+ex14_growth\tube_pressure.s22  
+
+
+*** tnp case  --> textured, (1,1,-2)e-2 growth, (1,2,0) (no) pressure
+
+* name and path of texture file (filetext)                                                                                        
+ex14_growth\h190m_1816.tex                                                                                                        
+* name and path of single crystal file (filecrys)                                                                                 
+ex14_growth\zr_irr_creep.sx                                                                                                       
+* name and path of grain shape file (dummy if ishape=0) (fileaxes)                                                                
+shape1.100                                                                                                                        
+* name and path of diffraction file (dummy if idiff=0)                                                                            
+0                                                                                                                                 
+dummy                                                                                                                             
+....
+*MODELING CONDITIONS FOR THE RUN                                                                                                  
+1              interaction (0:FC,1:affine,2:secant,3:neff,4:tangent,5:SO)                                                         
+1  1  1        iupdate: update orient, grain shape, hardening                                                                     
+0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
+0              iflu (0: don't calc, 1: calc fluctuations)                                                                         
+*NUMBER OF PROCESSES (Lij const; Lij variable; PCYS ;LANKFORD; rigid rotatn)                                                      
+1                                                                                                                                 
+*IVGVAR AND PATH\NAME OF FILE FOR EACH PROCESS (dummy if ivgvar=2,3)                                                              
+0                                                                                                                                 
+ex14_growth\tube_pressure.s22      
+
+
+*** tgp case--> texture (1,1,-2)e-2 growth, (100,200,0) pressure
+
+* name and path of texture file (filetext)                                                                                        
+ex14_growth\h190m_1816.tex                                                                                                        
+* name and path of single crystal file (filecrys)                                                                                 
+ex14_growth\zr_irr_creep.sx                                                                                                       
+* name and path of grain shape file (dummy if ishape=0) (fileaxes)                                                                
+shape1.100                                                                                                                        
+* name and path of diffraction file (dummy if idiff=0)                                                                            
+0                                                                                                                                 
+dummy                                                                                                                             
+....
+*MODELING CONDITIONS FOR THE RUN                                                                                                  
+1              interaction (0:FC,1:affine,2:secant,3:neff,4:tangent,5:SO)                                                         
+1  1  1        iupdate: update orient, grain shape, hardening                                                                     
+0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
+0              iflu (0: don't calc, 1: calc fluctuations)                                                                         
+*NUMBER OF PROCESSES (Lij const; Lij variable; PCYS ;LANKFORD; rigid rotatn)                                                      
+1                                                                                                                                 
+*IVGVAR AND PATH\NAME OF FILE FOR EACH PROCESS (dummy if ivgvar=2,3)                                                              
+0                                                                                                                                 
+ex14_growth\tube_pressure.s22 

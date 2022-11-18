@@ -1,0 +1,1422 @@
+
+ **** INPUT FILE VPSC.IN FOR THIS RUN ****
+1                          number of elements (nelem)                                                                             
+2                          number of phases (nph)                                                                                 
+0.5   0.5                  relative vol. fract. of phases (wph(i))                                                                
+*INFORMATION ABOUT PHASE #1                                                                                                       
+1   0   25                      grain shape contrl, fragmentn, crit aspect ratio                                                  
+1.0  1.0  1.0                 initial ellipsoid ratios (dummy if ishape=4)                                                        
+0.0  0.0  0.0                 init Eul ang ellips axes (dummy if ishape=3,4)                                                      
+* name and path of texture file (filetext)                                                                                        
+ex02_FCC\rand500.tex                                                                                                              
+* name and path of single crystal file (filecrys)                                                                                 
+ex02_FCC\fcc.sx                                                                                                                   
+* name and path of grain shape file (dummy if ishape=0) (fileaxes)                                                                
+dummy                                                                                                                             
+* name and path of diffraction file (dummy if idiff=0)                                                                            
+0                                                                                                                                 
+dummy                                                                                                                             
+*INFORMATION ABOUT PHASE #2                                                                                                       
+1   0   25                      grain shape contrl, fragmentn, crit aspect ratio                                                  
+1.0  1.0  1.0                 initial ellipsoid ratios (dummy if ishape=4)                                                        
+0.0  0.0  0.0                 init Eul ang ellips axes (dummy if ishape=3,4)                                                      
+* name and path of texture file (filetext)                                                                                        
+ex02_FCC\rand500.tex                                                                                                              
+* name and path of single crystal file (filecrys)                                                                                 
+ex02_FCC\fcc_hard.sx                                                                                                              
+* name and path of grain shape file (dummy if ishape=0) (fileaxes)                                                                
+dummy                                                                                                                             
+* name and path of diffraction file (dummy if idiff=0)                                                                            
+0                                                                                                                                 
+dummy                                                                                                                             
+*PRECISION SETTINGS FOR CONVERGENCE PROCEDURES (default values)                                                                   
+0.001 0.001 0.001 0.001    errs,errd,errm,errso                                                                                   
+100 100 25     itmax:   max # of iter, external, internal and SO loops                                                            
+0  2  10  2    irsvar & jrsini,jrsfin,jrstep (dummy if irsvar=0)                                                                  
+*INPUT/OUTPUT SETTINGS FOR THE RUN (default is zero)                                                                              
+0              irecover:read grain states from POSTMORT.IN (1) or not (0)?                                                        
+0              isave:   write grain states in POSTMORT.OUT at step 'isave'?                                                       
+0              icubcomp:calculate fcc rolling components?                                                                         
+0              nwrite (frequency of texture downloads)                                                                            
+*MODELING CONDITIONS FOR THE RUN                                                                                                  
+1              interaction (0:FC,1:affine,2:secant,3:neff=10,4:tangent,5:SO)                                                      
+1  1  1        iupdate: update orient, grain shape, hardening                                                                     
+0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
+0              iflu (0: don't calc, 1: calc fluctuations)                                                                         
+*NUMBER OF PROCESSES (Lij const; Lij variable; PCYS ;LANKFORD; rigid rotatn)                                                      
+1                                                                                                                                 
+*IVGVAR AND PATH\NAME OF FILE FOR EACH PROCESS                                                                                    
+0                                                                                                                                 
+ex02_FCC\tension_axial.3                                                                                                          
+
+
+ **** CRYSTAL DATA FILE ****
+*Material: AUSTENITIC STEEL                                                                                                       
+cubic           crysym                                                                                                            
+   1.0   1.0   1.0   90.   90.   90.   unit cell axes and angles                                                                  
+Elastic stiffness (single crystal [GPa]; scaled=0.85xINTERPOLATED)                                                                
+ 205.0   138.0   138.0   000.0   000.0   000.0                                                                                    
+ 138.0   205.0   138.0   000.0   000.0   000.0                                                                                    
+ 138.0   138.0   205.0   000.0   000.0   000.0                                                                                    
+ 000.0   000.0   000.0   126.0   000.0   000.0                                                                                    
+ 000.0   000.0   000.0   000.0   126.0   000.0                                                                                    
+ 000.0   000.0   000.0   000.0   000.0   126.0                                                                                    
+*Thermal expansion coefficients (single crystal in crystal axis):                                                                 
+  1.0e-6   1.0e-6  1.0e-6   0.0e0   0.0e0   0.0e0                                                                                 
+*Info about slip & twinning modes in this file:                                                                                   
+  2          nmodesx    (total # of modes listed in file)                                                                         
+  1          nmodes     (# of modes to be used in the calculation)                                                                
+  1          mode(i)    (label of the modes to be used)                                                                           
+  <111>{110} SLIP                                                                                                                 
+ 1  12  1   0                       modex,nsmx,isensex,itwtypex                                                                   
+   1  1  1        0  1 -1           slip (n & b)                                                                                  
+   1  1  1        1  0 -1                                                                                                         
+   1  1  1        1 -1  0                                                                                                         
+  -1  1  1        0  1 -1                                                                                                         
+  -1  1  1        1  0  1                                                                                                         
+  -1  1  1        1  1  0                                                                                                         
+  -1 -1  1        0  1  1                                                                                                         
+  -1 -1  1        1  0  1                                                                                                         
+  -1 -1  1        1 -1  0                                                                                                         
+   1 -1  1        0  1  1                                                                                                         
+   1 -1  1        1  0 -1                                                                                                         
+   1 -1  1        1  1  0                                                                                                         
+  <111>{112} TWIN                                                                                                                 
+ 2  12  0   2                        modex,nsmx,isensex,itwtypex                                                                  
+ 0.707                               twshx                                                                                        
+   1  1  1       -2  1  1                                                                                                         
+   1  1  1        1 -2  1                                                                                                         
+   1  1  1        1  1 -2                                                                                                         
+  -1  1  1        2  1  1                                                                                                         
+  -1  1  1       -1 -2  1                                                                                                         
+  -1  1  1       -1  1 -2                                                                                                         
+  -1 -1  1        2 -1  1                                                                                                         
+  -1 -1  1       -1  2  1                                                                                                         
+  -1 -1  1       -1 -1 -2                                                                                                         
+   1 -1  1       -2 -1  1                                                                                                         
+   1 -1  1        1  2  1                                                                                                         
+   1 -1  1        1 -1 -2                                                                                                         
+*Constitutive law                                                                                                                 
+   0      Voce=0, MTS=1                                                                                                           
+   1      iratesens (0:rate insensitive, 1:rate sensitive)                                                                        
+   50     grsze --> grain size only matters if HPfactor is non-zero                                                               
+  <111>{110} SLIP -------------------------------------------                                                                     
+ 20                               nrsx                                                                                            
+ 1.0   0.0   0.0   0.0  0.        tau0x,tau1x,thet0,thet1, hpfac                                                                  
+ 1.0    1.0                          hlatex(1,im),im=1,nmodes                                                                     
+  <111>{112} TWIN --------------------------------------                                                                          
+ 20                               nrsx                                                                                            
+ 1.0   0.0    0.   0.   0.        tau0x,tau1x,thet0,thet1, hpfac                                                                  
+ 1.0    1.0                       hlatex(1,im),im=1,nmodes                                                                        
+ 0     0.05   0.50                isectw, thres1,thres2                                                                           
+**** END OF CRYSTAL DATA FILE ****
+
+
+ CHECKING THAT CELCC*SELCC-ID6=0   0.2134069E-31
+ *********** PHASE   1
+ RANDOM PX BULK & POISSON MODULI     160.333       0.266
+ RANDOM PX ELASTIC CTES C11, C12, C44     279.000     101.000      89.000
+
+ INSIDE SUBROUTINE DATA_CRYSTAL
+ SHEAR MODULUS FOR MODE  1 IN PHASE  1 IS      64.333
+ N & B FOR MODE  1 IN PHASE  1
+     0.577     0.577     0.577        0.000     0.707    -0.707
+     0.577     0.577     0.577        0.707     0.000    -0.707
+     0.577     0.577     0.577        0.707    -0.707     0.000
+    -0.577     0.577     0.577        0.000     0.707    -0.707
+    -0.577     0.577     0.577        0.707     0.000     0.707
+    -0.577     0.577     0.577        0.707     0.707     0.000
+    -0.577    -0.577     0.577        0.000     0.707     0.707
+    -0.577    -0.577     0.577        0.707     0.000     0.707
+    -0.577    -0.577     0.577        0.707    -0.707     0.000
+     0.577    -0.577     0.577        0.000     0.707     0.707
+     0.577    -0.577     0.577        0.707     0.000    -0.707
+     0.577    -0.577     0.577        0.707     0.707     0.000
+
+ **** CRYST TEXTURE (FIRST FEW LINES) ****
+dummy                                                                                                                             
+dummy                                                                                                                             
+random texture generated by RANDTEXT.FOR (23/01/97)                                                                               
+B   500                                                                                                                           
+    102.74    119.56     33.65  1.0                                                                                               
+    219.06     36.21     70.51  1.0                                                                                               
+    166.66     28.59     45.80  1.0                                                                                               
+    149.74     86.13     38.68  1.0                                                                                               
+    143.88     72.50      9.75  1.0                                                                                               
+     27.71      7.88    225.69  1.0                                                                                               
+     10.26     81.59    324.82  1.0                                                                                               
+    213.21    156.91    352.41  1.0                                                                                               
+    313.75     60.06    131.59  1.0                                                                                               
+    283.74    137.64    213.65  1.0                                                                                               
+    329.59    158.18    298.33  1.0                                                                                               
+     61.37    171.68    104.65  1.0                                                                                               
+     44.90     68.33     40.28  1.0                                                                                               
+     29.40    114.77    163.14  1.0                                                                                               
+     56.39    115.89    341.90  1.0                                                                                               
+    271.21     76.66    171.67  1.0                                                                                               
+    .........................
+ **** END OF CRYST TEXTURE DATA FILE ****
+
+
+ **** CRYSTAL DATA FILE ****
+*Material: AUSTENITIC STEEL                                                                                                       
+cubic           crysym                                                                                                            
+   1.0   1.0   1.0   90.   90.   90.   unit cell axes and angles                                                                  
+Elastic stiffness (single crystal [GPa]; scaled=0.85xINTERPOLATED)                                                                
+ 205.0   138.0   138.0   000.0   000.0   000.0                                                                                    
+ 138.0   205.0   138.0   000.0   000.0   000.0                                                                                    
+ 138.0   138.0   205.0   000.0   000.0   000.0                                                                                    
+ 000.0   000.0   000.0   126.0   000.0   000.0                                                                                    
+ 000.0   000.0   000.0   000.0   126.0   000.0                                                                                    
+ 000.0   000.0   000.0   000.0   000.0   126.0                                                                                    
+*Thermal expansion coefficients (single crystal in crystal axis):                                                                 
+  0.0e-6   0.0e-6  0.0e-6   0.0e0   0.0e0   0.0e0                                                                                 
+*Info about slip & twinning modes in this file:                                                                                   
+  2          nmodesx    (total # of modes listed in file)                                                                         
+  1          nmodes     (# of modes to be used in the calculation)                                                                
+  1          mode(i)    (label of the modes to be used)                                                                           
+  {111}<110> SLIP                                                                                                                 
+ 1  12  1   0                       modex,nsmx,isensex,itwtypex                                                                   
+   1  1  1        0  1 -1           slip (n & b)                                                                                  
+   1  1  1        1  0 -1                                                                                                         
+   1  1  1        1 -1  0                                                                                                         
+  -1  1  1        0  1 -1                                                                                                         
+  -1  1  1        1  0  1                                                                                                         
+  -1  1  1        1  1  0                                                                                                         
+  -1 -1  1        0  1  1                                                                                                         
+  -1 -1  1        1  0  1                                                                                                         
+  -1 -1  1        1 -1  0                                                                                                         
+   1 -1  1        0  1  1                                                                                                         
+   1 -1  1        1  0 -1                                                                                                         
+   1 -1  1        1  1  0                                                                                                         
+ {111}<112> TWIN                                                                                                                  
+ 2  12  0   2                        modex,nsmx,isensex,itwtypex                                                                  
+ 0.707                               twshx                                                                                        
+   1  1  1       -2  1  1                                                                                                         
+   1  1  1        1 -2  1                                                                                                         
+   1  1  1        1  1 -2                                                                                                         
+  -1  1  1        2  1  1                                                                                                         
+  -1  1  1       -1 -2  1                                                                                                         
+  -1  1  1       -1  1 -2                                                                                                         
+  -1 -1  1        2 -1  1                                                                                                         
+  -1 -1  1       -1  2  1                                                                                                         
+  -1 -1  1       -1 -1 -2                                                                                                         
+   1 -1  1       -2 -1  1                                                                                                         
+   1 -1  1        1  2  1                                                                                                         
+   1 -1  1        1 -1 -2                                                                                                         
+*Constitutive law                                                                                                                 
+   0      Voce=0, MTS=1                                                                                                           
+   1      iratesens (0:rate insensitive, 1:rate sensitive)                                                                        
+   50     grsze --> grain size only matters if HPfactor is non-zero                                                               
+  {111}<110> SLIP -------------------------------------------                                                                     
+ 20                               nrsx                                                                                            
+ 1.0   0.0   0.1   0.1   0.        tau0x,tau1x,thet0,thet1, hpfac                                                                 
+ 1.0    1.0                          hlatex(1,im),im=1,nmodes                                                                     
+  {111}<112> TWIN --------------------------------------                                                                          
+ 20                               nrsx                                                                                            
+ 1.0   0.0    0.   0.   0.        tau0x,tau1x,thet0,thet1, hpfac                                                                  
+ 1.0    1.0                       hlatex(1,im),im=1,nmodes                                                                        
+ 0     0.05   0.50                isectw, thres1,thres2                                                                           
+**** END OF CRYSTAL DATA FILE ****
+
+
+ CHECKING THAT CELCC*SELCC-ID6=0   0.2134069E-31
+ *********** PHASE   2
+ RANDOM PX BULK & POISSON MODULI     160.333       0.266
+ RANDOM PX ELASTIC CTES C11, C12, C44     279.000     101.000      89.000
+
+ INSIDE SUBROUTINE DATA_CRYSTAL
+ SHEAR MODULUS FOR MODE  1 IN PHASE  2 IS      64.333
+ N & B FOR MODE  1 IN PHASE  2
+     0.577     0.577     0.577        0.000     0.707    -0.707
+     0.577     0.577     0.577        0.707     0.000    -0.707
+     0.577     0.577     0.577        0.707    -0.707     0.000
+    -0.577     0.577     0.577        0.000     0.707    -0.707
+    -0.577     0.577     0.577        0.707     0.000     0.707
+    -0.577     0.577     0.577        0.707     0.707     0.000
+    -0.577    -0.577     0.577        0.000     0.707     0.707
+    -0.577    -0.577     0.577        0.707     0.000     0.707
+    -0.577    -0.577     0.577        0.707    -0.707     0.000
+     0.577    -0.577     0.577        0.000     0.707     0.707
+     0.577    -0.577     0.577        0.707     0.000    -0.707
+     0.577    -0.577     0.577        0.707     0.707     0.000
+
+ **** CRYST TEXTURE (FIRST FEW LINES) ****
+dummy                                                                                                                             
+dummy                                                                                                                             
+random texture generated by RANDTEXT.FOR (23/01/97)                                                                               
+B   500                                                                                                                           
+    102.74    119.56     33.65  1.0                                                                                               
+    219.06     36.21     70.51  1.0                                                                                               
+    166.66     28.59     45.80  1.0                                                                                               
+    149.74     86.13     38.68  1.0                                                                                               
+    143.88     72.50      9.75  1.0                                                                                               
+     27.71      7.88    225.69  1.0                                                                                               
+     10.26     81.59    324.82  1.0                                                                                               
+    213.21    156.91    352.41  1.0                                                                                               
+    313.75     60.06    131.59  1.0                                                                                               
+    283.74    137.64    213.65  1.0                                                                                               
+    329.59    158.18    298.33  1.0                                                                                               
+     61.37    171.68    104.65  1.0                                                                                               
+     44.90     68.33     40.28  1.0                                                                                               
+     29.40    114.77    163.14  1.0                                                                                               
+     56.39    115.89    341.90  1.0                                                                                               
+    271.21     76.66    171.67  1.0                                                                                               
+    .........................
+ **** END OF CRYST TEXTURE DATA FILE ****
+
+
+*** RUNNING INTERACTION NEFF=    0.00
+
+
+ UB THERMAL TENSOR (VOIGT NOTATION)
+  0.5000E-06  0.5000E-06  0.5000E-06  0.7411E-24 -0.8111E-24 -0.1996E-23
+
+ UB ELASTIC STIFFNESS (VOIGT NOTATION)
+  0.2795E+03  0.9994E+02  0.1016E+03  0.1676E+00  0.1479E+01  0.6049E+00
+  0.9994E+02  0.2801E+03  0.1009E+03 -0.1180E+01  0.1349E+00 -0.7842E+00
+  0.1016E+03  0.1009E+03  0.2785E+03  0.1012E+01 -0.1614E+01  0.1793E+00
+  0.1676E+00 -0.1180E+01  0.1012E+01  0.8894E+02  0.1793E+00  0.1349E+00
+  0.1479E+01  0.1349E+00 -0.1614E+01  0.1793E+00  0.8959E+02  0.1676E+00
+  0.6049E+00 -0.7842E+00  0.1793E+00  0.1349E+00  0.1676E+00  0.8794E+02
+
+ LB THERMAL TENSOR (VOIGT NOTATION)
+  0.5000E-06  0.5000E-06  0.5000E-06  0.1329E-23 -0.6078E-24 -0.6291E-24
+
+ LB ELASTIC STIFFNESS (VOIGT NOTATION)
+  0.2406E+03  0.1195E+03  0.1209E+03  0.1580E+00  0.1267E+01  0.5168E+00
+  0.1195E+03  0.2412E+03  0.1203E+03 -0.1012E+01  0.1034E+00 -0.6672E+00
+  0.1209E+03  0.1203E+03  0.2398E+03  0.8542E+00 -0.1370E+01  0.1503E+00
+  0.1580E+00 -0.1012E+01  0.8542E+00  0.5984E+02  0.1446E+00  0.1204E+00
+  0.1267E+01  0.1034E+00 -0.1370E+01  0.1446E+00  0.6040E+02  0.1448E+00
+  0.5168E+00 -0.6672E+00  0.1503E+00  0.1204E+00  0.1448E+00  0.5899E+02
+
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1551E+03 -0.5767E+00 -0.1410E+01 -0.1405E+01 -0.1442E+01 -0.2248E-14
+ -0.5767E+00  0.1523E+03  0.1813E+01 -0.2897E+01  0.3206E+00 -0.3222E-14
+ -0.1410E+01  0.1813E+01  0.1530E+03  0.3637E+00  0.2865E+00  0.1622E-14
+ -0.1405E+01 -0.2897E+01  0.3637E+00  0.1544E+03  0.3490E+00 -0.3359E-15
+ -0.1442E+01  0.3206E+00  0.2865E+00  0.3490E+00  0.1509E+03 -0.2079E-14
+ -0.2226E-14  0.4061E-15  0.1873E-14 -0.4486E-15 -0.1535E-14  0.4810E+03
+ITER   1   REL ERROR  0.916E-01
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1533E+03 -0.5751E+00 -0.1406E+01 -0.1402E+01 -0.1437E+01 -0.2234E-14
+ -0.5751E+00  0.1506E+03  0.1808E+01 -0.2888E+01  0.3196E+00 -0.3269E-14
+ -0.1406E+01  0.1808E+01  0.1513E+03  0.3621E+00  0.2862E+00  0.1674E-14
+ -0.1402E+01 -0.2888E+01  0.3621E+00  0.1526E+03  0.3480E+00 -0.3324E-15
+ -0.1437E+01  0.3196E+00  0.2862E+00  0.3480E+00  0.1492E+03 -0.2134E-14
+ -0.2216E-14  0.3972E-15  0.1918E-14 -0.4717E-15 -0.1579E-14  0.4810E+03
+ITER   2   REL ERROR  0.661E-02
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1532E+03 -0.5750E+00 -0.1406E+01 -0.1401E+01 -0.1437E+01 -0.2232E-14
+ -0.5750E+00  0.1504E+03  0.1807E+01 -0.2887E+01  0.3195E+00 -0.3273E-14
+ -0.1406E+01  0.1807E+01  0.1511E+03  0.3619E+00  0.2862E+00  0.1678E-14
+ -0.1401E+01 -0.2887E+01  0.3619E+00  0.1525E+03  0.3479E+00 -0.3322E-15
+ -0.1437E+01  0.3195E+00  0.2862E+00  0.3479E+00  0.1491E+03 -0.2138E-14
+ -0.2215E-14  0.3966E-15  0.1921E-14 -0.4732E-15 -0.1582E-14  0.4810E+03
+ITER   3   REL ERROR  0.509E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1532E+03 -0.5750E+00 -0.1406E+01 -0.1401E+01 -0.1437E+01 -0.2232E-14
+ -0.5750E+00  0.1504E+03  0.1807E+01 -0.2887E+01  0.3195E+00 -0.3273E-14
+ -0.1406E+01  0.1807E+01  0.1511E+03  0.3619E+00  0.2862E+00  0.1678E-14
+ -0.1401E+01 -0.2887E+01  0.3619E+00  0.1525E+03  0.3479E+00 -0.3321E-15
+ -0.1437E+01  0.3195E+00  0.2862E+00  0.3479E+00  0.1490E+03 -0.2139E-14
+ -0.2215E-14  0.3966E-15  0.1921E-14 -0.4733E-15 -0.1582E-14  0.4810E+03
+ITER   4   REL ERROR  0.394E-04
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1532E+03 -0.5750E+00 -0.1406E+01 -0.1401E+01 -0.1437E+01 -0.2232E-14
+ -0.5750E+00  0.1504E+03  0.1807E+01 -0.2887E+01  0.3195E+00 -0.3273E-14
+ -0.1406E+01  0.1807E+01  0.1511E+03  0.3619E+00  0.2862E+00  0.1678E-14
+ -0.1401E+01 -0.2887E+01  0.3619E+00  0.1525E+03  0.3479E+00 -0.3321E-15
+ -0.1437E+01  0.3195E+00  0.2862E+00  0.3479E+00  0.1490E+03 -0.2139E-14
+ -0.2215E-14  0.3966E-15  0.1921E-14 -0.4733E-15 -0.1582E-14  0.4810E+03
+ITER   5   REL ERROR  0.305E-05
+
+*** LOAD CONDITIONS FOR THIS RUN
+  50    3   0.02    298.   298.   nsteps  ictrl  ctrlincr  temp_i  temp_f                                                         
+* boundary conditions                                                                                                             
+    0       1       1           iudot    |    flag for vel.grad.                                                                  
+    1       0       1                    |    (0:unknown-1:known)                                                                 
+    1       1       1                    |                                                                                        
+                                         |                                                                                        
+   -0.5     0.      0.          udot     |    vel.grad                                                                            
+    0.     -0.5     0.                   |                                                                                        
+    0.      0.      1.0                  |                                                                                        
+                                         |                                                                                        
+    1       0       0           iscau    |    flag for Cauchy                                                                     
+            1       0                    |                                                                                        
+                    0                    |                                                                                        
+                                         |                                                                                        
+    0.      0.      0.          scauchy  |    Cauchy stress                                                                       
+            0.      0.                   |                                                                                        
+                    0.                   @                                                                                        
+                                                                                                                                 
+
+*******   STEP   1      *** AFFINE CALCULATION                 
+   10   0.872E-04   0.873E-04   0.675E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1531E+03 -0.5499E+00 -0.1389E+01 -0.1423E+01 -0.1353E+01 -0.8664E-15
+ -0.5499E+00  0.1506E+03  0.1734E+01 -0.2844E+01  0.3287E+00 -0.3144E-14
+ -0.1389E+01  0.1734E+01  0.1511E+03  0.3730E+00  0.2516E+00  0.4488E-15
+ -0.1423E+01 -0.2844E+01  0.3730E+00  0.1524E+03  0.3659E+00 -0.1619E-14
+ -0.1353E+01  0.3287E+00  0.2516E+00  0.3659E+00  0.1490E+03  0.7393E-15
+ -0.1022E-14 -0.4869E-14  0.4524E-16 -0.1256E-15  0.1166E-14  0.4810E+03
+ITER   1   REL ERROR  0.490E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1531E+03 -0.5499E+00 -0.1389E+01 -0.1423E+01 -0.1353E+01 -0.8658E-15
+ -0.5499E+00  0.1506E+03  0.1734E+01 -0.2844E+01  0.3286E+00 -0.3129E-14
+ -0.1389E+01  0.1734E+01  0.1511E+03  0.3730E+00  0.2515E+00  0.4624E-15
+ -0.1423E+01 -0.2844E+01  0.3730E+00  0.1524E+03  0.3659E+00 -0.1615E-14
+ -0.1353E+01  0.3286E+00  0.2515E+00  0.3659E+00  0.1490E+03  0.7396E-15
+ -0.1023E-14 -0.4893E-14  0.1982E-16 -0.1280E-15  0.1152E-14  0.4810E+03
+ITER   2   REL ERROR  0.298E-06
+
+*******   STEP   2      *** AFFINE CALCULATION                 
+    4   0.610E-03   0.624E-04   0.300E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1530E+03 -0.5251E+00 -0.1372E+01 -0.1446E+01 -0.1269E+01 -0.1640E-14
+ -0.5251E+00  0.1508E+03  0.1656E+01 -0.2798E+01  0.3343E+00 -0.4918E-14
+ -0.1372E+01  0.1656E+01  0.1511E+03  0.3798E+00  0.2140E+00 -0.6849E-15
+ -0.1446E+01 -0.2798E+01  0.3798E+00  0.1523E+03  0.3876E+00 -0.1103E-14
+ -0.1269E+01  0.3343E+00  0.2140E+00  0.3876E+00  0.1489E+03  0.6302E-15
+ -0.2863E-14 -0.2682E-14  0.2550E-15 -0.2889E-15  0.8956E-15  0.4810E+03
+ITER   1   REL ERROR  0.533E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1530E+03 -0.5251E+00 -0.1372E+01 -0.1446E+01 -0.1269E+01 -0.1634E-14
+ -0.5251E+00  0.1508E+03  0.1656E+01 -0.2798E+01  0.3342E+00 -0.4890E-14
+ -0.1372E+01  0.1656E+01  0.1511E+03  0.3798E+00  0.2140E+00 -0.6738E-15
+ -0.1446E+01 -0.2798E+01  0.3798E+00  0.1523E+03  0.3876E+00 -0.1099E-14
+ -0.1269E+01  0.3342E+00  0.2140E+00  0.3876E+00  0.1489E+03  0.6160E-15
+ -0.2851E-14 -0.2731E-14  0.2489E-15 -0.3101E-15  0.9134E-15  0.4810E+03
+ITER   2   REL ERROR  0.415E-06
+
+*******   STEP   3      *** AFFINE CALCULATION                 
+    4   0.509E-03   0.114E-03   0.890E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1530E+03 -0.5018E+00 -0.1356E+01 -0.1469E+01 -0.1187E+01 -0.8557E-14
+ -0.5018E+00  0.1511E+03  0.1574E+01 -0.2750E+01  0.3370E+00 -0.1182E-14
+ -0.1356E+01  0.1574E+01  0.1511E+03  0.3833E+00  0.1740E+00  0.7213E-16
+ -0.1469E+01 -0.2750E+01  0.3833E+00  0.1522E+03  0.4139E+00 -0.1360E-14
+ -0.1187E+01  0.3370E+00  0.1740E+00  0.4139E+00  0.1489E+03  0.1336E-14
+ -0.6238E-14 -0.1360E-14  0.1127E-14 -0.8979E-15  0.1055E-14  0.4810E+03
+ITER   1   REL ERROR  0.572E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1530E+03 -0.5018E+00 -0.1356E+01 -0.1469E+01 -0.1187E+01 -0.8535E-14
+ -0.5018E+00  0.1511E+03  0.1574E+01 -0.2750E+01  0.3370E+00 -0.1218E-14
+ -0.1356E+01  0.1574E+01  0.1511E+03  0.3833E+00  0.1740E+00  0.7197E-16
+ -0.1469E+01 -0.2750E+01  0.3833E+00  0.1522E+03  0.4140E+00 -0.1370E-14
+ -0.1187E+01  0.3370E+00  0.1740E+00  0.4140E+00  0.1489E+03  0.1353E-14
+ -0.6233E-14 -0.1465E-14  0.1205E-14 -0.9032E-15  0.1044E-14  0.4810E+03
+ITER   2   REL ERROR  0.550E-06
+
+*******   STEP   4      *** AFFINE CALCULATION                 
+    4   0.322E-03   0.648E-04   0.272E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1529E+03 -0.4801E+00 -0.1342E+01 -0.1493E+01 -0.1106E+01 -0.6684E-14
+ -0.4801E+00  0.1513E+03  0.1488E+01 -0.2698E+01  0.3376E+00 -0.1945E-14
+ -0.1342E+01  0.1488E+01  0.1510E+03  0.3842E+00  0.1318E+00  0.6025E-15
+ -0.1493E+01 -0.2698E+01  0.3842E+00  0.1521E+03  0.4451E+00 -0.7559E-15
+ -0.1106E+01  0.3376E+00  0.1318E+00  0.4451E+00  0.1488E+03  0.1031E-14
+ -0.5954E-14 -0.3319E-14  0.8902E-15 -0.4928E-15  0.1001E-14  0.4810E+03
+ITER   1   REL ERROR  0.605E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1529E+03 -0.4801E+00 -0.1342E+01 -0.1492E+01 -0.1106E+01 -0.6702E-14
+ -0.4801E+00  0.1513E+03  0.1488E+01 -0.2698E+01  0.3376E+00 -0.1931E-14
+ -0.1342E+01  0.1488E+01  0.1510E+03  0.3842E+00  0.1317E+00  0.6058E-15
+ -0.1492E+01 -0.2698E+01  0.3842E+00  0.1521E+03  0.4451E+00 -0.7467E-15
+ -0.1106E+01  0.3376E+00  0.1317E+00  0.4451E+00  0.1488E+03  0.1039E-14
+ -0.5951E-14 -0.3438E-14  0.9619E-15 -0.5618E-15  0.1022E-14  0.4810E+03
+ITER   2   REL ERROR  0.698E-06
+
+*******   STEP   5      *** AFFINE CALCULATION                 
+    4   0.320E-03   0.839E-04   0.570E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1529E+03 -0.4604E+00 -0.1332E+01 -0.1515E+01 -0.1027E+01 -0.2772E-14
+ -0.4604E+00  0.1516E+03  0.1400E+01 -0.2644E+01  0.3365E+00 -0.2899E-14
+ -0.1332E+01  0.1400E+01  0.1509E+03  0.3831E+00  0.8772E-01  0.2836E-14
+ -0.1515E+01 -0.2644E+01  0.3831E+00  0.1520E+03  0.4810E+00  0.1385E-14
+ -0.1027E+01  0.3365E+00  0.8772E-01  0.4810E+00  0.1488E+03  0.1639E-14
+ -0.3268E-14 -0.1866E-14  0.2322E-14  0.1451E-14  0.7427E-15  0.4810E+03
+ITER   1   REL ERROR  0.633E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1529E+03 -0.4604E+00 -0.1332E+01 -0.1515E+01 -0.1027E+01 -0.2747E-14
+ -0.4604E+00  0.1516E+03  0.1400E+01 -0.2644E+01  0.3364E+00 -0.2984E-14
+ -0.1332E+01  0.1400E+01  0.1509E+03  0.3831E+00  0.8765E-01  0.2804E-14
+ -0.1515E+01 -0.2644E+01  0.3831E+00  0.1520E+03  0.4811E+00  0.1341E-14
+ -0.1027E+01  0.3364E+00  0.8765E-01  0.4811E+00  0.1488E+03  0.1646E-14
+ -0.3269E-14 -0.1966E-14  0.2277E-14  0.1490E-14  0.7663E-15  0.4810E+03
+ITER   2   REL ERROR  0.854E-06
+
+*******   STEP   6      *** AFFINE CALCULATION                 
+    4   0.308E-03   0.101E-03   0.796E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1528E+03 -0.4432E+00 -0.1324E+01 -0.1538E+01 -0.9504E+00 -0.3821E-14
+ -0.4432E+00  0.1519E+03  0.1310E+01 -0.2588E+01  0.3339E+00 -0.2850E-14
+ -0.1324E+01  0.1310E+01  0.1509E+03  0.3805E+00  0.4231E-01  0.2004E-14
+ -0.1538E+01 -0.2588E+01  0.3805E+00  0.1518E+03  0.5215E+00  0.5230E-15
+ -0.9504E+00  0.3339E+00  0.4231E-01  0.5215E+00  0.1488E+03  0.1407E-14
+ -0.3623E-14 -0.1719E-14  0.2143E-14  0.2638E-15  0.9256E-15  0.4810E+03
+ITER   1   REL ERROR  0.653E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1528E+03 -0.4431E+00 -0.1324E+01 -0.1537E+01 -0.9504E+00 -0.3804E-14
+ -0.4431E+00  0.1519E+03  0.1311E+01 -0.2588E+01  0.3339E+00 -0.2962E-14
+ -0.1324E+01  0.1311E+01  0.1509E+03  0.3804E+00  0.4224E-01  0.1951E-14
+ -0.1537E+01 -0.2588E+01  0.3804E+00  0.1518E+03  0.5216E+00  0.5516E-15
+ -0.9504E+00  0.3339E+00  0.4224E-01  0.5216E+00  0.1488E+03  0.1357E-14
+ -0.3654E-14 -0.1899E-14  0.2209E-14  0.2140E-15  0.8991E-15  0.4810E+03
+ITER   2   REL ERROR  0.101E-05
+
+*******   STEP   7      *** AFFINE CALCULATION                 
+    9   0.728E-04   0.488E-04   0.465E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1528E+03 -0.4287E+00 -0.1319E+01 -0.1559E+01 -0.8756E+00 -0.3660E-14
+ -0.4287E+00  0.1522E+03  0.1221E+01 -0.2530E+01  0.3303E+00 -0.2690E-14
+ -0.1319E+01  0.1221E+01  0.1508E+03  0.3765E+00 -0.3777E-02  0.1882E-14
+ -0.1559E+01 -0.2530E+01  0.3765E+00  0.1517E+03  0.5657E+00  0.5985E-15
+ -0.8756E+00  0.3303E+00 -0.3777E-02  0.5657E+00  0.1487E+03  0.7030E-15
+ -0.3801E-14 -0.1457E-14  0.1242E-14  0.5507E-15  0.8384E-15  0.4810E+03
+ITER   1   REL ERROR  0.668E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1528E+03 -0.4287E+00 -0.1319E+01 -0.1559E+01 -0.8757E+00 -0.3679E-14
+ -0.4287E+00  0.1522E+03  0.1221E+01 -0.2530E+01  0.3303E+00 -0.2682E-14
+ -0.1319E+01  0.1221E+01  0.1508E+03  0.3765E+00 -0.3864E-02  0.1844E-14
+ -0.1559E+01 -0.2530E+01  0.3765E+00  0.1517E+03  0.5659E+00  0.6001E-15
+ -0.8757E+00  0.3303E+00 -0.3864E-02  0.5659E+00  0.1487E+03  0.7047E-15
+ -0.3797E-14 -0.1682E-14  0.1309E-14  0.4966E-15  0.8392E-15  0.4810E+03
+ITER   2   REL ERROR  0.117E-05
+
+*******   STEP   8      *** AFFINE CALCULATION                 
+    9   0.772E-04   0.515E-04   0.500E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1527E+03 -0.4173E+00 -0.1318E+01 -0.1579E+01 -0.8034E+00 -0.3477E-14
+ -0.4173E+00  0.1525E+03  0.1132E+01 -0.2472E+01  0.3255E+00 -0.2056E-15
+ -0.1318E+01  0.1132E+01  0.1507E+03  0.3713E+00 -0.5001E-01  0.9041E-15
+ -0.1579E+01 -0.2472E+01  0.3713E+00  0.1516E+03  0.6131E+00  0.2212E-15
+ -0.8034E+00  0.3255E+00 -0.5001E-01  0.6131E+00  0.1487E+03  0.7491E-16
+ -0.3134E-14 -0.1885E-14  0.9002E-15  0.8954E-15  0.7400E-15  0.4810E+03
+ITER   1   REL ERROR  0.675E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1527E+03 -0.4173E+00 -0.1318E+01 -0.1579E+01 -0.8034E+00 -0.3452E-14
+ -0.4173E+00  0.1525E+03  0.1132E+01 -0.2472E+01  0.3255E+00 -0.2763E-15
+ -0.1318E+01  0.1132E+01  0.1507E+03  0.3713E+00 -0.5010E-01  0.9631E-15
+ -0.1579E+01 -0.2472E+01  0.3713E+00  0.1516E+03  0.6132E+00  0.1474E-15
+ -0.8034E+00  0.3255E+00 -0.5010E-01  0.6132E+00  0.1487E+03  0.5110E-16
+ -0.3127E-14 -0.2091E-14  0.1019E-14  0.8627E-15  0.7135E-15  0.4810E+03
+ITER   2   REL ERROR  0.132E-05
+
+*******   STEP   9      *** AFFINE CALCULATION                 
+    9   0.717E-04   0.601E-04   0.594E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1526E+03 -0.4092E+00 -0.1319E+01 -0.1598E+01 -0.7338E+00 -0.2702E-14
+ -0.4092E+00  0.1528E+03  0.1045E+01 -0.2413E+01  0.3195E+00 -0.8885E-15
+ -0.1319E+01  0.1045E+01  0.1506E+03  0.3647E+00 -0.9573E-01  0.8982E-15
+ -0.1598E+01 -0.2413E+01  0.3647E+00  0.1515E+03  0.6625E+00 -0.1429E-15
+ -0.7338E+00  0.3195E+00 -0.9573E-01  0.6625E+00  0.1487E+03  0.9407E-15
+ -0.4256E-14 -0.4403E-15  0.1128E-14  0.8412E-15  0.1350E-14  0.4810E+03
+ITER   1   REL ERROR  0.675E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1526E+03 -0.4092E+00 -0.1319E+01 -0.1598E+01 -0.7338E+00 -0.2706E-14
+ -0.4092E+00  0.1528E+03  0.1045E+01 -0.2413E+01  0.3194E+00 -0.9217E-15
+ -0.1319E+01  0.1045E+01  0.1506E+03  0.3647E+00 -0.9583E-01  0.1046E-14
+ -0.1598E+01 -0.2413E+01  0.3647E+00  0.1515E+03  0.6626E+00 -0.1151E-15
+ -0.7338E+00  0.3194E+00 -0.9583E-01  0.6626E+00  0.1487E+03  0.1019E-14
+ -0.4288E-14 -0.5881E-15  0.1251E-14  0.7934E-15  0.1361E-14  0.4810E+03
+ITER   2   REL ERROR  0.146E-05
+
+*******   STEP  10      *** AFFINE CALCULATION                 
+    9   0.937E-04   0.569E-04   0.570E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1526E+03 -0.4044E+00 -0.1322E+01 -0.1616E+01 -0.6670E+00 -0.6185E-14
+ -0.4044E+00  0.1531E+03  0.9614E+00 -0.2355E+01  0.3118E+00  0.6783E-15
+ -0.1322E+01  0.9614E+00  0.1505E+03  0.3563E+00 -0.1403E+00  0.1139E-14
+ -0.1616E+01 -0.2355E+01  0.3563E+00  0.1514E+03  0.7128E+00 -0.1098E-14
+ -0.6670E+00  0.3118E+00 -0.1403E+00  0.7128E+00  0.1486E+03  0.1848E-14
+ -0.4871E-14  0.1282E-14  0.1378E-14 -0.4798E-15  0.2209E-14  0.4810E+03
+ITER   1   REL ERROR  0.671E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1526E+03 -0.4043E+00 -0.1322E+01 -0.1615E+01 -0.6670E+00 -0.6107E-14
+ -0.4043E+00  0.1531E+03  0.9614E+00 -0.2355E+01  0.3118E+00  0.8801E-15
+ -0.1322E+01  0.9614E+00  0.1505E+03  0.3563E+00 -0.1404E+00  0.1174E-14
+ -0.1615E+01 -0.2355E+01  0.3563E+00  0.1514E+03  0.7130E+00 -0.1150E-14
+ -0.6670E+00  0.3118E+00 -0.1404E+00  0.7130E+00  0.1486E+03  0.1895E-14
+ -0.4865E-14  0.8425E-15  0.1369E-14 -0.6420E-15  0.2210E-14  0.4810E+03
+ITER   2   REL ERROR  0.159E-05
+
+*******   STEP  11      *** AFFINE CALCULATION                 
+    9   0.674E-04   0.699E-04   0.713E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1525E+03 -0.4026E+00 -0.1327E+01 -0.1631E+01 -0.6032E+00 -0.3609E-14
+ -0.4026E+00  0.1534E+03  0.8810E+00 -0.2298E+01  0.3022E+00 -0.1108E-14
+ -0.1327E+01  0.8810E+00  0.1504E+03  0.3457E+00 -0.1830E+00  0.8700E-15
+ -0.1631E+01 -0.2298E+01  0.3457E+00  0.1513E+03  0.7631E+00 -0.9371E-15
+ -0.6032E+00  0.3022E+00 -0.1830E+00  0.7631E+00  0.1486E+03  0.1410E-14
+ -0.2654E-14  0.2008E-14  0.9885E-15 -0.2843E-15  0.1200E-14  0.4810E+03
+ITER   1   REL ERROR  0.662E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1525E+03 -0.4026E+00 -0.1327E+01 -0.1631E+01 -0.6032E+00 -0.3677E-14
+ -0.4026E+00  0.1534E+03  0.8811E+00 -0.2298E+01  0.3022E+00 -0.8076E-15
+ -0.1327E+01  0.8811E+00  0.1504E+03  0.3457E+00 -0.1831E+00  0.7998E-15
+ -0.1631E+01 -0.2298E+01  0.3457E+00  0.1513E+03  0.7633E+00 -0.9031E-15
+ -0.6032E+00  0.3022E+00 -0.1831E+00  0.7633E+00  0.1486E+03  0.1431E-14
+ -0.2650E-14  0.1601E-14  0.1127E-14 -0.3531E-15  0.1220E-14  0.4810E+03
+ITER   2   REL ERROR  0.171E-05
+
+*******   STEP  12      *** AFFINE CALCULATION                 
+   10   0.674E-04   0.284E-04   0.283E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1524E+03 -0.4037E+00 -0.1333E+01 -0.1645E+01 -0.5423E+00 -0.7877E-14
+ -0.4037E+00  0.1537E+03  0.8046E+00 -0.2243E+01  0.2902E+00 -0.1066E-14
+ -0.1333E+01  0.8046E+00  0.1503E+03  0.3326E+00 -0.2233E+00 -0.4974E-18
+ -0.1645E+01 -0.2243E+01  0.3326E+00  0.1512E+03  0.8127E+00 -0.2713E-14
+ -0.5423E+00  0.2902E+00 -0.2233E+00  0.8127E+00  0.1486E+03  0.1926E-14
+ -0.7186E-14  0.2414E-15 -0.5822E-16 -0.1617E-14  0.1959E-14  0.4810E+03
+ITER   1   REL ERROR  0.651E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1524E+03 -0.4037E+00 -0.1333E+01 -0.1645E+01 -0.5423E+00 -0.7827E-14
+ -0.4037E+00  0.1537E+03  0.8047E+00 -0.2243E+01  0.2901E+00 -0.1159E-14
+ -0.1333E+01  0.8047E+00  0.1503E+03  0.3326E+00 -0.2234E+00  0.1108E-15
+ -0.1645E+01 -0.2243E+01  0.3326E+00  0.1512E+03  0.8129E+00 -0.2732E-14
+ -0.5423E+00  0.2901E+00 -0.2234E+00  0.8129E+00  0.1486E+03  0.1964E-14
+ -0.7169E-14 -0.6224E-16  0.7693E-16 -0.1787E-14  0.2031E-14  0.4810E+03
+ITER   2   REL ERROR  0.182E-05
+
+*******   STEP  13      *** AFFINE CALCULATION                 
+   10   0.597E-04   0.198E-04   0.197E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1523E+03 -0.4073E+00 -0.1340E+01 -0.1656E+01 -0.4844E+00 -0.8464E-14
+ -0.4073E+00  0.1539E+03  0.7323E+00 -0.2190E+01  0.2756E+00  0.2846E-15
+ -0.1340E+01  0.7323E+00  0.1502E+03  0.3166E+00 -0.2606E+00  0.2942E-15
+ -0.1656E+01 -0.2190E+01  0.3166E+00  0.1511E+03  0.8612E+00 -0.1061E-14
+ -0.4844E+00  0.2756E+00 -0.2606E+00  0.8612E+00  0.1485E+03  0.3017E-14
+ -0.8971E-14  0.3032E-14  0.9562E-16 -0.1046E-14  0.1840E-14  0.4810E+03
+ITER   1   REL ERROR  0.636E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1523E+03 -0.4073E+00 -0.1340E+01 -0.1656E+01 -0.4844E+00 -0.8460E-14
+ -0.4073E+00  0.1539E+03  0.7324E+00 -0.2190E+01  0.2755E+00  0.3516E-15
+ -0.1340E+01  0.7324E+00  0.1502E+03  0.3166E+00 -0.2607E+00  0.3204E-15
+ -0.1656E+01 -0.2190E+01  0.3166E+00  0.1511E+03  0.8613E+00 -0.1085E-14
+ -0.4844E+00  0.2755E+00 -0.2607E+00  0.8613E+00  0.1485E+03  0.3073E-14
+ -0.9015E-14  0.2744E-14  0.1938E-15 -0.1179E-14  0.1794E-14  0.4810E+03
+ITER   2   REL ERROR  0.191E-05
+
+*******   STEP  14      *** AFFINE CALCULATION                 
+    5   0.121E-03   0.761E-04   0.803E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1522E+03 -0.4129E+00 -0.1348E+01 -0.1665E+01 -0.4293E+00 -0.5014E-14
+ -0.4129E+00  0.1542E+03  0.6643E+00 -0.2139E+01  0.2583E+00 -0.1153E-14
+ -0.1348E+01  0.6643E+00  0.1502E+03  0.2979E+00 -0.2944E+00  0.5281E-15
+ -0.1665E+01 -0.2139E+01  0.2979E+00  0.1510E+03  0.9084E+00 -0.7620E-15
+ -0.4293E+00  0.2583E+00 -0.2944E+00  0.9084E+00  0.1485E+03  0.4734E-14
+ -0.6810E-14 -0.1288E-15  0.9336E-15 -0.1537E-14  0.3210E-14  0.4810E+03
+ITER   1   REL ERROR  0.618E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1522E+03 -0.4129E+00 -0.1348E+01 -0.1665E+01 -0.4293E+00 -0.5031E-14
+ -0.4129E+00  0.1542E+03  0.6644E+00 -0.2139E+01  0.2583E+00 -0.1200E-14
+ -0.1348E+01  0.6644E+00  0.1502E+03  0.2979E+00 -0.2945E+00  0.5381E-15
+ -0.1665E+01 -0.2139E+01  0.2979E+00  0.1510E+03  0.9085E+00 -0.8597E-15
+ -0.4293E+00  0.2583E+00 -0.2945E+00  0.9085E+00  0.1485E+03  0.4741E-14
+ -0.6817E-14 -0.4051E-15  0.1187E-14 -0.1496E-14  0.3207E-14  0.4810E+03
+ITER   2   REL ERROR  0.199E-05
+
+*******   STEP  15      *** AFFINE CALCULATION                 
+    5   0.133E-03   0.871E-04   0.938E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1522E+03 -0.4201E+00 -0.1357E+01 -0.1671E+01 -0.3769E+00 -0.8017E-14
+ -0.4201E+00  0.1545E+03  0.6006E+00 -0.2090E+01  0.2387E+00  0.2284E-14
+ -0.1357E+01  0.6006E+00  0.1501E+03  0.2766E+00 -0.3246E+00  0.1336E-14
+ -0.1671E+01 -0.2090E+01  0.2766E+00  0.1509E+03  0.9541E+00 -0.1260E-14
+ -0.3769E+00  0.2387E+00 -0.3246E+00  0.9541E+00  0.1485E+03  0.4047E-14
+ -0.7386E-14  0.3348E-14  0.1068E-14 -0.1430E-14  0.4241E-14  0.4810E+03
+ITER   1   REL ERROR  0.601E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1522E+03 -0.4201E+00 -0.1357E+01 -0.1671E+01 -0.3770E+00 -0.8028E-14
+ -0.4201E+00  0.1545E+03  0.6006E+00 -0.2090E+01  0.2386E+00  0.1927E-14
+ -0.1357E+01  0.6006E+00  0.1501E+03  0.2766E+00 -0.3247E+00  0.1271E-14
+ -0.1671E+01 -0.2090E+01  0.2766E+00  0.1509E+03  0.9543E+00 -0.1012E-14
+ -0.3770E+00  0.2386E+00 -0.3247E+00  0.9543E+00  0.1485E+03  0.4031E-14
+ -0.7381E-14  0.2878E-14  0.1171E-14 -0.1569E-14  0.4237E-14  0.4810E+03
+ITER   2   REL ERROR  0.206E-05
+
+*******   STEP  16      *** AFFINE CALCULATION                 
+    5   0.114E-03   0.526E-04   0.573E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1521E+03 -0.4286E+00 -0.1366E+01 -0.1674E+01 -0.3270E+00 -0.7236E-14
+ -0.4286E+00  0.1548E+03  0.5408E+00 -0.2043E+01  0.2167E+00  0.5793E-14
+ -0.1366E+01  0.5408E+00  0.1500E+03  0.2530E+00 -0.3511E+00  0.4487E-14
+ -0.1674E+01 -0.2043E+01  0.2530E+00  0.1508E+03  0.9982E+00 -0.2338E-14
+ -0.3270E+00  0.2167E+00 -0.3511E+00  0.9982E+00  0.1484E+03  0.3828E-14
+ -0.8934E-14  0.3490E-14  0.3754E-14 -0.1452E-14  0.3545E-14  0.4810E+03
+ITER   1   REL ERROR  0.586E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1521E+03 -0.4285E+00 -0.1366E+01 -0.1674E+01 -0.3270E+00 -0.7237E-14
+ -0.4285E+00  0.1548E+03  0.5409E+00 -0.2043E+01  0.2167E+00  0.5990E-14
+ -0.1366E+01  0.5409E+00  0.1500E+03  0.2529E+00 -0.3513E+00  0.4382E-14
+ -0.1674E+01 -0.2043E+01  0.2529E+00  0.1508E+03  0.9984E+00 -0.2304E-14
+ -0.3270E+00  0.2167E+00 -0.3513E+00  0.9984E+00  0.1484E+03  0.3804E-14
+ -0.8943E-14  0.3235E-14  0.3887E-14 -0.1509E-14  0.3542E-14  0.4810E+03
+ITER   2   REL ERROR  0.213E-05
+
+*******   STEP  17      *** AFFINE CALCULATION                 
+    5   0.104E-03   0.379E-04   0.416E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1520E+03 -0.4379E+00 -0.1376E+01 -0.1674E+01 -0.2794E+00 -0.1047E-13
+ -0.4379E+00  0.1550E+03  0.4849E+00 -0.1998E+01  0.1926E+00  0.2145E-14
+ -0.1376E+01  0.4849E+00  0.1500E+03  0.2271E+00 -0.3740E+00  0.2599E-14
+ -0.1674E+01 -0.1998E+01  0.2271E+00  0.1508E+03  0.1041E+01 -0.3334E-14
+ -0.2794E+00  0.1926E+00 -0.3740E+00  0.1041E+01  0.1484E+03  0.5347E-14
+ -0.1023E-13  0.2421E-14  0.2471E-14 -0.2374E-14  0.4440E-14  0.4810E+03
+ITER   1   REL ERROR  0.572E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1520E+03 -0.4379E+00 -0.1376E+01 -0.1674E+01 -0.2794E+00 -0.1052E-13
+ -0.4379E+00  0.1550E+03  0.4850E+00 -0.1998E+01  0.1925E+00  0.2029E-14
+ -0.1376E+01  0.4850E+00  0.1500E+03  0.2271E+00 -0.3741E+00  0.2440E-14
+ -0.1674E+01 -0.1998E+01  0.2271E+00  0.1508E+03  0.1041E+01 -0.3245E-14
+ -0.2794E+00  0.1925E+00 -0.3741E+00  0.1041E+01  0.1484E+03  0.5318E-14
+ -0.1017E-13  0.1845E-14  0.2641E-14 -0.2506E-14  0.4477E-14  0.4810E+03
+ITER   2   REL ERROR  0.219E-05
+
+*******   STEP  18      *** AFFINE CALCULATION                 
+    5   0.936E-04   0.223E-04   0.244E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1518E+03 -0.4479E+00 -0.1386E+01 -0.1671E+01 -0.2339E+00 -0.9371E-14
+ -0.4479E+00  0.1553E+03  0.4326E+00 -0.1955E+01  0.1665E+00 -0.1480E-15
+ -0.1386E+01  0.4326E+00  0.1499E+03  0.1994E+00 -0.3933E+00  0.1396E-14
+ -0.1671E+01 -0.1955E+01  0.1994E+00  0.1507E+03  0.1081E+01 -0.2176E-14
+ -0.2339E+00  0.1665E+00 -0.3933E+00  0.1081E+01  0.1483E+03  0.4650E-14
+ -0.6640E-14  0.1324E-14  0.1538E-14 -0.1773E-14  0.3476E-14  0.4810E+03
+ITER   1   REL ERROR  0.559E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1518E+03 -0.4478E+00 -0.1386E+01 -0.1671E+01 -0.2339E+00 -0.9334E-14
+ -0.4478E+00  0.1553E+03  0.4327E+00 -0.1955E+01  0.1665E+00  0.8647E-16
+ -0.1386E+01  0.4327E+00  0.1499E+03  0.1993E+00 -0.3934E+00  0.1607E-14
+ -0.1671E+01 -0.1955E+01  0.1993E+00  0.1507E+03  0.1081E+01 -0.2168E-14
+ -0.2339E+00  0.1665E+00 -0.3934E+00  0.1081E+01  0.1483E+03  0.4613E-14
+ -0.6619E-14  0.9750E-15  0.1945E-14 -0.1782E-14  0.3573E-14  0.4810E+03
+ITER   2   REL ERROR  0.226E-05
+
+*******   STEP  19      *** AFFINE CALCULATION                 
+    5   0.848E-04   0.111E-04   0.109E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1517E+03 -0.4583E+00 -0.1396E+01 -0.1666E+01 -0.1905E+00 -0.7798E-14
+ -0.4583E+00  0.1556E+03  0.3836E+00 -0.1914E+01  0.1389E+00  0.3772E-16
+ -0.1396E+01  0.3836E+00  0.1498E+03  0.1700E+00 -0.4094E+00  0.2065E-14
+ -0.1666E+01 -0.1914E+01  0.1700E+00  0.1507E+03  0.1120E+01 -0.2560E-14
+ -0.1905E+00  0.1389E+00 -0.4094E+00  0.1120E+01  0.1483E+03  0.4213E-14
+ -0.7459E-14  0.2951E-14  0.1489E-14 -0.2452E-14  0.4093E-14  0.4810E+03
+ITER   1   REL ERROR  0.548E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1517E+03 -0.4582E+00 -0.1395E+01 -0.1666E+01 -0.1905E+00 -0.7841E-14
+ -0.4582E+00  0.1556E+03  0.3837E+00 -0.1914E+01  0.1389E+00  0.3508E-15
+ -0.1395E+01  0.3837E+00  0.1498E+03  0.1700E+00 -0.4095E+00  0.2152E-14
+ -0.1666E+01 -0.1914E+01  0.1700E+00  0.1507E+03  0.1120E+01 -0.2409E-14
+ -0.1905E+00  0.1389E+00 -0.4095E+00  0.1120E+01  0.1483E+03  0.4206E-14
+ -0.7471E-14  0.2184E-14  0.1563E-14 -0.2542E-14  0.4190E-14  0.4810E+03
+ITER   2   REL ERROR  0.233E-05
+
+*******   STEP  20      *** AFFINE CALCULATION                 
+    5   0.774E-04   0.613E-05   0.155E-04
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1516E+03 -0.4691E+00 -0.1405E+01 -0.1658E+01 -0.1490E+00 -0.9249E-14
+ -0.4691E+00  0.1558E+03  0.3377E+00 -0.1874E+01  0.1100E+00  0.3819E-14
+ -0.1405E+01  0.3377E+00  0.1498E+03  0.1394E+00 -0.4225E+00  0.7502E-15
+ -0.1658E+01 -0.1874E+01  0.1394E+00  0.1506E+03  0.1156E+01 -0.1915E-14
+ -0.1490E+00  0.1100E+00 -0.4225E+00  0.1156E+01  0.1482E+03  0.3247E-14
+ -0.1009E-13  0.3192E-14  0.1039E-14 -0.7857E-15  0.3231E-14  0.4810E+03
+ITER   1   REL ERROR  0.537E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1516E+03 -0.4691E+00 -0.1405E+01 -0.1658E+01 -0.1490E+00 -0.9204E-14
+ -0.4691E+00  0.1558E+03  0.3378E+00 -0.1874E+01  0.1100E+00  0.3746E-14
+ -0.1405E+01  0.3378E+00  0.1498E+03  0.1394E+00 -0.4226E+00  0.8086E-15
+ -0.1658E+01 -0.1874E+01  0.1394E+00  0.1506E+03  0.1156E+01 -0.1988E-14
+ -0.1490E+00  0.1100E+00 -0.4226E+00  0.1156E+01  0.1482E+03  0.3207E-14
+ -0.1007E-13  0.2318E-14  0.9628E-15 -0.1078E-14  0.3235E-14  0.4810E+03
+ITER   2   REL ERROR  0.239E-05
+
+*******   STEP  21      *** AFFINE CALCULATION                 
+    6   0.815E-04   0.328E-04   0.383E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1515E+03 -0.4803E+00 -0.1413E+01 -0.1649E+01 -0.1093E+00 -0.5782E-14
+ -0.4803E+00  0.1561E+03  0.2945E+00 -0.1835E+01  0.8031E-01  0.3786E-14
+ -0.1413E+01  0.2945E+00  0.1497E+03  0.1082E+00 -0.4330E+00  0.5125E-16
+ -0.1649E+01 -0.1835E+01  0.1082E+00  0.1506E+03  0.1190E+01 -0.3308E-14
+ -0.1093E+00  0.8031E-01 -0.4330E+00  0.1190E+01  0.1482E+03  0.3094E-14
+ -0.3937E-14  0.5773E-14  0.6070E-15 -0.1990E-14  0.2544E-14  0.4810E+03
+ITER   1   REL ERROR  0.528E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1515E+03 -0.4802E+00 -0.1413E+01 -0.1649E+01 -0.1093E+00 -0.5863E-14
+ -0.4802E+00  0.1561E+03  0.2946E+00 -0.1836E+01  0.8030E-01  0.3508E-14
+ -0.1413E+01  0.2946E+00  0.1497E+03  0.1081E+00 -0.4331E+00  0.1996E-15
+ -0.1649E+01 -0.1836E+01  0.1081E+00  0.1506E+03  0.1190E+01 -0.3262E-14
+ -0.1093E+00  0.8030E-01 -0.4331E+00  0.1190E+01  0.1482E+03  0.3110E-14
+ -0.3892E-14  0.5459E-14  0.6463E-15 -0.2122E-14  0.2623E-14  0.4810E+03
+ITER   2   REL ERROR  0.246E-05
+
+*******   STEP  22      *** AFFINE CALCULATION                 
+    6   0.828E-04   0.501E-04   0.594E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1514E+03 -0.4918E+00 -0.1421E+01 -0.1638E+01 -0.7146E-01 -0.2558E-14
+ -0.4918E+00  0.1563E+03  0.2539E+00 -0.1798E+01  0.5035E-01  0.6827E-14
+ -0.1421E+01  0.2539E+00  0.1497E+03  0.7679E-01 -0.4412E+00  0.6207E-15
+ -0.1638E+01 -0.1798E+01  0.7679E-01  0.1506E+03  0.1221E+01 -0.3249E-14
+ -0.7146E-01  0.5035E-01 -0.4412E+00  0.1221E+01  0.1481E+03  0.3173E-14
+ -0.1451E-14  0.9333E-14 -0.1303E-15 -0.2720E-14  0.3032E-14  0.4810E+03
+ITER   1   REL ERROR  0.519E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1514E+03 -0.4917E+00 -0.1421E+01 -0.1637E+01 -0.7145E-01 -0.2529E-14
+ -0.4917E+00  0.1563E+03  0.2540E+00 -0.1798E+01  0.5033E-01  0.7694E-14
+ -0.1421E+01  0.2540E+00  0.1497E+03  0.7675E-01 -0.4413E+00  0.4345E-15
+ -0.1637E+01 -0.1798E+01  0.7675E-01  0.1506E+03  0.1221E+01 -0.3066E-14
+ -0.7145E-01  0.5033E-01 -0.4413E+00  0.1221E+01  0.1481E+03  0.3132E-14
+ -0.1410E-14  0.9049E-14 -0.7140E-16 -0.2548E-14  0.3110E-14  0.4810E+03
+ITER   2   REL ERROR  0.254E-05
+
+*******   STEP  23      *** AFFINE CALCULATION                 
+    6   0.759E-04   0.556E-04   0.665E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1513E+03 -0.5034E+00 -0.1428E+01 -0.1625E+01 -0.3531E-01 -0.3719E-14
+ -0.5034E+00  0.1565E+03  0.2158E+00 -0.1763E+01  0.2074E-01  0.7677E-14
+ -0.1428E+01  0.2158E+00  0.1496E+03  0.4594E-01 -0.4475E+00  0.7395E-15
+ -0.1625E+01 -0.1763E+01  0.4594E-01  0.1505E+03  0.1250E+01 -0.4537E-14
+ -0.3531E-01  0.2075E-01 -0.4475E+00  0.1250E+01  0.1480E+03  0.1104E-14
+ -0.4779E-14  0.8329E-14  0.5483E-16 -0.2321E-14  0.1821E-14  0.4810E+03
+ITER   1   REL ERROR  0.510E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1513E+03 -0.5034E+00 -0.1428E+01 -0.1625E+01 -0.3529E-01 -0.3688E-14
+ -0.5034E+00  0.1565E+03  0.2159E+00 -0.1763E+01  0.2073E-01  0.7511E-14
+ -0.1428E+01  0.2159E+00  0.1496E+03  0.4590E-01 -0.4476E+00  0.7380E-15
+ -0.1625E+01 -0.1763E+01  0.4590E-01  0.1505E+03  0.1250E+01 -0.4343E-14
+ -0.3529E-01  0.2073E-01 -0.4476E+00  0.1250E+01  0.1480E+03  0.1134E-14
+ -0.4753E-14  0.8028E-14  0.5284E-15 -0.2557E-14  0.1967E-14  0.4810E+03
+ITER   2   REL ERROR  0.261E-05
+
+*******   STEP  24      *** AFFINE CALCULATION                 
+    6   0.704E-04   0.611E-04   0.738E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1512E+03 -0.5152E+00 -0.1434E+01 -0.1612E+01 -0.8105E-03 -0.4504E-14
+ -0.5152E+00  0.1568E+03  0.1800E+00 -0.1728E+01 -0.7830E-02  0.1040E-13
+ -0.1434E+01  0.1800E+00  0.1496E+03  0.1633E-01 -0.4522E+00  0.1215E-14
+ -0.1612E+01 -0.1728E+01  0.1633E-01  0.1505E+03  0.1277E+01 -0.2315E-14
+ -0.8105E-03 -0.7829E-02 -0.4522E+00  0.1277E+01  0.1480E+03  0.8521E-15
+ -0.3427E-14  0.1046E-13  0.1398E-14 -0.1945E-14  0.1173E-14  0.4810E+03
+ITER   1   REL ERROR  0.503E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1512E+03 -0.5151E+00 -0.1434E+01 -0.1612E+01 -0.7943E-03 -0.4555E-14
+ -0.5151E+00  0.1568E+03  0.1800E+00 -0.1728E+01 -0.7844E-02  0.1041E-13
+ -0.1434E+01  0.1800E+00  0.1496E+03  0.1629E-01 -0.4523E+00  0.1305E-14
+ -0.1612E+01 -0.1728E+01  0.1629E-01  0.1505E+03  0.1277E+01 -0.2314E-14
+ -0.7943E-03 -0.7844E-02 -0.4523E+00  0.1277E+01  0.1480E+03  0.8547E-15
+ -0.3461E-14  0.9620E-14  0.1349E-14 -0.2088E-14  0.1314E-14  0.4810E+03
+ITER   2   REL ERROR  0.269E-05
+
+*******   STEP  25      *** AFFINE CALCULATION                 
+    7   0.481E-04   0.301E-04   0.366E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1510E+03 -0.5268E+00 -0.1439E+01 -0.1598E+01  0.3207E-01 -0.2700E-14
+ -0.5268E+00  0.1570E+03  0.1462E+00 -0.1695E+01 -0.3473E-01  0.9205E-14
+ -0.1439E+01  0.1462E+00  0.1496E+03 -0.1136E-01 -0.4556E+00 -0.4562E-15
+ -0.1598E+01 -0.1695E+01 -0.1136E-01  0.1505E+03  0.1301E+01 -0.1824E-14
+  0.3207E-01 -0.3472E-01 -0.4556E+00  0.1301E+01  0.1479E+03  0.7883E-15
+ -0.2305E-14  0.1026E-13 -0.1826E-15 -0.8307E-15  0.2903E-15  0.4810E+03
+ITER   1   REL ERROR  0.495E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1510E+03 -0.5267E+00 -0.1439E+01 -0.1598E+01  0.3209E-01 -0.2668E-14
+ -0.5267E+00  0.1570E+03  0.1463E+00 -0.1695E+01 -0.3474E-01  0.9342E-14
+ -0.1439E+01  0.1463E+00  0.1496E+03 -0.1140E-01 -0.4558E+00 -0.4390E-15
+ -0.1598E+01 -0.1695E+01 -0.1140E-01  0.1505E+03  0.1302E+01 -0.1577E-14
+  0.3209E-01 -0.3474E-01 -0.4558E+00  0.1302E+01  0.1479E+03  0.8239E-15
+ -0.2254E-14  0.9551E-14  0.3920E-16 -0.1013E-14  0.3682E-15  0.4810E+03
+ITER   2   REL ERROR  0.277E-05
+
+*******   STEP  26      *** AFFINE CALCULATION                 
+    2   0.919E-03   0.120E-03   0.561E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1509E+03 -0.5381E+00 -0.1443E+01 -0.1585E+01  0.6352E-01 -0.3855E-14
+ -0.5381E+00  0.1572E+03  0.1147E+00 -0.1663E+01 -0.5943E-01  0.8881E-14
+ -0.1443E+01  0.1147E+00  0.1495E+03 -0.3657E-01 -0.4582E+00  0.6324E-16
+ -0.1585E+01 -0.1663E+01 -0.3657E-01  0.1504E+03  0.1324E+01 -0.3258E-14
+  0.6352E-01 -0.5943E-01 -0.4582E+00  0.1324E+01  0.1478E+03  0.2667E-14
+ -0.5171E-14  0.1140E-13  0.2460E-15 -0.2844E-14  0.1391E-14  0.4810E+03
+ITER   1   REL ERROR  0.489E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1509E+03 -0.5381E+00 -0.1443E+01 -0.1584E+01  0.6354E-01 -0.3851E-14
+ -0.5381E+00  0.1572E+03  0.1148E+00 -0.1663E+01 -0.5944E-01  0.9225E-14
+ -0.1443E+01  0.1148E+00  0.1495E+03 -0.3660E-01 -0.4584E+00  0.1961E-15
+ -0.1584E+01 -0.1663E+01 -0.3660E-01  0.1504E+03  0.1324E+01 -0.3223E-14
+  0.6354E-01 -0.5944E-01 -0.4584E+00  0.1324E+01  0.1478E+03  0.2765E-14
+ -0.5098E-14  0.1116E-13 -0.7717E-16 -0.3115E-14  0.1463E-14  0.4810E+03
+ITER   2   REL ERROR  0.288E-05
+
+*******   STEP  27      *** AFFINE CALCULATION                 
+    6   0.610E-04   0.365E-04   0.441E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1508E+03 -0.5493E+00 -0.1446E+01 -0.1570E+01  0.9346E-01 -0.4887E-14
+ -0.5493E+00  0.1574E+03  0.8470E-01 -0.1631E+01 -0.8156E-01  0.9878E-14
+ -0.1446E+01  0.8470E-01  0.1495E+03 -0.5898E-01 -0.4603E+00 -0.5192E-15
+ -0.1570E+01 -0.1631E+01 -0.5898E-01  0.1504E+03  0.1344E+01 -0.2694E-14
+  0.9346E-01 -0.8156E-01 -0.4603E+00  0.1344E+01  0.1478E+03  0.3759E-14
+ -0.4848E-14  0.1037E-13 -0.9274E-15 -0.2597E-14  0.2431E-14  0.4810E+03
+ITER   1   REL ERROR  0.483E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1508E+03 -0.5492E+00 -0.1446E+01 -0.1570E+01  0.9348E-01 -0.4945E-14
+ -0.5492E+00  0.1574E+03  0.8479E-01 -0.1631E+01 -0.8157E-01  0.1017E-13
+ -0.1446E+01  0.8479E-01  0.1495E+03 -0.5901E-01 -0.4604E+00 -0.3898E-15
+ -0.1570E+01 -0.1631E+01 -0.5901E-01  0.1504E+03  0.1345E+01 -0.2677E-14
+  0.9348E-01 -0.8157E-01 -0.4604E+00  0.1345E+01  0.1478E+03  0.3813E-14
+ -0.4806E-14  0.9617E-14 -0.1040E-14 -0.2327E-14  0.2405E-14  0.4810E+03
+ITER   2   REL ERROR  0.297E-05
+
+*******   STEP  28      *** AFFINE CALCULATION                 
+    2   0.932E-03   0.126E-03   0.906E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1507E+03 -0.5601E+00 -0.1449E+01 -0.1557E+01  0.1221E+00 -0.2841E-14
+ -0.5601E+00  0.1577E+03  0.5641E-01 -0.1601E+01 -0.1010E+00  0.8094E-14
+ -0.1449E+01  0.5641E-01  0.1495E+03 -0.7840E-01 -0.4622E+00 -0.1448E-14
+ -0.1557E+01 -0.1601E+01 -0.7840E-01  0.1504E+03  0.1364E+01 -0.3752E-14
+  0.1221E+00 -0.1010E+00 -0.4622E+00  0.1364E+01  0.1477E+03  0.3896E-14
+ -0.4230E-14  0.9740E-14 -0.8388E-15 -0.2836E-14  0.3474E-14  0.4810E+03
+ITER   1   REL ERROR  0.479E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1507E+03 -0.5601E+00 -0.1449E+01 -0.1556E+01  0.1222E+00 -0.2934E-14
+ -0.5601E+00  0.1577E+03  0.5650E-01 -0.1601E+01 -0.1010E+00  0.8204E-14
+ -0.1449E+01  0.5650E-01  0.1495E+03 -0.7842E-01 -0.4623E+00 -0.1174E-14
+ -0.1556E+01 -0.1601E+01 -0.7842E-01  0.1504E+03  0.1364E+01 -0.3625E-14
+  0.1222E+00 -0.1010E+00 -0.4623E+00  0.1364E+01  0.1477E+03  0.3849E-14
+ -0.4172E-14  0.9718E-14 -0.8910E-15 -0.2942E-14  0.3449E-14  0.4810E+03
+ITER   2   REL ERROR  0.308E-05
+
+*******   STEP  29      *** AFFINE CALCULATION                 
+    6   0.518E-04   0.672E-04   0.848E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1505E+03 -0.5705E+00 -0.1451E+01 -0.1543E+01  0.1494E+00 -0.3639E-14
+ -0.5705E+00  0.1579E+03  0.2929E-01 -0.1570E+01 -0.1176E+00  0.9690E-14
+ -0.1451E+01  0.2929E-01  0.1494E+03 -0.9480E-01 -0.4641E+00 -0.2635E-15
+ -0.1543E+01 -0.1570E+01 -0.9480E-01  0.1504E+03  0.1382E+01 -0.1720E-14
+  0.1494E+00 -0.1175E+00 -0.4641E+00  0.1382E+01  0.1476E+03  0.3157E-14
+ -0.2028E-14  0.1081E-13 -0.4898E-16 -0.1191E-14  0.2378E-14  0.4810E+03
+ITER   1   REL ERROR  0.473E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1505E+03 -0.5705E+00 -0.1451E+01 -0.1543E+01  0.1495E+00 -0.3636E-14
+ -0.5705E+00  0.1579E+03  0.2938E-01 -0.1570E+01 -0.1176E+00  0.1011E-13
+ -0.1451E+01  0.2938E-01  0.1494E+03 -0.9482E-01 -0.4643E+00 -0.4419E-16
+ -0.1543E+01 -0.1570E+01 -0.9482E-01  0.1504E+03  0.1382E+01 -0.1477E-14
+  0.1495E+00 -0.1176E+00 -0.4643E+00  0.1382E+01  0.1476E+03  0.3135E-14
+ -0.2064E-14  0.9930E-14 -0.4674E-16 -0.1539E-14  0.2533E-14  0.4810E+03
+ITER   2   REL ERROR  0.317E-05
+
+*******   STEP  30      *** AFFINE CALCULATION                 
+    7   0.473E-04   0.653E-04   0.838E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1504E+03 -0.5805E+00 -0.1454E+01 -0.1529E+01  0.1756E+00 -0.5203E-14
+ -0.5805E+00  0.1581E+03  0.3437E-02 -0.1539E+01 -0.1314E+00  0.7440E-14
+ -0.1454E+01  0.3438E-02  0.1494E+03 -0.1083E+00 -0.4664E+00  0.7901E-15
+ -0.1529E+01 -0.1539E+01 -0.1083E+00  0.1504E+03  0.1399E+01 -0.2204E-14
+  0.1756E+00 -0.1314E+00 -0.4664E+00  0.1399E+01  0.1475E+03  0.3658E-14
+ -0.4262E-14  0.9233E-14  0.5736E-15 -0.1771E-14  0.3410E-14  0.4810E+03
+ITER   1   REL ERROR  0.468E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1504E+03 -0.5805E+00 -0.1454E+01 -0.1529E+01  0.1756E+00 -0.5291E-14
+ -0.5805E+00  0.1581E+03  0.3524E-02 -0.1539E+01 -0.1315E+00  0.7648E-14
+ -0.1454E+01  0.3524E-02  0.1494E+03 -0.1084E+00 -0.4665E+00  0.7015E-15
+ -0.1529E+01 -0.1539E+01 -0.1084E+00  0.1504E+03  0.1399E+01 -0.2281E-14
+  0.1756E+00 -0.1315E+00 -0.4665E+00  0.1399E+01  0.1475E+03  0.3697E-14
+ -0.4204E-14  0.8445E-14  0.7512E-15 -0.1840E-14  0.3505E-14  0.4810E+03
+ITER   2   REL ERROR  0.326E-05
+
+*******   STEP  31      *** AFFINE CALCULATION                 
+    3   0.151E-03   0.769E-04   0.778E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1503E+03 -0.5897E+00 -0.1456E+01 -0.1516E+01  0.2006E+00 -0.3763E-14
+ -0.5897E+00  0.1583E+03 -0.2111E-01 -0.1509E+01 -0.1429E+00  0.5826E-14
+ -0.1456E+01 -0.2111E-01  0.1494E+03 -0.1192E+00 -0.4690E+00  0.7643E-15
+ -0.1516E+01 -0.1509E+01 -0.1192E+00  0.1503E+03  0.1415E+01 -0.2344E-14
+  0.2006E+00 -0.1429E+00 -0.4690E+00  0.1415E+01  0.1475E+03  0.5709E-14
+ -0.5964E-14  0.7183E-14  0.5092E-15 -0.1808E-14  0.5810E-14  0.4810E+03
+ITER   1   REL ERROR  0.464E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1503E+03 -0.5897E+00 -0.1456E+01 -0.1516E+01  0.2007E+00 -0.3852E-14
+ -0.5897E+00  0.1583E+03 -0.2102E-01 -0.1509E+01 -0.1429E+00  0.5763E-14
+ -0.1456E+01 -0.2102E-01  0.1494E+03 -0.1192E+00 -0.4691E+00  0.5095E-15
+ -0.1516E+01 -0.1509E+01 -0.1192E+00  0.1503E+03  0.1416E+01 -0.2279E-14
+  0.2007E+00 -0.1429E+00 -0.4691E+00  0.1416E+01  0.1475E+03  0.5773E-14
+ -0.5927E-14  0.6506E-14  0.4255E-15 -0.1972E-14  0.5835E-14  0.4810E+03
+ITER   2   REL ERROR  0.336E-05
+
+*******   STEP  32      *** AFFINE CALCULATION                 
+    7   0.395E-04   0.245E-04   0.316E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1502E+03 -0.5980E+00 -0.1458E+01 -0.1503E+01  0.2246E+00 -0.6236E-14
+ -0.5980E+00  0.1585E+03 -0.4463E-01 -0.1478E+01 -0.1521E+00  0.7148E-14
+ -0.1458E+01 -0.4463E-01  0.1494E+03 -0.1279E+00 -0.4720E+00  0.1447E-14
+ -0.1503E+01 -0.1478E+01 -0.1279E+00  0.1503E+03  0.1431E+01 -0.3593E-14
+  0.2246E+00 -0.1521E+00 -0.4720E+00  0.1431E+01  0.1474E+03  0.6493E-14
+ -0.8094E-14  0.8828E-14  0.6205E-15 -0.3249E-14  0.6255E-14  0.4810E+03
+ITER   1   REL ERROR  0.458E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1502E+03 -0.5980E+00 -0.1458E+01 -0.1503E+01  0.2246E+00 -0.6299E-14
+ -0.5980E+00  0.1586E+03 -0.4455E-01 -0.1478E+01 -0.1521E+00  0.7451E-14
+ -0.1458E+01 -0.4455E-01  0.1494E+03 -0.1279E+00 -0.4721E+00  0.1765E-14
+ -0.1503E+01 -0.1478E+01 -0.1279E+00  0.1503E+03  0.1432E+01 -0.3885E-14
+  0.2246E+00 -0.1521E+00 -0.4721E+00  0.1432E+01  0.1474E+03  0.6549E-14
+ -0.8018E-14  0.8253E-14  0.8433E-15 -0.3552E-14  0.6256E-14  0.4810E+03
+ITER   2   REL ERROR  0.342E-05
+
+*******   STEP  33      *** AFFINE CALCULATION                 
+    3   0.143E-03   0.449E-04   0.233E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1501E+03 -0.6054E+00 -0.1461E+01 -0.1490E+01  0.2477E+00 -0.7803E-14
+ -0.6054E+00  0.1588E+03 -0.6691E-01 -0.1448E+01 -0.1595E+00  0.8479E-14
+ -0.1461E+01 -0.6691E-01  0.1493E+03 -0.1345E+00 -0.4755E+00 -0.4806E-15
+ -0.1490E+01 -0.1448E+01 -0.1345E+00  0.1503E+03  0.1447E+01 -0.2411E-14
+  0.2477E+00 -0.1595E+00 -0.4755E+00  0.1447E+01  0.1473E+03  0.7109E-14
+ -0.8563E-14  0.1071E-13  0.7231E-16 -0.2255E-14  0.6755E-14  0.4810E+03
+ITER   1   REL ERROR  0.454E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1501E+03 -0.6054E+00 -0.1461E+01 -0.1490E+01  0.2477E+00 -0.7680E-14
+ -0.6054E+00  0.1588E+03 -0.6682E-01 -0.1448E+01 -0.1595E+00  0.7583E-14
+ -0.1461E+01 -0.6682E-01  0.1493E+03 -0.1345E+00 -0.4756E+00 -0.3703E-15
+ -0.1490E+01 -0.1448E+01 -0.1345E+00  0.1503E+03  0.1447E+01 -0.2411E-14
+  0.2477E+00 -0.1595E+00 -0.4756E+00  0.1447E+01  0.1473E+03  0.7111E-14
+ -0.8536E-14  0.1015E-13  0.3137E-15 -0.2148E-14  0.6747E-14  0.4810E+03
+ITER   2   REL ERROR  0.350E-05
+
+*******   STEP  34      *** AFFINE CALCULATION                 
+    7   0.350E-04   0.355E-04   0.470E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1500E+03 -0.6117E+00 -0.1464E+01 -0.1478E+01  0.2698E+00 -0.7322E-14
+ -0.6117E+00  0.1590E+03 -0.8821E-01 -0.1418E+01 -0.1653E+00  0.7849E-14
+ -0.1464E+01 -0.8821E-01  0.1493E+03 -0.1396E+00 -0.4793E+00 -0.9389E-15
+ -0.1478E+01 -0.1418E+01 -0.1396E+00  0.1502E+03  0.1462E+01 -0.2534E-14
+  0.2698E+00 -0.1653E+00 -0.4793E+00  0.1462E+01  0.1473E+03  0.8768E-14
+ -0.7902E-14  0.1046E-13 -0.1429E-14 -0.1433E-14  0.8881E-14  0.4810E+03
+ITER   1   REL ERROR  0.449E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1500E+03 -0.6117E+00 -0.1463E+01 -0.1478E+01  0.2698E+00 -0.7298E-14
+ -0.6117E+00  0.1590E+03 -0.8813E-01 -0.1418E+01 -0.1653E+00  0.8112E-14
+ -0.1463E+01 -0.8813E-01  0.1493E+03 -0.1396E+00 -0.4794E+00 -0.7934E-15
+ -0.1478E+01 -0.1418E+01 -0.1396E+00  0.1502E+03  0.1462E+01 -0.2533E-14
+  0.2698E+00 -0.1653E+00 -0.4794E+00  0.1462E+01  0.1473E+03  0.8915E-14
+ -0.7855E-14  0.1003E-13 -0.1329E-14 -0.1726E-14  0.9026E-14  0.4810E+03
+ITER   2   REL ERROR  0.354E-05
+
+*******   STEP  35      *** AFFINE CALCULATION                 
+    3   0.134E-03   0.587E-04   0.623E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1498E+03 -0.6170E+00 -0.1467E+01 -0.1466E+01  0.2911E+00 -0.7718E-14
+ -0.6170E+00  0.1592E+03 -0.1083E+00 -0.1388E+01 -0.1698E+00  0.9097E-14
+ -0.1467E+01 -0.1083E+00  0.1493E+03 -0.1433E+00 -0.4834E+00 -0.5980E-15
+ -0.1466E+01 -0.1388E+01 -0.1433E+00  0.1502E+03  0.1477E+01 -0.2163E-14
+  0.2911E+00 -0.1698E+00 -0.4834E+00  0.1477E+01  0.1472E+03  0.6750E-14
+ -0.8781E-14  0.1046E-13 -0.1235E-14 -0.1529E-14  0.7230E-14  0.4810E+03
+ITER   1   REL ERROR  0.444E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1498E+03 -0.6170E+00 -0.1466E+01 -0.1466E+01  0.2911E+00 -0.7853E-14
+ -0.6170E+00  0.1592E+03 -0.1083E+00 -0.1388E+01 -0.1698E+00  0.8866E-14
+ -0.1466E+01 -0.1083E+00  0.1493E+03 -0.1433E+00 -0.4835E+00 -0.6592E-15
+ -0.1466E+01 -0.1388E+01 -0.1433E+00  0.1502E+03  0.1477E+01 -0.2235E-14
+  0.2911E+00 -0.1698E+00 -0.4835E+00  0.1477E+01  0.1472E+03  0.6811E-14
+ -0.8807E-14  0.1016E-13 -0.1275E-14 -0.1682E-14  0.7126E-14  0.4810E+03
+ITER   2   REL ERROR  0.359E-05
+
+*******   STEP  36      *** AFFINE CALCULATION                 
+    2   0.547E-03   0.789E-04   0.610E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1497E+03 -0.6214E+00 -0.1470E+01 -0.1455E+01  0.3117E+00 -0.7489E-14
+ -0.6214E+00  0.1594E+03 -0.1274E+00 -0.1358E+01 -0.1732E+00  0.3689E-14
+ -0.1470E+01 -0.1274E+00  0.1493E+03 -0.1458E+00 -0.4876E+00 -0.1544E-14
+ -0.1455E+01 -0.1358E+01 -0.1458E+00  0.1502E+03  0.1492E+01 -0.6562E-15
+  0.3117E+00 -0.1732E+00 -0.4876E+00  0.1492E+01  0.1471E+03  0.9307E-14
+ -0.6694E-14  0.8482E-14 -0.1850E-14 -0.6408E-15  0.8235E-14  0.4810E+03
+ITER   1   REL ERROR  0.439E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1497E+03 -0.6214E+00 -0.1470E+01 -0.1454E+01  0.3117E+00 -0.7416E-14
+ -0.6214E+00  0.1594E+03 -0.1273E+00 -0.1358E+01 -0.1732E+00  0.3923E-14
+ -0.1470E+01 -0.1273E+00  0.1493E+03 -0.1458E+00 -0.4878E+00 -0.1139E-14
+ -0.1454E+01 -0.1358E+01 -0.1458E+00  0.1502E+03  0.1492E+01 -0.7430E-15
+  0.3117E+00 -0.1732E+00 -0.4878E+00  0.1492E+01  0.1471E+03  0.9292E-14
+ -0.6816E-14  0.6686E-14 -0.1692E-14 -0.6729E-15  0.8232E-14  0.4810E+03
+ITER   2   REL ERROR  0.362E-05
+
+*******   STEP  37      *** AFFINE CALCULATION                 
+    6   0.420E-04   0.651E-04   0.885E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1496E+03 -0.6248E+00 -0.1473E+01 -0.1443E+01  0.3314E+00 -0.5178E-14
+ -0.6248E+00  0.1596E+03 -0.1456E+00 -0.1329E+01 -0.1758E+00  0.5519E-14
+ -0.1473E+01 -0.1456E+00  0.1493E+03 -0.1475E+00 -0.4921E+00 -0.1642E-14
+ -0.1443E+01 -0.1329E+01 -0.1475E+00  0.1502E+03  0.1506E+01 -0.2102E-14
+  0.3314E+00 -0.1758E+00 -0.4921E+00  0.1506E+01  0.1471E+03  0.7885E-14
+ -0.5923E-14  0.8279E-14 -0.2305E-14 -0.1330E-14  0.8199E-14  0.4810E+03
+ITER   1   REL ERROR  0.433E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1496E+03 -0.6248E+00 -0.1473E+01 -0.1443E+01  0.3315E+00 -0.5115E-14
+ -0.6248E+00  0.1596E+03 -0.1456E+00 -0.1329E+01 -0.1758E+00  0.5525E-14
+ -0.1473E+01 -0.1456E+00  0.1493E+03 -0.1475E+00 -0.4922E+00 -0.1513E-14
+ -0.1443E+01 -0.1329E+01 -0.1475E+00  0.1502E+03  0.1506E+01 -0.2408E-14
+  0.3315E+00 -0.1758E+00 -0.4922E+00  0.1506E+01  0.1471E+03  0.7882E-14
+ -0.5869E-14  0.6909E-14 -0.2262E-14 -0.1058E-14  0.8104E-14  0.4810E+03
+ITER   2   REL ERROR  0.361E-05
+
+*******   STEP  38      *** AFFINE CALCULATION                 
+    4   0.857E-04   0.336E-04   0.398E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1495E+03 -0.6274E+00 -0.1476E+01 -0.1432E+01  0.3505E+00 -0.5247E-14
+ -0.6274E+00  0.1598E+03 -0.1629E+00 -0.1301E+01 -0.1776E+00  0.7916E-14
+ -0.1476E+01 -0.1628E+00  0.1492E+03 -0.1485E+00 -0.4965E+00 -0.2849E-14
+ -0.1432E+01 -0.1301E+01 -0.1485E+00  0.1501E+03  0.1519E+01 -0.1472E-14
+  0.3505E+00 -0.1776E+00 -0.4965E+00  0.1519E+01  0.1470E+03  0.6882E-14
+ -0.7162E-14  0.8080E-14 -0.2374E-14 -0.7167E-15  0.7334E-14  0.4810E+03
+ITER   1   REL ERROR  0.427E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1495E+03 -0.6274E+00 -0.1476E+01 -0.1432E+01  0.3506E+00 -0.5201E-14
+ -0.6274E+00  0.1598E+03 -0.1628E+00 -0.1301E+01 -0.1776E+00  0.8144E-14
+ -0.1476E+01 -0.1628E+00  0.1492E+03 -0.1485E+00 -0.4967E+00 -0.2732E-14
+ -0.1432E+01 -0.1301E+01 -0.1485E+00  0.1501E+03  0.1519E+01 -0.1293E-14
+  0.3506E+00 -0.1776E+00 -0.4967E+00  0.1519E+01  0.1470E+03  0.6865E-14
+ -0.7119E-14  0.7740E-14 -0.2713E-14 -0.9087E-15  0.7262E-14  0.4810E+03
+ITER   2   REL ERROR  0.361E-05
+
+*******   STEP  39      *** AFFINE CALCULATION                 
+    3   0.111E-03   0.574E-04   0.671E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1494E+03 -0.6293E+00 -0.1480E+01 -0.1421E+01  0.3690E+00 -0.6676E-14
+ -0.6293E+00  0.1600E+03 -0.1791E+00 -0.1273E+01 -0.1789E+00  0.8120E-14
+ -0.1480E+01 -0.1791E+00  0.1492E+03 -0.1490E+00 -0.5010E+00 -0.2554E-14
+ -0.1421E+01 -0.1273E+01 -0.1490E+00  0.1501E+03  0.1533E+01 -0.1252E-15
+  0.3690E+00 -0.1789E+00 -0.5010E+00  0.1533E+01  0.1469E+03  0.6322E-14
+ -0.4995E-14  0.9003E-14 -0.2148E-14 -0.4987E-15  0.6377E-14  0.4810E+03
+ITER   1   REL ERROR  0.420E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1494E+03 -0.6292E+00 -0.1480E+01 -0.1421E+01  0.3690E+00 -0.6662E-14
+ -0.6292E+00  0.1600E+03 -0.1790E+00 -0.1273E+01 -0.1789E+00  0.8631E-14
+ -0.1480E+01 -0.1790E+00  0.1492E+03 -0.1489E+00 -0.5011E+00 -0.2622E-14
+ -0.1421E+01 -0.1273E+01 -0.1489E+00  0.1501E+03  0.1533E+01 -0.1775E-15
+  0.3690E+00 -0.1789E+00 -0.5011E+00  0.1533E+01  0.1469E+03  0.6283E-14
+ -0.4964E-14  0.7446E-14 -0.2089E-14 -0.4164E-15  0.6338E-14  0.4810E+03
+ITER   2   REL ERROR  0.359E-05
+
+*******   STEP  40      *** AFFINE CALCULATION                 
+    2   0.419E-03   0.633E-04   0.481E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1493E+03 -0.6305E+00 -0.1484E+01 -0.1410E+01  0.3869E+00 -0.8819E-14
+ -0.6305E+00  0.1602E+03 -0.1943E+00 -0.1246E+01 -0.1798E+00  0.8942E-14
+ -0.1484E+01 -0.1943E+00  0.1492E+03 -0.1489E+00 -0.5053E+00 -0.3438E-14
+ -0.1410E+01 -0.1246E+01 -0.1489E+00  0.1501E+03  0.1545E+01 -0.8958E-15
+  0.3869E+00 -0.1798E+00 -0.5053E+00  0.1545E+01  0.1469E+03  0.6141E-14
+ -0.9330E-14  0.9047E-14 -0.3581E-14 -0.1207E-14  0.5445E-14  0.4810E+03
+ITER   1   REL ERROR  0.414E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1493E+03 -0.6305E+00 -0.1484E+01 -0.1410E+01  0.3869E+00 -0.8724E-14
+ -0.6305E+00  0.1602E+03 -0.1942E+00 -0.1246E+01 -0.1798E+00  0.9351E-14
+ -0.1484E+01 -0.1942E+00  0.1492E+03 -0.1489E+00 -0.5054E+00 -0.3316E-14
+ -0.1410E+01 -0.1246E+01 -0.1489E+00  0.1501E+03  0.1545E+01 -0.1129E-14
+  0.3869E+00 -0.1798E+00 -0.5054E+00  0.1545E+01  0.1469E+03  0.6028E-14
+ -0.9356E-14  0.8112E-14 -0.3437E-14 -0.8348E-15  0.5465E-14  0.4810E+03
+ITER   2   REL ERROR  0.357E-05
+
+*******   STEP  41      *** AFFINE CALCULATION                 
+    2   0.412E-03   0.607E-04   0.337E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1492E+03 -0.6312E+00 -0.1487E+01 -0.1400E+01  0.4041E+00 -0.7742E-14
+ -0.6312E+00  0.1604E+03 -0.2086E+00 -0.1220E+01 -0.1802E+00  0.4761E-14
+ -0.1487E+01 -0.2086E+00  0.1492E+03 -0.1485E+00 -0.5095E+00 -0.4244E-14
+ -0.1400E+01 -0.1220E+01 -0.1485E+00  0.1500E+03  0.1558E+01 -0.1233E-14
+  0.4041E+00 -0.1802E+00 -0.5095E+00  0.1558E+01  0.1468E+03  0.6821E-14
+ -0.7871E-14  0.5070E-14 -0.3513E-14 -0.1360E-14  0.6447E-14  0.4810E+03
+ITER   1   REL ERROR  0.407E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1492E+03 -0.6312E+00 -0.1487E+01 -0.1400E+01  0.4041E+00 -0.7670E-14
+ -0.6312E+00  0.1604E+03 -0.2085E+00 -0.1220E+01 -0.1802E+00  0.3874E-14
+ -0.1487E+01 -0.2085E+00  0.1492E+03 -0.1485E+00 -0.5096E+00 -0.4105E-14
+ -0.1400E+01 -0.1220E+01 -0.1485E+00  0.1500E+03  0.1558E+01 -0.1060E-14
+  0.4041E+00 -0.1802E+00 -0.5096E+00  0.1558E+01  0.1468E+03  0.6787E-14
+ -0.7854E-14  0.4492E-14 -0.3496E-14 -0.1758E-14  0.6380E-14  0.4810E+03
+ITER   2   REL ERROR  0.353E-05
+
+*******   STEP  42      *** AFFINE CALCULATION                 
+    2   0.384E-03   0.627E-04   0.454E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1491E+03 -0.6314E+00 -0.1491E+01 -0.1390E+01  0.4208E+00 -0.7847E-14
+ -0.6314E+00  0.1606E+03 -0.2220E+00 -0.1195E+01 -0.1804E+00  0.4197E-14
+ -0.1491E+01 -0.2220E+00  0.1492E+03 -0.1479E+00 -0.5136E+00 -0.3264E-14
+ -0.1390E+01 -0.1195E+01 -0.1479E+00  0.1500E+03  0.1570E+01 -0.3335E-15
+  0.4208E+00 -0.1804E+00 -0.5136E+00  0.1570E+01  0.1467E+03  0.6658E-14
+ -0.6222E-14  0.4679E-14 -0.3922E-14 -0.1165E-15  0.6800E-14  0.4810E+03
+ITER   1   REL ERROR  0.400E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1491E+03 -0.6314E+00 -0.1491E+01 -0.1390E+01  0.4208E+00 -0.7930E-14
+ -0.6314E+00  0.1606E+03 -0.2219E+00 -0.1195E+01 -0.1804E+00  0.4792E-14
+ -0.1491E+01 -0.2219E+00  0.1492E+03 -0.1479E+00 -0.5137E+00 -0.3191E-14
+ -0.1390E+01 -0.1195E+01 -0.1479E+00  0.1500E+03  0.1570E+01 -0.2822E-15
+  0.4208E+00 -0.1804E+00 -0.5137E+00  0.1570E+01  0.1467E+03  0.6756E-14
+ -0.6229E-14  0.4389E-14 -0.3972E-14 -0.3718E-15  0.6887E-14  0.4810E+03
+ITER   2   REL ERROR  0.349E-05
+
+*******   STEP  43      *** AFFINE CALCULATION                 
+    2   0.360E-03   0.689E-04   0.664E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1490E+03 -0.6312E+00 -0.1495E+01 -0.1380E+01  0.4368E+00 -0.8341E-14
+ -0.6312E+00  0.1608E+03 -0.2343E+00 -0.1171E+01 -0.1804E+00  0.3285E-14
+ -0.1495E+01 -0.2343E+00  0.1492E+03 -0.1470E+00 -0.5175E+00 -0.2552E-14
+ -0.1380E+01 -0.1171E+01 -0.1470E+00  0.1500E+03  0.1581E+01 -0.7473E-15
+  0.4368E+00 -0.1804E+00 -0.5175E+00  0.1581E+01  0.1467E+03  0.7769E-14
+ -0.9389E-14  0.4626E-14 -0.3028E-14  0.3960E-16  0.7434E-14  0.4810E+03
+ITER   1   REL ERROR  0.392E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1490E+03 -0.6312E+00 -0.1495E+01 -0.1380E+01  0.4368E+00 -0.8393E-14
+ -0.6312E+00  0.1608E+03 -0.2343E+00 -0.1171E+01 -0.1804E+00  0.2683E-14
+ -0.1495E+01 -0.2343E+00  0.1492E+03 -0.1470E+00 -0.5176E+00 -0.2589E-14
+ -0.1380E+01 -0.1171E+01 -0.1470E+00  0.1500E+03  0.1581E+01 -0.6467E-15
+  0.4368E+00 -0.1804E+00 -0.5176E+00  0.1581E+01  0.1467E+03  0.7782E-14
+ -0.9363E-14  0.3672E-14 -0.3037E-14  0.9025E-16  0.7340E-14  0.4810E+03
+ITER   2   REL ERROR  0.345E-05
+
+*******   STEP  44      *** AFFINE CALCULATION                 
+    2   0.341E-03   0.771E-04   0.876E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1489E+03 -0.6306E+00 -0.1499E+01 -0.1371E+01  0.4523E+00 -0.1120E-13
+ -0.6306E+00  0.1610E+03 -0.2458E+00 -0.1147E+01 -0.1802E+00  0.3401E-14
+ -0.1499E+01 -0.2458E+00  0.1492E+03 -0.1460E+00 -0.5213E+00 -0.3415E-14
+ -0.1371E+01 -0.1147E+01 -0.1460E+00  0.1500E+03  0.1592E+01  0.1585E-14
+  0.4523E+00 -0.1802E+00 -0.5213E+00  0.1592E+01  0.1466E+03  0.8879E-14
+ -0.1059E-13  0.2683E-14 -0.3516E-14  0.1594E-14  0.8124E-14  0.4810E+03
+ITER   1   REL ERROR  0.385E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1489E+03 -0.6306E+00 -0.1499E+01 -0.1371E+01  0.4523E+00 -0.1128E-13
+ -0.6306E+00  0.1610E+03 -0.2457E+00 -0.1147E+01 -0.1802E+00  0.3014E-14
+ -0.1499E+01 -0.2457E+00  0.1492E+03 -0.1460E+00 -0.5214E+00 -0.3351E-14
+ -0.1371E+01 -0.1147E+01 -0.1460E+00  0.1500E+03  0.1592E+01  0.1595E-14
+  0.4523E+00 -0.1802E+00 -0.5214E+00  0.1592E+01  0.1466E+03  0.8835E-14
+ -0.1057E-13  0.3087E-14 -0.3313E-14  0.1590E-14  0.8015E-14  0.4810E+03
+ITER   2   REL ERROR  0.342E-05
+
+*******   STEP  45      *** AFFINE CALCULATION                 
+    3   0.760E-04   0.287E-04   0.238E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1488E+03 -0.6297E+00 -0.1503E+01 -0.1361E+01  0.4672E+00 -0.1258E-13
+ -0.6297E+00  0.1612E+03 -0.2563E+00 -0.1124E+01 -0.1799E+00  0.3275E-14
+ -0.1503E+01 -0.2563E+00  0.1491E+03 -0.1449E+00 -0.5249E+00 -0.3946E-14
+ -0.1361E+01 -0.1124E+01 -0.1449E+00  0.1499E+03  0.1603E+01 -0.2520E-15
+  0.4672E+00 -0.1799E+00 -0.5249E+00  0.1603E+01  0.1466E+03  0.7001E-14
+ -0.1108E-13  0.3487E-14 -0.3920E-14  0.7609E-15  0.7706E-14  0.4810E+03
+ITER   1   REL ERROR  0.378E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1488E+03 -0.6297E+00 -0.1503E+01 -0.1361E+01  0.4672E+00 -0.1261E-13
+ -0.6297E+00  0.1612E+03 -0.2562E+00 -0.1124E+01 -0.1799E+00  0.2366E-14
+ -0.1503E+01 -0.2562E+00  0.1491E+03 -0.1449E+00 -0.5250E+00 -0.4062E-14
+ -0.1361E+01 -0.1124E+01 -0.1449E+00  0.1499E+03  0.1603E+01 -0.2120E-15
+  0.4672E+00 -0.1799E+00 -0.5250E+00  0.1603E+01  0.1466E+03  0.7022E-14
+ -0.1109E-13  0.2355E-14 -0.4169E-14  0.7694E-15  0.7762E-14  0.4810E+03
+ITER   2   REL ERROR  0.341E-05
+
+*******   STEP  46      *** AFFINE CALCULATION                 
+    3   0.123E-03   0.606E-04   0.820E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1487E+03 -0.6285E+00 -0.1507E+01 -0.1352E+01  0.4816E+00 -0.1241E-13
+ -0.6285E+00  0.1614E+03 -0.2658E+00 -0.1102E+01 -0.1795E+00  0.4461E-14
+ -0.1507E+01 -0.2658E+00  0.1491E+03 -0.1438E+00 -0.5284E+00 -0.4386E-14
+ -0.1352E+01 -0.1102E+01 -0.1438E+00  0.1499E+03  0.1613E+01  0.3354E-15
+  0.4816E+00 -0.1795E+00 -0.5284E+00  0.1613E+01  0.1465E+03  0.6736E-14
+ -0.1290E-13  0.6484E-14 -0.3855E-14  0.1405E-14  0.6414E-14  0.4810E+03
+ITER   1   REL ERROR  0.370E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1487E+03 -0.6285E+00 -0.1507E+01 -0.1352E+01  0.4816E+00 -0.1248E-13
+ -0.6285E+00  0.1614E+03 -0.2658E+00 -0.1102E+01 -0.1795E+00  0.4635E-14
+ -0.1507E+01 -0.2658E+00  0.1491E+03 -0.1438E+00 -0.5285E+00 -0.4332E-14
+ -0.1352E+01 -0.1102E+01 -0.1438E+00  0.1499E+03  0.1613E+01  0.3544E-15
+  0.4816E+00 -0.1795E+00 -0.5285E+00  0.1613E+01  0.1465E+03  0.6799E-14
+ -0.1290E-13  0.6356E-14 -0.3847E-14  0.1392E-14  0.6223E-14  0.4810E+03
+ITER   2   REL ERROR  0.341E-05
+
+*******   STEP  47      *** AFFINE CALCULATION                 
+    3   0.672E-04   0.183E-04   0.826E-04
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1486E+03 -0.6270E+00 -0.1512E+01 -0.1343E+01  0.4954E+00 -0.1190E-13
+ -0.6270E+00  0.1616E+03 -0.2745E+00 -0.1080E+01 -0.1790E+00  0.4575E-14
+ -0.1512E+01 -0.2745E+00  0.1491E+03 -0.1425E+00 -0.5318E+00 -0.2933E-14
+ -0.1343E+01 -0.1080E+01 -0.1425E+00  0.1499E+03  0.1622E+01  0.5269E-15
+  0.4954E+00 -0.1790E+00 -0.5318E+00  0.1622E+01  0.1465E+03  0.7365E-14
+ -0.1084E-13  0.3654E-14 -0.2493E-14  0.1178E-14  0.7586E-14  0.4810E+03
+ITER   1   REL ERROR  0.363E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1486E+03 -0.6270E+00 -0.1511E+01 -0.1343E+01  0.4954E+00 -0.1189E-13
+ -0.6270E+00  0.1616E+03 -0.2745E+00 -0.1081E+01 -0.1790E+00  0.3335E-14
+ -0.1511E+01 -0.2745E+00  0.1491E+03 -0.1425E+00 -0.5319E+00 -0.2708E-14
+ -0.1343E+01 -0.1081E+01 -0.1425E+00  0.1499E+03  0.1623E+01  0.2121E-15
+  0.4954E+00 -0.1790E+00 -0.5319E+00  0.1623E+01  0.1465E+03  0.7433E-14
+ -0.1086E-13  0.3598E-14 -0.2707E-14  0.8009E-15  0.7675E-14  0.4810E+03
+ITER   2   REL ERROR  0.343E-05
+
+*******   STEP  48      *** AFFINE CALCULATION                 
+    4   0.737E-04   0.126E-04   0.917E-04
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1485E+03 -0.6252E+00 -0.1516E+01 -0.1334E+01  0.5087E+00 -0.1172E-13
+ -0.6252E+00  0.1617E+03 -0.2823E+00 -0.1059E+01 -0.1784E+00  0.1446E-14
+ -0.1516E+01 -0.2823E+00  0.1491E+03 -0.1412E+00 -0.5350E+00 -0.2172E-14
+ -0.1334E+01 -0.1059E+01 -0.1412E+00  0.1498E+03  0.1632E+01  0.8224E-16
+  0.5087E+00 -0.1784E+00 -0.5350E+00  0.1632E+01  0.1464E+03  0.9381E-14
+ -0.1069E-13  0.1655E-14 -0.2459E-14  0.3190E-15  0.9196E-14  0.4810E+03
+ITER   1   REL ERROR  0.356E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1485E+03 -0.6252E+00 -0.1516E+01 -0.1334E+01  0.5087E+00 -0.1181E-13
+ -0.6252E+00  0.1617E+03 -0.2823E+00 -0.1060E+01 -0.1784E+00  0.1703E-14
+ -0.1516E+01 -0.2823E+00  0.1491E+03 -0.1412E+00 -0.5351E+00 -0.2278E-14
+ -0.1334E+01 -0.1060E+01 -0.1412E+00  0.1498E+03  0.1632E+01  0.1727E-15
+  0.5087E+00 -0.1784E+00 -0.5351E+00  0.1632E+01  0.1464E+03  0.9384E-14
+ -0.1067E-13  0.9560E-15 -0.2571E-14  0.1619E-15  0.9151E-14  0.4810E+03
+ITER   2   REL ERROR  0.349E-05
+
+*******   STEP  49      *** AFFINE CALCULATION                 
+    4   0.698E-04   0.112E-04   0.764E-04
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1485E+03 -0.6231E+00 -0.1520E+01 -0.1325E+01  0.5214E+00 -0.9078E-14
+ -0.6231E+00  0.1619E+03 -0.2893E+00 -0.1039E+01 -0.1778E+00  0.2499E-14
+ -0.1520E+01 -0.2893E+00  0.1491E+03 -0.1399E+00 -0.5382E+00 -0.3510E-14
+ -0.1325E+01 -0.1039E+01 -0.1399E+00  0.1498E+03  0.1640E+01  0.4653E-15
+  0.5214E+00 -0.1778E+00 -0.5382E+00  0.1640E+01  0.1464E+03  0.8177E-14
+ -0.9557E-14  0.5254E-14 -0.2843E-14  0.1001E-14  0.8542E-14  0.4810E+03
+ITER   1   REL ERROR  0.349E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1485E+03 -0.6231E+00 -0.1520E+01 -0.1325E+01  0.5215E+00 -0.9066E-14
+ -0.6231E+00  0.1619E+03 -0.2893E+00 -0.1039E+01 -0.1778E+00  0.2611E-14
+ -0.1520E+01 -0.2893E+00  0.1491E+03 -0.1399E+00 -0.5383E+00 -0.3677E-14
+ -0.1325E+01 -0.1039E+01 -0.1399E+00  0.1498E+03  0.1641E+01  0.4564E-15
+  0.5215E+00 -0.1778E+00 -0.5383E+00  0.1641E+01  0.1463E+03  0.8257E-14
+ -0.9672E-14  0.3840E-14 -0.2984E-14  0.1798E-15  0.8746E-14  0.4810E+03
+ITER   2   REL ERROR  0.358E-05
+
+*******   STEP  50      *** AFFINE CALCULATION                 
+    4   0.679E-04   0.161E-04   0.194E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1484E+03 -0.6207E+00 -0.1524E+01 -0.1316E+01  0.5337E+00 -0.1450E-13
+ -0.6207E+00  0.1621E+03 -0.2955E+00 -0.1019E+01 -0.1771E+00  0.7056E-14
+ -0.1524E+01 -0.2955E+00  0.1491E+03 -0.1386E+00 -0.5413E+00 -0.2679E-14
+ -0.1316E+01 -0.1019E+01 -0.1386E+00  0.1498E+03  0.1649E+01  0.4227E-15
+  0.5337E+00 -0.1771E+00 -0.5413E+00  0.1649E+01  0.1463E+03  0.8688E-14
+ -0.1409E-13  0.4015E-14 -0.2206E-14  0.5273E-15  0.7882E-14  0.4810E+03
+ITER   1   REL ERROR  0.342E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1484E+03 -0.6207E+00 -0.1524E+01 -0.1316E+01  0.5337E+00 -0.1446E-13
+ -0.6207E+00  0.1621E+03 -0.2955E+00 -0.1019E+01 -0.1771E+00  0.6227E-14
+ -0.1524E+01 -0.2955E+00  0.1491E+03 -0.1385E+00 -0.5414E+00 -0.2595E-14
+ -0.1316E+01 -0.1019E+01 -0.1385E+00  0.1498E+03  0.1649E+01  0.4986E-15
+  0.5337E+00 -0.1771E+00 -0.5414E+00  0.1649E+01  0.1463E+03  0.8729E-14
+ -0.1406E-13  0.3559E-14 -0.2247E-14  0.4298E-15  0.7811E-14  0.4810E+03
+ITER   2   REL ERROR  0.372E-05
+
+*******   STEP  51      *** AFFINE CALCULATION                 
+    4   0.663E-04   0.222E-04   0.304E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1484E+03 -0.6207E+00 -0.1524E+01 -0.1316E+01  0.5337E+00 -0.1461E-13
+ -0.6207E+00  0.1621E+03 -0.2955E+00 -0.1019E+01 -0.1771E+00  0.6390E-14
+ -0.1524E+01 -0.2955E+00  0.1491E+03 -0.1385E+00 -0.5414E+00 -0.2657E-14
+ -0.1316E+01 -0.1019E+01 -0.1385E+00  0.1498E+03  0.1649E+01  0.3900E-15
+  0.5337E+00 -0.1771E+00 -0.5414E+00  0.1649E+01  0.1463E+03  0.8656E-14
+ -0.1404E-13  0.3302E-14 -0.2114E-14  0.5039E-15  0.7860E-14  0.4810E+03
+ITER   1   REL ERROR  0.257E-06
+
+ TIME ELAPSED   12.08secs

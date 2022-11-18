@@ -1,0 +1,54 @@
+* # of texture files 'ntextfiles' to read below
+  1
+* path & name of texture files (one per line)
+example4/Cu_roll.wpf
+* 'ipfig': 0 for PF plot, 1 for IPF plot, -1 for *.SOD file, -2 for *.EPF file
+  -2
+* single crystal unit cell (N/A if ipfig=-2)
+datasx/fcc.sx
+* number of X-tall poles (PF) or sample axes (IPF) to read (N/A if ipfig=-2)
+  3
+*Miller indices of poles (N/A if ipfig=-2)
+   1   1   1      !  3   (100) poles
+   1   1   0      !  6   (110) poles
+   1   0   0      !  4   (111) poles
+	
+****** copy from below & paste above for diferent symmetries & poles ******
+
+*Miller indices of poles for hexag and trigonal
+   0   0   0   1   ! 1 basal pole
+   1   0  -1   0   ! 3 prism 1st order poles
+   2  -1  -1   0   ! 3 prism 2nd order poles
+   1   0  -1   1   ! 6 pyramidal 1st order poles
+   1   0  -1   2   ! 6 pyramidal 2nd order poles
+   1   0  -1   3   ! 6 pyramidal 3nd order poles
+
+* Miller indices of poles for cubics
+   1   0   0      !  3   (100) poles
+   1   1   0      !  6   (110) poles
+   1   1   1      !  4   (111) poles
+   2   1   1      ! 12   (112) poles
+
+* indices of sample axis for (IPF)
+   1   0   0      !  x1 axis for IPF
+   0   1   0      !  x2 axis for IPF
+   0   0   1      !  x3 axis for IPF
+
+* Miller indices of poles for monoclinic
+   1   1   1       ! 2   (111) poles
+   1   3   1       ! 2   (131) poles
+  -1   3   1       ! 2   (-131) poles
+   1   0   0       ! 1   (100) pole
+   0   1   0       ! 1   (010) pole
+   0   0   1       ! 1   (001) pole
+
+* Miller indices of poles for triclinic
+   1   0   0       ! 1   (100) pole
+   0   1   0       ! 1   (010) pole
+   0   0   1       ! 1   (001) pole
+
+* Miller indices of poles for orthorhombic
+   1   1   1       ! 4   (111) poles
+   1   0   0       ! 1   (100) pole
+   0   1   0       ! 1   (010) pole
+   0   0   1       ! 1   (001) pole

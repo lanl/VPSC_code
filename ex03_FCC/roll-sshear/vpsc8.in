@@ -1,0 +1,39 @@
+1                          number of elements (nelem)                                                                             
+1                          number of phases (nph)                                                                                 
+1.0  0.0                   relative vol. fract. of phases (wph(i))                                                                
+*INFORMATION ABOUT PHASE #1                                                                                                       
+0   0   25                    grain shape contrl, fragmentn, crit aspect ratio                                                    
+1.0  1.0  1.0                 initial ellipsoid ratios (dummy if ishape=4)                                                        
+0.0  0.0  0.0                 init Eul ang ellips axes (dummy if ishape=3,4)                                                      
+* name and path of texture file (filetext)                                                                                        
+ex03_FCC\rand500.tex                                                                                                              
+* name and path of single crystal file (filecrys)                                                                                 
+ex03_FCC\fcc.sx2                                                                                                                  
+* name and path of grain shape file (dummy if ishape=0) (fileaxes)                                                                
+dummy                                                                                                                             
+* name and path of diffraction file (dummy if idiff=0)                                                                            
+0                                                                                                                                 
+dummy                                                                                                                             
+*PRECISION SETTINGS FOR CONVERGENCE PROCEDURES (default values)                                                                   
+0.001 0.001 0.001 0.001    errs,errd,errm,errso                                                                                   
+100 100 25     itmax:   max # of iter, external, internal and SO loops                                                            
+0  2  10  2    irsvar & jrsini,jrsfin,jrstep (dummy if irsvar=0)                                                                  
+*INPUT/OUTPUT SETTINGS FOR THE RUN (default is zero)                                                                              
+0              irecover:read grain states from POSTMORT.IN (1) or not (0)?                                                        
+0              isave:   write grain states in POSTMORT.OUT at step 'isave'?                                                       
+1              icubcomp:calculate fcc rolling components?                                                                         
+25             nwrite (frequency of texture downloads)                                                                           
+*MODELING CONDITIONS FOR THE RUN                                                                                                  
+1              interaction (0:FC,1:affine,2:secant,3:neff=10,4:tangent,5:SO)                                                      
+1  1  1        iupdate: update orient, grain shape, hardening                                                                     
+0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
+0              iflu (0: don't calc, 1: calc fluctuations)                                                                         
+*NUMBER OF PROCESSES (Lij const; Lij variable; PCYS ;LANKFORD; rigid rotatn)                                                      
+3                                                                                                                                 
+*IVGVAR AND PATH\NAME OF FILE OR STRESS SUBSPACE OR ANGULAR INCREMENT                                                             
+1                                                                                                                                 
+ex03_FCC\lij_hist_simp_shear.dat                                                                                                  
+2         ivgvar=2 will calculate PCYS at the end                                                                                 
+1 2             -->   section of stress space                                                                                     
+3         ivgvar=3 will calculate Lankford coefficients at the end                                                                
+10              -->   angular increment for tensile probing                                                                       

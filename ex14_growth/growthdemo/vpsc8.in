@@ -1,0 +1,40 @@
+1                          number of elements (nelem)
+1                          number of phases (nph)
+1.0  0.0                   relative vol. fract. of phases (wph(i))
+*INFORMATION ABOUT PHASE #1
+0   0   25                    grain shape contrl, fragmentn, crit aspect ratio
+1.0  1.0  1.0                 initial ellipsoid ratios (dummy if ishape=4)
+0.0  0.0  0.0                 init Eul ang ellips axes (dummy if ishape=3,4)
+* name and path of texture file (filetext)
+ex14_growth\H190M_1816.tex
+* name and path of single crystal file (filecrys)
+ex14_growth\zr_irr_creep.sx
+* name and path of grain shape file (dummy if ishape=0) (fileaxes)
+shape1.100
+* name and path of diffraction file (dummy if idiff=0)
+0
+dummy
+*PRECISION SETTINGS FOR CONVERGENCE PROCEDURES (default values)
+1.e-3  1.e-3  1.e-3   0.01     errs,errd,errm,errso
+100 100 25     itmax:   max # of iter, external, internal and SO loops
+0  2  10  2   irsvar & jrsini,jrsfin,jrstep (dummy if irsvar=0)
+*INPUT/OUTPUT SETTINGS FOR THE RUN (default is zero)
+0              irecover:read grain states from POSTMORT.IN (1) or not (0)?
+0              isave:   write grain states in POSTMORT.OUT at step 'isave'?
+0              icubcomp:calculate fcc rolling components?
+0              nwrite (frequency of texture downloads)
+*MODELING CONDITIONS FOR THE RUN
+1              interaction (0:FC,1:affine,2:secant,3:neff,4:tangent,5:SO)
+1  1  1        iupdate: update orient, grain shape, hardening
+0              nneigh (0 for no neighbors, 1 for pairs, etc.)
+0              iflu (0: don't calc, 1: calc fluctuations)
+*NUMBER OF PROCESSES (Lij const; Lij variable; PCYS ;LANKFORD; rigid rotatn)
+1
+*IVGVAR AND PATH\NAME OF FILE FOR EACH PROCESS (dummy if ivgvar=2,3)
+0                  
+ex14_growth\tube_pressure.s22
+
+ex14_growth\TENS_CREEP.3
+
+ex14_growth\TENS_RATE.3
+

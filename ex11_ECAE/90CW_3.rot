@@ -1,0 +1,5 @@
+* rotation of 90 deg around axis 3. columns are rotated sa expressed in lab axes
+   0   1   0
+  -1   0   0
+   0   0   1
+

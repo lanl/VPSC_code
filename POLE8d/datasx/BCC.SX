@@ -1,0 +1,80 @@
+ISOTROPIC ELASTIC CONSTANTS AND 'NO-HARDENING' PARAMETERS
+CUBIC             crysym
+   1.   1.   1.    90.   90.   90.   unit cell axes and angles
+Elastic stiffness of single crystal [GPa]
+ 250.0   155.0   155.0   000.0   000.0   000.0
+ 155.0   250.0   155.0   000.0   000.0   000.0
+ 155.0   155.0   250.0   000.0   000.0   000.0
+ 000.0   000.0   000.0    47.5   000.0   000.0
+ 000.0   000.0   000.0   000.0    47.5   000.0
+ 000.0   000.0   000.0   000.0   000.0    47.5
+*Thermal expansion coefficients (single crystal in crystal axis):
+  0.0e-6   0.0e-6   0.0e-6   0.0e0   0.0e0   0.0e0                    "alfacc"
+INFORMATION ABOUT SLIP AND TWIN SYSTEMS
+   3              nmodesx (total # of modes listed in the file)
+   2              nmodes  (# of modes to be used in the calculation)
+   1  2           mode(i) (label of the modes to be used)
+   {110}<111> SLIP
+  1   12   20    1                    modex,nsmx,nrsx,isensex
+  0.0   0    0.   0.                  twshx,isectw,thres1,thres2
+  1.   0.0     0.0    0.0     0.  0.  tau0,tau1,thet0,thet1 ,hpfac,hgnd
+         1.0    1.0    1.0            hlatex
+    0    1    1     1    1   -1       slip (n-b)
+    1    0    1     1    1   -1
+    1   -1    0     1    1   -1
+    0    1   -1     1   -1   -1
+    1    0    1     1   -1   -1
+    1    1    0     1   -1   -1
+    0    1    1     1   -1    1
+    1    0   -1     1   -1    1
+    1    1    0     1   -1    1
+    0    1   -1     1    1    1
+    1    0   -1     1    1    1
+    1   -1    0     1    1    1
+   {112}<111> SLIP
+  2   12   20    1                    modex,nsmx,nrsx,isensex
+  0.0   0    0.   0.                  twshx,isectw,thres1,thres2
+  1.0   0.0   0.000  0.000    0.  0.  tau0,tau1,thet0,thet1 ,hpfac,hgnd
+         1.0    1.0    1.0            hlatex
+   -2    1   -1    -1   -1    1       slip (n-b)
+    1   -2   -1    -1   -1    1
+    1    1    2    -1   -1    1
+   -2   -1   -1    -1    1    1
+    1    2   -1    -1    1    1
+    1   -1    2    -1    1    1
+    2    1   -1     1   -1    1
+   -1   -2   -1     1   -1    1
+   -1    1    2     1   -1    1
+    2   -1   -1     1    1    1
+   -1    2   -1     1    1    1
+   -1   -1    2     1    1    1
+   {123}<111> SLIP
+  3   24   20    1                    modex,nsmx,nrsx,isensex
+  0.0   0    0.   0.                  twshx,isectw,thres1,thres2
+  1.0   0.0   0.000  0.000    0.  0.  tau0,tau1,thet0,thet1 ,hpfac,hgnd
+         1.0    1.0    1.0            hlatex
+    1    2    3     1    1   -1       slip (n-b)
+   -1    3    2     1    1   -1
+    2    1    3     1    1   -1
+   -2    3    1     1    1   -1
+    3   -1    2     1    1   -1
+    3   -2    1     1    1   -1
+   -1    2   -3     1   -1   -1
+    1    3   -2     1   -1   -1
+    2   -1    3     1   -1   -1
+    2    3   -1     1   -1   -1
+    3    1    2     1   -1   -1
+    3    2    1     1   -1   -1
+    1   -2   -3     1   -1    1
+    1    3    2     1   -1    1
+    2   -1   -3     1   -1    1
+    2    3    1     1   -1    1
+    3    1   -2     1   -1    1
+    3    2   -1     1   -1    1
+    1    2   -3     1    1    1
+    1   -3    2     1    1    1
+    2    1   -3     1    1    1
+    2   -3    1     1    1    1
+   -3    1    2     1    1    1
+   -3    2    1     1    1    1
+

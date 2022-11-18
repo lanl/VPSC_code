@@ -1,0 +1,15 @@
+eddqq.FUL                                         
+eddqq.RAN                                         
+
+poles     1  1  1
+sum1  6.28319     sum2  6.28319
+PF difference parameter  0.04783
+
+poles     1  1  0
+sum1  6.28319     sum2  6.28319
+PF difference parameter  0.04280
+
+poles     1  0  0
+sum1  6.28319     sum2  6.28319
+PF difference parameter  0.05515
+

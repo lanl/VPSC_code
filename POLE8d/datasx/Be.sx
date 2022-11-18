@@ -1,0 +1,12 @@
+*Material: Be
+HEXAGONAL                                crysym
+1.  1.  1.568     90.  90.  120.         cdim(i),ca
+*Elastic stiffness OF single crystal [GPa]
+  292.3    26.7    14.0     0.0     0.0     0.0
+   26.7   292.3    14.0     0.0     0.0     0.0
+   14.0    14.0   336.4     0.0     0.0     0.0
+    0.0     0.0     0.0   162.5     0.0     0.0
+    0.0     0.0     0.0     0.0   162.5     0.0
+    0.0     0.0     0.0     0.0     0.0   132.8
+*Thermal expansion coefficients of single crystal (in crystal axis)
+ 13.9e-6  13.9e-6  10.4e-6   0.0e0   0.0e0   0.0e0

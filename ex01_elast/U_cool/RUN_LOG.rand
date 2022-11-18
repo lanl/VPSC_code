@@ -1,0 +1,172 @@
+
+ **** INPUT FILE VPSC.IN FOR THIS RUN ****
+1                          number of elements (nelem)                                                                             
+1                          number of phases (nph)                                                                                 
+1.0  0.0                   relative vol. fract. of phases (wph(i))                                                                
+*INFORMATION ABOUT PHASE #1                                                                                                       
+0   0   25                    grain shape contrl, fragmentn, crit aspect ratio                                                    
+1.0  1.0  1.0                 initial ellipsoid ratios (dummy if ishape=4)                                                        
+0.0  0.0  0.0                 init Eul ang ellips axes (dummy if ishape=3,4)                                                      
+* name and path of texture file (filetext)                                                                                        
+ex01_elast\rand1000.tex                                                                                                           
+* name and path of single crystal file (filecrys)                                                                                 
+ex01_elast\uranium.sx                                                                                                             
+* name and path of grain shape file (dummy if ishape=0) (fileaxes)                                                                
+shape1.100                                                                                                                        
+* name and path of diffraction file (dummy if idiff=0)                                                                            
+1                                                                                                                                 
+ex01_elast\ortho.dif                                                                                                              
+*PRECISION SETTINGS FOR CONVERGENCE PROCEDURES (default values)                                                                   
+1.e-3  1.e-3  1.e-3   0.01     errs,errd,errm,errso                                                                               
+100 100 25     itmax:   max # of iter, external, internal and SO loops                                                            
+0  2  10  2    irsvar & jrsini,jrsfin,jrstep (dummy if irsvar=0)                                                                  
+*INPUT/OUTPUT SETTINGS FOR THE RUN (default is zero)                                                                              
+0              irecover:read grain states from POSTMORT.IN (1) or not (0)?                                                        
+0              isave:   write grain states in POSTMORT.OUT at step 'isave'?                                                       
+0              icubcomp:calculate fcc rolling components?                                                                         
+0              nwrite (frequency of texture downloads)                                                                            
+*MODELING CONDITIONS FOR THE RUN                                                                                                  
+-1             interaction (-1:elast,0:FC,1:aff,2:sec,3:neff=10,4:tang,5:SO)                                                      
+1  1  1        iupdate: update orient, grain shape, hardening                                                                     
+0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
+0              iflu (0: don't calc, 1: calc fluctuations)                                                                         
+*NUMBER OF PROCESSES (Lij const; Lij variable; PCYS ;LANKFORD; rigid rotatn)                                                      
+1                                                                                                                                 
+*IVGVAR AND PATH\NAME OF FILE FOR EACH PROCESS (dummy if ivgvar=2,3)                                                              
+0                  -->   cooling from 900 K to 300 K with small E33                                                               
+ex01_elast\cooling                                                                                                                
+
+
+ **** CRYSTAL DATA FILE ****
+ELASTIC CONSTANTS AND SLIP SYSTEMS FOR URANIUM                                                                                    
+ORTHORHOMBIC             crysym                                                                                                   
+   1.  2.056   1.7361    90.   90.   90.   unit cell axes and angles                                                              
+Elastic stiffness (single crystal [MPa]) from Fischer JNM 18 (1966)                                                               
+ 214.8e3    46.5e3    21.8e3   0.0   0.0   0.0                                                                                    
+  46.5e3   198.6e3   107.6e3   0.0   0.0   0.0                                                                                    
+  21.8e3   107.6e3   267.1e3   0.0   0.0   0.0                                                                                    
+ 000.0     000.0   000.0     124.4e3     0.0       0.0                                                                            
+ 000.0     000.0     000.0     000.0    73.4e3   000.0                                                                            
+ 000.0     000.0     000.0     000.0     000.0   74.3e3                                                                           
+*Thermal expansion coefficients (single crystal in crystal axis):                                                                 
+ 25.41e-6  0.65e-6  20.65e-6   0.0e0   0.0e0   0.0e0                                                                              
+**** END OF CRYSTAL DATA FILE ****
+
+
+ CHECKING THAT CELCC*SELCC-ID6=0   0.7199246E-15
+ *********** PHASE   1
+ RANDOM PX BULK & POISSON MODULI  114700.000       0.194
+ RANDOM PX ELASTIC CTES C11, C12, C44  232113.333   55993.333   88060.000
+
+ **** CRYST TEXTURE (FIRST FEW LINES) ****
+axes of the ellipsoid                                                                                                             
+  1.0  1.0  1.0                                                                                                                   
+random texture generated by RANDTEXT.FOR (23/01/97)                                                                               
+B  1000   0                                                                                                                       
+    102.74    119.56     33.65  1.0                                                                                               
+    219.06     36.21     70.51  1.0                                                                                               
+    166.66     28.59     45.80  1.0                                                                                               
+    149.74     86.13     38.68  1.0                                                                                               
+    143.88     72.50      9.75  1.0                                                                                               
+     27.71      7.88    225.69  1.0                                                                                               
+     10.26     81.59    324.82  1.0                                                                                               
+    213.21    156.91    352.41  1.0                                                                                               
+    313.75     60.06    131.59  1.0                                                                                               
+    283.74    137.64    213.65  1.0                                                                                               
+    329.59    158.18    298.33  1.0                                                                                               
+     61.37    171.68    104.65  1.0                                                                                               
+     44.90     68.33     40.28  1.0                                                                                               
+     29.40    114.77    163.14  1.0                                                                                               
+     56.39    115.89    341.90  1.0                                                                                               
+    271.21     76.66    171.67  1.0                                                                                               
+    .........................
+ **** END OF CRYST TEXTURE DATA FILE ****
+
+
+ **** DIFFRACTION FILE ****
+*DIFFRACTING PLANES AND DIRECTION FOR ORTHOTROPIC                                                                                 
+*Number of diffraction directions and diffracting angle spread:                                                                   
+   9   7.5    "ndif"  "Spread"                                                                                                    
+*Plane type and direction angle (0,0 ->X3, 90,90 ->X2, 90,0 ->X1)                                                                 
+*"n3" or "n4"   "theta"   "phi"                                                                                                   
+1  0  0      90.000    0.000      axis 1                                                                                          
+0  1  0      90.000    0.000                                                                                                      
+0  0  1      90.000    0.000                                                                                                      
+1  0  0      90.000    90.000     axis 2                                                                                          
+0  1  0      90.000    90.000                                                                                                     
+0  0  1      90.000    90.000                                                                                                     
+1  0  0       0.000    0.000      axis 3                                                                                          
+0  1  0       0.000    0.000                                                                                                      
+0  0  1       0.000    0.000                                                                                                      
+                                                                                                                                  
+ **** END OF DIFFRACTION FILE ****
+
+
+ UB THERMAL TENSOR (VOIGT NOTATION)
+  0.1521E-04  0.1519E-04  0.1497E-04  0.1378E-07  0.2747E-06 -0.2828E-07
+
+ UB ELASTIC STIFFNESS (VOIGT NOTATION)
+  0.2317E+06  0.5634E+05  0.5571E+05  0.1106E+03 -0.3580E+03  0.1205E+03
+  0.5634E+05  0.2332E+06  0.5523E+05  0.5283E+03 -0.3380E+03 -0.3779E+03
+  0.5571E+05  0.5523E+05  0.2328E+06 -0.6051E+03  0.3274E+03  0.3718E+03
+  0.1106E+03  0.5283E+03 -0.6051E+03  0.8714E+05  0.3221E+03  0.1758E+03
+ -0.3580E+03 -0.3380E+03  0.3274E+03  0.3221E+03  0.8762E+05  0.1423E+03
+  0.1205E+03 -0.3779E+03  0.3718E+03  0.1758E+03  0.1423E+03  0.8872E+05
+
+ LB THERMAL TENSOR (VOIGT NOTATION)
+  0.1568E-04  0.1572E-04  0.1532E-04  0.2581E-07  0.3877E-06 -0.3483E-07
+
+ LB ELASTIC STIFFNESS (VOIGT NOTATION)
+  0.2188E+06  0.5786E+05  0.5742E+05  0.1153E+03 -0.1592E+03  0.1243E+03
+  0.5786E+05  0.2199E+06  0.5706E+05  0.3541E+03 -0.3617E+03 -0.3789E+03
+  0.5742E+05  0.5706E+05  0.2195E+06 -0.4386E+03  0.3200E+03  0.3308E+03
+  0.1153E+03  0.3541E+03 -0.4386E+03  0.7989E+05  0.2617E+03  0.2351E+03
+ -0.1592E+03 -0.3617E+03  0.3200E+03  0.2617E+03  0.8027E+05  0.1532E+03
+  0.1243E+03 -0.3789E+03  0.3308E+03  0.2351E+03  0.1532E+03  0.8120E+05
+
+
+*** LOAD CONDITIONS FOR THIS RUN
+   12   8   -50.    900    300      nsteps   ictrl   eqincr   temp_i   temp_f                                                     
+* boundary conditions                                                                                                             
+    0       0       0           iudot     |    flag for vel.grad.                                                                 
+    1       0       0                     |    (0:unknown-1:known)                                                                
+    1       1       0                     |                                                                                       
+                                          |                                                                                       
+   -0.001     0.      0.          udot      |    vel.grad                                                                         
+    0.     -0.001    0.                    |                                                                                      
+    0.      0.      -0.001                  |                                                                                     
+                                          |                                                                                       
+    1       1        1           iscau    |    flag for Cauchy                                                                    
+            1        1                    |                                                                                       
+                     1                    |                                                                                       
+                                          |                                                                                       
+    0.      0.       0.          scauchy  |    Cauchy stress                                                                      
+            0.       0.                   |                                                                                       
+                     0.                   @                                                                                       
+                                                                                                                                  
+
+*******   STEP   1      *** THERMO-ELASTIC CALCULATION         
+
+*******   STEP   2      *** THERMO-ELASTIC CALCULATION         
+
+*******   STEP   3      *** THERMO-ELASTIC CALCULATION         
+
+*******   STEP   4      *** THERMO-ELASTIC CALCULATION         
+
+*******   STEP   5      *** THERMO-ELASTIC CALCULATION         
+
+*******   STEP   6      *** THERMO-ELASTIC CALCULATION         
+
+*******   STEP   7      *** THERMO-ELASTIC CALCULATION         
+
+*******   STEP   8      *** THERMO-ELASTIC CALCULATION         
+
+*******   STEP   9      *** THERMO-ELASTIC CALCULATION         
+
+*******   STEP  10      *** THERMO-ELASTIC CALCULATION         
+
+*******   STEP  11      *** THERMO-ELASTIC CALCULATION         
+
+*******   STEP  12      *** THERMO-ELASTIC CALCULATION         
+
+ TIME ELAPSED    0.30secs

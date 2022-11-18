@@ -1,0 +1,98 @@
+*Material: Low carbon steel #1
+CUBIC           crysym
+   1.0   1.0   1.0   90.   90.   90.   unit cell axes and angles
+Elastic stiffness (single crystal [MPa])
+ 204600. 137700. 137700.   000.0    000.0    000.0
+ 137700. 204600. 137700.   000.0    000.0    000.0
+ 137700. 137700. 204600.   000.0    000.0    000.0
+  000.0   000.0   000.0   126200.   000.0    000.0
+  000.0   000.0   000.0    000.0   126200.   000.0
+  000.0   000.0   000.0    000.0    000.0   126200.
+*Thermal expansion coefficients (single crystal in crystal axis):
+ 10.0e-6  10.0e-6  10.0e-6   0.0e0   0.0e0   0.0e0                    "alfacc"
+*Info about slip & twinning modes in this file:
+  3          nmodesx    (total # of modes listed in file)
+  2          nmodes     (# of modes to be used in the calculation)
+  1 2          mode(i)    (label of the modes to be used)
+   {110}<111> SLIP
+ 1  12  1   0                       modex,nsmx,isensex,itwtypex
+    0    1    1     1    1   -1       slip (n-b)
+    1    0    1     1    1   -1
+    1   -1    0     1    1   -1
+    0    1   -1     1   -1   -1
+    1    0    1     1   -1   -1
+    1    1    0     1   -1   -1
+    0    1    1     1   -1    1
+    1    0   -1     1   -1    1
+    1    1    0     1   -1    1
+    0    1   -1     1    1    1
+    1    0   -1     1    1    1
+    1   -1    0     1    1    1
+   {112}<111> SLIP
+ 2  12  1   0                       modex,nsmx,isensex,itwtypex
+   -2    1   -1    -1   -1    1       slip (n-b)
+    1   -2   -1    -1   -1    1
+    1    1    2    -1   -1    1
+   -2   -1   -1    -1    1    1
+    1    2   -1    -1    1    1
+    1   -1    2    -1    1    1
+    2    1   -1     1   -1    1
+   -1   -2   -1     1   -1    1
+   -1    1    2     1   -1    1
+    2   -1   -1     1    1    1
+   -1    2   -1     1    1    1
+   -1   -1    2     1    1    1
+   {123}<111> SLIP
+ 3  24  1   0                       modex,nsmx,isensex,itwtypex
+    1    2    3     1    1   -1       slip (n-b)
+   -1    3    2     1    1   -1
+    2    1    3     1    1   -1
+   -2    3    1     1    1   -1
+    3   -1    2     1    1   -1
+    3   -2    1     1    1   -1
+   -1    2   -3     1   -1   -1
+    1    3   -2     1   -1   -1
+    2   -1    3     1   -1   -1
+    2    3   -1     1   -1   -1
+    3    1    2     1   -1   -1
+    3    2    1     1   -1   -1
+    1   -2   -3     1   -1    1
+    1    3    2     1   -1    1
+    2   -1   -3     1   -1    1
+    2    3    1     1   -1    1
+    3    1   -2     1   -1    1
+    3    2   -1     1   -1    1
+    1    2   -3     1    1    1
+    1   -3    2     1    1    1
+    2    1   -3     1    1    1
+    2   -3    1     1    1    1
+   -3    1    2     1    1    1
+   -3    2    1     1    1    1
+*Constitutive law
+   23     Voce=0, MTS=1, DDrev=23
+   0      iratesens (0:rate insensitive, 1:rate sensitive)
+   0.5    0.5     fBSm(islmod) ! back-stress factors
+   5.0    0.5     qBS, mREV    ! back-stress & reversal powers
+   30.d-6                     ! D [m] grain size
+DISLOCATION MODEL for {110}<111>
+85000.d0 ! mu (MPa)
+2.46d-10 ! b (m)
+55.d0    ! t0 at 20 ºc(MPa)
+650.d0   ! K at 20 ºC
+1.3d0    ! f_self
+1.3d0    ! f_lat
+1.0d11    ! rho_min in rev parameter P
+1.0d14    ! rho_max in rev parameter P
+0.250             ! hselfx(im)
+0.525     0.525   ! hlatex(im,jm)
+DISLOCATION MODEL for {112}<111>
+85000.d0 ! mu (MPa)
+2.46d-10 ! b (m)
+55.d0    ! t0 at 20 ºc(MPa)
+650.d0   ! K at 20 ºC
+1.3d0    ! f_self
+1.3d0    ! f_lat
+1.0d11    ! rho_min in rev parameter P
+1.0d14    ! rho_max in rev parameter P
+0.250             ! hselfx(im)
+0.525     0.525   ! hlatex(im,jm)

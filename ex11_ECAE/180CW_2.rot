@@ -1,0 +1,5 @@
+* rotation of 180 deg around axis 2. columns are rotated sa expressed in lab axes
+  -1   0   0
+   0   1   0
+   0   0  -1
+

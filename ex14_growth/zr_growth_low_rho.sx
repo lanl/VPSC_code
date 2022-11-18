@@ -1,0 +1,72 @@
+*Material: zirconium
+HEXAGONAL                                crysym
+1.  1.  1.594     90.  90.  120.         cdim(i),cang(i)
+*Elastic stiffness of single crystal [GPa]
+  143.5e3    72.5e3    65.4e3     0.0     0.0     0.0
+   72.5e3   143.5e3    65.4e3     0.0     0.0     0.0
+   65.4e3    65.4e3   164.9e3     0.0     0.0     0.0
+    0.0     0.0     0.0    32.1e3     0.0e3     0.0e3
+    0.0     0.0     0.0     0.0e3    32.1e3     0.0e3
+    0.0     0.0     0.0     0.0e3     0.0e3    35.5e3
+*Thermal expansion coefficients of single crystal[K^(-1)]
+  5.7e-6   5.7e-6  10.3e-6   0.0e0   0.0e0   0.0e0
+SLIP AND TWINNING MODES
+3                               nmodesx
+3                               nmodes
+1 2 3                           mode(i)
+PRISMATIC <a>
+  1    3   1   0                       modex,nsmx,iopsysx,itwtypex
+  1  0 -1  0    -1  2 -1  0
+  0 -1  1  0     2 -1 -1  0
+ -1  1  0  0    -1 -1  2  0
+BASAL <a>
+  2    3   1   0                       modex,nsmx,iopsysx,itwtypex
+  0  0  0  1    -1  2 -1  0
+  0  0  0  1     2 -1 -1  0
+  0  0  0  1    -1 -1  2  0
+PYRAMIDAL<c+a>
+  3   12   1   0                       modex,nsmx,iopsysx,itwtypex
+  1  0 -1  1    -1 -1  2  3
+  1  0 -1  1    -2  1  1  3
+  0 -1  1  1     1  1 -2  3
+  0 -1  1  1    -1  2 -1  3
+ -1  1  0  1     2 -1 -1  3
+ -1  1  0  1     1 -2  1  3
+ -1  0  1  1     2 -1 -1  3
+ -1  0  1  1     1  1 -2  3
+  0  1 -1  1    -1 -1  2  3
+  0  1 -1  1     1 -2  1  3
+  1 -1  0  1    -2  1  1  3
+  1 -1  0  1    -1  2 -1  3
+*Constitutive law
+   32          Voce=0, MTS=1, Golubov irradiation growth=31
+   1           iratesens (0:rate insensitive, 1:rate sensitive)
+   1000.0e-6     mean grain raidus
+PRISMATIC <a> SLIP  for irrad growth --------------------------------
+  1                               nrsx
+BASAL <a> SLIP  for irrad growth -------------------------------------
+  1                               nrsx
+PYRAMIDAL <c+a> SLIP  for irrad growth ------------------------------
+  1                               nrsx
+Growth parameters
+3.6e-4     dpa rate (Note dpa rate = 3.6e-4 dpa/hour = 1.0e-7 dpa/s; time increment in hours)
+1.0e-4     Irradiation creep compliance
+3.6e12     Reference dislocation density for irradiation creep
+0.9e0      Fraction of defects recombined in cascades
+0.2e0      Fraction of SIAs clustered in cascades
+1.0e22     Max. number density of sessile loops (both interstitial- and vacancy- type) on prismatic planes
+1.0e21     Max. number density of sessile vacancy loops on basal planes
+3.84e0     Max. dpa dose at which nucleation of sessile loops saturates on prismatic planes
+3.0e0      Critical dpa dose at which nucleation of sessile loops commences on basal planes
+23.0e0     Max. dpa dose at which nucleation of sessile loops saturates on basal planes
+5.0e0      Parameter for nucleation of sessile loops in eq. 25
+3.0e-10    Burgers vector magnitude on prismatic slip systems
+5.0e-10    Burgers vector magnitude on basal slip systems
+* Dislocation density in prism, basal and pyramidal systems
+4.667E11 4.667E11 4.667E11
+4.667E11 4.667E11 4.667E11
+6.667E10 6.667E10 6.667E10 6.667E10 6.667E10 6.667E10
+6.667E10 6.667E10 6.667E10 6.667E10 6.667E10 6.667E10
+
+
+

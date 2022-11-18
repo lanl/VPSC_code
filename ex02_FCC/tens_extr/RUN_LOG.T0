@@ -1,0 +1,496 @@
+
+ **** INPUT FILE VPSC.IN FOR THIS RUN ****
+1                          number of elements (nelem)                           
+1                          number of phases (nph)                               
+1.0  0.0                   relative vol. fract. of phases (wph(i))              
+*INFORMATION ABOUT PHASE #1                                                     
+0   0   25                      grain shape contrl, fragmentn, crit aspect ratio
+1.0  1.0  1.0                 initial ellipsoid ratios (dummy if ishape=4)      
+0.0  0.0  0.0                 init Eul ang ellips axes (dummy if ishape=3,4)    
+* name and path of texture file (filetext)                                      
+ex02_FCC\rand500.tex                                                            
+* name and path of single crystal file (filecrys)                               
+ex02_FCC\fcc.sx                                                                 
+* name and path of grain shape file (dummy if ishape=0) (fileaxes)              
+dummy                                                                           
+* name and path of diffraction file (dummy if idiff=0)                          
+0                                                                               
+dummy                                                                           
+*PRECISION SETTINGS FOR CONVERGENCE PROCEDURES (default values)                 
+0.001 0.001 0.001 0.001    errs,errd,errm,errso                                 
+100 100 25     itmax:   max # of iter, external, internal and SO loops          
+0  2  10  2    irsvar & jrsini,jrsfin,jrstep (dummy if irsvar=0)                
+*INPUT/OUTPUT SETTINGS FOR THE RUN (default is zero)                            
+0              irecover:read grain states from POSTMORT.IN (1) or not (0)?      
+0              isave:   write grain states in POSTMORT.OUT at step 'isave'?     
+0              icubcomp:calculate fcc rolling components?                       
+0              nwrite (frequency of texture downloads)                          
+*MODELING CONDITIONS FOR THE RUN                                                
+0              interaction (0:FC,1:affine,2:secant,3:neff=10,4:tangent,5:SO)    
+1  1  1        iupdate: update orient, grain shape, hardening                   
+0              nneigh (0 for no neighbors, 1 for pairs, etc.)                   
+0              iflu (0: don't calc, 1: calc fluctuations)                       
+*NUMBER OF PROCESSES (Lij const; Lij variable; PCYS ;LANKFORD; rigid rotatn)    
+1                                                                               
+*IVGVAR AND PATH\NAME OF FILE FOR EACH PROCESS                                  
+0                                                                               
+ex02_FCC\tension_extrusion.3                                                    
+
+         EIGNVAL   1.0000   1.0000   1.0000
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+
+ **** CRYSTAL DATA FILE ****
+*Material: AUSTENITIC STEEL                                                     
+cubic           crysym                                                          
+   1.0   1.0   1.0   90.   90.   90.   unit cell axes and angles                
+Elastic stiffness (single crystal [GPa]; scaled=0.85xINTERPOLATED)              
+ 205.0   138.0   138.0   000.0   000.0   000.0                                  
+ 138.0   205.0   138.0   000.0   000.0   000.0                                  
+ 138.0   138.0   205.0   000.0   000.0   000.0                                  
+ 000.0   000.0   000.0   126.0   000.0   000.0                                  
+ 000.0   000.0   000.0   000.0   126.0   000.0                                  
+ 000.0   000.0   000.0   000.0   000.0   126.0                                  
+*Thermal expansion coefficients (single crystal in crystal axis):               
+  1.0e-6   1.0e-6  1.0e-6   0.0e0   0.0e0   0.0e0                               
+*Info about slip & twinning modes in this file:                                 
+  2          nmodesx    (total # of modes listed in file)                       
+  1          nmodes     (# of modes to be used in the calculation)              
+  1          mode(i)    (label of the modes to be used)                         
+  <111>{110} SLIP                                                               
+ 1  12  1   0                       modex,nsmx,isensex,itwtypex                 
+   1  1  1        0  1 -1           slip (n & b)                                
+   1  1  1        1  0 -1                                                       
+   1  1  1        1 -1  0                                                       
+  -1  1  1        0  1 -1                                                       
+  -1  1  1        1  0  1                                                       
+  -1  1  1        1  1  0                                                       
+  -1 -1  1        0  1  1                                                       
+  -1 -1  1        1  0  1                                                       
+  -1 -1  1        1 -1  0                                                       
+   1 -1  1        0  1  1                                                       
+   1 -1  1        1  0 -1                                                       
+   1 -1  1        1  1  0                                                       
+  <111>{112} TWIN                                                               
+ 2  12  0   2                        modex,nsmx,isensex,itwtypex                
+ 0.707                               twshx                                      
+   1  1  1       -2  1  1                                                       
+   1  1  1        1 -2  1                                                       
+   1  1  1        1  1 -2                                                       
+  -1  1  1        2  1  1                                                       
+  -1  1  1       -1 -2  1                                                       
+  -1  1  1       -1  1 -2                                                       
+  -1 -1  1        2 -1  1                                                       
+  -1 -1  1       -1  2  1                                                       
+  -1 -1  1       -1 -1 -2                                                       
+   1 -1  1       -2 -1  1                                                       
+   1 -1  1        1  2  1                                                       
+   1 -1  1        1 -1 -2                                                       
+*Constitutive law                                                               
+   0      Voce=0, MTS=1                                                         
+   1      iratesens (0:rate insensitive, 1:rate sensitive)                      
+   50     grsze --> grain size only matters if HPfactor is non-zero             
+  <111>{110} SLIP -------------------------------------------                   
+ 20                               nrsx                                          
+ 1.0   0.0   0.0   0.0  0.        tau0x,tau1x,thet0,thet1, hpfac                
+ 1.0    1.0                          hlatex(1,im),im=1,nmodes                   
+  <111>{112} TWIN --------------------------------------                        
+ 20                               nrsx                                          
+ 1.0   0.0    0.   0.   0.        tau0x,tau1x,thet0,thet1, hpfac                
+ 1.0    1.0                       hlatex(1,im),im=1,nmodes                      
+ 0     0.05   0.50                isectw, thres1,thres2                         
+**** END OF CRYSTAL DATA FILE ****
+
+
+ CHECKING THAT CELCC*SELCC-ID6=0   0.1878193E-31
+ *********** PHASE   1
+ RANDOM PX BULK & POISSON MODULI     160.333       0.266
+ RANDOM PX ELASTIC CTES C11, C12, C44     279.000     101.000      89.000
+
+ SHEAR MODULUS FOR MODE  1 IN PHASE  1 IS      64.333
+ N & B FOR MODE  1 IN PHASE  1
+     0.577     0.577     0.577        0.000     0.707    -0.707
+     0.577     0.577     0.577        0.707     0.000    -0.707
+     0.577     0.577     0.577        0.707    -0.707     0.000
+    -0.577     0.577     0.577        0.000     0.707    -0.707
+    -0.577     0.577     0.577        0.707     0.000     0.707
+    -0.577     0.577     0.577        0.707     0.707     0.000
+    -0.577    -0.577     0.577        0.000     0.707     0.707
+    -0.577    -0.577     0.577        0.707     0.000     0.707
+    -0.577    -0.577     0.577        0.707    -0.707     0.000
+     0.577    -0.577     0.577        0.000     0.707     0.707
+     0.577    -0.577     0.577        0.707     0.000    -0.707
+     0.577    -0.577     0.577        0.707     0.707     0.000
+
+ **** CRYST TEXTURE (FIRST FEW LINES) ****
+dummy                                                                           
+dummy                                                                           
+random texture generated by RANDTEXT.FOR (23/01/97)                             
+B   500                                                                         
+    102.74    119.56     33.65  1.0                                             
+    219.06     36.21     70.51  1.0                                             
+    166.66     28.59     45.80  1.0                                             
+    149.74     86.13     38.68  1.0                                             
+    143.88     72.50      9.75  1.0                                             
+     27.71      7.88    225.69  1.0                                             
+     10.26     81.59    324.82  1.0                                             
+    213.21    156.91    352.41  1.0                                             
+    313.75     60.06    131.59  1.0                                             
+    283.74    137.64    213.65  1.0                                             
+    329.59    158.18    298.33  1.0                                             
+     61.37    171.68    104.65  1.0                                             
+     44.90     68.33     40.28  1.0                                             
+     29.40    114.77    163.14  1.0                                             
+     56.39    115.89    341.90  1.0                                             
+    271.21     76.66    171.67  1.0                                             
+    .........................
+ **** END OF CRYST TEXTURE DATA FILE ****
+
+         EIGNVAL   1.0000   1.0000   1.0000
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+
+ UB THERMAL TENSOR (VOIGT NOTATION)
+  0.1000E-05  0.1000E-05  0.1000E-05  0.1482E-23 -0.1622E-23 -0.3991E-23
+
+ UB ELASTIC STIFFNESS (VOIGT NOTATION)
+  0.2795E+03  0.9994E+02  0.1016E+03  0.1676E+00  0.1479E+01  0.6049E+00
+  0.9994E+02  0.2801E+03  0.1009E+03 -0.1180E+01  0.1349E+00 -0.7842E+00
+  0.1016E+03  0.1009E+03  0.2785E+03  0.1012E+01 -0.1614E+01  0.1793E+00
+  0.1676E+00 -0.1180E+01  0.1012E+01  0.8894E+02  0.1793E+00  0.1349E+00
+  0.1479E+01  0.1349E+00 -0.1614E+01  0.1793E+00  0.8959E+02  0.1676E+00
+  0.6049E+00 -0.7842E+00  0.1793E+00  0.1349E+00  0.1676E+00  0.8794E+02
+
+ LB THERMAL TENSOR (VOIGT NOTATION)
+  0.1000E-05  0.1000E-05  0.1000E-05  0.2658E-23 -0.1216E-23 -0.1258E-23
+
+ LB ELASTIC STIFFNESS (VOIGT NOTATION)
+  0.2406E+03  0.1195E+03  0.1209E+03  0.1580E+00  0.1267E+01  0.5168E+00
+  0.1195E+03  0.2412E+03  0.1203E+03 -0.1012E+01  0.1034E+00 -0.6672E+00
+  0.1209E+03  0.1203E+03  0.2398E+03  0.8542E+00 -0.1370E+01  0.1503E+00
+  0.1580E+00 -0.1012E+01  0.8542E+00  0.5984E+02  0.1446E+00  0.1204E+00
+  0.1267E+01  0.1034E+00 -0.1370E+01  0.1446E+00  0.6040E+02  0.1448E+00
+  0.5168E+00 -0.6672E+00  0.1503E+00  0.1204E+00  0.1448E+00  0.5899E+02
+
+
+*** LOAD CONDITIONS FOR THIS RUN
+  50   3   0.02    298.   298.   nsteps  ictrl  ctrlincr  temp_i  temp_f        
+* boundary conditions                                                           
+    1       1       1           iudot    |    flag for vel.grad.                
+    1       1       1                    |    (0:unknown-1:known)               
+    1       1       1                    |                                      
+                                         |                                      
+   -0.5     0.      0.          udot     |    vel.grad                          
+    0.     -0.5     0.                   |                                      
+    0.      0.      1.0                  |                                      
+                                         |                                      
+    0       0       0           iscau    |    flag for Cauchy                   
+            0       0                    |                                      
+                    0                    |                                      
+                                         |                                      
+    0.      0.      0.          scauchy  |    Cauchy stress                     
+            0.      0.                   |                                      
+                    0.                   @                                      
+                                                                               
+
+*******   STEP   1      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.9900   1.0200   0.9900
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.9900   1.0200   0.9900
+         EIGNVEC  -0.6337  -0.0000   0.7736   0.7736   0.0000   0.6337  -0.0000   1.0000  -0.0000
+
+*******   STEP   2      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.9801   1.0404   0.9801
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.9801   1.0404   0.9801
+         EIGNVEC   0.9950  -0.0000  -0.0995   0.0995  -0.0000   0.9950  -0.0000  -1.0000   0.0000
+
+*******   STEP   3      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.9703   1.0612   0.9703
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.9703   1.0612   0.9703
+         EIGNVEC   0.9962   0.0000  -0.0870   0.0870   0.0000   0.9962   0.0000  -1.0000  -0.0000
+
+*******   STEP   4      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.9606   1.0824   0.9606
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.9606   1.0824   0.9606
+         EIGNVEC   0.9969  -0.0000   0.0791  -0.0791   0.0000   0.9969  -0.0000  -1.0000   0.0000
+
+*******   STEP   5      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.9510   1.1041   0.9510
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.9510   1.1041   0.9510
+         EIGNVEC   0.9996  -0.0000   0.0283  -0.0283   0.0000   0.9996  -0.0000  -1.0000   0.0000
+
+*******   STEP   6      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.9415   1.1262   0.9415
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.9415   1.1262   0.9415
+         EIGNVEC   1.0000  -0.0000   0.0090  -0.0090   0.0000   1.0000  -0.0000  -1.0000   0.0000
+
+*******   STEP   7      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.9321   1.1487   0.9321
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.9321   1.1487   0.9321
+         EIGNVEC   0.9844  -0.0000   0.1761  -0.1761   0.0000   0.9844  -0.0000  -1.0000   0.0000
+
+*******   STEP   8      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.9227   1.1717   0.9227
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.9227   1.1717   0.9227
+         EIGNVEC   0.8762  -0.0000   0.4820  -0.4820   0.0000   0.8762  -0.0000  -1.0000   0.0000
+
+*******   STEP   9      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.9135   1.1951   0.9135
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.9135   1.1951   0.9135
+         EIGNVEC   0.8421   0.0000   0.5394  -0.5394   0.0000   0.8421   0.0000  -1.0000   0.0000
+
+*******   STEP  10      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.9044   1.2190   0.9044
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.9044   1.2190   0.9044
+         EIGNVEC   0.8791   0.0000   0.4767  -0.4767  -0.0000   0.8791   0.0000  -1.0000  -0.0000
+
+*******   STEP  11      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.8953   1.2434   0.8953
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.8953   1.2434   0.8953
+         EIGNVEC   0.8634   0.0000   0.5046  -0.5046  -0.0000   0.8634   0.0000  -1.0000  -0.0000
+
+*******   STEP  12      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.8864   1.2682   0.8864
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.8864   1.2682   0.8864
+         EIGNVEC   0.8470   0.0000   0.5316  -0.5316  -0.0000   0.8470   0.0000  -1.0000  -0.0000
+
+*******   STEP  13      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.8775   1.2936   0.8775
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.8775   1.2936   0.8775
+         EIGNVEC   0.8328   0.0000   0.5536  -0.5536  -0.0000   0.8328   0.0000  -1.0000  -0.0000
+
+*******   STEP  14      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.8687   1.3195   0.8687
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.8687   1.3195   0.8687
+         EIGNVEC   0.8122   0.0000   0.5834  -0.5834  -0.0000   0.8122   0.0000  -1.0000  -0.0000
+
+*******   STEP  15      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.8601   1.3459   0.8601
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.8601   1.3459   0.8601
+         EIGNVEC   0.8293   0.0000   0.5588  -0.5588  -0.0000   0.8293   0.0000  -1.0000  -0.0000
+
+*******   STEP  16      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.8515   1.3728   0.8515
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.8515   1.3728   0.8515
+         EIGNVEC   0.8510   0.0000   0.5251  -0.5251  -0.0000   0.8510   0.0000  -1.0000  -0.0000
+
+*******   STEP  17      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.8429   1.4002   0.8429
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.8429   1.4002   0.8429
+         EIGNVEC   0.8888   0.0000   0.4582  -0.4582  -0.0000   0.8888   0.0000  -1.0000  -0.0000
+
+*******   STEP  18      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.8345   1.4282   0.8345
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.8345   1.4282   0.8345
+         EIGNVEC   0.9158   0.0000   0.4016  -0.4016  -0.0000   0.9158   0.0000  -1.0000  -0.0000
+
+*******   STEP  19      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.8262   1.4568   0.8262
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.8262   1.4568   0.8262
+         EIGNVEC   0.9354   0.0000   0.3537  -0.3537  -0.0000   0.9354   0.0000  -1.0000  -0.0000
+
+*******   STEP  20      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.8179   1.4859   0.8179
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.8179   1.4859   0.8179
+         EIGNVEC   0.9499   0.0000   0.3127  -0.3127  -0.0000   0.9499   0.0000  -1.0000  -0.0000
+
+*******   STEP  21      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.8097   1.5157   0.8097
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.8097   1.5157   0.8097
+         EIGNVEC   0.9490   0.0000   0.3152  -0.3152  -0.0000   0.9490   0.0000  -1.0000  -0.0000
+
+*******   STEP  22      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.8016   1.5460   0.8016
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.8016   1.5460   0.8016
+         EIGNVEC   0.9525   0.0000   0.3045  -0.3045  -0.0000   0.9525   0.0000  -1.0000  -0.0000
+
+*******   STEP  23      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.7936   1.5769   0.7936
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.7936   1.5769   0.7936
+         EIGNVEC   0.9618   0.0000   0.2739  -0.2739  -0.0000   0.9618   0.0000  -1.0000  -0.0000
+
+*******   STEP  24      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.7857   1.6084   0.7857
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.7857   1.6084   0.7857
+         EIGNVEC   0.9632   0.0000   0.2688  -0.2688  -0.0000   0.9632   0.0000  -1.0000  -0.0000
+
+*******   STEP  25      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.7778   1.6406   0.7778
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.7778   1.6406   0.7778
+         EIGNVEC   0.9600   0.0000   0.2798  -0.2798  -0.0000   0.9600   0.0000  -1.0000  -0.0000
+
+*******   STEP  26      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.7700   1.6734   0.7700
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.7700   1.6734   0.7700
+         EIGNVEC   0.9577   0.0000   0.2878  -0.2878  -0.0000   0.9577   0.0000  -1.0000  -0.0000
+
+*******   STEP  27      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.7623   1.7069   0.7623
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.7623   1.7069   0.7623
+         EIGNVEC   0.9576   0.0000   0.2882  -0.2882  -0.0000   0.9576   0.0000  -1.0000  -0.0000
+
+*******   STEP  28      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.7547   1.7410   0.7547
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.7547   1.7410   0.7547
+         EIGNVEC   0.9552   0.0000   0.2959  -0.2959  -0.0000   0.9552   0.0000  -1.0000  -0.0000
+
+*******   STEP  29      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.7472   1.7758   0.7472
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.7472   1.7758   0.7472
+         EIGNVEC   0.9513   0.0000   0.3082  -0.3082  -0.0000   0.9513   0.0000  -1.0000  -0.0000
+
+*******   STEP  30      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.7397   1.8114   0.7397
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.7397   1.8114   0.7397
+         EIGNVEC   0.9495   0.0000   0.3137  -0.3137  -0.0000   0.9495   0.0000  -1.0000  -0.0000
+
+*******   STEP  31      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.7323   1.8476   0.7323
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.7323   1.8476   0.7323
+         EIGNVEC   0.9437   0.0000   0.3309  -0.3309  -0.0000   0.9437   0.0000  -1.0000  -0.0000
+
+*******   STEP  32      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.7250   1.8845   0.7250
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.7250   1.8845   0.7250
+         EIGNVEC   0.9382   0.0000   0.3462  -0.3462  -0.0000   0.9382   0.0000  -1.0000  -0.0000
+
+*******   STEP  33      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.7177   1.9222   0.7177
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.7177   1.9222   0.7177
+         EIGNVEC   0.9311   0.0000   0.3648  -0.3648  -0.0000   0.9311   0.0000  -1.0000  -0.0000
+
+*******   STEP  34      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.7106   1.9607   0.7106
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.7106   1.9607   0.7106
+         EIGNVEC   0.9273   0.0000   0.3744  -0.3744  -0.0000   0.9273   0.0000  -1.0000  -0.0000
+
+*******   STEP  35      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.7034   1.9999   0.7034
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.7034   1.9999   0.7034
+         EIGNVEC   0.9264   0.0000   0.3766  -0.3766  -0.0000   0.9264   0.0000  -1.0000  -0.0000
+
+*******   STEP  36      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.6964   2.0399   0.6964
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.6964   2.0399   0.6964
+         EIGNVEC   0.9307   0.0000   0.3657  -0.3657  -0.0000   0.9307   0.0000  -1.0000  -0.0000
+
+*******   STEP  37      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.6894   2.0807   0.6894
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.6894   2.0807   0.6894
+         EIGNVEC   0.9347   0.0000   0.3554  -0.3554  -0.0000   0.9347   0.0000  -1.0000  -0.0000
+
+*******   STEP  38      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.6826   2.1223   0.6826
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.6826   2.1223   0.6826
+         EIGNVEC   0.9394   0.0000   0.3429  -0.3429  -0.0000   0.9394   0.0000  -1.0000  -0.0000
+
+*******   STEP  39      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.6757   2.1647   0.6757
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.6757   2.1648   0.6757
+         EIGNVEC   0.9446   0.0000   0.3283  -0.3283  -0.0000   0.9446   0.0000  -1.0000  -0.0000
+
+*******   STEP  40      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.6690   2.2080   0.6690
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.6690   2.2080   0.6690
+         EIGNVEC   0.9496   0.0000   0.3134  -0.3134  -0.0000   0.9496   0.0000  -1.0000  -0.0000
+
+*******   STEP  41      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.6623   2.2522   0.6623
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.6623   2.2522   0.6623
+         EIGNVEC   0.9505   0.0000   0.3107  -0.3107  -0.0000   0.9505   0.0000  -1.0000  -0.0000
+
+*******   STEP  42      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.6557   2.2972   0.6557
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.6557   2.2973   0.6557
+         EIGNVEC   0.9542   0.0000   0.2991  -0.2991  -0.0000   0.9542   0.0000  -1.0000  -0.0000
+
+*******   STEP  43      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.6491   2.3432   0.6491
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.6491   2.3432   0.6491
+         EIGNVEC   0.9547   0.0000   0.2976  -0.2976  -0.0000   0.9547   0.0000  -1.0000  -0.0000
+
+*******   STEP  44      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.6426   2.3901   0.6426
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.6426   2.3901   0.6426
+         EIGNVEC   0.9544   0.0000   0.2986  -0.2986  -0.0000   0.9544   0.0000  -1.0000  -0.0000
+
+*******   STEP  45      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.6362   2.4379   0.6362
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.6362   2.4379   0.6362
+         EIGNVEC   0.9596   0.0000   0.2812  -0.2812  -0.0000   0.9596   0.0000  -1.0000  -0.0000
+
+*******   STEP  46      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.6298   2.4866   0.6298
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.6298   2.4866   0.6298
+         EIGNVEC   0.9655   0.0000   0.2603  -0.2603  -0.0000   0.9655   0.0000  -1.0000  -0.0000
+
+*******   STEP  47      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.6235   2.5363   0.6235
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.6235   2.5364   0.6235
+         EIGNVEC   0.9720   0.0000   0.2351  -0.2351  -0.0000   0.9720   0.0000  -1.0000  -0.0000
+
+*******   STEP  48      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.6173   2.5871   0.6173
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.6173   2.5871   0.6173
+         EIGNVEC   0.9758   0.0000   0.2186  -0.2186  -0.0000   0.9758   0.0000  -1.0000  -0.0000
+
+*******   STEP  49      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.6111   2.6388   0.6111
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.6111   2.6388   0.6111
+         EIGNVEC   0.9802   0.0000   0.1979  -0.1979  -0.0000   0.9802   0.0000  -1.0000  -0.0000
+
+*******   STEP  50      *** FULL CONSTRAINT CALCULATION        
+         EIGNVAL   0.6050   2.6916   0.6050
+         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+         EIGNVAL   0.6050   2.6916   0.6050
+         EIGNVEC   0.9823   0.0000   0.1875  -0.1875  -0.0000   0.9823   0.0000  -1.0000  -0.0000
+
+*******   STEP  51      *** FULL CONSTRAINT CALCULATION        
+
+ TIME ELAPSED    4.42secs

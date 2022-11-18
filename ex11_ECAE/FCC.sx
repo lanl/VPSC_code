@@ -1,0 +1,58 @@
+*Material: AUSTENITIC STEEL
+cubic           crysym
+   1.0   1.0   1.0   90.   90.   90.   unit cell axes and angles
+Elastic stiffness (single crystal [GPa]; scaled=0.85xINTERPOLATED)
+ 205.0   138.0   138.0   000.0   000.0   000.0
+ 138.0   205.0   138.0   000.0   000.0   000.0
+ 138.0   138.0   205.0   000.0   000.0   000.0
+ 000.0   000.0   000.0   126.0   000.0   000.0
+ 000.0   000.0   000.0   000.0   126.0   000.0
+ 000.0   000.0   000.0   000.0   000.0   126.0
+*Thermal expansion coefficients (single crystal in crystal axis):
+  0.0e-6   0.0e-6  0.0e-6   0.0e0   0.0e0   0.0e0            
+*Info about slip & twinning modes in this file:
+  2          nmodesx    (total # of modes listed in file)
+  1          nmodes     (# of modes to be used in the calculation)
+  1          mode(i)    (label of the modes to be used)
+  <111>{110} SLIP
+ 1  12  1   0                       modex,nsmx,isensex,itwtypex
+   1  1  1        0  1 -1           slip (n & b)
+   1  1  1        1  0 -1
+   1  1  1        1 -1  0
+  -1  1  1        0  1 -1
+  -1  1  1        1  0  1
+  -1  1  1        1  1  0
+  -1 -1  1        0  1  1
+  -1 -1  1        1  0  1
+  -1 -1  1        1 -1  0
+   1 -1  1        0  1  1
+   1 -1  1        1  0 -1
+   1 -1  1        1  1  0
+  <111>{112} TWIN
+ 2  12  0   2                        modex,nsmx,isensex,itwtypex
+ 0.707                               twshx
+   1  1  1       -2  1  1
+   1  1  1        1 -2  1
+   1  1  1        1  1 -2
+  -1  1  1        2  1  1
+  -1  1  1       -1 -2  1
+  -1  1  1       -1  1 -2
+  -1 -1  1        2 -1  1
+  -1 -1  1       -1  2  1
+  -1 -1  1       -1 -1 -2
+   1 -1  1       -2 -1  1
+   1 -1  1        1  2  1
+   1 -1  1        1 -1 -2
+*Constitutive law
+   0      Voce=0, MTS=1
+   1      iratesens (0:rate insensitive, 1:rate sensitive)
+   50     grsze --> grain size only matters if HPfactor is non-zero
+  <111>{110} SLIP -------------------------------------------
+ 20                               nrsx 
+ 1.0   0.0   0.0   0.0  0.        tau0x,tau1x,thet0,thet1, hpfac
+ 1.0    1.0                          hlatex(1,im),im=1,nmodes
+  <111>{112} TWIN --------------------------------------
+ 20                               nrsx
+ 1.0   0.0    0.   0.   0.        tau0x,tau1x,thet0,thet1, hpfac
+ 1.0    1.0                       hlatex(1,im),im=1,nmodes
+ 0     0.05   0.50                isectw, thres1,thres2

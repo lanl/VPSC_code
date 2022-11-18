@@ -1,0 +1,374 @@
+
+ **** INPUT FILE VPSC.IN FOR THIS RUN ****
+1                          number of elements (nelem)                                                                             
+2                          number of phases (nph)                                                                                 
+0.5   0.5                  relative vol. fract. of phases (wph(i))                                                                
+*INFORMATION ABOUT PHASE #1                                                                                                       
+0   0   25                    grain shape contrl, fragmentn, crit aspect ratio                                                    
+1.0  1.0  1.0                 initial ellipsoid ratios (dummy if ishape=4)                                                        
+0.0  0.0  0.0                 init Eul ang ellips axes (dummy if ishape=3,4)                                                      
+* name and path of texture file (filetext)                                                                                        
+ex01_elast\Zr_bar.tex                                                                                                             
+* name and path of single crystal file (filecrys)                                                                                 
+ex01_elast\Zr.sx                                                                                                                  
+* name and path of grain shape file (dummy if ishape=0) (fileaxes)                                                                
+shape1.100                                                                                                                        
+* name and path of diffraction file (dummy if idiff=0)                                                                            
+1                                                                                                                                 
+ex01_elast\hcp.dif                                                                                                                
+*INFORMATION ABOUT PHASE #2                                                                                                       
+0   0   25                    grain shape contrl, fragmentn, crit aspect ratio                                                    
+1.0  1.0  1.0                 initial ellipsoid ratios (dummy if ishape=4)                                                        
+0.0  0.0  0.0                 init Eul ang ellips axes (dummy if ishape=3,4)                                                      
+* name and path of texture file (filetext)                                                                                        
+ex01_elast\U_StrRol.red                                                                                                           
+* name and path of single crystal file (filecrys)                                                                                 
+ex01_elast\uranium.sx                                                                                                             
+* name and path of grain shape file (dummy if ishape=0) (fileaxes)                                                                
+shape1.100                                                                                                                        
+* name and path of diffraction file (dummy if idiff=0)                                                                            
+1                                                                                                                                 
+ex01_elast\ortho.dif                                                                                                              
+*PRECISION SETTINGS FOR CONVERGENCE PROCEDURES (default values)                                                                   
+1.e-3  1.e-3  1.e-3   0.01     errs,errd,errm,errso                                                                               
+100 100 25     itmax:   max # of iter, external, internal and SO loops                                                            
+0  2  10  2    irsvar & jrsini,jrsfin,jrstep (dummy if irsvar=0)                                                                  
+*INPUT/OUTPUT SETTINGS FOR THE RUN (default is zero)                                                                              
+0              irecover:read grain states from POSTMORT.IN (1) or not (0)?                                                        
+0              isave:   write grain states in POSTMORT.OUT at step 'isave'?                                                       
+0              icubcomp:calculate fcc rolling components?                                                                         
+0              nwrite (frequency of texture downloads)                                                                            
+*MODELING CONDITIONS FOR THE RUN                                                                                                  
+-1             interaction (-1:elast,0:FC,1:aff,2:sec,3:neff=10,4:tang,5:SO)                                                      
+1  1  1        iupdate: update orient, grain shape, hardening                                                                     
+0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
+0              iflu (0: don't calc, 1: calc fluctuations)                                                                         
+*NUMBER OF PROCESSES (Lij const; Lij variable; PCYS ;LANKFORD; rigid rotatn)                                                      
+1                                                                                                                                 
+*IVGVAR AND PATH\NAME OF FILE FOR EACH PROCESS (dummy if ivgvar=2,3)                                                              
+0                  -->   cooling from 900 K to 300 K                                                                              
+ex01_elast\cooling                                                                                                                
+
+
+ **** CRYSTAL DATA FILE ****
+*Material: zirconium                                                                                                              
+HEXAGONAL                                crysym                                                                                   
+1.  1.  1.594     90.  90.  120.         cdim(i),cang(i)                                                                          
+*Elastic stiffness of single crystal [MPa]                                                                                        
+  143.5e3    72.5e3    65.4e3     0.0     0.0     0.0                                                                             
+   72.5e3   143.5e3    65.4e3     0.0     0.0     0.0                                                                             
+   65.4e3    65.4e3   164.9e3     0.0     0.0     0.0                                                                             
+    0.0     0.0     0.0    32.1e3     0.0e3     0.0e3                                                                             
+    0.0     0.0     0.0     0.0e3    32.1e3     0.0e3                                                                             
+    0.0     0.0     0.0     0.0e3     0.0e3    35.5e3                                                                             
+*Thermal expansion coefficients of single crystal[K^(-1)]                                                                         
+  5.7e-6   5.7e-6  10.3e-6   0.0e0   0.0e0   0.0e0                                                                                
+**** END OF CRYSTAL DATA FILE ****
+
+
+ CHECKING THAT CELCC*SELCC-ID6=0   0.2297933E-15
+ *********** PHASE   1
+ RANDOM PX BULK & POISSON MODULI   95388.889       0.330
+ RANDOM PX ELASTIC CTES C11, C12, C44  144073.333   71046.667   36513.333
+
+ **** CRYST TEXTURE (FIRST FEW LINES) ****
+AXES OF THE REPRESENTATIVE ELLIPSOID                                                                                              
+   1.0   1.0   1.0                                                                                                                
+DISCRETE TEXTURE FROM ODF FILE  8101.sod                                                                                          
+B    1944                                                                                                                         
+      5.00      7.07      5.00     0.00000513                                                                                     
+      5.00      7.07     15.00     0.00000626                                                                                     
+      5.00      7.07     25.00     0.00000840                                                                                     
+      5.00      7.07     35.00     0.00000793                                                                                     
+      5.00      7.07     45.00     0.00000569                                                                                     
+      5.00      7.07     55.00     0.00000493                                                                                     
+      5.00     15.79      5.00     0.00000522                                                                                     
+      5.00     15.79     15.00     0.00000567                                                                                     
+      5.00     15.79     25.00     0.00000628                                                                                     
+      5.00     15.79     35.00     0.00000630                                                                                     
+      5.00     15.79     45.00     0.00000542                                                                                     
+      5.00     15.79     55.00     0.00000511                                                                                     
+      5.00     25.46      5.00     0.00000656                                                                                     
+      5.00     25.46     15.00     0.00000468                                                                                     
+      5.00     25.46     25.00     0.00000521                                                                                     
+      5.00     25.46     35.00     0.00000705                                                                                     
+    .........................
+ **** END OF CRYST TEXTURE DATA FILE ****
+
+
+ **** DIFFRACTION FILE ****
+*DIFFRACTING PLANES AND DIRECTION FOR HCP                                                                                         
+*Number of diffraction directions and diffracting angle spread:                                                                   
+   4   7.5    "ndif"  "Spread"                                                                                                    
+*Plane type and direction angle (0,0 ->3, 90,90 ->2, 90,0 ->1)                                                                    
+*"n3" or "n4"   "theta"   "phi"                                                                                                   
+1 0 -1 0      90.000    0.000                                                                                                     
+0 0  0 2      90.000    0.000                                                                                                     
+1 0 -1 0       0.000    0.000                                                                                                     
+0 0  0 2       0.000    0.000                                                                                                     
+ **** END OF DIFFRACTION FILE ****
+
+
+ **** CRYSTAL DATA FILE ****
+ELASTIC CONSTANTS AND SLIP SYSTEMS FOR URANIUM                                                                                    
+ORTHORHOMBIC             crysym                                                                                                   
+   1.  2.056   1.7361    90.   90.   90.   unit cell axes and angles                                                              
+Elastic stiffness (single crystal [MPa]) from Fischer JNM 18 (1966)                                                               
+ 214.8e3    46.5e3    21.8e3   0.0   0.0   0.0                                                                                    
+  46.5e3   198.6e3   107.6e3   0.0   0.0   0.0                                                                                    
+  21.8e3   107.6e3   267.1e3   0.0   0.0   0.0                                                                                    
+ 000.0     000.0   000.0     124.4e3     0.0       0.0                                                                            
+ 000.0     000.0     000.0     000.0    73.4e3   000.0                                                                            
+ 000.0     000.0     000.0     000.0     000.0   74.3e3                                                                           
+*Thermal expansion coefficients (single crystal in crystal axis):                                                                 
+ 25.41e-6  0.65e-6  20.65e-6   0.0e0   0.0e0   0.0e0                                                                              
+INFORMATION ABOUT SLIP AND TWIN SYSTEMS                                                                                           
+   9                     nmodesx (total # of modes listed in the file)                                                            
+   7                     nmodes  (# of modes to be used in the calculation)                                                       
+   1  2  3  4  5  6  7   mode(i) (label of the modes to be used)                                                                  
+   WALL SLIP                                                                                                                      
+  1   1   1   0                           modex,nsmx,isensex,itwtype                                                              
+   0  1  0     1  0  0                                                                                                            
+   CHIMNEY BASE SLIP                                                                                                              
+  2   2   1   0                           modex,nsmx,isensex,itwtype                                                              
+   1  1  0     1 -1  0                                                                                                            
+   1 -1  0     1  1  0                                                                                                            
+   FLOOR SLIP                                                                                                                     
+  3   1   1   0                           modex,nsmx,isensex,itwtype                                                              
+   0  0  1     1  0  0                                                                                                            
+   CHIMNEY EDGE SLIP                                                                                                              
+  4   2   1   0                           modex,nsmx,isensex,itwtype                                                              
+   1  1  0     0  0  1                                                                                                            
+   1 -1  0     0  0  1                                                                                                            
+   ROOF SLIP                                                                                                                      
+  5   4   1   0                           modex,nsmx,isensex,itwtype                                                              
+   0  2  1     1 -1  2                                                                                                            
+   0  2  1    -1 -1  2                                                                                                            
+   0 -2  1     1  1  2                                                                                                            
+   0 -2  1    -1  1  2                                                                                                            
+   (130) TWIN                                                                                                                     
+  6   2   0   2                           modex,nsmx,isensex,itwtype                                                              
+  0.299                                   twshx                                                                                   
+   1  3  0     3 -1  0                    (130)TWIN                                                                               
+   1 -3  0     3  1  0                                                                                                            
+   (172) TWIN                                                                                                                     
+  7   4   0   2                           modex,nsmx,isensex,itwtype                                                              
+  0.227                                   twshx                                                                                   
+   1 -7  2     3  1  2                                                                                                            
+   1  7  2     3 -1  2                                                                                                            
+  -1 -7  2    -3  1  2                                                                                                            
+  -1  7  2    -3 -1  2                                                                                                            
+   (112) TWIN                                                                                                                     
+  8   4   0   2                           modex,nsmx,isensex,itwtype                                                              
+  0.227                                   twshx                                                                                   
+   1  1  2     3 -7  2                                                                                                            
+   1 -1  2     3  7  2                                                                                                            
+  -1 -1  2    -3  7  2                                                                                                            
+  -1  1  2    -3 -7  2                                                                                                            
+   (197) TWIN                                                                                                                     
+  9   4   0   2                           modex,nsmx,isensex,itwtype                                                              
+  0.216                                   twshx                                                                                   
+  -1 -9  7    -5 -1 -2                                                                                                            
+   1  9  7     5  1 -2                                                                                                            
+  -1  9  7    -5  1 -2                                                                                                            
+   1 -9  7     5 -1 -2                                                                                                            
+*Constitutive law                                                                                                                 
+   0      Voce=0, MTS=1                                                                                                           
+   1      iratesens (0:rate insensitive, 1:rate sensitive)                                                                        
+   25     grsze --> grain size only matters if HPfactor is non-zero                                                               
+   WALL SLIP -------------------------------------------                                                                          
+ 20                                   nrsx                                                                                        
+ 1.0  0.0  0.0  0.0  0.0              tau0x,tau1x,thet0,thet1,hpfac                                                               
+ 1.  1.  1.  1.  1.  1.  1.  1.  1.   hlatex(1,im),im=1,nmodes                                                                    
+   CHIMNEY BASE SLIP ----------------------------------------                                                                     
+ 20                                   nrsx                                                                                        
+ 1.0  0.0  0.0  0.0  0.0              tau0x,tau1x,thet0,thet1,hpfac                                                               
+ 1.  1.  1.  1.  1.  1.  1.  1.  1.   hlatex(1,im),im=1,nmodes                                                                    
+   FLOOR SLIP ----------------------------------------                                                                            
+ 20                                   nrsx                                                                                        
+ 1.0  0.0  0.0  0.0  0.0              tau0x,tau1x,thet0,thet1,hpfac                                                               
+ 1.  1.  1.  1.  1.  1.  1.  1.  1.   hlatex(1,im),im=1,nmodes                                                                    
+   CHIMNEY EDGE SLIP ----------------------------------------                                                                     
+ 20                                   nrsx                                                                                        
+ 1.0  0.0  0.0  0.0  0.0              tau0x,tau1x,thet0,thet1,hpfac                                                               
+ 1.  1.  1.  1.  1.  1.  1.  1.  1.   hlatex(1,im),im=1,nmodes                                                                    
+   ROOF SLIP ----------------------------------------                                                                             
+ 20                                   nrsx                                                                                        
+ 1.0  0.0  0.0  0.0  0.0              tau0x,tau1x,thet0,thet1,hpfac                                                               
+ 1.  1.  1.  1.  1.  1.  1.  1.  1.   hlatex(1,im),im=1,nmodes                                                                    
+   (130) TWIN ------------------------------------------                                                                          
+ 20                                   nrsx                                                                                        
+  1.  0.  0.  0.   0.                 tau0x,tau1x,thet0,thet1, hpfac                                                              
+ 1.  1.  1.  1.  1.  1.  1.  1.  1.   hlatex(1,im),im=1,nmodes                                                                    
+  1   1   0.10   0.50                 isectw,itwinlaw,thres1,thres2                                                               
+   (172) TWIN -------------------------------------------                                                                         
+ 20                                   nrsx                                                                                        
+  1.  0.  0.  0.   0.                 tau0x,tau1x,thet0,thet1, hpfac                                                              
+ 1.  1.  1.  1.  1.  1.  1.  1.  1.   hlatex(1,im),im=1,nmodes                                                                    
+  1   1   0.10   0.50                 isectw,itwinlaw,thres1,thres2                                                               
+   (112) TWIN ------------------------------------------                                                                          
+ 20                                   nrsx                                                                                        
+  1.  0.  0.  0.   0.                 tau0x,tau1x,thet0,thet1, hpfac                                                              
+ 1.  1.  1.  1.  1.  1.  1.  1.  1.   hlatex(1,im),im=1,nmodes                                                                    
+  1   1   0.10   0.50                 isectw,itwinlaw,thres1,thres2                                                               
+   (197) TWIN ------------------------------------------                                                                          
+ 20                                   nrsx                                                                                        
+  1.  0.  0.  0.   0.                 tau0x,tau1x,thet0,thet1, hpfac                                                              
+ 1.  1.  1.  1.  1.  1.  1.  1.  1.   hlatex(1,im),im=1,nmodes                                                                    
+  1   1   0.10   0.50                 isectw,itwinlaw,thres1,thres2                                                               
+**** END OF CRYSTAL DATA FILE ****
+
+
+ CHECKING THAT CELCC*SELCC-ID6=0   0.7199246E-15
+ *********** PHASE   2
+ RANDOM PX BULK & POISSON MODULI  114700.000       0.194
+ RANDOM PX ELASTIC CTES C11, C12, C44  232113.333   55993.333   88060.000
+
+ **** CRYST TEXTURE (FIRST FEW LINES) ****
+* straight rolled uranium                                                                                                         
+* reduced by 20                                                                                                                   
+*                                                                                                                                 
+B      4021                                                                                                                       
+      165.08       54.14      111.23        0.150588E-04                                                                          
+      217.97       25.27       26.38        0.150588E-04                                                                          
+       94.72       24.14      245.50        0.150588E-04                                                                          
+      299.59        7.25      354.78        0.225882E-04                                                                          
+      140.29       26.58      192.97        0.150588E-04                                                                          
+      182.61       53.20       67.74        0.752938E-05                                                                          
+      151.50       40.42      266.64        0.752938E-05                                                                          
+      191.62        9.48      211.52        0.752938E-05                                                                          
+      330.11       98.75      107.60        0.752938E-05                                                                          
+      318.46       97.65      113.57        0.376469E-04                                                                          
+      151.15       25.87      296.00        0.301175E-04                                                                          
+      201.24       55.10       95.37        0.752938E-05                                                                          
+      232.02       17.97      186.04        0.752938E-05                                                                          
+      194.53       85.78      210.79        0.752938E-05                                                                          
+        9.01       89.54      298.57        0.752938E-05                                                                          
+      188.05       30.34       87.31        0.150588E-04                                                                          
+    .........................
+ **** END OF CRYST TEXTURE DATA FILE ****
+
+
+ **** DIFFRACTION FILE ****
+*DIFFRACTING PLANES AND DIRECTION FOR ORTHOTROPIC                                                                                 
+*Number of diffraction directions and diffracting angle spread:                                                                   
+   9   7.5    "ndif"  "Spread"                                                                                                    
+*Plane type and direction angle (0,0 ->X3, 90,90 ->X2, 90,0 ->X1)                                                                 
+*"n3" or "n4"   "theta"   "phi"                                                                                                   
+1  0  0      90.000    0.000      axis 1                                                                                          
+0  1  0      90.000    0.000                                                                                                      
+0  0  1      90.000    0.000                                                                                                      
+1  0  0      90.000    90.000     axis 2                                                                                          
+0  1  0      90.000    90.000                                                                                                     
+0  0  1      90.000    90.000                                                                                                     
+1  0  0       0.000    0.000      axis 3                                                                                          
+0  1  0       0.000    0.000                                                                                                      
+0  0  1       0.000    0.000                                                                                                      
+                                                                                                                                  
+ **** END OF DIFFRACTION FILE ****
+
+
+ UB THERMAL TENSOR (VOIGT NOTATION)
+  0.8699E-05  0.1300E-04  0.1296E-04 -0.1094E-07 -0.4573E-06 -0.1858E-07
+
+ UB ELASTIC STIFFNESS (VOIGT NOTATION)
+  0.1804E+06  0.6499E+05  0.6768E+05  0.7765E+03 -0.1309E+04 -0.2804E+03
+  0.6499E+05  0.1854E+06  0.6118E+05  0.6511E+03  0.5071E+03  0.7313E+02
+  0.6768E+05  0.6118E+05  0.1918E+06  0.9038E+03  0.8869E+03  0.4582E+03
+  0.7765E+03  0.6511E+03  0.9038E+03  0.6364E+05  0.4438E+03 -0.8341E+02
+ -0.1309E+04  0.5071E+03  0.8869E+03  0.4438E+03  0.6469E+05  0.7834E+03
+ -0.2804E+03  0.7313E+02  0.4582E+03 -0.8341E+02  0.7834E+03  0.6181E+05
+
+ LB THERMAL TENSOR (VOIGT NOTATION)
+  0.8541E-05  0.1273E-04  0.1293E-04  0.8350E-07 -0.4603E-06 -0.6094E-09
+
+ LB ELASTIC STIFFNESS (VOIGT NOTATION)
+  0.1670E+06  0.7004E+05  0.7062E+05  0.3704E+03 -0.5290E+03 -0.1952E+02
+  0.7004E+05  0.1691E+06  0.6820E+05  0.2869E+03  0.2068E+03  0.1366E+02
+  0.7062E+05  0.6820E+05  0.1705E+06  0.3210E+03  0.2906E+03  0.1291E+03
+  0.3704E+03  0.2869E+03  0.3210E+03  0.4930E+05  0.1097E+03 -0.5099E+02
+ -0.5290E+03  0.2068E+03  0.2906E+03  0.1097E+03  0.4935E+05  0.2428E+03
+ -0.1952E+02  0.1366E+02  0.1291E+03 -0.5099E+02  0.2428E+03  0.4998E+05
+
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1076E+06 -0.3470E+04 -0.1127E+03  0.1213E+04  0.1664E+03 -0.3103E+03
+ -0.3470E+04  0.1116E+06  0.7912E+02  0.9202E+03  0.3639E+03  0.2128E+04
+ -0.1127E+03  0.7912E+02  0.1119E+06  0.5125E+03 -0.1552E+03  0.1274E+04
+  0.1213E+04  0.9202E+03  0.5125E+03  0.1127E+06  0.9507E+03  0.1058E+02
+  0.1664E+03  0.3639E+03 -0.1552E+03  0.9507E+03  0.1110E+06  0.1475E+03
+ -0.3103E+03  0.2128E+04  0.1274E+04  0.1058E+02  0.1475E+03  0.3108E+06
+ITER   1   REL ERROR  0.768E-01
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1071E+06 -0.3396E+04 -0.1135E+03  0.1186E+04  0.1584E+03 -0.3000E+03
+ -0.3396E+04  0.1111E+06  0.7027E+02  0.8942E+03  0.3514E+03  0.2040E+04
+ -0.1135E+03  0.7027E+02  0.1112E+06  0.4937E+03 -0.1548E+03  0.1244E+04
+  0.1186E+04  0.8942E+03  0.4937E+03  0.1120E+06  0.9202E+03  0.7976E+01
+  0.1584E+03  0.3514E+03 -0.1548E+03  0.9202E+03  0.1105E+06  0.1445E+03
+ -0.3000E+03  0.2040E+04  0.1244E+04  0.7976E+01  0.1445E+03  0.3106E+06
+ITER   2   REL ERROR  0.341E-02
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1071E+06 -0.3393E+04 -0.1136E+03  0.1185E+04  0.1580E+03 -0.2995E+03
+ -0.3393E+04  0.1110E+06  0.6984E+02  0.8930E+03  0.3509E+03  0.2036E+04
+ -0.1136E+03  0.6984E+02  0.1112E+06  0.4928E+03 -0.1548E+03  0.1243E+04
+  0.1185E+04  0.8930E+03  0.4928E+03  0.1119E+06  0.9188E+03  0.7851E+01
+  0.1580E+03  0.3509E+03 -0.1548E+03  0.9188E+03  0.1105E+06  0.1444E+03
+ -0.2995E+03  0.2036E+04  0.1243E+04  0.7851E+01  0.1444E+03  0.3106E+06
+ITER   3   REL ERROR  0.155E-03
+
+CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
+  0.1071E+06 -0.3392E+04 -0.1136E+03  0.1185E+04  0.1580E+03 -0.2995E+03
+ -0.3392E+04  0.1110E+06  0.6982E+02  0.8929E+03  0.3508E+03  0.2036E+04
+ -0.1136E+03  0.6982E+02  0.1112E+06  0.4927E+03 -0.1548E+03  0.1243E+04
+  0.1185E+04  0.8929E+03  0.4927E+03  0.1119E+06  0.9188E+03  0.7846E+01
+  0.1580E+03  0.3508E+03 -0.1548E+03  0.9188E+03  0.1105E+06  0.1444E+03
+ -0.2995E+03  0.2036E+04  0.1243E+04  0.7846E+01  0.1444E+03  0.3106E+06
+ITER   4   REL ERROR  0.708E-05
+
+*** LOAD CONDITIONS FOR THIS RUN
+   12   8   -50.    900    300      nsteps   ictrl   eqincr   temp_i   temp_f                                                     
+* boundary conditions                                                                                                             
+    0       0       0           iudot     |    flag for vel.grad.                                                                 
+    1       0       0                     |    (0:unknown-1:known)                                                                
+    1       1       0                     |                                                                                       
+                                          |                                                                                       
+   -0.001     0.      0.          udot      |    vel.grad                                                                         
+    0.     -0.001    0.                    |                                                                                      
+    0.      0.      -0.001                  |                                                                                     
+                                          |                                                                                       
+    1       1        1           iscau    |    flag for Cauchy                                                                    
+            1        1                    |                                                                                       
+                     1                    |                                                                                       
+                                          |                                                                                       
+    0.      0.       0.          scauchy  |    Cauchy stress                                                                      
+            0.       0.                   |                                                                                       
+                     0.                   @                                                                                       
+                                                                                                                                  
+
+*******   STEP   1      *** THERMO-ELASTIC CALCULATION         
+
+*******   STEP   2      *** THERMO-ELASTIC CALCULATION         
+
+*******   STEP   3      *** THERMO-ELASTIC CALCULATION         
+
+*******   STEP   4      *** THERMO-ELASTIC CALCULATION         
+
+*******   STEP   5      *** THERMO-ELASTIC CALCULATION         
+
+*******   STEP   6      *** THERMO-ELASTIC CALCULATION         
+
+*******   STEP   7      *** THERMO-ELASTIC CALCULATION         
+
+*******   STEP   8      *** THERMO-ELASTIC CALCULATION         
+
+*******   STEP   9      *** THERMO-ELASTIC CALCULATION         
+
+*******   STEP  10      *** THERMO-ELASTIC CALCULATION         
+
+*******   STEP  11      *** THERMO-ELASTIC CALCULATION         
+
+*******   STEP  12      *** THERMO-ELASTIC CALCULATION         
+
+ TIME ELAPSED    1.78secs

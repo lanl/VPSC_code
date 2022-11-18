@@ -1,0 +1,111 @@
+eddqq.FUL                                                                       
+B     23328
+eddqq.RAN                                                                       
+B      5335
+eddqq.RED                                                                       
+B      2916
+
+
+
+
+ TOTAL NUMBER OF ORIENTATIONS READ IS        23328
+ WEIGHTS UP TO 0.00004 ACCOUNT FOR 16576 GRAINS AND  19.87 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00008 ACCOUNT FOR 19239 GRAINS AND  34.65 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00012 ACCOUNT FOR 20631 GRAINS AND  48.11 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00016 ACCOUNT FOR 21506 GRAINS AND  59.98 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00020 ACCOUNT FOR 22202 GRAINS AND  72.18 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00023 ACCOUNT FOR 22728 GRAINS AND  83.41 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00027 ACCOUNT FOR 23080 GRAINS AND  92.30 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00031 ACCOUNT FOR 23229 GRAINS AND  96.63 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00035 ACCOUNT FOR 23304 GRAINS AND  99.12 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00039 ACCOUNT FOR 23328 GRAINS AND 100.00 % OF TOTAL VOLUME
+
+    1th  order texture coefficients
+ crystal axis 1        -0.0076   -0.0132    0.5404
+ crystal axis 2        -0.0076   -0.0133    0.5404
+ crystal axis 3        -0.0075   -0.0132    0.5390
+
+    2th  order texture coefficients
+ crystal axis 1         0.3330    0.3332    0.3338
+ crystal axis 2         0.3330    0.3332    0.3338
+ crystal axis 3         0.3339    0.3337    0.3324
+
+    3th  order texture coefficients
+ crystal axis 1        -0.0096   -0.0063    0.2235
+ crystal axis 2        -0.0096   -0.0063    0.2235
+ crystal axis 3        -0.0096   -0.0061    0.2223
+
+    4th  order texture coefficients
+ crystal axis 1         0.1814    0.1896    0.1588
+ crystal axis 2         0.1814    0.1896    0.1588
+ crystal axis 3         0.1822    0.1903    0.1579
+
+
+
+
+ TOTAL NUMBER OF ORIENTATIONS READ IS         5335
+ WEIGHTS UP TO 0.00028 ACCOUNT FOR  4301 GRAINS AND  23.70 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00057 ACCOUNT FOR  4763 GRAINS AND  42.29 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00085 ACCOUNT FOR  5028 GRAINS AND  60.87 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00114 ACCOUNT FOR  5176 GRAINS AND  75.59 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00142 ACCOUNT FOR  5256 GRAINS AND  85.59 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00170 ACCOUNT FOR  5290 GRAINS AND  90.88 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00199 ACCOUNT FOR  5313 GRAINS AND  95.04 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00227 ACCOUNT FOR  5325 GRAINS AND  97.55 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00256 ACCOUNT FOR  5334 GRAINS AND  99.72 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00284 ACCOUNT FOR  5335 GRAINS AND 100.00 % OF TOTAL VOLUME
+
+    1th  order texture coefficients
+ crystal axis 1        -0.0080   -0.0134    0.5403
+ crystal axis 2        -0.0076   -0.0141    0.5396
+ crystal axis 3        -0.0076   -0.0133    0.5351
+
+    2th  order texture coefficients
+ crystal axis 1         0.3322    0.3325    0.3354
+ crystal axis 2         0.3326    0.3329    0.3345
+ crystal axis 3         0.3352    0.3347    0.3301
+
+    3th  order texture coefficients
+ crystal axis 1        -0.0101   -0.0074    0.2261
+ crystal axis 2        -0.0090   -0.0067    0.2254
+ crystal axis 3        -0.0095   -0.0064    0.2217
+
+    4th  order texture coefficients
+ crystal axis 1         0.1814    0.1890    0.1619
+ crystal axis 2         0.1816    0.1902    0.1613
+ crystal axis 3         0.1842    0.1915    0.1583
+
+
+
+
+ TOTAL NUMBER OF ORIENTATIONS READ IS         2916
+ WEIGHTS UP TO 0.00028 ACCOUNT FOR  2025 GRAINS AND  19.28 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00056 ACCOUNT FOR  2334 GRAINS AND  31.77 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00084 ACCOUNT FOR  2537 GRAINS AND  45.61 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00112 ACCOUNT FOR  2657 GRAINS AND  57.43 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00140 ACCOUNT FOR  2737 GRAINS AND  67.43 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00169 ACCOUNT FOR  2809 GRAINS AND  78.54 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00197 ACCOUNT FOR  2869 GRAINS AND  89.35 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00225 ACCOUNT FOR  2900 GRAINS AND  95.95 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00253 ACCOUNT FOR  2909 GRAINS AND  98.08 % OF TOTAL VOLUME
+ WEIGHTS UP TO 0.00281 ACCOUNT FOR  2916 GRAINS AND 100.00 % OF TOTAL VOLUME
+
+    1th  order texture coefficients
+ crystal axis 1        -0.0075   -0.0132    0.5407
+ crystal axis 2        -0.0076   -0.0132    0.5407
+ crystal axis 3        -0.0075   -0.0132    0.5374
+
+    2th  order texture coefficients
+ crystal axis 1         0.3327    0.3329    0.3344
+ crystal axis 2         0.3327    0.3329    0.3344
+ crystal axis 3         0.3347    0.3342    0.3311
+
+    3th  order texture coefficients
+ crystal axis 1        -0.0096   -0.0064    0.2244
+ crystal axis 2        -0.0095   -0.0063    0.2244
+ crystal axis 3        -0.0096   -0.0061    0.2215
+
+    4th  order texture coefficients
+ crystal axis 1         0.1814    0.1894    0.1598
+ crystal axis 2         0.1813    0.1895    0.1598
+ crystal axis 3         0.1831    0.1909    0.1574

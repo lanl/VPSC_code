@@ -1,0 +1,101 @@
+*Material: zirconium
+HEXAGONAL                                crysym
+1.  1.  1.594     90.  90.  120.         cdim(i),cang(i)
+*Elastic stiffness of single crystal [MPa]
+  143.5e3    72.5e3    65.4e3     0.0     0.0     0.0
+   72.5e3   143.5e3    65.4e3     0.0     0.0     0.0
+   65.4e3    65.4e3   164.9e3     0.0     0.0     0.0
+    0.0     0.0     0.0    32.1e3     0.0e3     0.0e3
+    0.0     0.0     0.0     0.0e3    32.1e3     0.0e3
+    0.0     0.0     0.0     0.0e3     0.0e3    35.5e3
+*Thermal expansion coefficients of single crystal[K^(-1)]
+  5.7e-6   5.7e-6  10.3e-6   0.0e0   0.0e0   0.0e0
+SLIP AND TWINNING MODES
+6                               nmodesx
+4                               nmodes
+1  4  5  6                      mode(i)
+PRISMATIC <a>
+  1    3   1   0                       modex,nsmx,isensex,itwtypex
+ 1  0 -1  0    -1  2 -1  0
+ 0 -1  1  0     2 -1 -1  0
+ -1  1  0  0    -1 -1  2  0
+BASAL <a>
+  2    3   1   0                       modex,nsmx,isensex,itwtypex
+ 0  0  0  1     2 -1 -1  0
+ 0  0  0  1    -1  2 -1  0
+ 0  0  0  1    -1 -1  2  0
+PYRAMIDAL<a>
+  3    6   1   0                       modex,nsmx,isensex,itwtypex
+ 1  0 -1  1    -1  2 -1  0
+ 0 -1  1  1     2 -1 -1  0
+ -1  1  0  1    -1 -1  2  0
+ -1  0  1  1    -1  2 -1  0
+ 0  1 -1  1     2 -1 -1  0
+ 1 -1  0  1     1  1 -2  0
+PYRAMIDAL<c+a>
+  4   12   1   0                       modex,nsmx,isensex,itwtypex
+ 1  0 -1  1    -1 -1  2  3
+ 1  0 -1  1    -2  1  1  3
+ 0 -1  1  1     1  1 -2  3
+ 0 -1  1  1    -1  2 -1  3
+ -1  1  0  1     2 -1 -1  3
+ -1  1  0  1     1 -2  1  3
+ -1  0  1  1     2 -1 -1  3
+ -1  0  1  1     1  1 -2  3
+ 0  1 -1  1    -1 -1  2  3
+ 0  1 -1  1     1 -2  1  3
+ 1 -1  0  1    -2  1  1  3
+ 1 -1  0  1    -1  2 -1  3
+TENSILE TWIN {10-12}
+  5    6   0   2                       modex,nsmx,isensex,itwtypex
+ 0.167                                 twshx
+ 1  0 -1  2    -1  0  1  1
+ 0  1 -1  2     0 -1  1  1
+ -1  1  0  2     1 -1  0  1
+ -1  0  1  2     1  0 -1  1
+ 0 -1  1  2     0  1 -1  1
+ 1 -1  0  2    -1  1  0  1
+COMPRESSIVE TWIN {11-22}
+  6    6   0   2                       modex,nsmx,isensex,itwtypex
+ 0.225                                 twshx
+ 2 -1 -1  2     2 -1 -1 -3
+ 1  1 -2  2     1  1 -2 -3
+ -1  2 -1  2    -1  2 -1 -3
+ -2  1  1  2    -2  1  1 -3
+ -1 -1  2  2    -1 -1  2 -3
+ 1 -2  1  2     1 -2  1 -3
+*Constitutive law
+  20      ihardlaw  (Voce=0, MTS=1, DD=20)
+   0      iratesens (0:rate insensitive, 1:rate sensitive)
+  40.e+3   30.e-6          !SHEAR_MOD (MPa), GRAIN SIZE (micron)
+  0.9   0.086   5.92       !CHIfor, CHIsub, q in Eq.(3.14)  (adim)
+  1.0E+11                  !INITIAL RHO_DEB FOR EVERY GRAIN (1/m^2)
+ PRISMATIC <a> SLIP -------------------------------------------
+ 0.323e-9   3.75E-3        !BURG (m), NORM ACTENER g IN EQ. (3.12) (0.00375)
+ 1.25E+8    330.           !KGENER=K1 IN EQ.(3.8) (1/m), DRAG STRESS=D IN EQ.(3.12) (MPa)
+ 1.E+07                    !EDOT_0 IN EQ.(3.12) (1/s)
+ 5.0E+09                   !INITIAL RHO_S FOR EACH SLIP SYSTEM (1/m^2)
+ 0.0   40.   300.          !tau0,tau1,tau2 (MPa & K) in Eq.(3-17) TAU0=Atau0+Atau1*EXP(-TEMP/Atau2) 
+  0.  0.25    30.          !deb0,deb1,deb2 in EQ.(3.15) FDEB=Fdeb0+Fdeb1*LOG(1+TEMP/Fdeb2)
+ 0.10                      !HPFAC COEF FOR THIS SLIP MODE 
+ PYRAMIDAL <c+a> SLIP -------------------------------------------
+ 0.607e-9   3.2E-2         !BURG (m), NORM ACTENER g IN EQ. (3.12) (0.00375)
+ 2.25E+8    100.           !KGENER=K1 IN EQ.(3.8) (1/m), DRAG STRESS=D IN EQ.(3.12) (MPa)
+ 1.E+07                    !EDOT_0 IN EQ.(3.12) (1/s)
+ 5.0E+09                   !INITIAL RHO_S FOR EACH SLIP SYSTEM (1/m^2)
+ 0.   300.   200.          !tau0,tau1,tau2 (MPa & K) in Eq.(3-17) TAU0=Atau0+Atau1*EXP(-TEMP/Atau2)
+ 0.676e-3   0.  1.e6       !deb0,deb1,deb2 in EQ.(3.15) FDEB=Fdeb0+Fdeb1*LOG(1+TEMP/Fdeb2)
+ 0.17                      !HPFAC COEF FOR THIS SLIP MODE 
+ {10-12} TENSILE TWIN -------------------------------------------
+ 0.0623e-9                 !BURG (m)
+  165.   0.   1.e6         !T0crit,T1crit,T2crit (MPa & K) TCRIT=T0+T1*EXP(-TEMP/T2) 
+   20.   0.   1.e6         !T0prop,T1prop,T2prop (MPa & K)
+  0.    600.               !TTwSl coupling  im=1,nslmodes (adim)
+  1   2   0.1   0.5        !isectw,itwlaw,thres1,thres2
+  {11-22} COMPRESSIVE TWIN --------------------------------------
+ 0.0923e-9                 !BURG (m)
+  300.   569.   28.6       !T0crit,T1crit,T2crit (MPa & K) TCRIT=T0+T1*EXP(-TEMP/T2)
+  300.   569.   28.6       !T0prop,T1prop,T2prop (MPa & K)
+  8000.    600.            !TTwSl coupling  im=1,nslmodes (adim)
+  1   2   0.1   0.5        !isectw,itwlaw,thres1,thres2
+

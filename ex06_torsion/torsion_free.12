@@ -1,0 +1,18 @@
+  40   6   0.025   298.  298.    nsteps   ictrl   eqincr   tempini tempfin
+* boundary conditions
+    0       1       1           ilijbar     |    flag for vel.grad.
+    1       0       1                     |    (0:unknown-1:known)
+    1       1       0                     |
+                                          |
+    0.      1.      0.          lijbar      |    vel.grad
+    0.      0.      0.                    |
+    0.      0.      0.                    |
+                                          |
+    1       0        0           iscau    |    flag for Cauchy
+            1        0                    |
+                     1                    |
+                                          |
+    0.      0.       0.          scauchy  |    Cauchy stress
+            0.       0.                   |
+                     0.                   @
+

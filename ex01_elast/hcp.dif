@@ -1,0 +1,9 @@
+*DIFFRACTING PLANES AND DIRECTION FOR HCP
+*Number of diffraction directions and diffracting angle spread: 
+   4   7.5    "ndif"  "Spread"
+*Plane type and direction angle (0,0 ->3, 90,90 ->2, 90,0 ->1)
+*"n3" or "n4"   "theta"   "phi"
+1 0 -1 0      90.000    0.000
+0 0  0 2      90.000    0.000
+1 0 -1 0       0.000    0.000
+0 0  0 2       0.000    0.000

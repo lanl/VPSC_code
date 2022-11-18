@@ -1,0 +1,17 @@
+  600   2   111.12    550   550       nsteps   ictrl   eqincr   temp_ini   temp_fin
+* boundary conditions
+    0      0       0           ilbar  -->   flag for vel.grad.
+    1      0       0                        (0:unknown, 1:known)
+    1      1       0                     
+
+   1.e-5   0.      0.          lijbar  -->   velocity grad
+    0.      -0.5e-5  0.             
+    0.      0.      -0.5e-5     
+                                
+    1       1        1         isbar   -->   flag for Cauchy
+            1        1          
+                     1          
+                               
+    100.    0.       0.        sbar    -->   Cauchy stress
+            200.     0.        
+                     0.0

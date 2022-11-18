@@ -1,0 +1,56 @@
+*Material: andesine (plagiclase, albite) --> with fictitious slip systems to close SCYS
+triclinic                              crysym
+ 8.173    12.837     7.137    93.941   116.435    88.968        cdim(i),cang(i)
+*Elastic stiffness of single crystal [GPa]
+ 63.6	31.7	26.8	 5.	-3.7	-0.6
+ 31.7	159.2	14.9	-10.4	-6.6	-4.9
+ 26.8	 14.9	165.7	 3.9	 7.0	-8.7
+ 5.0	-10.4	 3.9	28.3	-1.4	-5.0
+ -3.7	 -6.6	 7.0	 -1.4	22.75	 0.1
+ -0.6	 -4.9	 -8.7	 -5.0	 0.1	34.15
+*Thermal expansion coefficients of single crystal[K^(-1)]
+  0.0e0    0.0e0    0.0e0    0.0e0    0.0e0    0.0e0
+*Info about (fake) slip modes in this file:
+  5          nmodesx    (total # of modes listed in file)
+  5          nmodes     (# of modes to be used in the calculation)
+  1   2   3   4   5          mode(i)    (label of the modes to be used)
+# slip S1  // to eigen B1
+ 1   1   1   0                       modex,nsmx,iopsysx,itwtypex
+  -1  1  0        1   1   0
+# slip S2a & S2b combination of B1 & B2
+ 2   2   1   0                       modex,nsmx,iopsysx,itwtypex
+   0   -1   1       0   1   1
+   1   0    1       -1   0   1
+# slip S3  // to eigen B3
+ 3   1   1   0                       modex,nsmx,iopsysx,itwtypex
+  0   0   1         0   1   0
+# slip S4  // to eigen B4
+ 4   1   1   0                       modex,nsmx,iopsysx,itwtypex
+  0   0   1          1   0   0
+# slip S5  // to eigen B5
+ 5   1   1   0                       modex,nsmx,iopsysx,itwtypex
+  0   1   0          1   0   0
+*Constitutive law
+   0      Voce=0, MTS=1
+   1      iratesens (0:rate insensitive, 1:rate sensitive)
+   25     grsze --> grain size only matters if HPfactor is non-zero
+# slip S1  // to eigen B1
+   1                 nrsx
+   0.6   0.0   0.0   0.0     0.        tau0x,tau1x,thet0,thet1, hpfac
+   1.    1.   1.   1.   1.                       hlatex(1,im),im=1,nmodes
+# slip S2a & S2b combination of B1 & B2
+   1                 nrsx
+   0.2   0.0   0.0   0.0     0.        tau0x,tau1x,thet0,thet1, hpfac
+   1.    1.   1.   1.   1.                       hlatex(1,im),im=1,nmodes
+# slip S3  // to eigen B3
+   1                 nrsx
+   0.1   0.0   0.0   0.0     0.        tau0x,tau1x,thet0,thet1, hpfac
+   1.    1.   1.   1.   1.                       hlatex(1,im),im=1,nmodes
+ # slip S4  // to eigen B4
+   1                 nrsx
+   0.1   0.0   0.0   0.0     0.        tau0x,tau1x,thet0,thet1, hpfac
+   1.    1.   1.   1.   1.                       hlatex(1,im),im=1,nmodes
+# slip S5  // to eigen B5
+   1                 nrsx
+   0.6   0.0   0.0   0.0     0.        tau0x,tau1x,thet0,thet1, hpfac
+   1.    1.   1.   1.   1.                       hlatex(1,im),im=1,nmodes

@@ -1,0 +1,1605 @@
+
+ **** INPUT FILE VPSC.IN FOR THIS RUN ****
+1                          number of elements (nelem)                                                                             
+1                          number of phases (nph)                                                                                 
+1.0  0.0                   relative vol. fract. of phases (wph(i))                                                                
+*INFORMATION ABOUT PHASE #1                                                                                                       
+0   0   25                      grain shape contrl, fragmentn, crit aspect ratio                                                  
+1.0  1.0  1.0                 initial ellipsoid ratios (dummy if ishape=4)                                                        
+0.0  0.0  0.0                 init Eul ang ellips axes (dummy if ishape=3,4)                                                      
+* name and path of texture file (filetext)                                                                                        
+ex02_FCC\rand500.tex                                                                                                              
+* name and path of single crystal file (filecrys)                                                                                 
+ex02_FCC\fcc.sx                                                                                                                   
+* name and path of grain shape file (dummy if ishape=0) (fileaxes)                                                                
+dummy                                                                                                                             
+* name and path of diffraction file (dummy if idiff=0)                                                                            
+0                                                                                                                                 
+dummy                                                                                                                             
+*PRECISION SETTINGS FOR CONVERGENCE PROCEDURES (default values)                                                                   
+0.001 0.001 0.001 0.001    errs,errd,errm,errso                                                                                   
+100 100 25     itmax:   max # of iter, external, internal and SO loops                                                            
+0  2  10  2    irsvar & jrsini,jrsfin,jrstep (dummy if irsvar=0)                                                                  
+*INPUT/OUTPUT SETTINGS FOR THE RUN (default is zero)                                                                              
+0              irecover:read grain states from POSTMORT.IN (1) or not (0)?                                                        
+0              isave:   write grain states in POSTMORT.OUT at step 'isave'?                                                       
+0              icubcomp:calculate fcc rolling components?                                                                         
+0              nwrite (frequency of texture downloads)                                                                            
+*MODELING CONDITIONS FOR THE RUN                                                                                                  
+3              interaction (0:FC,1:affine,2:secant,3:neff=10,4:tangent,5:SO)                                                      
+1  1  1        iupdate: update orient, grain shape, hardening                                                                     
+0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
+0              iflu (0: don't calc, 1: calc fluctuations)                                                                         
+*NUMBER OF PROCESSES (Lij const; Lij variable; PCYS ;LANKFORD; rigid rotatn)                                                      
+1                                                                                                                                 
+*IVGVAR AND PATH\NAME OF FILE FOR EACH PROCESS                                                                                    
+0                                                                                                                                 
+ex02_FCC\tension_axial.3                                                                                                          
+
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES   180.00    90.00   180.00
+  EIGNVAL   1.0000                     1.0000                     1.0000
+  EIGNVEC   1.0000   0.0000   0.0000  -0.0000  -0.0000  -1.0000   0.0000   1.0000   0.0000
+
+ **** CRYSTAL DATA FILE ****
+*Material: AUSTENITIC STEEL                                                                                                       
+cubic           crysym                                                                                                            
+   1.0   1.0   1.0   90.   90.   90.   unit cell axes and angles                                                                  
+Elastic stiffness (single crystal [GPa]; scaled=0.85xINTERPOLATED)                                                                
+ 205.0   138.0   138.0   000.0   000.0   000.0                                                                                    
+ 138.0   205.0   138.0   000.0   000.0   000.0                                                                                    
+ 138.0   138.0   205.0   000.0   000.0   000.0                                                                                    
+ 000.0   000.0   000.0   126.0   000.0   000.0                                                                                    
+ 000.0   000.0   000.0   000.0   126.0   000.0                                                                                    
+ 000.0   000.0   000.0   000.0   000.0   126.0                                                                                    
+*Thermal expansion coefficients (single crystal in crystal axis):                                                                 
+  1.0e-6   1.0e-6  1.0e-6   0.0e0   0.0e0   0.0e0                                                                                 
+*Info about slip & twinning modes in this file:                                                                                   
+  2          nmodesx    (total # of modes listed in file)                                                                         
+  1          nmodes     (# of modes to be used in the calculation)                                                                
+  1          mode(i)    (label of the modes to be used)                                                                           
+  <111>{110} SLIP                                                                                                                 
+ 1  12  1   0                       modex,nsmx,isensex,itwtypex                                                                   
+   1  1  1        0  1 -1           slip (n & b)                                                                                  
+   1  1  1        1  0 -1                                                                                                         
+   1  1  1        1 -1  0                                                                                                         
+  -1  1  1        0  1 -1                                                                                                         
+  -1  1  1        1  0  1                                                                                                         
+  -1  1  1        1  1  0                                                                                                         
+  -1 -1  1        0  1  1                                                                                                         
+  -1 -1  1        1  0  1                                                                                                         
+  -1 -1  1        1 -1  0                                                                                                         
+   1 -1  1        0  1  1                                                                                                         
+   1 -1  1        1  0 -1                                                                                                         
+   1 -1  1        1  1  0                                                                                                         
+  <111>{112} TWIN                                                                                                                 
+ 2  12  0   2                        modex,nsmx,isensex,itwtypex                                                                  
+ 0.707                               twshx                                                                                        
+   1  1  1       -2  1  1                                                                                                         
+   1  1  1        1 -2  1                                                                                                         
+   1  1  1        1  1 -2                                                                                                         
+  -1  1  1        2  1  1                                                                                                         
+  -1  1  1       -1 -2  1                                                                                                         
+  -1  1  1       -1  1 -2                                                                                                         
+  -1 -1  1        2 -1  1                                                                                                         
+  -1 -1  1       -1  2  1                                                                                                         
+  -1 -1  1       -1 -1 -2                                                                                                         
+   1 -1  1       -2 -1  1                                                                                                         
+   1 -1  1        1  2  1                                                                                                         
+   1 -1  1        1 -1 -2                                                                                                         
+*Constitutive law                                                                                                                 
+   0      Voce=0, MTS=1                                                                                                           
+   1      iratesens (0:rate insensitive, 1:rate sensitive)                                                                        
+   50     grsze --> grain size only matters if HPfactor is non-zero                                                               
+  <111>{110} SLIP -------------------------------------------                                                                     
+ 20                               nrsx                                                                                            
+ 1.0   0.0   0.0   0.0  0.        tau0x,tau1x,thet0,thet1, hpfac                                                                  
+ 1.0    1.0                          hlatex(1,im),im=1,nmodes                                                                     
+  <111>{112} TWIN --------------------------------------                                                                          
+ 20                               nrsx                                                                                            
+ 1.0   0.0    0.   0.   0.        tau0x,tau1x,thet0,thet1, hpfac                                                                  
+ 1.0    1.0                       hlatex(1,im),im=1,nmodes                                                                        
+ 0     0.05   0.50                isectw, thres1,thres2                                                                           
+**** END OF CRYSTAL DATA FILE ****
+
+
+ CHECKING THAT CELCC*SELCC-ID6=0   0.2134069E-31
+ *********** PHASE   1
+ RANDOM PX BULK & POISSON MODULI     160.333       0.266
+ RANDOM PX ELASTIC CTES C11, C12, C44     279.000     101.000      89.000
+
+ INSIDE SUBROUTINE DATA_CRYSTAL
+ SHEAR MODULUS FOR MODE  1 IN PHASE  1 IS      64.333
+ N & B FOR MODE  1 IN PHASE  1
+     0.577     0.577     0.577        0.000     0.707    -0.707
+     0.577     0.577     0.577        0.707     0.000    -0.707
+     0.577     0.577     0.577        0.707    -0.707     0.000
+    -0.577     0.577     0.577        0.000     0.707    -0.707
+    -0.577     0.577     0.577        0.707     0.000     0.707
+    -0.577     0.577     0.577        0.707     0.707     0.000
+    -0.577    -0.577     0.577        0.000     0.707     0.707
+    -0.577    -0.577     0.577        0.707     0.000     0.707
+    -0.577    -0.577     0.577        0.707    -0.707     0.000
+     0.577    -0.577     0.577        0.000     0.707     0.707
+     0.577    -0.577     0.577        0.707     0.000    -0.707
+     0.577    -0.577     0.577        0.707     0.707     0.000
+
+ **** CRYST TEXTURE (FIRST FEW LINES) ****
+dummy                                                                                                                             
+dummy                                                                                                                             
+random texture generated by RANDTEXT.FOR (23/01/97)                                                                               
+B   500                                                                                                                           
+    102.74    119.56     33.65  1.0                                                                                               
+    219.06     36.21     70.51  1.0                                                                                               
+    166.66     28.59     45.80  1.0                                                                                               
+    149.74     86.13     38.68  1.0                                                                                               
+    143.88     72.50      9.75  1.0                                                                                               
+     27.71      7.88    225.69  1.0                                                                                               
+     10.26     81.59    324.82  1.0                                                                                               
+    213.21    156.91    352.41  1.0                                                                                               
+    313.75     60.06    131.59  1.0                                                                                               
+    283.74    137.64    213.65  1.0                                                                                               
+    329.59    158.18    298.33  1.0                                                                                               
+     61.37    171.68    104.65  1.0                                                                                               
+     44.90     68.33     40.28  1.0                                                                                               
+     29.40    114.77    163.14  1.0                                                                                               
+     56.39    115.89    341.90  1.0                                                                                               
+    271.21     76.66    171.67  1.0                                                                                               
+    .........................
+ **** END OF CRYST TEXTURE DATA FILE ****
+
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES   180.00    90.00   180.00
+  EIGNVAL   1.0000                     1.0000                     1.0000
+  EIGNVEC   1.0000   0.0000   0.0000  -0.0000  -0.0000  -1.0000   0.0000   1.0000   0.0000
+
+ UB THERMAL TENSOR (VOIGT NOTATION)
+  0.1000E-05  0.1000E-05  0.1000E-05  0.1482E-23 -0.1622E-23 -0.3991E-23
+
+ UB ELASTIC STIFFNESS (VOIGT NOTATION)
+  0.2795E+03  0.9994E+02  0.1016E+03  0.1676E+00  0.1479E+01  0.6049E+00
+  0.9994E+02  0.2801E+03  0.1009E+03 -0.1180E+01  0.1349E+00 -0.7842E+00
+  0.1016E+03  0.1009E+03  0.2785E+03  0.1012E+01 -0.1614E+01  0.1793E+00
+  0.1676E+00 -0.1180E+01  0.1012E+01  0.8894E+02  0.1793E+00  0.1349E+00
+  0.1479E+01  0.1349E+00 -0.1614E+01  0.1793E+00  0.8959E+02  0.1676E+00
+  0.6049E+00 -0.7842E+00  0.1793E+00  0.1349E+00  0.1676E+00  0.8794E+02
+
+ LB THERMAL TENSOR (VOIGT NOTATION)
+  0.1000E-05  0.1000E-05  0.1000E-05  0.2658E-23 -0.1216E-23 -0.1258E-23
+
+ LB ELASTIC STIFFNESS (VOIGT NOTATION)
+  0.2406E+03  0.1195E+03  0.1209E+03  0.1580E+00  0.1267E+01  0.5168E+00
+  0.1195E+03  0.2412E+03  0.1203E+03 -0.1012E+01  0.1034E+00 -0.6672E+00
+  0.1209E+03  0.1203E+03  0.2398E+03  0.8542E+00 -0.1370E+01  0.1503E+00
+  0.1580E+00 -0.1012E+01  0.8542E+00  0.5984E+02  0.1446E+00  0.1204E+00
+  0.1267E+01  0.1034E+00 -0.1370E+01  0.1446E+00  0.6040E+02  0.1448E+00
+  0.5168E+00 -0.6672E+00  0.1503E+00  0.1204E+00  0.1448E+00  0.5899E+02
+
+
+*** LOAD CONDITIONS FOR THIS RUN
+  50    3   0.02    298.   298.   nsteps  ictrl  ctrlincr  temp_i  temp_f                                                         
+* boundary conditions                                                                                                             
+    0       1       1           iudot    |    flag for vel.grad.                                                                  
+    1       0       1                    |    (0:unknown-1:known)                                                                 
+    1       1       1                    |                                                                                        
+                                         |                                                                                        
+   -0.5     0.      0.          udot     |    vel.grad                                                                            
+    0.     -0.5     0.                   |                                                                                        
+    0.      0.      1.0                  |                                                                                        
+                                         |                                                                                        
+    1       0       0           iscau    |    flag for Cauchy                                                                     
+            1       0                    |                                                                                        
+                    0                    |                                                                                        
+                                         |                                                                                        
+    0.      0.      0.          scauchy  |    Cauchy stress                                                                       
+            0.      0.                   |                                                                                        
+                    0.                   @                                                                                        
+                                                                                                                                 
+
+*******   STEP   1      *** N_EFF=10 CALCULATION               
+   37   0.853E-04   0.931E-03   0.922E-04
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.158  0.159  1.282  1.821  0.375  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    20.000     0.159     0.167
+kg,NEFFGR,RC_MAX,RR 325     1.000     1.821     1.380
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5165    0.0000    0.0000
+  LIJBAR     0.0000   -0.4835    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.9897    0.0000    0.0000
+  FIJ        0.0000    0.9903    0.0000
+  FIJ        0.0000    0.0000    1.0200
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.9903                     1.0200                     0.9897
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5164   -0.0000   -0.0000
+  LIJPH     -0.0000   -0.4836    0.0000
+  LIJPH     -0.0000    0.0000    1.0000
+  FIJ        0.9897   -0.0000   -0.0000
+  FIJ       -0.0000    0.9903    0.0000
+  FIJ       -0.0000    0.0000    1.0200
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.01    90.00    -0.00
+  EIGNVAL   0.9903                     1.0200                     0.9897
+  EIGNVEC  -0.0001   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000   0.0001   0.0000
+
+*******   STEP   2      *** N_EFF=10 CALCULATION               
+    9   0.773E-04   0.763E-03   0.723E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  6.998  0.159  1.296  1.821  0.363  0.1226E+01
+kg,NEFFGR,RC_MIN,RR  55    19.047     0.243     0.280
+kg,NEFFGR,RC_MAX,RR 325     0.928     1.827     1.353
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5182    0.0000    0.0000
+  LIJBAR     0.0000   -0.4818    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.9794    0.0000    0.0000
+  FIJ        0.0000    0.9808    0.0000
+  FIJ        0.0000    0.0000    1.0404
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.9808                     1.0404                     0.9794
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5185   -0.0000    0.0000
+  LIJPH     -0.0000   -0.4822    0.0000
+  LIJPH      0.0000    0.0000    1.0007
+  FIJ        0.9794   -0.0000    0.0000
+  FIJ       -0.0000    0.9808    0.0000
+  FIJ        0.0000    0.0000    1.0404
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.01    90.00    -0.00
+  EIGNVAL   0.9808                     1.0404                     0.9794
+  EIGNVEC  -0.0001   1.0000  -0.0000   0.0000   0.0000   1.0000   1.0000   0.0001  -0.0000
+
+*******   STEP   3      *** N_EFF=10 CALCULATION               
+    7   0.160E-03   0.975E-03   0.561E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  6.992  0.159  1.297  1.821  0.370  0.1224E+01
+kg,NEFFGR,RC_MIN,RR  55    18.860     0.259     0.305
+kg,NEFFGR,RC_MAX,RR 325     0.832     1.836     1.354
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5181    0.0000    0.0000
+  LIJBAR     0.0000   -0.4819    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.9693    0.0000    0.0000
+  FIJ        0.0000    0.9713    0.0000
+  FIJ        0.0000    0.0000    1.0612
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.9713                     1.0612                     0.9693
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5178   -0.0000    0.0000
+  LIJPH     -0.0000   -0.4817    0.0000
+  LIJPH      0.0000    0.0000    0.9994
+  FIJ        0.9693   -0.0000    0.0000
+  FIJ       -0.0000    0.9713    0.0000
+  FIJ        0.0000    0.0000    1.0612
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.01    90.00    -0.00
+  EIGNVAL   0.9713                     1.0612                     0.9693
+  EIGNVEC  -0.0001   1.0000  -0.0000   0.0000   0.0000   1.0000   1.0000   0.0001  -0.0000
+
+*******   STEP   4      *** N_EFF=10 CALCULATION               
+    6   0.356E-03   0.729E-03   0.564E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.013  0.159  1.295  1.821  0.382  0.1224E+01
+kg,NEFFGR,RC_MIN,RR  55    18.853     0.260     0.308
+kg,NEFFGR,RC_MAX,RR 325     0.703     1.847     1.362
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5178    0.0000    0.0000
+  LIJBAR     0.0000   -0.4822    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.9592    0.0000    0.0000
+  FIJ        0.0000    0.9620    0.0000
+  FIJ        0.0000    0.0000    1.0824
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.9620                     1.0824                     0.9592
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5175    0.0000    0.0000
+  LIJPH      0.0000   -0.4819    0.0001
+  LIJPH      0.0000    0.0001    0.9994
+  FIJ        0.9592   -0.0000    0.0000
+  FIJ       -0.0000    0.9620    0.0000
+  FIJ        0.0000    0.0000    1.0824
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.00    90.00    -0.00
+  EIGNVAL   0.9620                     1.0824                     0.9592
+  EIGNVEC  -0.0001   1.0000  -0.0000   0.0000   0.0000   1.0000   1.0000   0.0001  -0.0000
+
+*******   STEP   5      *** N_EFF=10 CALCULATION               
+    6   0.463E-03   0.982E-03   0.699E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.027  0.159  1.294  1.821  0.394  0.1224E+01
+kg,NEFFGR,RC_MIN,RR  55    18.872     0.258     0.308
+kg,NEFFGR,RC_MAX,RR 325     0.561     1.859     1.371
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5175    0.0000    0.0000
+  LIJBAR     0.0000   -0.4825    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.9493    0.0000    0.0000
+  FIJ        0.0000    0.9527    0.0000
+  FIJ        0.0000    0.0000    1.1041
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.9527                     1.1041                     0.9493
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5171    0.0000    0.0000
+  LIJPH      0.0000   -0.4822    0.0000
+  LIJPH      0.0000    0.0000    0.9993
+  FIJ        0.9493   -0.0000    0.0000
+  FIJ       -0.0000    0.9527    0.0000
+  FIJ        0.0000    0.0000    1.1041
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.00    90.00    -0.00
+  EIGNVAL   0.9527                     1.1041                     0.9493
+  EIGNVEC  -0.0000   1.0000  -0.0000   0.0000   0.0000   1.0000   1.0000   0.0000  -0.0000
+
+*******   STEP   6      *** N_EFF=10 CALCULATION               
+    6   0.625E-04   0.890E-03   0.630E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.051  0.159  1.292  1.821  0.406  0.1224E+01
+kg,NEFFGR,RC_MIN,RR  55    18.894     0.256     0.307
+kg,NEFFGR,RC_MAX,RR 325     0.447     1.869     1.381
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5171    0.0000    0.0000
+  LIJBAR     0.0000   -0.4829    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.9395    0.0000    0.0000
+  FIJ        0.0000    0.9435    0.0000
+  FIJ        0.0000    0.0000    1.1262
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.9435                     1.1262                     0.9395
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5168    0.0000    0.0000
+  LIJPH      0.0000   -0.4826    0.0001
+  LIJPH      0.0000    0.0001    0.9994
+  FIJ        0.9395   -0.0000    0.0000
+  FIJ       -0.0000    0.9435    0.0000
+  FIJ        0.0000    0.0000    1.1261
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.00    90.00    -0.00
+  EIGNVAL   0.9435                     1.1261                     0.9395
+  EIGNVEC  -0.0000   1.0000  -0.0000   0.0000   0.0000   1.0000   1.0000   0.0000  -0.0000
+
+*******   STEP   7      *** N_EFF=10 CALCULATION               
+    6   0.371E-03   0.719E-03   0.588E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.069  0.159  1.290  1.821  0.418  0.1224E+01
+kg,NEFFGR,RC_MIN,RR  55    18.899     0.256     0.308
+kg,NEFFGR,RC_MAX,RR 325     0.345     1.878     1.390
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5167    0.0000    0.0000
+  LIJBAR     0.0000   -0.4833    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.9298    0.0000    0.0000
+  FIJ        0.0000    0.9344    0.0000
+  FIJ        0.0000    0.0000    1.1487
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.9344                     1.1487                     0.9298
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5164    0.0000    0.0000
+  LIJPH      0.0000   -0.4830    0.0000
+  LIJPH      0.0000    0.0000    0.9994
+  FIJ        0.9298    0.0000    0.0000
+  FIJ        0.0000    0.9344    0.0000
+  FIJ        0.0000    0.0000    1.1486
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.00    90.00    -0.00
+  EIGNVAL   0.9344                     1.1486                     0.9298
+  EIGNVEC   0.0000   1.0000  -0.0000   0.0000   0.0000   1.0000   1.0000  -0.0000  -0.0000
+
+*******   STEP   8      *** N_EFF=10 CALCULATION               
+    6   0.350E-03   0.634E-03   0.565E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.091  0.159  1.288  1.821  0.429  0.1224E+01
+kg,NEFFGR,RC_MIN,RR  55    18.895     0.256     0.309
+kg,NEFFGR,RC_MAX,RR 325     0.268     1.885     1.398
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5163    0.0000    0.0000
+  LIJBAR     0.0000   -0.4837    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.9202    0.0000    0.0000
+  FIJ        0.0000    0.9253    0.0000
+  FIJ        0.0000    0.0000    1.1717
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.9253                     1.1717                     0.9202
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5160    0.0000    0.0000
+  LIJPH      0.0000   -0.4834    0.0000
+  LIJPH      0.0000    0.0000    0.9994
+  FIJ        0.9202    0.0000    0.0000
+  FIJ        0.0000    0.9253    0.0000
+  FIJ        0.0000    0.0000    1.1716
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.00    90.00    -0.00
+  EIGNVAL   0.9253                     1.1716                     0.9202
+  EIGNVEC   0.0000   1.0000  -0.0000   0.0000   0.0000   1.0000   1.0000  -0.0000  -0.0000
+
+*******   STEP   9      *** N_EFF=10 CALCULATION               
+    5   0.174E-03   0.978E-03   0.243E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.127  0.159  1.285  1.821  0.439  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    18.895     0.256     0.311
+kg,NEFFGR,RC_MAX,RR 325     0.224     1.889     1.407
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5159    0.0000    0.0000
+  LIJBAR     0.0000   -0.4841    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.9107    0.0000    0.0000
+  FIJ        0.0000    0.9164    0.0000
+  FIJ        0.0000    0.0000    1.1951
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.9164                     1.1951                     0.9107
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5158    0.0000   -0.0000
+  LIJPH      0.0000   -0.4840    0.0000
+  LIJPH     -0.0000    0.0000    0.9998
+  FIJ        0.9107    0.0000    0.0000
+  FIJ        0.0000    0.9164    0.0000
+  FIJ        0.0000    0.0000    1.1950
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.00    90.00    -0.00
+  EIGNVAL   0.9164                     1.1950                     0.9107
+  EIGNVEC   0.0000   1.0000  -0.0000   0.0000   0.0000   1.0000   1.0000  -0.0000  -0.0000
+
+*******   STEP  10      *** N_EFF=10 CALCULATION               
+    6   0.233E-03   0.335E-03   0.407E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.139  0.159  1.284  1.821  0.449  0.1224E+01
+kg,NEFFGR,RC_MIN,RR  55    18.866     0.258     0.314
+kg,NEFFGR,RC_MAX,RR 325     0.173     1.893     1.414
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5155    0.0000    0.0000
+  LIJBAR     0.0000   -0.4845    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.9013    0.0000    0.0000
+  FIJ        0.0000    0.9075    0.0000
+  FIJ        0.0000    0.0000    1.2190
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.9075                     1.2190                     0.9013
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5153    0.0000   -0.0000
+  LIJPH      0.0000   -0.4843    0.0000
+  LIJPH     -0.0000    0.0000    0.9996
+  FIJ        0.9013    0.0000    0.0000
+  FIJ        0.0000    0.9075    0.0000
+  FIJ        0.0000    0.0000    1.2189
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.00    90.00    -0.00
+  EIGNVAL   0.9075                     1.2189                     0.9013
+  EIGNVEC   0.0000   1.0000  -0.0000   0.0000   0.0000   1.0000   1.0000  -0.0000  -0.0000
+
+*******   STEP  11      *** N_EFF=10 CALCULATION               
+    6   0.186E-03   0.264E-03   0.339E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.163  0.159  1.282  1.821  0.458  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    18.833     0.261     0.319
+kg,NEFFGR,RC_MAX,RR 325     0.156     1.895     1.420
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5151    0.0000    0.0000
+  LIJBAR     0.0000   -0.4849    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.8920    0.0000    0.0000
+  FIJ        0.0000    0.8987    0.0000
+  FIJ        0.0000    0.0000    1.2434
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.8987                     1.2434                     0.8920
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5150    0.0000   -0.0000
+  LIJPH      0.0000   -0.4847    0.0000
+  LIJPH     -0.0000    0.0000    0.9997
+  FIJ        0.8920    0.0000    0.0000
+  FIJ        0.0000    0.8987    0.0000
+  FIJ        0.0000    0.0000    1.2433
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.00    90.00    -0.00
+  EIGNVAL   0.8987                     1.2433                     0.8920
+  EIGNVEC   0.0000   1.0000  -0.0000   0.0000   0.0000   1.0000   1.0000  -0.0000  -0.0000
+
+*******   STEP  12      *** N_EFF=10 CALCULATION               
+    5   0.189E-03   0.482E-03   0.556E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.196  0.159  1.279  1.821  0.466  0.1224E+01
+kg,NEFFGR,RC_MIN,RR  55    18.805     0.264     0.323
+kg,NEFFGR,RC_MAX,RR 325     0.161     1.894     1.426
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5148    0.0000    0.0000
+  LIJBAR     0.0000   -0.4852    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.8828    0.0000    0.0000
+  FIJ        0.0000    0.8900    0.0000
+  FIJ        0.0000    0.0000    1.2682
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.8900                     1.2682                     0.8828
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5146    0.0000   -0.0000
+  LIJPH      0.0000   -0.4849    0.0000
+  LIJPH     -0.0000    0.0000    0.9994
+  FIJ        0.8829    0.0000    0.0000
+  FIJ        0.0000    0.8900    0.0000
+  FIJ        0.0000    0.0000    1.2681
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.00    90.00    -0.00
+  EIGNVAL   0.8900                     1.2681                     0.8829
+  EIGNVEC   0.0001   1.0000  -0.0000   0.0000   0.0000   1.0000   1.0000  -0.0001  -0.0000
+
+*******   STEP  13      *** N_EFF=10 CALCULATION               
+    6   0.181E-03   0.220E-03   0.332E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.212  0.159  1.278  1.821  0.473  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    18.751     0.269     0.329
+kg,NEFFGR,RC_MAX,RR 325     0.169     1.894     1.430
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5147    0.0000    0.0000
+  LIJBAR     0.0000   -0.4853    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.8737    0.0000    0.0000
+  FIJ        0.0000    0.8813    0.0000
+  FIJ        0.0000    0.0000    1.2936
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.8813                     1.2936                     0.8737
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5145    0.0000   -0.0000
+  LIJPH      0.0000   -0.4852    0.0000
+  LIJPH     -0.0000    0.0000    0.9997
+  FIJ        0.8738    0.0000    0.0000
+  FIJ        0.0000    0.8814    0.0000
+  FIJ        0.0000    0.0000    1.2935
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.00    90.00    -0.00
+  EIGNVAL   0.8814                     1.2935                     0.8738
+  EIGNVEC   0.0001   1.0000  -0.0000   0.0000   0.0000   1.0000   1.0000  -0.0001  -0.0000
+
+*******   STEP  14      *** N_EFF=10 CALCULATION               
+    5   0.177E-03   0.417E-03   0.521E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.247  0.159  1.275  1.821  0.480  0.1224E+01
+kg,NEFFGR,RC_MIN,RR  55    18.706     0.272     0.334
+kg,NEFFGR,RC_MAX,RR 325     0.212     1.890     1.434
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5146    0.0000    0.0000
+  LIJBAR     0.0000   -0.4854    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.8647    0.0000    0.0000
+  FIJ        0.0000    0.8728    0.0000
+  FIJ        0.0000    0.0000    1.3195
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.8728                     1.3195                     0.8647
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5143    0.0000   -0.0000
+  LIJPH      0.0000   -0.4852    0.0000
+  LIJPH     -0.0000    0.0000    0.9995
+  FIJ        0.8648    0.0000    0.0000
+  FIJ        0.0000    0.8728    0.0000
+  FIJ        0.0000    0.0000    1.3193
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    89.99    90.00    -0.00
+  EIGNVAL   0.8728                     1.3193                     0.8648
+  EIGNVEC   0.0001   1.0000  -0.0000   0.0000   0.0000   1.0000   1.0000  -0.0001  -0.0000
+
+*******   STEP  15      *** N_EFF=10 CALCULATION               
+    6   0.986E-04   0.147E-03   0.732E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.271  0.159  1.273  1.821  0.486  0.1224E+01
+kg,NEFFGR,RC_MIN,RR  55    18.645     0.278     0.341
+kg,NEFFGR,RC_MAX,RR 325     0.258     1.886     1.436
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5146    0.0000    0.0000
+  LIJBAR     0.0000   -0.4854    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.8558    0.0000    0.0000
+  FIJ        0.0000    0.8643    0.0000
+  FIJ        0.0000    0.0000    1.3459
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.8643                     1.3459                     0.8558
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5142   -0.0000   -0.0000
+  LIJPH     -0.0000   -0.4851    0.0000
+  LIJPH     -0.0000    0.0000    0.9993
+  FIJ        0.8559    0.0000    0.0000
+  FIJ        0.0000    0.8643    0.0000
+  FIJ        0.0000    0.0000    1.3457
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    89.99    90.00    -0.00
+  EIGNVAL   0.8643                     1.3457                     0.8559
+  EIGNVEC   0.0001   1.0000  -0.0000   0.0000   0.0000   1.0000   1.0000  -0.0001  -0.0000
+
+*******   STEP  16      *** N_EFF=10 CALCULATION               
+    5   0.163E-03   0.976E-03   0.115E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.298  0.159  1.270  1.821  0.490  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    18.575     0.284     0.350
+kg,NEFFGR,RC_MAX,RR 325     0.327     1.880     1.437
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5146    0.0000    0.0000
+  LIJBAR     0.0000   -0.4854    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.8470    0.0000    0.0000
+  FIJ        0.0000    0.8559    0.0000
+  FIJ        0.0000    0.0000    1.3728
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.8559                     1.3728                     0.8470
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5147    0.0000   -0.0000
+  LIJPH      0.0000   -0.4854    0.0000
+  LIJPH     -0.0000    0.0000    1.0001
+  FIJ        0.8471    0.0000   -0.0000
+  FIJ        0.0000    0.8560    0.0000
+  FIJ       -0.0000    0.0000    1.3726
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    89.99    90.00    -0.00
+  EIGNVAL   0.8560                     1.3726                     0.8471
+  EIGNVEC   0.0001   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000  -0.0001   0.0000
+
+*******   STEP  17      *** N_EFF=10 CALCULATION               
+    5   0.155E-03   0.960E-03   0.168E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.323  0.159  1.268  1.821  0.495  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    18.498     0.291     0.358
+kg,NEFFGR,RC_MAX,RR 325     0.404     1.873     1.438
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5148    0.0000    0.0000
+  LIJBAR     0.0000   -0.4852    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.8383    0.0000    0.0000
+  FIJ        0.0000    0.8476    0.0000
+  FIJ        0.0000    0.0000    1.4002
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.8476                     1.4002                     0.8383
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5149    0.0000   -0.0000
+  LIJPH      0.0000   -0.4853    0.0000
+  LIJPH     -0.0000    0.0000    1.0002
+  FIJ        0.8384    0.0000   -0.0000
+  FIJ        0.0000    0.8476    0.0000
+  FIJ       -0.0000    0.0000    1.4001
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    89.99    90.00    -0.00
+  EIGNVAL   0.8476                     1.4001                     0.8384
+  EIGNVEC   0.0001   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000  -0.0001   0.0000
+
+*******   STEP  18      *** N_EFF=10 CALCULATION               
+    5   0.144E-03   0.909E-03   0.155E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.349  0.159  1.266  1.821  0.498  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    18.417     0.298     0.367
+kg,NEFFGR,RC_MAX,RR 325     0.492     1.865     1.437
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5149    0.0000    0.0000
+  LIJBAR     0.0000   -0.4851    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.8297    0.0000    0.0000
+  FIJ        0.0000    0.8394    0.0000
+  FIJ        0.0000    0.0000    1.4282
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.8394                     1.4282                     0.8297
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5150    0.0000   -0.0000
+  LIJPH      0.0000   -0.4851    0.0000
+  LIJPH     -0.0000    0.0000    1.0002
+  FIJ        0.8297    0.0000   -0.0000
+  FIJ        0.0000    0.8394    0.0000
+  FIJ       -0.0000    0.0000    1.4281
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    89.99    90.00    -0.00
+  EIGNVAL   0.8394                     1.4281                     0.8297
+  EIGNVEC   0.0001   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000  -0.0001   0.0000
+
+*******   STEP  19      *** N_EFF=10 CALCULATION               
+    5   0.133E-03   0.849E-03   0.129E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.374  0.159  1.264  1.821  0.500  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    18.331     0.305     0.377
+kg,NEFFGR,RC_MAX,RR 325     0.591     1.857     1.436
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5152    0.0000    0.0000
+  LIJBAR     0.0000   -0.4848    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.8211    0.0000    0.0000
+  FIJ        0.0000    0.8312    0.0000
+  FIJ        0.0000    0.0000    1.4568
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.8312                     1.4568                     0.8211
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5152    0.0000   -0.0000
+  LIJPH      0.0000   -0.4849    0.0000
+  LIJPH     -0.0000    0.0000    1.0001
+  FIJ        0.8212    0.0000   -0.0000
+  FIJ        0.0000    0.8313    0.0000
+  FIJ       -0.0000    0.0000    1.4567
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    89.99    90.00    -0.00
+  EIGNVAL   0.8313                     1.4567                     0.8212
+  EIGNVEC   0.0001   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000  -0.0001   0.0000
+
+*******   STEP  20      *** N_EFF=10 CALCULATION               
+    3   0.441E-03   0.656E-03   0.958E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.381  0.159  1.263  1.821  0.503  0.1226E+01
+kg,NEFFGR,RC_MIN,RR  55    18.229     0.314     0.387
+kg,NEFFGR,RC_MAX,RR 325     0.675     1.849     1.433
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5154    0.0000    0.0000
+  LIJBAR     0.0000   -0.4846    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.8127    0.0000    0.0000
+  FIJ        0.0000    0.8232    0.0000
+  FIJ        0.0000    0.0000    1.4859
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.8232                     1.4859                     0.8127
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5159    0.0000    0.0001
+  LIJPH      0.0000   -0.4851   -0.0000
+  LIJPH      0.0001   -0.0000    1.0010
+  FIJ        0.8127    0.0000   -0.0000
+  FIJ        0.0000    0.8232    0.0000
+  FIJ       -0.0000    0.0000    1.4858
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    89.99    90.00    -0.00
+  EIGNVAL   0.8232                     1.4858                     0.8127
+  EIGNVEC   0.0002   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000  -0.0002   0.0000
+
+*******   STEP  21      *** N_EFF=10 CALCULATION               
+    5   0.119E-03   0.750E-03   0.192E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.431  0.159  1.259  1.821  0.503  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    18.147     0.321     0.397
+kg,NEFFGR,RC_MAX,RR 325     0.821     1.837     1.430
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5157    0.0000    0.0000
+  LIJBAR     0.0000   -0.4843    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.8043    0.0000    0.0000
+  FIJ        0.0000    0.8152    0.0000
+  FIJ        0.0000    0.0000    1.5157
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.8152                     1.5157                     0.8043
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5156    0.0000   -0.0000
+  LIJPH      0.0000   -0.4842    0.0000
+  LIJPH     -0.0000    0.0000    0.9998
+  FIJ        0.8043    0.0000   -0.0000
+  FIJ        0.0000    0.8152    0.0000
+  FIJ       -0.0000    0.0000    1.5155
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    89.99    90.00    -0.00
+  EIGNVAL   0.8152                     1.5155                     0.8043
+  EIGNVEC   0.0002   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000  -0.0002   0.0000
+
+*******   STEP  22      *** N_EFF=10 CALCULATION               
+    5   0.858E-04   0.462E-03   0.560E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.459  0.159  1.256  1.821  0.504  0.1224E+01
+kg,NEFFGR,RC_MIN,RR  55    18.056     0.329     0.407
+kg,NEFFGR,RC_MAX,RR 325     0.942     1.826     1.427
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5160    0.0000    0.0000
+  LIJBAR     0.0000   -0.4840    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.7960    0.0000    0.0000
+  FIJ        0.0000    0.8073    0.0000
+  FIJ        0.0000    0.0000    1.5460
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.8073                     1.5460                     0.7960
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5157    0.0000   -0.0000
+  LIJPH      0.0000   -0.4837    0.0000
+  LIJPH     -0.0000    0.0000    0.9994
+  FIJ        0.7960    0.0000   -0.0000
+  FIJ        0.0000    0.8074    0.0000
+  FIJ       -0.0000    0.0000    1.5458
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    89.99    90.00    -0.00
+  EIGNVAL   0.8074                     1.5458                     0.7960
+  EIGNVEC   0.0002   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000  -0.0002   0.0000
+
+*******   STEP  23      *** N_EFF=10 CALCULATION               
+    3   0.379E-03   0.687E-03   0.817E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.469  0.159  1.255  1.821  0.504  0.1226E+01
+kg,NEFFGR,RC_MIN,RR  55    17.944     0.339     0.419
+kg,NEFFGR,RC_MAX,RR 325     1.049     1.817     1.422
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5164    0.0000    0.0000
+  LIJBAR     0.0000   -0.4836    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.7878    0.0000    0.0000
+  FIJ        0.0000    0.7995    0.0000
+  FIJ        0.0000    0.0000    1.5769
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.7995                     1.5769                     0.7878
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5167    0.0000   -0.0000
+  LIJPH      0.0000   -0.4841    0.0001
+  LIJPH     -0.0000    0.0001    1.0008
+  FIJ        0.7878    0.0000   -0.0000
+  FIJ        0.0000    0.7995    0.0000
+  FIJ       -0.0000    0.0000    1.5768
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    89.99    90.00    -0.00
+  EIGNVAL   0.7995                     1.5768                     0.7878
+  EIGNVEC   0.0002   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000  -0.0002   0.0000
+
+*******   STEP  24      *** N_EFF=10 CALCULATION               
+    5   0.704E-04   0.407E-03   0.548E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.516  0.159  1.251  1.821  0.503  0.1224E+01
+kg,NEFFGR,RC_MIN,RR  55    17.852     0.347     0.429
+kg,NEFFGR,RC_MAX,RR 325     1.209     1.803     1.417
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5167    0.0000    0.0000
+  LIJBAR     0.0000   -0.4833    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.7796    0.0000    0.0000
+  FIJ        0.0000    0.7918    0.0000
+  FIJ        0.0000    0.0000    1.6084
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.7918                     1.6084                     0.7796
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5164    0.0000   -0.0000
+  LIJPH      0.0000   -0.4831   -0.0000
+  LIJPH     -0.0000   -0.0000    0.9995
+  FIJ        0.7797    0.0000   -0.0000
+  FIJ        0.0000    0.7918    0.0000
+  FIJ       -0.0000    0.0000    1.6083
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    89.99    90.00    -0.00
+  EIGNVAL   0.7918                     1.6083                     0.7797
+  EIGNVEC   0.0002   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000  -0.0002   0.0000
+
+*******   STEP  25      *** N_EFF=10 CALCULATION               
+    5   0.634E-04   0.341E-03   0.685E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.547  0.159  1.248  1.821  0.501  0.1224E+01
+kg,NEFFGR,RC_MIN,RR  55    17.751     0.356     0.440
+kg,NEFFGR,RC_MAX,RR 325     1.349     1.790     1.411
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5171    0.0000    0.0000
+  LIJBAR     0.0000   -0.4829    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.7716    0.0000    0.0000
+  FIJ        0.0000    0.7841    0.0000
+  FIJ        0.0000    0.0000    1.6406
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.7841                     1.6406                     0.7716
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5167    0.0000   -0.0000
+  LIJPH      0.0000   -0.4826   -0.0000
+  LIJPH     -0.0000   -0.0000    0.9993
+  FIJ        0.7716    0.0000   -0.0000
+  FIJ        0.0000    0.7842    0.0000
+  FIJ       -0.0000    0.0000    1.6404
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    89.99    90.00    -0.00
+  EIGNVAL   0.7842                     1.6404                     0.7716
+  EIGNVEC   0.0002   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000  -0.0002   0.0000
+
+*******   STEP  26      *** N_EFF=10 CALCULATION               
+    5   0.581E-04   0.308E-03   0.704E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.576  0.159  1.246  1.821  0.500  0.1224E+01
+kg,NEFFGR,RC_MIN,RR  55    17.643     0.365     0.452
+kg,NEFFGR,RC_MAX,RR 325     1.492     1.778     1.404
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5174    0.0000    0.0000
+  LIJBAR     0.0000   -0.4826    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.7636    0.0000    0.0000
+  FIJ        0.0000    0.7766    0.0000
+  FIJ        0.0000    0.0000    1.6734
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.7766                     1.6734                     0.7636
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5170    0.0000   -0.0000
+  LIJPH      0.0000   -0.4823   -0.0000
+  LIJPH     -0.0000   -0.0000    0.9993
+  FIJ        0.7636    0.0000   -0.0000
+  FIJ        0.0000    0.7766    0.0000
+  FIJ       -0.0000    0.0000    1.6732
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    89.99    90.00    -0.00
+  EIGNVAL   0.7766                     1.6732                     0.7636
+  EIGNVEC   0.0002   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000  -0.0002   0.0000
+
+*******   STEP  27      *** N_EFF=10 CALCULATION               
+    5   0.523E-04   0.275E-03   0.706E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.605  0.159  1.243  1.821  0.497  0.1224E+01
+kg,NEFFGR,RC_MIN,RR  55    17.533     0.375     0.464
+kg,NEFFGR,RC_MAX,RR 325     1.638     1.765     1.397
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5177    0.0000    0.0000
+  LIJBAR     0.0000   -0.4823    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.7557    0.0000    0.0000
+  FIJ        0.0000    0.7691    0.0000
+  FIJ        0.0000    0.0000    1.7069
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.7691                     1.7069                     0.7557
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5173    0.0000   -0.0000
+  LIJPH      0.0000   -0.4820   -0.0000
+  LIJPH     -0.0000   -0.0000    0.9993
+  FIJ        0.7557    0.0000   -0.0000
+  FIJ        0.0000    0.7691    0.0000
+  FIJ       -0.0000    0.0000    1.7067
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    89.99    90.00    -0.00
+  EIGNVAL   0.7691                     1.7067                     0.7557
+  EIGNVEC   0.0002   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000  -0.0002   0.0000
+
+*******   STEP  28      *** N_EFF=10 CALCULATION               
+    4   0.143E-03   0.960E-03   0.132E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.633  0.159  1.241  1.821  0.495  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    17.420     0.385     0.476
+kg,NEFFGR,RC_MAX,RR 325     1.784     1.752     1.390
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5180    0.0000    0.0000
+  LIJBAR     0.0000   -0.4820    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.7478    0.0000    0.0000
+  FIJ        0.0000    0.7617    0.0000
+  FIJ        0.0000    0.0000    1.7410
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.7617                     1.7410                     0.7478
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5180    0.0000   -0.0000
+  LIJPH      0.0000   -0.4821    0.0000
+  LIJPH     -0.0000    0.0000    1.0001
+  FIJ        0.7479    0.0000   -0.0000
+  FIJ        0.0000    0.7617    0.0000
+  FIJ       -0.0000    0.0000    1.7408
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    89.99    90.00    -0.00
+  EIGNVAL   0.7617                     1.7408                     0.7479
+  EIGNVEC   0.0002   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000  -0.0002   0.0000
+
+*******   STEP  29      *** N_EFF=10 CALCULATION               
+    4   0.125E-03   0.875E-03   0.131E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.661  0.159  1.238  1.821  0.491  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    17.305     0.395     0.489
+kg,NEFFGR,RC_MAX,RR 325     1.931     1.740     1.382
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5183    0.0000    0.0000
+  LIJBAR     0.0000   -0.4817    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.7401    0.0000    0.0000
+  FIJ        0.0000    0.7543    0.0000
+  FIJ        0.0000    0.0000    1.7758
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.7543                     1.7758                     0.7401
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5183    0.0000   -0.0000
+  LIJPH      0.0000   -0.4818    0.0000
+  LIJPH     -0.0000    0.0000    1.0001
+  FIJ        0.7401    0.0000   -0.0000
+  FIJ        0.0000    0.7544    0.0000
+  FIJ       -0.0000    0.0000    1.7756
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    89.99    90.00    -0.00
+  EIGNVAL   0.7544                     1.7756                     0.7401
+  EIGNVEC   0.0002   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000  -0.0002   0.0000
+
+*******   STEP  30      *** N_EFF=10 CALCULATION               
+    4   0.119E-03   0.810E-03   0.894E-04
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.689  0.159  1.236  1.821  0.488  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    17.188     0.405     0.501
+kg,NEFFGR,RC_MAX,RR 325     2.078     1.727     1.374
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5186    0.0000    0.0000
+  LIJBAR     0.0000   -0.4814    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.7324    0.0000    0.0000
+  FIJ        0.0000    0.7471    0.0000
+  FIJ        0.0000    0.0000    1.8114
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.7471                     1.8114                     0.7324
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5186   -0.0000   -0.0000
+  LIJPH     -0.0000   -0.4815    0.0000
+  LIJPH     -0.0000    0.0000    1.0001
+  FIJ        0.7325    0.0000   -0.0000
+  FIJ        0.0000    0.7471    0.0000
+  FIJ       -0.0000    0.0000    1.8111
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    89.99    90.00    -0.00
+  EIGNVAL   0.7471                     1.8111                     0.7325
+  EIGNVEC   0.0002   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000  -0.0002   0.0000
+
+*******   STEP  31      *** N_EFF=10 CALCULATION               
+    4   0.114E-03   0.758E-03   0.599E-04
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.716  0.159  1.234  1.821  0.484  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    17.071     0.415     0.514
+kg,NEFFGR,RC_MAX,RR 325     2.224     1.714     1.366
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5189    0.0000    0.0000
+  LIJBAR     0.0000   -0.4811    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.7248    0.0000    0.0000
+  FIJ        0.0000    0.7399    0.0000
+  FIJ        0.0000    0.0000    1.8476
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.7399                     1.8476                     0.7248
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5189   -0.0000   -0.0000
+  LIJPH     -0.0000   -0.4812    0.0000
+  LIJPH     -0.0000    0.0000    1.0000
+  FIJ        0.7249    0.0000   -0.0000
+  FIJ        0.0000    0.7399    0.0000
+  FIJ       -0.0000    0.0000    1.8473
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    89.99    90.00    -0.00
+  EIGNVAL   0.7399                     1.8473                     0.7249
+  EIGNVEC   0.0002   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000  -0.0002   0.0000
+
+*******   STEP  32      *** N_EFF=10 CALCULATION               
+    4   0.109E-03   0.714E-03   0.498E-04
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.742  0.159  1.231  1.821  0.481  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    16.952     0.426     0.527
+kg,NEFFGR,RC_MAX,RR 325     2.368     1.701     1.358
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5192    0.0000    0.0000
+  LIJBAR     0.0000   -0.4808    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.7173    0.0000    0.0000
+  FIJ        0.0000    0.7328    0.0000
+  FIJ        0.0000    0.0000    1.8845
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.7328                     1.8845                     0.7173
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5191   -0.0000   -0.0000
+  LIJPH     -0.0000   -0.4809    0.0000
+  LIJPH     -0.0000    0.0000    1.0000
+  FIJ        0.7173    0.0000   -0.0000
+  FIJ        0.0000    0.7328    0.0000
+  FIJ       -0.0000    0.0000    1.8843
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    89.99    90.00    -0.00
+  EIGNVAL   0.7328                     1.8843                     0.7173
+  EIGNVEC   0.0002   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000  -0.0002   0.0000
+
+*******   STEP  33      *** N_EFF=10 CALCULATION               
+    4   0.105E-03   0.676E-03   0.617E-04
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.768  0.159  1.229  1.821  0.476  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    16.833     0.436     0.540
+kg,NEFFGR,RC_MAX,RR 325     2.511     1.689     1.349
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5194    0.0000    0.0000
+  LIJBAR     0.0000   -0.4806    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.7098    0.0000    0.0000
+  FIJ        0.0000    0.7257    0.0000
+  FIJ        0.0000    0.0000    1.9222
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.7257                     1.9222                     0.7098
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5194   -0.0000   -0.0000
+  LIJPH     -0.0000   -0.4806    0.0000
+  LIJPH     -0.0000    0.0000    1.0000
+  FIJ        0.7099    0.0000   -0.0000
+  FIJ        0.0000    0.7258    0.0000
+  FIJ       -0.0000    0.0000    1.9220
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    89.99    90.00    -0.00
+  EIGNVAL   0.7258                     1.9220                     0.7099
+  EIGNVEC   0.0001   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000  -0.0001   0.0000
+
+*******   STEP  34      *** N_EFF=10 CALCULATION               
+    3   0.319E-03   0.995E-03   0.548E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.789  0.159  1.227  1.821  0.472  0.1226E+01
+kg,NEFFGR,RC_MIN,RR  55    16.708     0.447     0.553
+kg,NEFFGR,RC_MAX,RR 325     2.647     1.677     1.340
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5197    0.0000    0.0000
+  LIJBAR     0.0000   -0.4803    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.7025    0.0000    0.0000
+  FIJ        0.0000    0.7187    0.0000
+  FIJ        0.0000    0.0000    1.9607
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.7187                     1.9607                     0.7025
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5199   -0.0001   -0.0001
+  LIJPH     -0.0001   -0.4806    0.0000
+  LIJPH     -0.0001    0.0000    1.0005
+  FIJ        0.7025    0.0000   -0.0000
+  FIJ        0.0000    0.7188    0.0000
+  FIJ       -0.0000    0.0000    1.9604
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    89.99    90.00    -0.00
+  EIGNVAL   0.7188                     1.9604                     0.7025
+  EIGNVEC   0.0001   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000  -0.0001   0.0000
+
+*******   STEP  35      *** N_EFF=10 CALCULATION               
+    3   0.286E-03   0.985E-03   0.492E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.813  0.159  1.225  1.821  0.468  0.1226E+01
+kg,NEFFGR,RC_MIN,RR  55    16.586     0.458     0.566
+kg,NEFFGR,RC_MAX,RR 325     2.787     1.665     1.332
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5199    0.0000    0.0000
+  LIJBAR     0.0000   -0.4801    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.6952    0.0000    0.0000
+  FIJ        0.0000    0.7118    0.0000
+  FIJ        0.0000    0.0000    1.9999
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.7118                     1.9999                     0.6952
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5202   -0.0001   -0.0001
+  LIJPH     -0.0001   -0.4803    0.0000
+  LIJPH     -0.0001    0.0000    1.0005
+  FIJ        0.6952    0.0000   -0.0000
+  FIJ        0.0000    0.7119    0.0000
+  FIJ       -0.0000    0.0000    1.9997
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.00    90.00    -0.00
+  EIGNVAL   0.7119                     1.9997                     0.6952
+  EIGNVEC   0.0000   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000  -0.0000   0.0000
+
+*******   STEP  36      *** N_EFF=10 CALCULATION               
+    3   0.273E-03   0.992E-03   0.460E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.838  0.159  1.223  1.821  0.463  0.1226E+01
+kg,NEFFGR,RC_MIN,RR  55    16.465     0.468     0.579
+kg,NEFFGR,RC_MAX,RR 325     2.923     1.653     1.323
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5202    0.0000    0.0000
+  LIJBAR     0.0000   -0.4798    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.6879    0.0000    0.0000
+  FIJ        0.0000    0.7050    0.0000
+  FIJ        0.0000    0.0000    2.0399
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.7050                     2.0399                     0.6879
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5204   -0.0001   -0.0001
+  LIJPH     -0.0001   -0.4801    0.0000
+  LIJPH     -0.0001    0.0000    1.0004
+  FIJ        0.6880   -0.0000   -0.0000
+  FIJ       -0.0000    0.7050    0.0000
+  FIJ       -0.0000    0.0000    2.0397
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.00    90.00    -0.00
+  EIGNVAL   0.7050                     2.0397                     0.6880
+  EIGNVEC  -0.0000   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+
+*******   STEP  37      *** N_EFF=10 CALCULATION               
+    3   0.260E-03   0.989E-03   0.433E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.862  0.159  1.221  1.821  0.458  0.1226E+01
+kg,NEFFGR,RC_MIN,RR  55    16.345     0.479     0.592
+kg,NEFFGR,RC_MAX,RR 325     3.058     1.641     1.315
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5204    0.0000    0.0000
+  LIJBAR     0.0000   -0.4796    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.6808    0.0000    0.0000
+  FIJ        0.0000    0.6982    0.0000
+  FIJ        0.0000    0.0000    2.0807
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.6982                     2.0807                     0.6808
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5206   -0.0001   -0.0001
+  LIJPH     -0.0001   -0.4798    0.0000
+  LIJPH     -0.0001    0.0000    1.0004
+  FIJ        0.6808   -0.0000   -0.0000
+  FIJ       -0.0000    0.6983    0.0000
+  FIJ       -0.0000    0.0000    2.0805
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.01    90.00    -0.00
+  EIGNVAL   0.6983                     2.0805                     0.6808
+  EIGNVEC  -0.0001   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000   0.0001   0.0000
+
+*******   STEP  38      *** N_EFF=10 CALCULATION               
+    3   0.249E-03   0.981E-03   0.407E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.887  0.159  1.219  1.821  0.454  0.1226E+01
+kg,NEFFGR,RC_MIN,RR  55    16.225     0.489     0.605
+kg,NEFFGR,RC_MAX,RR 325     3.189     1.630     1.306
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5207    0.0000    0.0000
+  LIJBAR     0.0000   -0.4793    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.6737    0.0000    0.0000
+  FIJ        0.0000    0.6916    0.0000
+  FIJ        0.0000    0.0000    2.1223
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.6916                     2.1223                     0.6737
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5208   -0.0001   -0.0001
+  LIJPH     -0.0001   -0.4795    0.0000
+  LIJPH     -0.0001    0.0000    1.0004
+  FIJ        0.6737   -0.0000   -0.0000
+  FIJ       -0.0000    0.6916    0.0000
+  FIJ       -0.0000    0.0000    2.1221
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.01    90.00    -0.00
+  EIGNVAL   0.6916                     2.1221                     0.6737
+  EIGNVEC  -0.0001   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000   0.0001   0.0000
+
+*******   STEP  39      *** N_EFF=10 CALCULATION               
+    3   0.239E-03   0.969E-03   0.383E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.911  0.159  1.217  1.821  0.449  0.1226E+01
+kg,NEFFGR,RC_MIN,RR  55    16.105     0.500     0.618
+kg,NEFFGR,RC_MAX,RR 325     3.318     1.618     1.298
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5209    0.0000    0.0000
+  LIJBAR     0.0000   -0.4791    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.6667    0.0000    0.0000
+  FIJ        0.0000    0.6849    0.0000
+  FIJ        0.0000    0.0000    2.1647
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.6849                     2.1647                     0.6667
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5211   -0.0001   -0.0001
+  LIJPH     -0.0001   -0.4793    0.0000
+  LIJPH     -0.0001    0.0000    1.0004
+  FIJ        0.6667   -0.0000   -0.0000
+  FIJ       -0.0000    0.6849    0.0000
+  FIJ       -0.0000    0.0000    2.1646
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.01    90.00    -0.00
+  EIGNVAL   0.6849                     2.1646                     0.6667
+  EIGNVEC  -0.0002   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000   0.0002   0.0000
+
+*******   STEP  40      *** N_EFF=10 CALCULATION               
+    3   0.229E-03   0.954E-03   0.360E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.935  0.159  1.214  1.821  0.444  0.1226E+01
+kg,NEFFGR,RC_MIN,RR  55    15.987     0.510     0.630
+kg,NEFFGR,RC_MAX,RR 325     3.445     1.607     1.289
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5212    0.0000    0.0000
+  LIJBAR     0.0000   -0.4788    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.6597    0.0000    0.0000
+  FIJ        0.0000    0.6784    0.0000
+  FIJ        0.0000    0.0000    2.2080
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.6784                     2.2080                     0.6597
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5213   -0.0001   -0.0001
+  LIJPH     -0.0001   -0.4790    0.0000
+  LIJPH     -0.0001    0.0000    1.0003
+  FIJ        0.6597   -0.0000   -0.0000
+  FIJ       -0.0000    0.6784    0.0000
+  FIJ       -0.0000    0.0000    2.2079
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.01    90.00    -0.00
+  EIGNVAL   0.6784                     2.2079                     0.6597
+  EIGNVEC  -0.0003   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000   0.0003   0.0000
+
+*******   STEP  41      *** N_EFF=10 CALCULATION               
+    3   0.219E-03   0.936E-03   0.337E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.960  0.159  1.212  1.821  0.438  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    15.869     0.521     0.643
+kg,NEFFGR,RC_MAX,RR 325     3.568     1.596     1.281
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5214    0.0000    0.0000
+  LIJBAR     0.0000   -0.4786    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.6528    0.0000    0.0000
+  FIJ        0.0000    0.6719    0.0000
+  FIJ        0.0000    0.0000    2.2522
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.6719                     2.2522                     0.6528
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5215   -0.0001   -0.0001
+  LIJPH     -0.0001   -0.4788    0.0000
+  LIJPH     -0.0001    0.0000    1.0003
+  FIJ        0.6529   -0.0000   -0.0000
+  FIJ       -0.0000    0.6719    0.0000
+  FIJ       -0.0000    0.0000    2.2520
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.02    90.00    -0.00
+  EIGNVAL   0.6719                     2.2520                     0.6529
+  EIGNVEC  -0.0003   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000   0.0003   0.0000
+
+*******   STEP  42      *** N_EFF=10 CALCULATION               
+    3   0.210E-03   0.914E-03   0.316E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  7.984  0.159  1.210  1.821  0.433  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    15.753     0.531     0.655
+kg,NEFFGR,RC_MAX,RR 325     3.690     1.586     1.272
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5216    0.0000    0.0000
+  LIJBAR     0.0000   -0.4784    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.6460    0.0000    0.0000
+  FIJ        0.0000    0.6654    0.0000
+  FIJ        0.0000    0.0000    2.2972
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.6654                     2.2972                     0.6460
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5217   -0.0001   -0.0001
+  LIJPH     -0.0001   -0.4786    0.0000
+  LIJPH     -0.0001    0.0000    1.0003
+  FIJ        0.6460   -0.0000   -0.0000
+  FIJ       -0.0000    0.6655    0.0000
+  FIJ       -0.0000    0.0000    2.2971
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.02    90.00    -0.00
+  EIGNVAL   0.6655                     2.2971                     0.6460
+  EIGNVEC  -0.0003   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000   0.0003   0.0000
+
+*******   STEP  43      *** N_EFF=10 CALCULATION               
+    3   0.201E-03   0.891E-03   0.296E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  8.009  0.159  1.208  1.821  0.428  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    15.638     0.541     0.667
+kg,NEFFGR,RC_MAX,RR 325     3.808     1.575     1.264
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5219    0.0000    0.0000
+  LIJBAR     0.0000   -0.4781    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.6393    0.0000    0.0000
+  FIJ        0.0000    0.6591    0.0000
+  FIJ        0.0000    0.0000    2.3432
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.6591                     2.3432                     0.6393
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5220   -0.0001   -0.0001
+  LIJPH     -0.0001   -0.4783    0.0000
+  LIJPH     -0.0001    0.0000    1.0003
+  FIJ        0.6393   -0.0000   -0.0000
+  FIJ       -0.0000    0.6591    0.0000
+  FIJ       -0.0000    0.0000    2.3431
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.02    90.00    -0.00
+  EIGNVAL   0.6591                     2.3431                     0.6393
+  EIGNVEC  -0.0004   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000   0.0004   0.0000
+
+*******   STEP  44      *** N_EFF=10 CALCULATION               
+    3   0.192E-03   0.865E-03   0.276E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  8.033  0.159  1.206  1.821  0.423  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    15.525     0.551     0.679
+kg,NEFFGR,RC_MAX,RR 325     3.924     1.565     1.256
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5221    0.0000    0.0000
+  LIJBAR     0.0000   -0.4779    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.6326    0.0000    0.0000
+  FIJ        0.0000    0.6528    0.0000
+  FIJ        0.0000    0.0000    2.3901
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.6528                     2.3901                     0.6326
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5222   -0.0001   -0.0001
+  LIJPH     -0.0001   -0.4781    0.0000
+  LIJPH     -0.0001    0.0000    1.0002
+  FIJ        0.6326   -0.0000   -0.0000
+  FIJ       -0.0000    0.6528    0.0000
+  FIJ       -0.0000    0.0000    2.3899
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.02    90.00    -0.00
+  EIGNVAL   0.6528                     2.3899                     0.6326
+  EIGNVEC  -0.0004   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000   0.0004   0.0000
+
+*******   STEP  45      *** N_EFF=10 CALCULATION               
+    3   0.183E-03   0.838E-03   0.257E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  8.058  0.159  1.204  1.821  0.418  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    15.414     0.560     0.691
+kg,NEFFGR,RC_MAX,RR 325     4.037     1.555     1.248
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5223    0.0000    0.0000
+  LIJBAR     0.0000   -0.4777    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.6260    0.0000    0.0000
+  FIJ        0.0000    0.6465    0.0000
+  FIJ        0.0000    0.0000    2.4379
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.6465                     2.4379                     0.6260
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5224   -0.0001   -0.0001
+  LIJPH     -0.0001   -0.4778    0.0000
+  LIJPH     -0.0001    0.0000    1.0002
+  FIJ        0.6260   -0.0000   -0.0000
+  FIJ       -0.0000    0.6466    0.0000
+  FIJ       -0.0000    0.0000    2.4377
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.03    90.00    -0.00
+  EIGNVAL   0.6466                     2.4377                     0.6260
+  EIGNVEC  -0.0005   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000   0.0005   0.0000
+
+*******   STEP  46      *** N_EFF=10 CALCULATION               
+    3   0.175E-03   0.810E-03   0.239E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  8.083  0.159  1.202  1.821  0.413  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    15.305     0.570     0.703
+kg,NEFFGR,RC_MAX,RR 325     4.148     1.546     1.240
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5226    0.0000    0.0000
+  LIJBAR     0.0000   -0.4774    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.6194    0.0000    0.0000
+  FIJ        0.0000    0.6404    0.0000
+  FIJ        0.0000    0.0000    2.4866
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.6404                     2.4866                     0.6194
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5226   -0.0001   -0.0001
+  LIJPH     -0.0001   -0.4776    0.0000
+  LIJPH     -0.0001    0.0000    1.0002
+  FIJ        0.6195   -0.0000   -0.0000
+  FIJ       -0.0000    0.6404    0.0000
+  FIJ       -0.0000    0.0000    2.4865
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.03    90.00    -0.00
+  EIGNVAL   0.6404                     2.4865                     0.6195
+  EIGNVEC  -0.0005   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000   0.0005   0.0000
+
+*******   STEP  47      *** N_EFF=10 CALCULATION               
+    3   0.167E-03   0.780E-03   0.222E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  8.108  0.159  1.199  1.821  0.408  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    15.198     0.579     0.714
+kg,NEFFGR,RC_MAX,RR 325     4.255     1.536     1.232
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5228    0.0000    0.0000
+  LIJBAR     0.0000   -0.4772    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.6130    0.0000    0.0000
+  FIJ        0.0000    0.6343    0.0000
+  FIJ        0.0000    0.0000    2.5363
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.6343                     2.5363                     0.6130
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5229   -0.0001   -0.0001
+  LIJPH     -0.0001   -0.4773    0.0000
+  LIJPH     -0.0001    0.0000    1.0002
+  FIJ        0.6130   -0.0000   -0.0000
+  FIJ       -0.0000    0.6343    0.0000
+  FIJ       -0.0000    0.0000    2.5362
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.03    90.00    -0.00
+  EIGNVAL   0.6343                     2.5362                     0.6130
+  EIGNVEC  -0.0005   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000   0.0005   0.0000
+
+*******   STEP  48      *** N_EFF=10 CALCULATION               
+    3   0.158E-03   0.750E-03   0.206E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  8.133  0.159  1.197  1.821  0.403  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    15.094     0.588     0.725
+kg,NEFFGR,RC_MAX,RR 325     4.361     1.527     1.225
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5230    0.0000    0.0000
+  LIJBAR     0.0000   -0.4770    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.6066    0.0000    0.0000
+  FIJ        0.0000    0.6282    0.0000
+  FIJ        0.0000    0.0000    2.5871
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.6282                     2.5871                     0.6066
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5231   -0.0001   -0.0001
+  LIJPH     -0.0001   -0.4771    0.0000
+  LIJPH     -0.0001    0.0000    1.0002
+  FIJ        0.6066   -0.0000   -0.0000
+  FIJ       -0.0000    0.6282    0.0000
+  FIJ       -0.0000    0.0000    2.5870
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.03    90.00    -0.00
+  EIGNVAL   0.6282                     2.5870                     0.6066
+  EIGNVEC  -0.0005   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000   0.0005   0.0000
+
+*******   STEP  49      *** N_EFF=10 CALCULATION               
+    3   0.151E-03   0.720E-03   0.190E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  8.158  0.159  1.195  1.821  0.398  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    14.992     0.597     0.736
+kg,NEFFGR,RC_MAX,RR 325     4.463     1.518     1.217
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5233    0.0000    0.0000
+  LIJBAR     0.0000   -0.4767    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.6002    0.0000    0.0000
+  FIJ        0.0000    0.6222    0.0000
+  FIJ        0.0000    0.0000    2.6388
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.6222                     2.6388                     0.6002
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5233   -0.0001   -0.0001
+  LIJPH     -0.0001   -0.4769    0.0000
+  LIJPH     -0.0001    0.0000    1.0002
+  FIJ        0.6002   -0.0000   -0.0000
+  FIJ       -0.0000    0.6222    0.0000
+  FIJ       -0.0000    0.0000    2.6387
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.03    90.00    -0.00
+  EIGNVAL   0.6222                     2.6387                     0.6002
+  EIGNVEC  -0.0005   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000   0.0005   0.0000
+
+*******   STEP  50      *** N_EFF=10 CALCULATION               
+    3   0.143E-03   0.689E-03   0.176E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  8.183  0.159  1.193  1.821  0.393  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    14.893     0.606     0.746
+kg,NEFFGR,RC_MAX,RR 325     4.563     1.509     1.210
+  INSIDE UPD_FIJ - PHASE #  0
+  LIJBAR    -0.5235    0.0000    0.0000
+  LIJBAR     0.0000   -0.4765    0.0000
+  LIJBAR     0.0000    0.0000    1.0000
+  FIJ        0.5939    0.0000    0.0000
+  FIJ        0.0000    0.6163    0.0000
+  FIJ        0.0000    0.0000    2.6916
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
+  EULER ANGLES    90.00    90.00     0.00
+  EIGNVAL   0.6163                     2.6916                     0.5939
+  EIGNVEC   0.0000   1.0000   0.0000   0.0000   0.0000   1.0000   1.0000   0.0000   0.0000
+  INSIDE UPD_FIJ - PHASE #  1
+  LIJPH     -0.5235   -0.0001   -0.0001
+  LIJPH     -0.0001   -0.4766    0.0000
+  LIJPH     -0.0001    0.0000    1.0001
+  FIJ        0.5939   -0.0000   -0.0000
+  FIJ       -0.0000    0.6163    0.0000
+  FIJ       -0.0000    0.0000    2.6915
+  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
+  EULER ANGLES    90.03    90.00    -0.00
+  EIGNVAL   0.6163                     2.6915                     0.5939
+  EIGNVEC  -0.0006   1.0000  -0.0000  -0.0000   0.0000   1.0000   1.0000   0.0006   0.0000
+
+*******   STEP  51      *** N_EFF=10 CALCULATION               
+    3   0.135E-03   0.658E-03   0.162E-03
+nrs,avneff,rcmin,rcave,rcmax,rcdev,davnorm  20  8.208  0.159  1.191  1.821  0.388  0.1225E+01
+kg,NEFFGR,RC_MIN,RR  55    14.796     0.614     0.756
+kg,NEFFGR,RC_MAX,RR 325     4.660     1.501     1.203
+
+ TIME ELAPSED    5.91secs

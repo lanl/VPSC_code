@@ -1,0 +1,93 @@
+
+*******   STEP   1      *** N_EFF=cte CALCULATION              
+   70   0.105E-03   0.956E-03   0.304E-04
+
+*******   STEP   2      *** N_EFF=cte CALCULATION              
+   40   0.107E-03   0.945E-03   0.287E-04
+
+*******   STEP   3      *** N_EFF=cte CALCULATION              
+   28   0.944E-04   0.894E-03   0.292E-04
+
+*******   STEP   4      *** N_EFF=cte CALCULATION              
+   18   0.153E-03   0.959E-03   0.873E-04
+
+*******   STEP   5      *** N_EFF=cte CALCULATION              
+   15   0.106E-03   0.949E-03   0.135E-03
+
+*******   STEP   6      *** N_EFF=cte CALCULATION              
+   10   0.118E-03   0.872E-03   0.653E-03
+
+*******   STEP   7      *** N_EFF=cte CALCULATION              
+    6   0.124E-03   0.910E-03   0.248E-03
+
+*******   STEP   8      *** N_EFF=cte CALCULATION              
+    6   0.937E-04   0.769E-03   0.633E-03
+
+*******   STEP   9      *** N_EFF=cte CALCULATION              
+    4   0.741E-03   0.945E-03   0.807E-03
+
+*******   STEP  10      *** N_EFF=cte CALCULATION              
+    4   0.534E-03   0.726E-03   0.601E-03
+
+*******   STEP  11      *** N_EFF=cte CALCULATION              
+    4   0.420E-03   0.568E-03   0.480E-03
+
+*******   STEP  12      *** N_EFF=cte CALCULATION              
+    4   0.350E-03   0.442E-03   0.405E-03
+
+*******   STEP  13      *** N_EFF=cte CALCULATION              
+    4   0.304E-03   0.346E-03   0.355E-03
+
+*******   STEP  14      *** N_EFF=cte CALCULATION              
+    4   0.275E-03   0.277E-03   0.323E-03
+
+*******   STEP  15      *** N_EFF=cte CALCULATION              
+    4   0.259E-03   0.243E-03   0.302E-03
+
+*******   STEP  16      *** N_EFF=cte CALCULATION              
+    4   0.251E-03   0.274E-03   0.289E-03
+
+*******   STEP  17      *** N_EFF=cte CALCULATION              
+    4   0.250E-03   0.386E-03   0.281E-03
+
+*******   STEP  18      *** N_EFF=cte CALCULATION              
+    4   0.252E-03   0.564E-03   0.276E-03
+
+*******   STEP  19      *** N_EFF=cte CALCULATION              
+    4   0.257E-03   0.797E-03   0.271E-03
+
+*******   STEP  20      *** N_EFF=cte CALCULATION              
+    5   0.127E-03   0.912E-03   0.239E-03
+
+*******   STEP  21      *** N_EFF=cte CALCULATION              
+    7   0.130E-03   0.985E-03   0.238E-03
+
+*******   STEP  22      *** N_EFF=cte CALCULATION              
+    9   0.120E-03   0.883E-03   0.311E-04
+
+*******   STEP  23      *** N_EFF=cte CALCULATION              
+    7   0.262E-03   0.912E-03   0.431E-03
+
+*******   STEP  24      *** N_EFF=cte CALCULATION              
+    8   0.249E-03   0.919E-03   0.425E-03
+
+*******   STEP  25      *** N_EFF=cte CALCULATION              
+   10   0.134E-03   0.907E-03   0.507E-03
+
+*******   STEP  26      *** N_EFF=cte CALCULATION              
+   11   0.148E-03   0.813E-03   0.486E-03
+
+*******   STEP  27      *** N_EFF=cte CALCULATION              
+   11   0.134E-03   0.785E-03   0.387E-03
+
+*******   STEP  28      *** N_EFF=cte CALCULATION              
+    8   0.337E-03   0.971E-03   0.172E-03
+
+*******   STEP  29      *** N_EFF=cte CALCULATION              
+   11   0.146E-03   0.839E-03   0.148E-03
+
+*******   STEP  30      *** N_EFF=cte CALCULATION              
+   10   0.188E-03   0.990E-03   0.188E-03
+
+*******   STEP  31      *** N_EFF=cte CALCULATION              
+   10   0.170E-03   0.920E-03   0.106E-03

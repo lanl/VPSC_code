@@ -1,0 +1,12 @@
+ELASTIC CONSTANTS AND SLIP SYSTEMS FOR URANIUM
+ORTHORHOMBIC             crysym
+   1.  2.056   1.7361    90.   90.   90.   unit cell axes and angles
+Elastic stiffness (single crystal [MPa]) from Fischer JNM 18 (1966)
+ 214.8e3    46.5e3    21.8e3   0.0   0.0   0.0
+  46.5e3   198.6e3   107.6e3   0.0   0.0   0.0
+  21.8e3   107.6e3   267.1e3   0.0   0.0   0.0
+ 000.0     000.0   000.0     124.4e3     0.0       0.0
+ 000.0     000.0     000.0     000.0    73.4e3   000.0
+ 000.0     000.0     000.0     000.0     000.0   74.3e3
+*Thermal expansion coefficients (single crystal in crystal axis):
+ 25.41e-6  0.65e-6  20.65e-6   0.0e0   0.0e0   0.0e0

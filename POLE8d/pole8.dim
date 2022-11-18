@@ -1,0 +1,45 @@
+c ***********************************************************************
+c     POLE8.DIM      --->      VERSION OF 01/nov/2017
+c     COMMON STATEMENTS AND PARAMETERS TO BE INCLUDED DURING COMPILATION
+c ***********************************************************************
+
+      double precision pi
+      double precision x, y, z, f, xnil, ynil 
+      double precision rlevel, xp, yp, wgtp
+      double precision xi, yi, xf, yf
+      double precision step
+      double precision vs, frac, xps, yps
+      double precision phi,the,ome,wgt, r, pf_wgt_factor
+      
+      integer    level,  intwgt, mgrid, ngrid   
+      integer    icros, idraw, ifull, iwrite, isepa, iper
+      integer    igrid, iloga, ipfig, iproj, irepr, irota, isym   
+      integer    ngmax, nlmax, npmax, nsmax, maxt, maxp, nlevels
+      integer    ur1,ur2,ur3,ur4,uw1,uw2,uw8,ugnu,seglevel
+      integer    nind, miller, isnlbl
+	  
+      character        dash*10,outfileid*5
+      character*80     inputfile,textfile,polefile
+	  
+      parameter (ngmax= 300000)      ! maximum # of grains in texture file
+      parameter (nlmax=     15)      ! maximum # of level lines
+      parameter (npmax=1200000)      ! maximum # of poles in pole figure
+      parameter (nsmax=  50000)      ! maximum # of segments
+
+      parameter (maxt=36)      ! maximum number of different textures to plot
+      parameter (maxp=36)      ! maximum number of different poles to plot
+
+      common/iso/x(74),y(20),z(0:20),f(20,74),xnil(20*74),ynil(20*74)
+      common/lev/rlevel(nlmax),level(nlmax),nlevels
+      common/miller/nind,isnlbl(4),miller(4,maxp)
+      common/pol/xp(npmax),yp(npmax),wgtp(npmax),intwgt(npmax)
+      common/seg/xi(nsmax),yi(nsmax),xf(nsmax),yf(nsmax),seglevel(nsmax)
+      common/settings/icros,ifull,igrid,ipfig,iproj,iper(3),
+     #                irepr,irota,isepa,isym,step,mgrid,ngrid
+      common/spr/vs(3,100),frac(100),xps(100),yps(100)
+      common/text/phi(ngmax),the(ngmax),ome(ngmax),wgt(ngmax),
+     #            r(3,3,ngmax), pf_wgt_factor(maxt)
+      common/iounits/ur1,ur2,ur3,ur4,uw1,uw2,uw8,dash,outfileid
+      common/iofiles/inputfile(maxt),textfile(maxt),polefile(maxp)
+
+      data pi/3.1415926535898/

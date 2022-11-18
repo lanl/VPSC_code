@@ -1,0 +1,15 @@
+*DIFFRACTING PLANES AND DIRECTION FOR ORTHOTROPIC
+*Number of diffraction directions and diffracting angle spread: 
+   9   7.5    "ndif"  "Spread"
+*Plane type and direction angle (0,0 ->X3, 90,90 ->X2, 90,0 ->X1)
+*"n3" or "n4"   "theta"   "phi"
+1  0  0      90.000    0.000      axis 1
+0  1  0      90.000    0.000
+0  0  1      90.000    0.000
+1  0  0      90.000    90.000     axis 2
+0  1  0      90.000    90.000
+0  0  1      90.000    90.000
+1  0  0       0.000    0.000      axis 3
+0  1  0       0.000    0.000
+0  0  1       0.000    0.000
+
