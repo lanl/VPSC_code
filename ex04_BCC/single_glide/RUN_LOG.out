@@ -1,6 +1,6 @@
 
  **** INPUT FILE VPSC.IN FOR THIS RUN ****
-1                          number of elements (nelem)                                                                             
+1                          VP (1) or ELAST (-1) regime                                                                            
 1                          number of phases (nph)                                                                                 
 1.0  0.0                   relative vol. fract. of phases (wph(i))                                                                
 *INFORMATION ABOUT PHASE #1                                                                                                       
@@ -8,9 +8,9 @@
 1.0  1.0  1.0                 initial ellipsoid ratios (dummy if ishape=4)                                                        
 0.0  0.0  0.0                 init Eul ang ellips axes (dummy if ishape=3,4)                                                      
 * name and path of texture file (filetext)                                                                                        
-ex04_bcc\rand500.tex                                                                                                              
+ex04_BCC\rand500.tex                                                                                                              
 * name and path of single crystal file (filecrys)                                                                                 
-ex04_bcc\fe.sxa                                                                                                                   
+ex04_BCC\fe.sxa                                                                                                                   
 * name and path of grain shape file (dummy if ishape=0) (fileaxes)                                                                
 dummy                                                                                                                             
 * name and path of diffraction file (dummy if idiff=0)                                                                            
@@ -18,7 +18,7 @@ dummy
 dummy                                                                                                                             
 *PRECISION SETTINGS FOR CONVERGENCE PROCEDURES (default values)                                                                   
 0.001 0.001 0.001 0.001    errs,errd,errm,errso                                                                                   
-100 100  25     itmax:   max # of iter, external, internal and SO loops                                                           
+100 100 25     itmax:   max # of iter, external, internal and SO loops                                                            
 0  2  10  2   irsvar & irsini,irsfin,irstep (dummy if irsvar=0)                                                                   
 *INPUT/OUTPUT SETTINGS FOR THE RUN (default is zero)                                                                              
 0              irecover:read grain states from POSTMORT.IN (1) or not (0)?                                                        
@@ -26,7 +26,7 @@ dummy
 1              icubcomp:calculate fcc rolling components?                                                                         
 0              nwrite (frequency of texture downloads)                                                                            
 *MODELING CONDITIONS FOR THE RUN                                                                                                  
-1              interaction (0:FC,1:affine,2:secant,3:neff=10,4:tangent,5:SO)                                                      
+1  10          interaction (0:FC,1:aff,2:sec,3:neff or RDC,4:tan,5:SO), neffx                                                     
 1  1  1        iupdate: update orient, grain shape, hardening                                                                     
 0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
 0              iflu (0: don't calc, 1: calc fluctuations)                                                                         
@@ -34,11 +34,11 @@ dummy
 3                                                                                                                                 
 *IVGVAR AND PATH\NAME OF FILE OR STRESS SUBSPACE OR ANGULAR INCREMENT                                                             
 0         ivgvar=0 will run a monotonic strain path                                                                               
-ex04_bcc\rolling                                                                                                                  
+ex04_BCC\rolling                                                                                                                  
 2         ivgvar=2 will calculate PCYS at the end                                                                                 
 1 2             -->   section of stress space                                                                                     
-3         ivgvar=3 will calculate Lankford coefficients at the end                                                                
-10              -->   angular increment for tensile probing                                                                       
+3         ivgvar=3 will calculate Lankford coefficient at the end                                                                 
+10.              -->   angular increment for tensile probing                                                                      
 
 
  **** CRYSTAL DATA FILE ****
@@ -168,6 +168,9 @@ B   500
     271.21     76.66    171.67  1.0                                                                                               
     .........................
  **** END OF CRYST TEXTURE DATA FILE ****
+
+
+*** RUNNING INTERACTION NEFF=    0.00
 
 
  UB THERMAL TENSOR (VOIGT NOTATION)
@@ -529,124 +532,124 @@ WILL CALCULATE A   1   2   PCYS PROJECTION
 *** STARTS LANKFORD CALCULATION PROBING EVERY     10.00 DEGREES
 
 *******   STEP   1      *** AFFINE CALCULATION                 
-  EULER ANGLES OF PHASE before rotation   1
-    89.999     0.001     0.000
-  ELLIPSOID AXES OF PHASE before rotatn   1
-     1.000     2.692     0.364
-  EULER ANGLES OF PHASE after rotation   1
-    89.999     0.001     0.000
-  ELLIPSOID AXES OF PHASE after rotatn   1
-     1.000     2.692     0.364
+
+  INSIDE SUBROUTINE TEXTURE_ROTATION
+
+  EULER ANGLES & ELLIPSOID AXES OF PHASE  1 before rotation
+    89.999     0.000     0.000          1.000     2.692     0.364
+
+  EULER ANGLES & ELLIPSOID AXES OF PHASE  1 after rotation
+    89.999     0.000     0.000          1.000     2.692     0.364
    15   0.174E-03   0.691E-04   0.205E-03
 
 *******   STEP   2      *** AFFINE CALCULATION                 
-  EULER ANGLES OF PHASE before rotation   1
-    89.999     0.001     0.000
-  ELLIPSOID AXES OF PHASE before rotatn   1
-     1.000     2.692     0.364
-  EULER ANGLES OF PHASE after rotation   1
-    79.999     0.001     0.000
-  ELLIPSOID AXES OF PHASE after rotatn   1
-     1.000     2.692     0.364
+
+  INSIDE SUBROUTINE TEXTURE_ROTATION
+
+  EULER ANGLES & ELLIPSOID AXES OF PHASE  1 before rotation
+    89.999     0.000     0.000          1.000     2.692     0.364
+
+  EULER ANGLES & ELLIPSOID AXES OF PHASE  1 after rotation
+    79.999     0.000     0.000          1.000     2.692     0.364
     7   0.671E-03   0.605E-03   0.852E-03
 
 *******   STEP   3      *** AFFINE CALCULATION                 
-  EULER ANGLES OF PHASE before rotation   1
-    79.999     0.001     0.000
-  ELLIPSOID AXES OF PHASE before rotatn   1
-     1.000     2.692     0.364
-  EULER ANGLES OF PHASE after rotation   1
-    69.999     0.001     0.000
-  ELLIPSOID AXES OF PHASE after rotatn   1
-     1.000     2.692     0.364
+
+  INSIDE SUBROUTINE TEXTURE_ROTATION
+
+  EULER ANGLES & ELLIPSOID AXES OF PHASE  1 before rotation
+    79.999     0.000     0.000          1.000     2.692     0.364
+
+  EULER ANGLES & ELLIPSOID AXES OF PHASE  1 after rotation
+    69.999     0.000     0.000          1.000     2.692     0.364
    14   0.289E-03   0.572E-04   0.357E-03
 
 *******   STEP   4      *** AFFINE CALCULATION                 
-  EULER ANGLES OF PHASE before rotation   1
-    69.999     0.001     0.000
-  ELLIPSOID AXES OF PHASE before rotatn   1
-     1.000     2.692     0.364
-  EULER ANGLES OF PHASE after rotation   1
-    59.999     0.001     0.000
-  ELLIPSOID AXES OF PHASE after rotatn   1
-     1.000     2.692     0.364
+
+  INSIDE SUBROUTINE TEXTURE_ROTATION
+
+  EULER ANGLES & ELLIPSOID AXES OF PHASE  1 before rotation
+    69.999     0.000     0.000          1.000     2.692     0.364
+
+  EULER ANGLES & ELLIPSOID AXES OF PHASE  1 after rotation
+    59.999     0.000     0.000          1.000     2.692     0.364
    14   0.174E-03   0.146E-03   0.947E-03
 
 *******   STEP   5      *** AFFINE CALCULATION                 
-  EULER ANGLES OF PHASE before rotation   1
-    59.999     0.001     0.000
-  ELLIPSOID AXES OF PHASE before rotatn   1
-     1.000     2.692     0.364
-  EULER ANGLES OF PHASE after rotation   1
-    49.999     0.001     0.000
-  ELLIPSOID AXES OF PHASE after rotatn   1
-     1.000     2.692     0.364
+
+  INSIDE SUBROUTINE TEXTURE_ROTATION
+
+  EULER ANGLES & ELLIPSOID AXES OF PHASE  1 before rotation
+    59.999     0.000     0.000          1.000     2.692     0.364
+
+  EULER ANGLES & ELLIPSOID AXES OF PHASE  1 after rotation
+    49.999     0.000     0.000          1.000     2.692     0.364
    11   0.663E-03   0.817E-03   0.969E-03
 
 *******   STEP   6      *** AFFINE CALCULATION                 
-  EULER ANGLES OF PHASE before rotation   1
-    49.999     0.001     0.000
-  ELLIPSOID AXES OF PHASE before rotatn   1
-     1.000     2.692     0.364
-  EULER ANGLES OF PHASE after rotation   1
-    39.999     0.001     0.000
-  ELLIPSOID AXES OF PHASE after rotatn   1
-     1.000     2.692     0.364
+
+  INSIDE SUBROUTINE TEXTURE_ROTATION
+
+  EULER ANGLES & ELLIPSOID AXES OF PHASE  1 before rotation
+    49.999     0.000     0.000          1.000     2.692     0.364
+
+  EULER ANGLES & ELLIPSOID AXES OF PHASE  1 after rotation
+    39.999     0.000     0.000          1.000     2.692     0.364
    13   0.199E-03   0.244E-03   0.699E-03
 
 *******   STEP   7      *** AFFINE CALCULATION                 
-  EULER ANGLES OF PHASE before rotation   1
-    39.999     0.001     0.000
-  ELLIPSOID AXES OF PHASE before rotatn   1
-     1.000     2.692     0.364
-  EULER ANGLES OF PHASE after rotation   1
-    29.999     0.001     0.000
-  ELLIPSOID AXES OF PHASE after rotatn   1
-     1.000     2.692     0.364
+
+  INSIDE SUBROUTINE TEXTURE_ROTATION
+
+  EULER ANGLES & ELLIPSOID AXES OF PHASE  1 before rotation
+    39.999     0.000     0.000          1.000     2.692     0.364
+
+  EULER ANGLES & ELLIPSOID AXES OF PHASE  1 after rotation
+    29.999     0.000     0.000          1.000     2.692     0.364
    11   0.314E-03   0.394E-03   0.832E-03
 
 *******   STEP   8      *** AFFINE CALCULATION                 
-  EULER ANGLES OF PHASE before rotation   1
-    29.999     0.001     0.000
-  ELLIPSOID AXES OF PHASE before rotatn   1
-     1.000     2.692     0.364
-  EULER ANGLES OF PHASE after rotation   1
-    19.999     0.001     0.000
-  ELLIPSOID AXES OF PHASE after rotatn   1
-     1.000     2.692     0.364
+
+  INSIDE SUBROUTINE TEXTURE_ROTATION
+
+  EULER ANGLES & ELLIPSOID AXES OF PHASE  1 before rotation
+    29.999     0.000     0.000          1.000     2.692     0.364
+
+  EULER ANGLES & ELLIPSOID AXES OF PHASE  1 after rotation
+    19.999     0.000     0.000          1.000     2.692     0.364
    13   0.272E-03   0.333E-03   0.941E-03
 
 *******   STEP   9      *** AFFINE CALCULATION                 
-  EULER ANGLES OF PHASE before rotation   1
-    19.999     0.001     0.000
-  ELLIPSOID AXES OF PHASE before rotatn   1
-     1.000     2.692     0.364
-  EULER ANGLES OF PHASE after rotation   1
-     9.999     0.001     0.000
-  ELLIPSOID AXES OF PHASE after rotatn   1
-     1.000     2.692     0.364
+
+  INSIDE SUBROUTINE TEXTURE_ROTATION
+
+  EULER ANGLES & ELLIPSOID AXES OF PHASE  1 before rotation
+    19.999     0.000     0.000          1.000     2.692     0.364
+
+  EULER ANGLES & ELLIPSOID AXES OF PHASE  1 after rotation
+     9.999     0.000     0.000          1.000     2.692     0.364
    12   0.313E-03   0.351E-03   0.876E-03
 
 *******   STEP  10      *** AFFINE CALCULATION                 
-  EULER ANGLES OF PHASE before rotation   1
-     9.999     0.001     0.000
-  ELLIPSOID AXES OF PHASE before rotatn   1
-     1.000     2.692     0.364
-  EULER ANGLES OF PHASE after rotation   1
-    -0.001     0.001     0.000
-  ELLIPSOID AXES OF PHASE after rotatn   1
-     1.000     2.692     0.364
+
+  INSIDE SUBROUTINE TEXTURE_ROTATION
+
+  EULER ANGLES & ELLIPSOID AXES OF PHASE  1 before rotation
+     9.999     0.000     0.000          1.000     2.692     0.364
+
+  EULER ANGLES & ELLIPSOID AXES OF PHASE  1 after rotation
+    -0.001     0.000     0.000          1.000     2.692     0.364
    11   0.174E-03   0.171E-03   0.584E-03
-  EULER ANGLES OF PHASE before rotation   1
-    -0.001     0.001     0.000
-  ELLIPSOID AXES OF PHASE before rotatn   1
-     1.000     2.692     0.364
-  EULER ANGLES OF PHASE after rotation   1
-    89.999     0.001     0.000
-  ELLIPSOID AXES OF PHASE after rotatn   1
-     1.000     2.692     0.364
+
+  INSIDE SUBROUTINE TEXTURE_ROTATION
+
+  EULER ANGLES & ELLIPSOID AXES OF PHASE  1 before rotation
+    -0.001     0.000     0.000          1.000     2.692     0.364
+
+  EULER ANGLES & ELLIPSOID AXES OF PHASE  1 after rotation
+    89.999     0.000     0.000          1.000     2.692     0.364
 
  CONVERGENCE FAILED IN ONE OR MORE STEPS
  CHECK RELSGR,RELS,RELD= IN FILE RUN_LOG.OUT
 
- TIME ELAPSED   27.81secs
+ TIME ELAPSED   15.02secs

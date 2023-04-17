@@ -1,6 +1,6 @@
 
  **** INPUT FILE VPSC.IN FOR THIS RUN ****
-1                          number of elements (nelem)                                                                             
+1                          VP (1) or ELAST (-1) regime                                                                            
 1                          number of phases (nph)                                                                                 
 1.0  0.0                   relative vol. fract. of phases (wph(i))                                                                
 *INFORMATION ABOUT PHASE #1                                                                                                       
@@ -26,7 +26,7 @@ dummy
 0              icubcomp:calculate fcc rolling components?                                                                         
 0              nwrite (frequency of texture downloads)                                                                            
 *MODELING CONDITIONS FOR THE RUN                                                                                                  
-3              interaction (0:FC,1:affine,2:secant,3:neff=10,4:tangent,5:SO)                                                      
+3  10          interaction (0:FC,1:aff,2:sec,3:neff or RDC,4:tan,5:SO), neffx                                                     
 1  1  1        iupdate: update orient, grain shape, hardening                                                                     
 0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
 0              iflu (0: don't calc, 1: calc fluctuations)                                                                         
@@ -37,6 +37,7 @@ dummy
 ex07_MTS\comp_rf1.15                                                                                                              
 0                  -->   10% compression, low T, high rate                                                                        
 ex07_MTS\comp_hr1.15                                                                                                              
+                                                                                                                                  
 
 
  **** CRYSTAL DATA FILE ****
@@ -292,4 +293,4 @@ B   956
 *******   STEP  16      *** N_EFF=cte CALCULATION              
    17   0.195E-03   0.992E-03   0.547E-04
 
- TIME ELAPSED   13.81secs
+ TIME ELAPSED   13.19secs

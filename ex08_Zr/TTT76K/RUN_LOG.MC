@@ -1,6 +1,6 @@
 
  **** INPUT FILE VPSC.IN FOR THIS RUN ****
-1                          number of elements (nelem)                                                                             
+1                          VP (1) or ELAST (-1) regime                                                                            
 1                          number of phases (nph)                                                                                 
 1.0  0.0                   relative vol. fract. of phases (wph(i))                                                                
 *INFORMATION ABOUT PHASE #1                                                                                                       
@@ -10,7 +10,7 @@
 * name and path of texture file (filetext)                                                                                        
 ex08_Zr\zr_5678.tex                                                                                                               
 * name and path of single crystal file (filecrys)                                                                                 
-ex08_Zr\zr_76K.sx                                                                                                                 
+ex08_Zr\zr_76K_mc.sx                                                                                                              
 * name and path of grain shape file (dummy if ishape=0) (fileaxes)                                                                
 shape1.100                                                                                                                        
 * name and path of diffraction file (dummy if idiff=0) (filediff)                                                                 
@@ -26,7 +26,7 @@ dummy
 0              icubcomp:calculate fcc rolling components?                                                                         
 0              nwrite (frequency of texture downloads)                                                                            
 *MODELING CONDITIONS FOR THE RUN                                                                                                  
-3              interaction (0:FC,1:affine,2:secant,3:neff=10,4:tangent,5:SO)                                                      
+3  10          interaction (0:FC,1:affine,2:secant,3:neff=xx,4:tangent,5:SO)                                                      
 1  1  1        iupdate: update orient, grain shape, hardening                                                                     
 0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
 0              iflu (0: don't calc, 1: calc fluctuations)                                                                         
@@ -226,7 +226,7 @@ B    1944
 
 
 *** LOAD CONDITIONS FOR THIS RUN
-   20   3   0.01    298    298      nsteps  ictrl  ctrlincr  temp_i  temp_f                                                       
+   20   3   0.01    76    76      nsteps  ictrl  ctrlincr  temp_i  temp_f                                                         
 * boundary conditions                                                                                                             
     0       1       1           iudot     |    flag for vel.grad.                                                                 
     1       0       1                     |    (0:unknown-1:known)                                                                
@@ -270,43 +270,43 @@ B    1944
    20   0.140E-03   0.952E-03   0.151E-03
 
 *******   STEP   9      *** N_EFF=cte CALCULATION              
-   18   0.132E-03   0.947E-03   0.202E-03
+   18   0.132E-03   0.945E-03   0.202E-03
 
 *******   STEP  10      *** N_EFF=cte CALCULATION              
-   18   0.129E-03   0.891E-03   0.139E-03
+   18   0.129E-03   0.889E-03   0.138E-03
 
 *******   STEP  11      *** N_EFF=cte CALCULATION              
-   14   0.196E-03   0.997E-03   0.252E-03
+   14   0.196E-03   0.992E-03   0.251E-03
 
 *******   STEP  12      *** N_EFF=cte CALCULATION              
-   12   0.143E-03   0.931E-03   0.414E-03
+   12   0.142E-03   0.923E-03   0.412E-03
 
 *******   STEP  13      *** N_EFF=cte CALCULATION              
-   11   0.216E-03   0.836E-03   0.257E-03
+   11   0.211E-03   0.811E-03   0.266E-03
 
 *******   STEP  14      *** N_EFF=cte CALCULATION              
-   14   0.223E-03   0.935E-03   0.126E-03
+   14   0.216E-03   0.902E-03   0.114E-03
 
 *******   STEP  15      *** N_EFF=cte CALCULATION              
-   10   0.331E-03   0.846E-03   0.101E-03
+    8   0.157E-03   0.829E-03   0.768E-03
 
 *******   STEP  16      *** N_EFF=cte CALCULATION              
-   12   0.134E-03   0.881E-03   0.360E-03
+   12   0.146E-03   0.925E-03   0.530E-03
 
 *******   STEP  17      *** N_EFF=cte CALCULATION              
-    8   0.199E-03   0.650E-03   0.418E-03
+    8   0.184E-03   0.583E-03   0.404E-03
 
 *******   STEP  18      *** N_EFF=cte CALCULATION              
-   13   0.158E-03   0.987E-03   0.189E-03
+   13   0.155E-03   0.965E-03   0.177E-03
 
 *******   STEP  19      *** N_EFF=cte CALCULATION              
-   12   0.186E-03   0.993E-03   0.396E-03
+   13   0.159E-03   0.979E-03   0.977E-04
 
 *******   STEP  20      *** N_EFF=cte CALCULATION              
-   16   0.155E-03   0.889E-03   0.158E-03
+   15   0.181E-03   0.964E-03   0.140E-03
 
 *******   STEP  21      *** N_EFF=cte CALCULATION              
-   18   0.153E-03   0.883E-03   0.202E-03
+   18   0.154E-03   0.900E-03   0.189E-03
 
  ******* STARTS A PCYS CALCULATION *******
 
@@ -325,290 +325,290 @@ WILL CALCULATE A   1   2   PCYS PROJECTION
 
 *******   STEP   1      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS    1   -0.0000   -1.0000    0.0000    0.0000    0.0000
-   16   0.119E-03   0.650E-03   0.290E-03
+   22   0.181E-03   0.882E-03   0.392E-03
 
 *******   STEP   2      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS    2   -0.0872   -0.9962    0.0000    0.0000    0.0000
-   15   0.150E-03   0.838E-03   0.882E-04
+   22   0.145E-03   0.969E-03   0.173E-03
 
 *******   STEP   3      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS    3   -0.1736   -0.9848    0.0000    0.0000    0.0000
-   16   0.996E-04   0.585E-03   0.137E-03
+   21   0.156E-03   0.953E-03   0.188E-03
 
 *******   STEP   4      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS    4   -0.2588   -0.9659    0.0000    0.0000    0.0000
-   17   0.146E-03   0.757E-03   0.223E-03
+   21   0.151E-03   0.895E-03   0.160E-03
 
 *******   STEP   5      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS    5   -0.3420   -0.9397    0.0000    0.0000    0.0000
-   19   0.202E-03   0.934E-03   0.195E-03
+   23   0.108E-03   0.807E-03   0.110E-03
 
 *******   STEP   6      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS    6   -0.4226   -0.9063    0.0000    0.0000    0.0000
-   24   0.994E-04   0.829E-03   0.878E-04
+   26   0.915E-04   0.777E-03   0.108E-03
 
 *******   STEP   7      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS    7   -0.5000   -0.8660    0.0000    0.0000    0.0000
-   20   0.193E-03   0.631E-03   0.203E-03
+   22   0.179E-03   0.549E-03   0.101E-03
 
 *******   STEP   8      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS    8   -0.5736   -0.8192    0.0000    0.0000    0.0000
-   11   0.157E-03   0.761E-03   0.534E-03
+   15   0.980E-04   0.874E-03   0.285E-03
 
 *******   STEP   9      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS    9   -0.6428   -0.7660    0.0000    0.0000    0.0000
-    9   0.115E-03   0.959E-03   0.653E-03
+   13   0.108E-03   0.883E-03   0.306E-03
 
 *******   STEP  10      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   10   -0.7071   -0.7071    0.0000    0.0000    0.0000
-    8   0.284E-03   0.971E-03   0.770E-03
+   12   0.145E-03   0.979E-03   0.192E-03
 
 *******   STEP  11      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   11   -0.7660   -0.6428    0.0000    0.0000    0.0000
-    8   0.114E-03   0.714E-03   0.652E-03
+   12   0.162E-03   0.867E-03   0.227E-03
 
 *******   STEP  12      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   12   -0.8192   -0.5736    0.0000    0.0000    0.0000
-    8   0.181E-03   0.580E-03   0.345E-03
+   12   0.138E-03   0.800E-03   0.251E-03
 
 *******   STEP  13      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   13   -0.8660   -0.5000    0.0000    0.0000    0.0000
-    8   0.313E-03   0.792E-03   0.266E-03
+   10   0.968E-04   0.954E-03   0.520E-03
 
 *******   STEP  14      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   14   -0.9063   -0.4226    0.0000    0.0000    0.0000
-    9   0.180E-03   0.686E-03   0.559E-03
+    9   0.127E-03   0.849E-03   0.234E-03
 
 *******   STEP  15      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   15   -0.9397   -0.3420    0.0000    0.0000    0.0000
-    9   0.211E-03   0.935E-03   0.578E-03
+   13   0.252E-03   0.739E-03   0.313E-03
 
 *******   STEP  16      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   16   -0.9659   -0.2588    0.0000    0.0000    0.0000
-   10   0.218E-03   0.987E-03   0.761E-03
+   13   0.273E-03   0.877E-03   0.430E-03
 
 *******   STEP  17      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   17   -0.9848   -0.1736    0.0000    0.0000    0.0000
-   12   0.282E-03   0.731E-03   0.419E-03
+   12   0.288E-03   0.946E-03   0.688E-03
 
 *******   STEP  18      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   18   -0.9962   -0.0872    0.0000    0.0000    0.0000
-   14   0.147E-03   0.806E-03   0.173E-03
+   14   0.159E-03   0.783E-03   0.799E-04
 
 *******   STEP  19      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   19   -1.0000    0.0000    0.0000    0.0000    0.0000
-   16   0.124E-03   0.526E-03   0.168E-03
+   15   0.153E-03   0.841E-03   0.121E-03
 
 *******   STEP  20      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   20   -0.9962    0.0872    0.0000    0.0000    0.0000
-   13   0.138E-03   0.493E-03   0.117E-03
+   13   0.125E-03   0.529E-03   0.107E-03
 
 *******   STEP  21      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   21   -0.9848    0.1736    0.0000    0.0000    0.0000
-   11   0.200E-03   0.997E-03   0.544E-03
+   11   0.189E-03   0.991E-03   0.527E-03
 
 *******   STEP  22      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   22   -0.9659    0.2588    0.0000    0.0000    0.0000
-   12   0.216E-03   0.624E-03   0.305E-03
+   12   0.214E-03   0.637E-03   0.330E-03
 
 *******   STEP  23      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   23   -0.9397    0.3420    0.0000    0.0000    0.0000
-    9   0.135E-03   0.867E-03   0.503E-03
+    9   0.144E-03   0.921E-03   0.504E-03
 
 *******   STEP  24      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   24   -0.9063    0.4226    0.0000    0.0000    0.0000
-    9   0.120E-03   0.897E-03   0.674E-03
+    9   0.125E-03   0.932E-03   0.689E-03
 
 *******   STEP  25      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   25   -0.8660    0.5000    0.0000    0.0000    0.0000
-   10   0.207E-03   0.905E-03   0.418E-03
+   10   0.209E-03   0.929E-03   0.423E-03
 
 *******   STEP  26      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   26   -0.8192    0.5736    0.0000    0.0000    0.0000
-   10   0.210E-03   0.784E-03   0.292E-03
+    9   0.135E-03   0.835E-03   0.147E-03
 
 *******   STEP  27      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   27   -0.7660    0.6428    0.0000    0.0000    0.0000
-    9   0.133E-03   0.940E-03   0.510E-03
+    9   0.130E-03   0.958E-03   0.555E-03
 
 *******   STEP  28      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   28   -0.7071    0.7071    0.0000    0.0000    0.0000
-   10   0.142E-03   0.684E-03   0.340E-03
+   10   0.147E-03   0.728E-03   0.380E-03
 
 *******   STEP  29      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   29   -0.6428    0.7660    0.0000    0.0000    0.0000
-   10   0.152E-03   0.879E-03   0.414E-03
+   10   0.112E-03   0.714E-03   0.245E-03
 
 *******   STEP  30      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   30   -0.5736    0.8192    0.0000    0.0000    0.0000
-   11   0.873E-04   0.534E-03   0.192E-03
+   11   0.937E-04   0.562E-03   0.204E-03
 
 *******   STEP  31      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   31   -0.5000    0.8660    0.0000    0.0000    0.0000
-   12   0.160E-03   0.588E-03   0.189E-03
+   12   0.165E-03   0.634E-03   0.201E-03
 
 *******   STEP  32      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   32   -0.4226    0.9063    0.0000    0.0000    0.0000
-   14   0.129E-03   0.496E-03   0.185E-03
+   14   0.115E-03   0.404E-03   0.200E-03
 
 *******   STEP  33      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   33   -0.3420    0.9397    0.0000    0.0000    0.0000
-   15   0.164E-03   0.728E-03   0.127E-03
+   15   0.112E-03   0.294E-03   0.247E-03
 
 *******   STEP  34      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   34   -0.2588    0.9659    0.0000    0.0000    0.0000
-   14   0.107E-03   0.191E-03   0.105E-03
+   14   0.108E-03   0.195E-03   0.105E-03
 
 *******   STEP  35      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   35   -0.1736    0.9848    0.0000    0.0000    0.0000
-   12   0.279E-03   0.866E-03   0.100E-03
+   12   0.273E-03   0.838E-03   0.985E-04
 
 *******   STEP  36      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   36   -0.0872    0.9962    0.0000    0.0000    0.0000
-   12   0.192E-03   0.482E-03   0.995E-04
+   12   0.190E-03   0.488E-03   0.947E-04
 
 *******   STEP  37      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   37    0.0000    1.0000    0.0000    0.0000    0.0000
-   12   0.153E-03   0.490E-03   0.886E-04
+   12   0.149E-03   0.492E-03   0.903E-04
 
 *******   STEP  38      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   38    0.0872    0.9962    0.0000    0.0000    0.0000
-   12   0.162E-03   0.545E-03   0.850E-04
+   12   0.158E-03   0.542E-03   0.859E-04
 
 *******   STEP  39      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   39    0.1736    0.9848    0.0000    0.0000    0.0000
-   12   0.255E-03   0.969E-03   0.649E-04
+   12   0.253E-03   0.962E-03   0.644E-04
 
 *******   STEP  40      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   40    0.2588    0.9659    0.0000    0.0000    0.0000
-   14   0.172E-03   0.753E-03   0.847E-04
+   14   0.174E-03   0.773E-03   0.864E-04
 
 *******   STEP  41      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   41    0.3420    0.9397    0.0000    0.0000    0.0000
-   17   0.127E-03   0.524E-03   0.152E-03
+   17   0.131E-03   0.553E-03   0.155E-03
 
 *******   STEP  42      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   42    0.4226    0.9063    0.0000    0.0000    0.0000
-   16   0.152E-03   0.493E-03   0.289E-03
+   16   0.153E-03   0.458E-03   0.395E-03
 
 *******   STEP  43      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   43    0.5000    0.8660    0.0000    0.0000    0.0000
-   12   0.218E-03   0.770E-03   0.281E-03
+   12   0.206E-03   0.754E-03   0.274E-03
 
 *******   STEP  44      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   44    0.5736    0.8192    0.0000    0.0000    0.0000
-   11   0.128E-03   0.683E-03   0.333E-03
+   11   0.141E-03   0.659E-03   0.313E-03
 
 *******   STEP  45      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   45    0.6428    0.7660    0.0000    0.0000    0.0000
-   10   0.185E-03   0.435E-03   0.356E-03
+   10   0.206E-03   0.467E-03   0.389E-03
 
 *******   STEP  46      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   46    0.7071    0.7071    0.0000    0.0000    0.0000
-    9   0.168E-03   0.670E-03   0.466E-03
+    9   0.175E-03   0.709E-03   0.508E-03
 
 *******   STEP  47      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   47    0.7660    0.6428    0.0000    0.0000    0.0000
-    9   0.927E-04   0.866E-03   0.685E-03
+    9   0.106E-03   0.804E-03   0.579E-03
 
 *******   STEP  48      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   48    0.8192    0.5736    0.0000    0.0000    0.0000
-    9   0.874E-04   0.808E-03   0.604E-03
+    9   0.854E-04   0.827E-03   0.648E-03
 
 *******   STEP  49      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   49    0.8660    0.5000    0.0000    0.0000    0.0000
-    8   0.201E-03   0.963E-03   0.398E-03
+    9   0.102E-03   0.766E-03   0.559E-03
 
 *******   STEP  50      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   50    0.9063    0.4226    0.0000    0.0000    0.0000
-    9   0.985E-04   0.757E-03   0.546E-03
+    9   0.991E-04   0.799E-03   0.577E-03
 
 *******   STEP  51      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   51    0.9397    0.3420    0.0000    0.0000    0.0000
-    9   0.140E-03   0.780E-03   0.501E-03
+    9   0.134E-03   0.899E-03   0.583E-03
 
 *******   STEP  52      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   52    0.9659    0.2588    0.0000    0.0000    0.0000
-    9   0.234E-03   0.919E-03   0.669E-03
+   12   0.208E-03   0.569E-03   0.235E-03
 
 *******   STEP  53      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   53    0.9848    0.1736    0.0000    0.0000    0.0000
-   11   0.252E-03   0.969E-03   0.615E-03
+   12   0.220E-03   0.883E-03   0.436E-03
 
 *******   STEP  54      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   54    0.9962    0.0872    0.0000    0.0000    0.0000
-   13   0.259E-03   0.808E-03   0.221E-03
+   13   0.282E-03   0.989E-03   0.351E-03
 
 *******   STEP  55      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   55    1.0000    0.0000    0.0000    0.0000    0.0000
-   16   0.169E-03   0.981E-03   0.294E-03
+   17   0.136E-03   0.715E-03   0.299E-03
 
 *******   STEP  56      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   56    0.9962   -0.0872    0.0000    0.0000    0.0000
-   15   0.225E-03   0.987E-03   0.999E-04
+   15   0.210E-03   0.890E-03   0.115E-03
 
 *******   STEP  57      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   57    0.9848   -0.1736    0.0000    0.0000    0.0000
-   15   0.257E-03   0.821E-03   0.446E-03
+   16   0.293E-03   0.761E-03   0.313E-03
 
 *******   STEP  58      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   58    0.9659   -0.2588    0.0000    0.0000    0.0000
-   15   0.279E-03   0.635E-03   0.215E-03
+   14   0.258E-03   0.876E-03   0.512E-03
 
 *******   STEP  59      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   59    0.9397   -0.3420    0.0000    0.0000    0.0000
-   13   0.264E-03   0.957E-03   0.517E-03
+   14   0.235E-03   0.594E-03   0.174E-03
 
 *******   STEP  60      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   60    0.9063   -0.4226    0.0000    0.0000    0.0000
-   15   0.187E-03   0.587E-03   0.127E-03
+   10   0.142E-03   0.885E-03   0.723E-03
 
 *******   STEP  61      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   61    0.8660   -0.5000    0.0000    0.0000    0.0000
-   10   0.150E-03   0.857E-03   0.520E-03
+   10   0.149E-03   0.889E-03   0.651E-03
 
 *******   STEP  62      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   62    0.8192   -0.5736    0.0000    0.0000    0.0000
-   10   0.129E-03   0.704E-03   0.523E-03
+   10   0.245E-03   0.929E-03   0.880E-03
 
 *******   STEP  63      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   63    0.7660   -0.6428    0.0000    0.0000    0.0000
-   10   0.128E-03   0.807E-03   0.874E-03
+   14   0.141E-03   0.844E-03   0.248E-03
 
 *******   STEP  64      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   64    0.7071   -0.7071    0.0000    0.0000    0.0000
-   10   0.186E-03   0.784E-03   0.871E-03
+   15   0.123E-03   0.877E-03   0.314E-03
 
 *******   STEP  65      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   65    0.6428   -0.7660    0.0000    0.0000    0.0000
-   10   0.223E-03   0.855E-03   0.606E-03
+   15   0.111E-03   0.857E-03   0.317E-03
 
 *******   STEP  66      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   66    0.5736   -0.8192    0.0000    0.0000    0.0000
-   16   0.142E-03   0.824E-03   0.180E-03
+   13   0.152E-03   0.934E-03   0.184E-03
 
 *******   STEP  67      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   67    0.5000   -0.8660    0.0000    0.0000    0.0000
-   13   0.147E-03   0.894E-03   0.118E-03
+   17   0.213E-03   0.639E-03   0.368E-03
 
 *******   STEP  68      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   68    0.4226   -0.9063    0.0000    0.0000    0.0000
-   24   0.881E-04   0.908E-03   0.102E-03
+   26   0.101E-03   0.970E-03   0.114E-03
 
 *******   STEP  69      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   69    0.3420   -0.9397    0.0000    0.0000    0.0000
-   23   0.128E-03   0.933E-03   0.151E-03
+   26   0.120E-03   0.998E-03   0.164E-03
 
 *******   STEP  70      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   70    0.2588   -0.9659    0.0000    0.0000    0.0000
-   19   0.162E-03   0.681E-03   0.156E-03
+   23   0.141E-03   0.877E-03   0.140E-03
 
 *******   STEP  71      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   71    0.1736   -0.9848    0.0000    0.0000    0.0000
-   17   0.145E-03   0.875E-03   0.172E-03
+   22   0.136E-03   0.804E-03   0.145E-03
 
 *******   STEP  72      *** N_EFF=cte CALCULATION              
  step & DBAR in PCYS   72    0.0872   -0.9962    0.0000    0.0000    0.0000
-   17   0.108E-03   0.705E-03   0.892E-04
+   22   0.117E-03   0.835E-03   0.148E-03
 
- TIME ELAPSED   59.69secs
+ TIME ELAPSED  148.94secs

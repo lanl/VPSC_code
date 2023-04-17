@@ -1,6 +1,6 @@
 
  **** INPUT FILE VPSC.IN FOR THIS RUN ****
-1                          number of elements (nelem)                                                                             
+1                          iregime (-1=EL ; 1=VP)                                                                                 
 1                          number of phases (nph)                                                                                 
 1.0  0.0                   relative vol. fract. of phases (wph(i))                                                                
 *INFORMATION ABOUT PHASE #1                                                                                                       
@@ -8,7 +8,7 @@
 1.0  1.0  1.0                 initial ellipsoid ratios (dummy if ishape=4)                                                        
 0.0  0.0  0.0                 init Eul ang ellips axes (dummy if ishape=3,4)                                                      
 * name and path of texture file (filetext)                                                                                        
-ex14_growth\PT420_AHR.FUL                                                                                                         
+ex14_growth\PT420_AHR.ful                                                                                                         
 * name and path of single crystal file (filecrys)                                                                                 
 ex14_growth\zr_growth_high_rho.sx                                                                                                 
 * name and path of grain shape file (dummy if ishape=0) (fileaxes)                                                                
@@ -26,7 +26,7 @@ dummy
 0              icubcomp:calculate fcc rolling components?                                                                         
 0              nwrite (frequency of texture downloads)                                                                            
 *MODELING CONDITIONS FOR THE RUN                                                                                                  
-1              interaction (0:FC,1:affine,2:secant,3:neff=10,4:tangent,5:SO)                                                      
+1  10.         interaction (0:FC,1:affine,2:secant,3:neff=10,4:tangent,5:SO),neff                                                 
 1  1  1        iupdate: update orient, grain shape, hardening                                                                     
 0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
 0              iflu (0: don't calc, 1: calc fluctuations)                                                                         
@@ -171,7 +171,7 @@ B    1148
  **** END OF CRYST TEXTURE DATA FILE ****
 
 
-*** RUNNING INTERACTION NEFF=    0.00
+*** RUNNING INTERACTION NEFF=   10.00
 
  Initializing state variables for Golubov model:
  Initialization of state variables complete.
@@ -2021,4 +2021,4 @@ B    1148
 *******   STEP 601      *** AFFINE CALCULATION                 
     5   0.607E-04   0.704E-04   0.131E-05
 
- TIME ELAPSED  509.36secs
+ TIME ELAPSED  548.02secs

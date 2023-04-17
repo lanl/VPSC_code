@@ -1,4 +1,4 @@
-1                          number of elements (nelem)
+1                          VP (1) or ELAST (-1) regime
 1                          number of phases (nph)
 1.0  0.0                   relative vol. fract. of phases (wph(i))
 *INFORMATION ABOUT PHASE #1
@@ -6,9 +6,9 @@
 1.0  1.0  1.0                 initial ellipsoid ratios (dummy if ishape=4)
 0.0  0.0  0.0                 init Eul ang ellips axes (dummy if ishape=3,4)
 * name and path of texture file (filetext)
-ex04_bcc\rand500.tex
+ex04_BCC\rand500.tex
 * name and path of single crystal file (filecrys)
-ex04_bcc\fe.sxb
+ex04_BCC\fe.sxb
 * name and path of grain shape file (dummy if ishape=0) (fileaxes)
 dummy
 * name and path of diffraction file (dummy if idiff=0)
@@ -21,10 +21,10 @@ dummy
 *INPUT/OUTPUT SETTINGS FOR THE RUN (default is zero)
 0              irecover:read grain states from POSTMORT.IN (1) or not (0)?
 0              isave:   write grain states in POSTMORT.OUT at step 'isave'?
-0              icubcomp:calculate fcc rolling components?
+1              icubcomp:calculate fcc rolling components?
 0              nwrite (frequency of texture downloads)
 *MODELING CONDITIONS FOR THE RUN
-1              interaction (0:FC,1:affine,2:secant,3:neff=10,4:tangent,5:SO)
+1  10          interaction (0:FC,1:aff,2:sec,3:neff or RDC,4:tan,5:SO), neffx
 1  1  1        iupdate: update orient, grain shape, hardening
 0              nneigh (0 for no neighbors, 1 for pairs, etc.)
 0              iflu (0: don't calc, 1: calc fluctuations)
@@ -32,7 +32,7 @@ dummy
 3
 *IVGVAR AND PATH\NAME OF FILE OR STRESS SUBSPACE OR ANGULAR INCREMENT
 0         ivgvar=0 will run a monotonic strain path
-ex04_bcc\rolling
+ex04_BCC\rolling
 2         ivgvar=2 will calculate PCYS at the end
 1 2             -->   section of stress space
 3         ivgvar=3 will calculate Lankford coefficient at the end

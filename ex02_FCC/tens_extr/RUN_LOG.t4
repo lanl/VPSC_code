@@ -1,111 +1,110 @@
 
  **** INPUT FILE VPSC.IN FOR THIS RUN ****
-1                          number of elements (nelem)                           
-1                          number of phases (nph)                               
-1.0  0.0                   relative vol. fract. of phases (wph(i))              
-*INFORMATION ABOUT PHASE #1                                                     
-0   0   25                      grain shape contrl, fragmentn, crit aspect ratio
-1.0  1.0  1.0                 initial ellipsoid ratios (dummy if ishape=4)      
-0.0  0.0  0.0                 init Eul ang ellips axes (dummy if ishape=3,4)    
-* name and path of texture file (filetext)                                      
-ex02_FCC\rand500.tex                                                            
-* name and path of single crystal file (filecrys)                               
-ex02_FCC\fcc.sx                                                                 
-* name and path of grain shape file (dummy if ishape=0) (fileaxes)              
-dummy                                                                           
-* name and path of diffraction file (dummy if idiff=0)                          
-0                                                                               
-dummy                                                                           
-*PRECISION SETTINGS FOR CONVERGENCE PROCEDURES (default values)                 
-0.001 0.001 0.001 0.001    errs,errd,errm,errso                                 
-100 100 25     itmax:   max # of iter, external, internal and SO loops          
-0  2  10  2    irsvar & jrsini,jrsfin,jrstep (dummy if irsvar=0)                
-*INPUT/OUTPUT SETTINGS FOR THE RUN (default is zero)                            
-0              irecover:read grain states from POSTMORT.IN (1) or not (0)?      
-0              isave:   write grain states in POSTMORT.OUT at step 'isave'?     
-0              icubcomp:calculate fcc rolling components?                       
-0              nwrite (frequency of texture downloads)                          
-*MODELING CONDITIONS FOR THE RUN                                                
-4                interaction (0:FC,1:affine,2:secant,3:neff=10,4:tangent,5:SO)  
-1  1  1        iupdate: update orient, grain shape, hardening                   
-0              nneigh (0 for no neighbors, 1 for pairs, etc.)                   
-0              iflu (0: don't calc, 1: calc fluctuations)                       
-*NUMBER OF PROCESSES (Lij const; Lij variable; PCYS ;LANKFORD; rigid rotatn)    
-1                                                                               
-*IVGVAR AND PATH\NAME OF FILE FOR EACH PROCESS                                  
-0                                                                               
-ex02_FCC\tension_extrusion.3                                                    
+1                          VP (1) or ELAST (-1) regime                                                                            
+1                          number of phases (nph)                                                                                 
+1.0  0.0                   relative vol. fract. of phases (wph(i))                                                                
+*INFORMATION ABOUT PHASE #1                                                                                                       
+1   0   25                      grain shape contrl, fragmentn, crit aspect ratio                                                  
+1.0  1.0  1.0                 initial ellipsoid ratios (dummy if ishape=4)                                                        
+0.0  0.0  0.0                 init Eul ang ellips axes (dummy if ishape=3,4)                                                      
+* name and path of texture file (filetext)                                                                                        
+ex02_FCC\rand500.tex                                                                                                              
+* name and path of single crystal file (filecrys)                                                                                 
+ex02_FCC\FCC.sx                                                                                                                   
+* name and path of grain shape file (dummy if ishape=0) (fileaxes)                                                                
+dummy                                                                                                                             
+* name and path of diffraction file (dummy if idiff=0)                                                                            
+0                                                                                                                                 
+dummy                                                                                                                             
+*PRECISION SETTINGS FOR CONVERGENCE PROCEDURES (default values)                                                                   
+0.001 0.001 0.001 0.001    errs,errd,errm,errso                                                                                   
+100 100 25     itmax:   max # of iter, external, internal and SO loops                                                            
+0  2  10  2    irsvar & jrsini,jrsfin,jrstep (dummy if irsvar=0)                                                                  
+*INPUT/OUTPUT SETTINGS FOR THE RUN (default is zero)                                                                              
+0              irecover:read grain states from POSTMORT.IN (1) or not (0)?                                                        
+0              isave:   write grain states in POSTMORT.OUT at step 'isave'?                                                       
+0              icubcomp:calculate fcc rolling components?                                                                         
+0              nwrite (frequency of texture downloads)                                                                            
+*MODELING CONDITIONS FOR THE RUN                                                                                                  
+4  10          interaction (0:FC,1:aff,2:sec,3:neff or RDC,4:tan,5:SO), neffx                                                     
+1  1  1        iupdate: update orient, grain shape, hardening                                                                     
+0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
+0              iflu (0: don't calc, 1: calc fluctuations)                                                                         
+*NUMBER OF PROCESSES (Lij const; Lij variable; PCYS ;LANKFORD; rigid rotatn)                                                      
+1                                                                                                                                 
+*IVGVAR AND PATH\NAME OF FILE FOR EACH PROCESS                                                                                    
+0                                                                                                                                 
+ex02_FCC\TENSION_extrusion.3                                                                                                      
 
-         EIGNVAL   1.0000   1.0000   1.0000
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
 
  **** CRYSTAL DATA FILE ****
-*Material: AUSTENITIC STEEL                                                     
-cubic           crysym                                                          
-   1.0   1.0   1.0   90.   90.   90.   unit cell axes and angles                
-Elastic stiffness (single crystal [GPa]; scaled=0.85xINTERPOLATED)              
- 205.0   138.0   138.0   000.0   000.0   000.0                                  
- 138.0   205.0   138.0   000.0   000.0   000.0                                  
- 138.0   138.0   205.0   000.0   000.0   000.0                                  
- 000.0   000.0   000.0   126.0   000.0   000.0                                  
- 000.0   000.0   000.0   000.0   126.0   000.0                                  
- 000.0   000.0   000.0   000.0   000.0   126.0                                  
-*Thermal expansion coefficients (single crystal in crystal axis):               
-  1.0e-6   1.0e-6  1.0e-6   0.0e0   0.0e0   0.0e0                               
-*Info about slip & twinning modes in this file:                                 
-  2          nmodesx    (total # of modes listed in file)                       
-  1          nmodes     (# of modes to be used in the calculation)              
-  1          mode(i)    (label of the modes to be used)                         
-  <111>{110} SLIP                                                               
- 1  12  1   0                       modex,nsmx,isensex,itwtypex                 
-   1  1  1        0  1 -1           slip (n & b)                                
-   1  1  1        1  0 -1                                                       
-   1  1  1        1 -1  0                                                       
-  -1  1  1        0  1 -1                                                       
-  -1  1  1        1  0  1                                                       
-  -1  1  1        1  1  0                                                       
-  -1 -1  1        0  1  1                                                       
-  -1 -1  1        1  0  1                                                       
-  -1 -1  1        1 -1  0                                                       
-   1 -1  1        0  1  1                                                       
-   1 -1  1        1  0 -1                                                       
-   1 -1  1        1  1  0                                                       
-  <111>{112} TWIN                                                               
- 2  12  0   2                        modex,nsmx,isensex,itwtypex                
- 0.707                               twshx                                      
-   1  1  1       -2  1  1                                                       
-   1  1  1        1 -2  1                                                       
-   1  1  1        1  1 -2                                                       
-  -1  1  1        2  1  1                                                       
-  -1  1  1       -1 -2  1                                                       
-  -1  1  1       -1  1 -2                                                       
-  -1 -1  1        2 -1  1                                                       
-  -1 -1  1       -1  2  1                                                       
-  -1 -1  1       -1 -1 -2                                                       
-   1 -1  1       -2 -1  1                                                       
-   1 -1  1        1  2  1                                                       
-   1 -1  1        1 -1 -2                                                       
-*Constitutive law                                                               
-   0      Voce=0, MTS=1                                                         
-   1      iratesens (0:rate insensitive, 1:rate sensitive)                      
-   50     grsze --> grain size only matters if HPfactor is non-zero             
-  <111>{110} SLIP -------------------------------------------                   
- 20                               nrsx                                          
- 1.0   0.0   0.0   0.0  0.        tau0x,tau1x,thet0,thet1, hpfac                
- 1.0    1.0                          hlatex(1,im),im=1,nmodes                   
-  <111>{112} TWIN --------------------------------------                        
- 20                               nrsx                                          
- 1.0   0.0    0.   0.   0.        tau0x,tau1x,thet0,thet1, hpfac                
- 1.0    1.0                       hlatex(1,im),im=1,nmodes                      
- 0     0.05   0.50                isectw, thres1,thres2                         
+*Material: AUSTENITIC STEEL                                                                                                       
+cubic           crysym                                                                                                            
+   1.0   1.0   1.0   90.   90.   90.   unit cell axes and angles                                                                  
+Elastic stiffness (single crystal [GPa]; scaled=0.85xINTERPOLATED)                                                                
+ 205.0   138.0   138.0   000.0   000.0   000.0                                                                                    
+ 138.0   205.0   138.0   000.0   000.0   000.0                                                                                    
+ 138.0   138.0   205.0   000.0   000.0   000.0                                                                                    
+ 000.0   000.0   000.0   126.0   000.0   000.0                                                                                    
+ 000.0   000.0   000.0   000.0   126.0   000.0                                                                                    
+ 000.0   000.0   000.0   000.0   000.0   126.0                                                                                    
+*Thermal expansion coefficients (single crystal in crystal axis):                                                                 
+  1.0e-6   1.0e-6  1.0e-6   0.0e0   0.0e0   0.0e0                                                                                 
+*Info about slip & twinning modes in this file:                                                                                   
+  2          nmodesx    (total # of modes listed in file)                                                                         
+  1          nmodes     (# of modes to be used in the calculation)                                                                
+  1          mode(i)    (label of the modes to be used)                                                                           
+  <111>{110} SLIP                                                                                                                 
+ 1  12  1   0                       modex,nsmx,isensex,itwtypex                                                                   
+   1  1  1        0  1 -1           slip (n & b)                                                                                  
+   1  1  1        1  0 -1                                                                                                         
+   1  1  1        1 -1  0                                                                                                         
+  -1  1  1        0  1 -1                                                                                                         
+  -1  1  1        1  0  1                                                                                                         
+  -1  1  1        1  1  0                                                                                                         
+  -1 -1  1        0  1  1                                                                                                         
+  -1 -1  1        1  0  1                                                                                                         
+  -1 -1  1        1 -1  0                                                                                                         
+   1 -1  1        0  1  1                                                                                                         
+   1 -1  1        1  0 -1                                                                                                         
+   1 -1  1        1  1  0                                                                                                         
+  <111>{112} TWIN                                                                                                                 
+ 2  12  0   2                        modex,nsmx,isensex,itwtypex                                                                  
+ 0.707                               twshx                                                                                        
+   1  1  1       -2  1  1                                                                                                         
+   1  1  1        1 -2  1                                                                                                         
+   1  1  1        1  1 -2                                                                                                         
+  -1  1  1        2  1  1                                                                                                         
+  -1  1  1       -1 -2  1                                                                                                         
+  -1  1  1       -1  1 -2                                                                                                         
+  -1 -1  1        2 -1  1                                                                                                         
+  -1 -1  1       -1  2  1                                                                                                         
+  -1 -1  1       -1 -1 -2                                                                                                         
+   1 -1  1       -2 -1  1                                                                                                         
+   1 -1  1        1  2  1                                                                                                         
+   1 -1  1        1 -1 -2                                                                                                         
+*Constitutive law                                                                                                                 
+   0      Voce=0, MTS=1                                                                                                           
+   1      iratesens (0:rate insensitive, 1:rate sensitive)                                                                        
+   50     grsze --> grain size only matters if HPfactor is non-zero                                                               
+  <111>{110} SLIP -------------------------------------------                                                                     
+ 20                               nrsx                                                                                            
+ 1.0   0.0   0.0   0.0  0.        tau0x,tau1x,thet0,thet1, hpfac                                                                  
+ 1.0    1.0                          hlatex(1,im),im=1,nmodes                                                                     
+  <111>{112} TWIN --------------------------------------                                                                          
+ 20                               nrsx                                                                                            
+ 1.0   0.0    0.   0.   0.        tau0x,tau1x,thet0,thet1, hpfac                                                                  
+ 1.0    1.0                       hlatex(1,im),im=1,nmodes                                                                        
+ 0     0.05   0.50                isectw, thres1,thres2                                                                           
 **** END OF CRYSTAL DATA FILE ****
 
 
- CHECKING THAT CELCC*SELCC-ID6=0   0.1878193E-31
+ CHECKING THAT CELCC*SELCC-ID6=0   0.2134069E-31
  *********** PHASE   1
  RANDOM PX BULK & POISSON MODULI     160.333       0.266
  RANDOM PX ELASTIC CTES C11, C12, C44     279.000     101.000      89.000
 
+ INSIDE SUBROUTINE DATA_CRYSTAL
  SHEAR MODULUS FOR MODE  1 IN PHASE  1 IS      64.333
  N & B FOR MODE  1 IN PHASE  1
      0.577     0.577     0.577        0.000     0.707    -0.707
@@ -122,31 +121,32 @@ Elastic stiffness (single crystal [GPa]; scaled=0.85xINTERPOLATED)
      0.577    -0.577     0.577        0.707     0.707     0.000
 
  **** CRYST TEXTURE (FIRST FEW LINES) ****
-dummy                                                                           
-dummy                                                                           
-random texture generated by RANDTEXT.FOR (23/01/97)                             
-B   500                                                                         
-    102.74    119.56     33.65  1.0                                             
-    219.06     36.21     70.51  1.0                                             
-    166.66     28.59     45.80  1.0                                             
-    149.74     86.13     38.68  1.0                                             
-    143.88     72.50      9.75  1.0                                             
-     27.71      7.88    225.69  1.0                                             
-     10.26     81.59    324.82  1.0                                             
-    213.21    156.91    352.41  1.0                                             
-    313.75     60.06    131.59  1.0                                             
-    283.74    137.64    213.65  1.0                                             
-    329.59    158.18    298.33  1.0                                             
-     61.37    171.68    104.65  1.0                                             
-     44.90     68.33     40.28  1.0                                             
-     29.40    114.77    163.14  1.0                                             
-     56.39    115.89    341.90  1.0                                             
-    271.21     76.66    171.67  1.0                                             
+dummy                                                                                                                             
+dummy                                                                                                                             
+random texture generated by RANDTEXT.FOR (23/01/97)                                                                               
+B   500                                                                                                                           
+    102.74    119.56     33.65  1.0                                                                                               
+    219.06     36.21     70.51  1.0                                                                                               
+    166.66     28.59     45.80  1.0                                                                                               
+    149.74     86.13     38.68  1.0                                                                                               
+    143.88     72.50      9.75  1.0                                                                                               
+     27.71      7.88    225.69  1.0                                                                                               
+     10.26     81.59    324.82  1.0                                                                                               
+    213.21    156.91    352.41  1.0                                                                                               
+    313.75     60.06    131.59  1.0                                                                                               
+    283.74    137.64    213.65  1.0                                                                                               
+    329.59    158.18    298.33  1.0                                                                                               
+     61.37    171.68    104.65  1.0                                                                                               
+     44.90     68.33     40.28  1.0                                                                                               
+     29.40    114.77    163.14  1.0                                                                                               
+     56.39    115.89    341.90  1.0                                                                                               
+    271.21     76.66    171.67  1.0                                                                                               
     .........................
  **** END OF CRYST TEXTURE DATA FILE ****
 
-         EIGNVAL   1.0000   1.0000   1.0000
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+
+*** RUNNING INTERACTION NEFF=    0.00
+
 
  UB THERMAL TENSOR (VOIGT NOTATION)
   0.1000E-05  0.1000E-05  0.1000E-05  0.1482E-23 -0.1622E-23 -0.3991E-23
@@ -172,376 +172,176 @@ B   500
 
 
 *** LOAD CONDITIONS FOR THIS RUN
-  50   3   0.02    298.   298.   nsteps  ictrl  ctrlincr  temp_i  temp_f        
-* boundary conditions                                                           
-    1       1       1           iudot    |    flag for vel.grad.                
-    1       1       1                    |    (0:unknown-1:known)               
-    1       1       1                    |                                      
-                                         |                                      
-   -0.5     0.      0.          udot     |    vel.grad                          
-    0.     -0.5     0.                   |                                      
-    0.      0.      1.0                  |                                      
-                                         |                                      
-    0       0       0           iscau    |    flag for Cauchy                   
-            0       0                    |                                      
-                    0                    |                                      
-                                         |                                      
-    0.      0.      0.          scauchy  |    Cauchy stress                     
-            0.      0.                   |                                      
-                    0.                   @                                      
-                                                                               
+  50   3   0.02    298.   298.   nsteps  ictrl  ctrlincr  temp_i  temp_f                                                          
+* boundary conditions                                                                                                             
+    1       1       1           iudot    |    flag for vel.grad.                                                                  
+    1       1       1                    |    (0:unknown-1:known)                                                                 
+    1       1       1                    |                                                                                        
+                                         |                                                                                        
+   -0.5     0.      0.          udot     |    vel.grad                                                                            
+    0.     -0.5     0.                   |                                                                                        
+    0.      0.      1.0                  |                                                                                        
+                                         |                                                                                        
+    0       0       0           iscau    |    flag for Cauchy                                                                     
+            0       0                    |                                                                                        
+                    0                    |                                                                                        
+                                         |                                                                                        
+    0.      0.      0.          scauchy  |    Cauchy stress                                                                       
+            0.      0.                   |                                                                                        
+                    0.                   @                                                                                        
+                                                                                                                                 
 
 *******   STEP   1      *** TANGENT CALCULATION                
    16   0.474E-04   0.821E-03   0.350E-03
-         EIGNVAL   0.9900   1.0200   0.9900
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.9900   1.0200   0.9900
-         EIGNVEC   0.9962   0.0000   0.0874  -0.0874  -0.0000   0.9962   0.0000  -1.0000  -0.0000
 
 *******   STEP   2      *** TANGENT CALCULATION                
     9   0.703E-04   0.581E-03   0.243E-03
-         EIGNVAL   0.9801   1.0404   0.9801
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.9801   1.0404   0.9801
-         EIGNVEC   0.8404   0.0000  -0.5420   0.5420  -0.0000   0.8404  -0.0000  -1.0000  -0.0000
 
 *******   STEP   3      *** TANGENT CALCULATION                
     9   0.553E-04   0.576E-03   0.343E-03
-         EIGNVAL   0.9703   1.0612   0.9703
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.9703   1.0612   0.9703
-         EIGNVEC   0.0473   0.0000   0.9989   0.9989   0.0000  -0.0473  -0.0000   1.0000  -0.0000
 
 *******   STEP   4      *** TANGENT CALCULATION                
     8   0.111E-03   0.848E-03   0.614E-04
-         EIGNVAL   0.9606   1.0824   0.9606
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.9606   1.0824   0.9606
-         EIGNVEC   0.2551   0.0000   0.9669   0.9669   0.0000  -0.2551  -0.0000   1.0000   0.0000
 
 *******   STEP   5      *** TANGENT CALCULATION                
     8   0.110E-03   0.847E-03   0.544E-04
-         EIGNVAL   0.9510   1.1041   0.9510
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.9510   1.1041   0.9510
-         EIGNVEC   0.7461  -0.0000  -0.6658   0.6658  -0.0000   0.7461  -0.0000  -1.0000  -0.0000
 
 *******   STEP   6      *** TANGENT CALCULATION                
     8   0.109E-03   0.799E-03   0.488E-04
-         EIGNVAL   0.9415   1.1262   0.9415
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.9415   1.1262   0.9415
-         EIGNVEC   0.9129  -0.0000  -0.4081   0.4081  -0.0000   0.9129  -0.0000  -1.0000  -0.0000
 
 *******   STEP   7      *** TANGENT CALCULATION                
     8   0.103E-03   0.661E-03   0.349E-04
-         EIGNVAL   0.9321   1.1487   0.9321
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.9321   1.1487   0.9321
-         EIGNVEC   0.9561  -0.0000  -0.2931   0.2931  -0.0000   0.9561  -0.0000  -1.0000  -0.0000
 
 *******   STEP   8      *** TANGENT CALCULATION                
     7   0.851E-04   0.953E-03   0.536E-03
-         EIGNVAL   0.9227   1.1717   0.9227
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.9227   1.1717   0.9227
-         EIGNVEC   0.9871  -0.0000  -0.1601   0.1601  -0.0000   0.9871  -0.0000  -1.0000  -0.0000
 
 *******   STEP   9      *** TANGENT CALCULATION                
     6   0.385E-03   0.851E-03   0.741E-03
-         EIGNVAL   0.9135   1.1951   0.9135
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.9135   1.1951   0.9135
-         EIGNVEC   0.9954  -0.0000  -0.0954   0.0954  -0.0000   0.9954  -0.0000  -1.0000  -0.0000
 
 *******   STEP  10      *** TANGENT CALCULATION                
     6   0.390E-03   0.776E-03   0.755E-03
-         EIGNVAL   0.9044   1.2190   0.9044
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.9044   1.2190   0.9044
-         EIGNVEC   0.9971  -0.0000  -0.0765   0.0765  -0.0000   0.9971  -0.0000  -1.0000  -0.0000
 
 *******   STEP  11      *** TANGENT CALCULATION                
     6   0.375E-03   0.692E-03   0.729E-03
-         EIGNVAL   0.8953   1.2434   0.8953
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.8954   1.2433   0.8954
-         EIGNVEC   0.9977  -0.0000  -0.0675   0.0675  -0.0000   0.9977  -0.0000  -1.0000  -0.0000
 
 *******   STEP  12      *** TANGENT CALCULATION                
     6   0.359E-03   0.627E-03   0.702E-03
-         EIGNVAL   0.8864   1.2682   0.8864
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.8864   1.2682   0.8864
-         EIGNVEC   0.9979  -0.0000  -0.0642   0.0642  -0.0000   0.9979  -0.0000  -1.0000  -0.0000
 
 *******   STEP  13      *** TANGENT CALCULATION                
     6   0.343E-03   0.570E-03   0.672E-03
-         EIGNVAL   0.8775   1.2936   0.8775
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.8776   1.2935   0.8775
-         EIGNVEC   0.9979  -0.0000  -0.0652   0.0652  -0.0000   0.9979  -0.0000  -1.0000  -0.0000
 
 *******   STEP  14      *** TANGENT CALCULATION                
     6   0.326E-03   0.520E-03   0.641E-03
-         EIGNVAL   0.8687   1.3195   0.8687
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.8688   1.3194   0.8688
-         EIGNVEC   0.9976  -0.0000  -0.0688   0.0688  -0.0000   0.9976  -0.0000  -1.0000  -0.0000
 
 *******   STEP  15      *** TANGENT CALCULATION                
     5   0.613E-04   0.928E-03   0.156E-03
-         EIGNVAL   0.8601   1.3459   0.8601
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.8601   1.3457   0.8601
-         EIGNVEC   0.9970  -0.0000  -0.0773   0.0773  -0.0000   0.9970  -0.0000  -1.0000  -0.0000
 
 *******   STEP  16      *** TANGENT CALCULATION                
     5   0.548E-04   0.884E-03   0.138E-03
-         EIGNVAL   0.8515   1.3728   0.8515
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.8515   1.3727   0.8515
-         EIGNVEC   0.9966  -0.0000  -0.0830   0.0830  -0.0000   0.9966  -0.0000  -1.0000  -0.0000
 
 *******   STEP  17      *** TANGENT CALCULATION                
     5   0.534E-04   0.809E-03   0.135E-03
-         EIGNVAL   0.8429   1.4002   0.8429
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.8430   1.4001   0.8430
-         EIGNVEC   0.9963  -0.0000  -0.0855   0.0855  -0.0000   0.9963  -0.0000  -1.0000  -0.0000
 
 *******   STEP  18      *** TANGENT CALCULATION                
     5   0.531E-04   0.732E-03   0.136E-03
-         EIGNVAL   0.8345   1.4282   0.8345
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.8346   1.4281   0.8345
-         EIGNVEC   0.9963  -0.0000  -0.0865   0.0865  -0.0000   0.9963  -0.0000  -1.0000  -0.0000
 
 *******   STEP  19      *** TANGENT CALCULATION                
     5   0.535E-04   0.645E-03   0.137E-03
-         EIGNVAL   0.8262   1.4568   0.8262
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.8262   1.4567   0.8262
-         EIGNVEC   0.9962  -0.0000  -0.0875   0.0875  -0.0000   0.9962  -0.0000  -1.0000  -0.0000
 
 *******   STEP  20      *** TANGENT CALCULATION                
     5   0.187E-03   0.557E-03   0.508E-03
-         EIGNVAL   0.8179   1.4859   0.8179
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.8180   1.4858   0.8179
-         EIGNVEC   0.9959  -0.0000  -0.0900   0.0900  -0.0000   0.9959  -0.0000  -1.0000  -0.0000
 
 *******   STEP  21      *** TANGENT CALCULATION                
     5   0.576E-04   0.508E-03   0.146E-03
-         EIGNVAL   0.8097   1.5157   0.8097
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.8098   1.5155   0.8098
-         EIGNVEC   0.9955  -0.0000  -0.0947   0.0947  -0.0000   0.9955  -0.0000  -1.0000  -0.0000
 
 *******   STEP  22      *** TANGENT CALCULATION                
     5   0.162E-03   0.480E-03   0.536E-03
-         EIGNVAL   0.8016   1.5460   0.8016
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.8017   1.5458   0.8017
-         EIGNVEC   0.9948  -0.0000  -0.1015   0.1015  -0.0000   0.9948  -0.0000  -1.0000  -0.0000
 
 *******   STEP  23      *** TANGENT CALCULATION                
     6   0.112E-03   0.161E-03   0.243E-03
-         EIGNVAL   0.7936   1.5769   0.7936
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7937   1.5767   0.7937
-         EIGNVEC   0.9945  -0.0000  -0.1049   0.1049  -0.0000   0.9945  -0.0000  -1.0000  -0.0000
 
 *******   STEP  24      *** TANGENT CALCULATION                
     5   0.148E-03   0.970E-03   0.788E-04
-         EIGNVAL   0.7857   1.6084   0.7857
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7857   1.6082   0.7857
-         EIGNVEC   0.9938  -0.0000  -0.1113   0.1113  -0.0000   0.9938  -0.0000  -1.0000  -0.0000
 
 *******   STEP  25      *** TANGENT CALCULATION                
     5   0.139E-03   0.929E-03   0.849E-04
-         EIGNVAL   0.7778   1.6406   0.7778
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7779   1.6404   0.7779
-         EIGNVEC   0.9931  -0.0000  -0.1174   0.1174  -0.0000   0.9931  -0.0000  -1.0000  -0.0000
 
 *******   STEP  26      *** TANGENT CALCULATION                
     5   0.123E-03   0.818E-03   0.328E-04
-         EIGNVAL   0.7700   1.6734   0.7700
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7701   1.6732   0.7701
-         EIGNVEC   0.9924  -0.0000  -0.1227   0.1227  -0.0000   0.9924  -0.0000  -1.0000  -0.0000
 
 *******   STEP  27      *** TANGENT CALCULATION                
     5   0.108E-03   0.714E-03   0.502E-04
-         EIGNVAL   0.7623   1.7069   0.7623
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7624   1.7067   0.7624
-         EIGNVEC   0.9919  -0.0000  -0.1268   0.1268  -0.0000   0.9919  -0.0000  -1.0000  -0.0000
 
 *******   STEP  28      *** TANGENT CALCULATION                
     3   0.437E-03   0.656E-03   0.955E-03
-         EIGNVAL   0.7547   1.7410   0.7547
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7548   1.7408   0.7547
-         EIGNVEC   0.9903  -0.0000  -0.1386   0.1386  -0.0000   0.9903  -0.0000  -1.0000  -0.0000
 
 *******   STEP  29      *** TANGENT CALCULATION                
     3   0.368E-03   0.585E-03   0.798E-03
-         EIGNVAL   0.7472   1.7758   0.7472
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7472   1.7757   0.7472
-         EIGNVEC   0.9895  -0.0000  -0.1443   0.1443  -0.0000   0.9895  -0.0000  -1.0000  -0.0000
 
 *******   STEP  30      *** TANGENT CALCULATION                
     3   0.351E-03   0.544E-03   0.751E-03
-         EIGNVAL   0.7397   1.8114   0.7397
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7397   1.8112   0.7397
-         EIGNVEC   0.9900  -0.0000  -0.1413   0.1413  -0.0000   0.9900  -0.0000  -1.0000  -0.0000
 
 *******   STEP  31      *** TANGENT CALCULATION                
     3   0.333E-03   0.531E-03   0.702E-03
-         EIGNVAL   0.7323   1.8476   0.7323
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7323   1.8475   0.7323
-         EIGNVEC   0.9915  -0.0000  -0.1301   0.1301  -0.0000   0.9915  -0.0000  -1.0000  -0.0000
 
 *******   STEP  32      *** TANGENT CALCULATION                
     3   0.317E-03   0.556E-03   0.658E-03
-         EIGNVAL   0.7250   1.8845   0.7250
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7250   1.8844   0.7250
-         EIGNVEC   0.9937  -0.0000  -0.1119   0.1119  -0.0000   0.9937  -0.0000  -1.0000  -0.0000
 
 *******   STEP  33      *** TANGENT CALCULATION                
     3   0.302E-03   0.598E-03   0.619E-03
-         EIGNVAL   0.7177   1.9222   0.7177
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7178   1.9222   0.7177
-         EIGNVEC   0.9961  -0.0000  -0.0883   0.0883  -0.0000   0.9961  -0.0000  -1.0000  -0.0000
 
 *******   STEP  34      *** TANGENT CALCULATION                
     3   0.289E-03   0.639E-03   0.583E-03
-         EIGNVAL   0.7106   1.9607   0.7106
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7106   1.9606   0.7105
-         EIGNVEC   0.9982   0.0000  -0.0607   0.0607  -0.0000   0.9982   0.0000  -1.0000  -0.0000
 
 *******   STEP  35      *** TANGENT CALCULATION                
     3   0.277E-03   0.673E-03   0.550E-03
-         EIGNVAL   0.7034   1.9999   0.7034
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7035   1.9999   0.7034
-         EIGNVEC   0.9995   0.0000  -0.0305   0.0305  -0.0000   0.9995   0.0000  -1.0000  -0.0000
 
 *******   STEP  36      *** TANGENT CALCULATION                
     3   0.265E-03   0.701E-03   0.519E-03
-         EIGNVAL   0.6964   2.0399   0.6964
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6964   2.0399   0.6964
-         EIGNVEC   1.0000   0.0000   0.0012  -0.0012  -0.0000   1.0000   0.0000  -1.0000  -0.0000
 
 *******   STEP  37      *** TANGENT CALCULATION                
     3   0.255E-03   0.723E-03   0.490E-03
-         EIGNVAL   0.6894   2.0807   0.6894
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6895   2.0807   0.6894
-         EIGNVEC   0.9994   0.0000   0.0335  -0.0335  -0.0000   0.9994   0.0000  -1.0000  -0.0000
 
 *******   STEP  38      *** TANGENT CALCULATION                
     3   0.245E-03   0.739E-03   0.463E-03
-         EIGNVAL   0.6826   2.1223   0.6826
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6826   2.1223   0.6825
-         EIGNVEC   0.9978   0.0000   0.0656  -0.0656  -0.0000   0.9978   0.0000  -1.0000  -0.0000
 
 *******   STEP  39      *** TANGENT CALCULATION                
     3   0.235E-03   0.752E-03   0.437E-03
-         EIGNVAL   0.6757   2.1647   0.6757
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6757   2.1648   0.6757
-         EIGNVEC   0.9953   0.0000   0.0971  -0.0971  -0.0000   0.9953   0.0000  -1.0000  -0.0000
 
 *******   STEP  40      *** TANGENT CALCULATION                
     3   0.226E-03   0.763E-03   0.413E-03
-         EIGNVAL   0.6690   2.2080   0.6690
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6690   2.2081   0.6689
-         EIGNVEC   0.9918   0.0000   0.1276  -0.1276  -0.0000   0.9918   0.0000  -1.0000  -0.0000
 
 *******   STEP  41      *** TANGENT CALCULATION                
     3   0.218E-03   0.770E-03   0.390E-03
-         EIGNVAL   0.6623   2.2522   0.6623
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6623   2.2523   0.6623
-         EIGNVEC   0.9876   0.0000   0.1568  -0.1568  -0.0000   0.9876   0.0000  -1.0000  -0.0000
 
 *******   STEP  42      *** TANGENT CALCULATION                
     3   0.209E-03   0.777E-03   0.368E-03
-         EIGNVAL   0.6557   2.2972   0.6557
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6557   2.2973   0.6556
-         EIGNVEC   0.9828   0.0000   0.1847  -0.1847  -0.0000   0.9828   0.0000  -1.0000  -0.0000
 
 *******   STEP  43      *** TANGENT CALCULATION                
     3   0.201E-03   0.782E-03   0.348E-03
-         EIGNVAL   0.6491   2.3432   0.6491
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6491   2.3433   0.6491
-         EIGNVEC   0.9775   0.0000   0.2111  -0.2111  -0.0000   0.9775   0.0000  -1.0000  -0.0000
 
 *******   STEP  44      *** TANGENT CALCULATION                
     3   0.193E-03   0.787E-03   0.329E-03
-         EIGNVAL   0.6426   2.3901   0.6426
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6426   2.3902   0.6426
-         EIGNVEC   0.9717   0.0000   0.2361  -0.2361  -0.0000   0.9717   0.0000  -1.0000  -0.0000
 
 *******   STEP  45      *** TANGENT CALCULATION                
     3   0.186E-03   0.790E-03   0.311E-03
-         EIGNVAL   0.6362   2.4379   0.6362
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6362   2.4380   0.6361
-         EIGNVEC   0.9657   0.0000   0.2598  -0.2598  -0.0000   0.9657   0.0000  -1.0000  -0.0000
 
 *******   STEP  46      *** TANGENT CALCULATION                
     3   0.179E-03   0.794E-03   0.294E-03
-         EIGNVAL   0.6298   2.4866   0.6298
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6298   2.4868   0.6298
-         EIGNVEC   0.9594   0.0000   0.2820  -0.2820  -0.0000   0.9594   0.0000  -1.0000  -0.0000
 
 *******   STEP  47      *** TANGENT CALCULATION                
     3   0.171E-03   0.797E-03   0.278E-03
-         EIGNVAL   0.6235   2.5363   0.6235
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6235   2.5365   0.6235
-         EIGNVEC   0.9530   0.0000   0.3031  -0.3031  -0.0000   0.9530   0.0000  -1.0000  -0.0000
 
 *******   STEP  48      *** TANGENT CALCULATION                
     3   0.164E-03   0.799E-03   0.264E-03
-         EIGNVAL   0.6173   2.5871   0.6173
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6173   2.5873   0.6172
-         EIGNVEC   0.9464   0.0000   0.3229  -0.3229  -0.0000   0.9464   0.0000  -1.0000  -0.0000
 
 *******   STEP  49      *** TANGENT CALCULATION                
     3   0.158E-03   0.799E-03   0.251E-03
-         EIGNVAL   0.6111   2.6388   0.6111
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6111   2.6390   0.6111
-         EIGNVEC   0.9398   0.0000   0.3416  -0.3416  -0.0000   0.9398   0.0000  -1.0000  -0.0000
 
 *******   STEP  50      *** TANGENT CALCULATION                
     3   0.151E-03   0.799E-03   0.238E-03
-         EIGNVAL   0.6050   2.6916   0.6050
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6050   2.6918   0.6050
-         EIGNVEC   0.9332   0.0000   0.3592  -0.3592  -0.0000   0.9332   0.0000  -1.0000  -0.0000
 
 *******   STEP  51      *** TANGENT CALCULATION                
     3   0.145E-03   0.796E-03   0.227E-03
 
- TIME ELAPSED    5.47secs
+ TIME ELAPSED    5.06secs

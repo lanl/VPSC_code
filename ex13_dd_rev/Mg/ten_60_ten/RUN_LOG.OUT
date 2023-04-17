@@ -1,6 +1,6 @@
 
  **** INPUT FILE VPSC.IN FOR THIS RUN ****
-1                          number of elements (nelem)                                                                             
+1                          iregime (-1=EL ; 1=VP)                                                                                 
 1                          number of phases (nph)                                                                                 
 1.0  0.0                   relative vol. fract. of phases (wph(i))                                                                
 *INFORMATION ABOUT PHASE #1                                                                                                       
@@ -8,9 +8,9 @@
 1.0  1.0  1.0                 initial ellipsoid ratios (dummy if ishape=4)                                                        
 0.0  0.0  0.0                 init Eul ang ellips axes (dummy if ishape=3,4)                                                      
 * name and path of texture file (filetext)                                                                                        
-ex13_dd_rev\Mg\Mg.tex                                                                                                             
+ex13_DD_rev\Mg\Mg.tex                                                                                                             
 * name and path of single crystal file (filecrys)                                                                                 
-ex13_dd_rev\Mg\Mg.sx                                                                                                              
+ex13_DD_rev\Mg\Mg.sx                                                                                                              
 * name and path of grain shape file (dummy if ishape=0) (fileaxes)                                                                
 dummy                                                                                                                             
 * name and path of diffraction file (dummy if idiff=0)                                                                            
@@ -26,7 +26,7 @@ dummy
 0              icubcomp:calculate fcc rolling components?                                                                         
 0              nwrite (frequency of texture downloads)                                                                            
 *MODELING CONDITIONS FOR THE RUN                                                                                                  
-3              interaction (0:FC,1:afinpe,2:secant,3:neff=10,4:tangent,5:SO)                                                      
+3  10.         interaction (0:FC,1:afinpe,2:secant,3:neff=xx,4:tangent,5:SO),neff                                                 
 1  1  1        iupdate: update orient, grain shape, hardening                                                                     
 0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
 0              iflu (0: do not calc, 1: calc fluctuations)                                                                        
@@ -34,11 +34,11 @@ dummy
 3                                                                                                                                 
 *IVGVAR AND PATH\NAME OF FILE FOR EACH PROCESS                                                                                    
 0                                                                                                                                 
-ex13_dd_rev\Mg\tension_10.1                                                                                                       
+ex13_DD_rev\Mg\tension_10.1                                                                                                       
 4                                                                                                                                 
-ex13_dd_rev\Mg\rot_60.3                                                                                                           
+ex13_DD_rev\Mg\rot_60.3                                                                                                           
 0                                                                                                                                 
-ex13_dd_rev\Mg\tension_20.1                                                                                                       
+ex13_DD_rev\Mg\tension_20.1                                                                                                       
 
 
  **** CRYSTAL DATA FILE ****
@@ -138,7 +138,7 @@ TENSILE TWIN {10-12}
  140.0     ! t0 at 20 (MPa)                                                                                                       
  100.0     ! K at 20 ºC                                                                                                           
   0   0   0.1   0.5     ! isectwx,itwinlaw,twthres1,twthres2                                                                      
- 150.0   150.0   150.0  !twin-slip hardening coefficients                                                                         
+ 150.0   150.0   150.0  ! twin-slip hardening coefficients                                                                        
                                                                                                                                   
                                                                                                                                   
                                                                                                                                   
@@ -156,12 +156,12 @@ TENSILE TWIN {10-12}
 0.5   0.5   0.5   0.5    0.5   0.5    0.5  0.5  0.5  0.5  0.5  0.5                                                                
 0.5   0.5   0.5   0.5    0.5   0.5    0.5  0.5  0.5  0.5  0.5  0.5                                                                
 * twin-slip coupling hardening coefficients (ntwsys x nslsys)                                                                     
-150.0   150.0   150.0   150.0    150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0                                           
-150.0   150.0   150.0   150.0    150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0                                           
-150.0   150.0   150.0   150.0    150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0                                           
-150.0   150.0   150.0   150.0    150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0                                           
-150.0   150.0   150.0   150.0    150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0                                           
-150.0   150.0   150.0   150.0    150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0                                           
+150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0                                                
+150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0                                                
+150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0                                                
+150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0                                                
+150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0                                                
+150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0  150.0                                                
 **** END OF CRYSTAL DATA FILE ****
 
 
@@ -199,11 +199,11 @@ TENSILE TWIN {10-12}
      0.592    -0.342     0.729       -0.632     0.365     0.684
 
  **** CRYST TEXTURE (FIRST FEW LINES) ****
-AXES OF THE REP	RESENT	ATIVE ELL	IPSOID                                                                                           
-1.0   1.0	1		                                                                                                                     
-DISCRETE TEXTUR	E FROM	ODF FILE	c:\textures\zrrusty\zr-cb2.sod                                                                    
-b     2212   0			                                                                                                                 
-150	4.29	180	6.73                                                                                                                 
+AXES OF THE REPRESENTATIVE ELLIPSOID                                                                                              
+1.0   1.0	1.0                                                                                                                     
+DISCRETE TEXTURE FROM ODF FILE                                                                                                    
+b     2212   			                                                                                                                  
+150	4.29	180	    6.73                                                                                                             
 150	4.29	188.57	6.68                                                                                                              
 150	4.29	197.14	6.64                                                                                                              
 150	4.29	205.71	6.66                                                                                                              
@@ -481,4 +481,4 @@ b     2212   0
 *******   STEP  41      *** N_EFF=cte CALCULATION              
     4   0.294E-03   0.525E-03   0.427E-03
 
- TIME ELAPSED  204.52secs
+ TIME ELAPSED  144.67secs

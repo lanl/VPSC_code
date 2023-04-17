@@ -1,6 +1,6 @@
 
  **** INPUT FILE VPSC.IN FOR THIS RUN ****
-1                          number of elements (nelem)                                                                             
+-1                         iregime (VP=1, ELAST=-1)                                                                               
 1                          number of phases (nph)                                                                                 
 1.0  0.0                   relative vol. fract. of phases (wph(i))                                                                
 *INFORMATION ABOUT PHASE #1                                                                                                       
@@ -10,7 +10,7 @@
 * name and path of texture file (filetext)                                                                                        
 ex01_elast\rand1000.tex                                                                                                           
 * name and path of single crystal file (filecrys)                                                                                 
-ex01_elast\uranium.sx                                                                                                             
+ex01_elast\Uranium.sx                                                                                                             
 * name and path of grain shape file (dummy if ishape=0) (fileaxes)                                                                
 shape1.100                                                                                                                        
 * name and path of diffraction file (dummy if idiff=0)                                                                            
@@ -26,7 +26,7 @@ ex01_elast\ortho.dif
 0              icubcomp:calculate fcc rolling components?                                                                         
 0              nwrite (frequency of texture downloads)                                                                            
 *MODELING CONDITIONS FOR THE RUN                                                                                                  
--1             interaction (-1:elast,0:FC,1:aff,2:sec,3:neff=10,4:tang,5:SO)                                                      
+-1   10        interaction (-1:elast,0:FC,1:aff,2:sec,3:neff or RDC,4:tan,5:SO), neff                                             
 1  1  1        iupdate: update orient, grain shape, hardening                                                                     
 0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
 0              iflu (0: don't calc, 1: calc fluctuations)                                                                         
@@ -50,6 +50,100 @@ Elastic stiffness (single crystal [MPa]) from Fischer JNM 18 (1966)
  000.0     000.0     000.0     000.0     000.0   74.3e3                                                                           
 *Thermal expansion coefficients (single crystal in crystal axis):                                                                 
  25.41e-6  0.65e-6  20.65e-6   0.0e0   0.0e0   0.0e0                                                                              
+INFORMATION ABOUT SLIP AND TWIN SYSTEMS                                                                                           
+   9                     nmodesx (total # of modes listed in the file)                                                            
+   7                     nmodes  (# of modes to be used in the calculation)                                                       
+   1  2  3  4  5  6  7   mode(i) (label of the modes to be used)                                                                  
+   WALL SLIP                                                                                                                      
+  1   1   1   0                           modex,nsmx,isensex,itwtype                                                              
+   0  1  0     1  0  0                                                                                                            
+   CHIMNEY BASE SLIP                                                                                                              
+  2   2   1   0                           modex,nsmx,isensex,itwtype                                                              
+   1  1  0     1 -1  0                                                                                                            
+   1 -1  0     1  1  0                                                                                                            
+   FLOOR SLIP                                                                                                                     
+  3   1   1   0                           modex,nsmx,isensex,itwtype                                                              
+   0  0  1     1  0  0                                                                                                            
+   CHIMNEY EDGE SLIP                                                                                                              
+  4   2   1   0                           modex,nsmx,isensex,itwtype                                                              
+   1  1  0     0  0  1                                                                                                            
+   1 -1  0     0  0  1                                                                                                            
+   ROOF SLIP                                                                                                                      
+  5   4   1   0                           modex,nsmx,isensex,itwtype                                                              
+   0  2  1     1 -1  2                                                                                                            
+   0  2  1    -1 -1  2                                                                                                            
+   0 -2  1     1  1  2                                                                                                            
+   0 -2  1    -1  1  2                                                                                                            
+   (130) TWIN                                                                                                                     
+  6   2   0   2                           modex,nsmx,isensex,itwtype                                                              
+  0.299                                   twshx                                                                                   
+   1  3  0     3 -1  0                    (130)TWIN                                                                               
+   1 -3  0     3  1  0                                                                                                            
+   (172) TWIN                                                                                                                     
+  7   4   0   2                           modex,nsmx,isensex,itwtype                                                              
+  0.227                                   twshx                                                                                   
+   1 -7  2     3  1  2                                                                                                            
+   1  7  2     3 -1  2                                                                                                            
+  -1 -7  2    -3  1  2                                                                                                            
+  -1  7  2    -3 -1  2                                                                                                            
+   (112) TWIN                                                                                                                     
+  8   4   0   2                           modex,nsmx,isensex,itwtype                                                              
+  0.227                                   twshx                                                                                   
+   1  1  2     3 -7  2                                                                                                            
+   1 -1  2     3  7  2                                                                                                            
+  -1 -1  2    -3  7  2                                                                                                            
+  -1  1  2    -3 -7  2                                                                                                            
+   (197) TWIN                                                                                                                     
+  9   4   0   2                           modex,nsmx,isensex,itwtype                                                              
+  0.216                                   twshx                                                                                   
+  -1 -9  7    -5 -1 -2                                                                                                            
+   1  9  7     5  1 -2                                                                                                            
+  -1  9  7    -5  1 -2                                                                                                            
+   1 -9  7     5 -1 -2                                                                                                            
+*Constitutive law                                                                                                                 
+   0      Voce=0, MTS=1                                                                                                           
+   1      iratesens (0:rate insensitive, 1:rate sensitive)                                                                        
+   25     grsze --> grain size only matters if HPfactor is non-zero                                                               
+   WALL SLIP -------------------------------------------                                                                          
+ 20                                   nrsx                                                                                        
+ 1.0  0.0  0.0  0.0  0.0              tau0x,tau1x,thet0,thet1,hpfac                                                               
+ 1.  1.  1.  1.  1.  1.  1.  1.  1.   hlatex(1,im),im=1,nmodes                                                                    
+   CHIMNEY BASE SLIP ----------------------------------------                                                                     
+ 20                                   nrsx                                                                                        
+ 1.0  0.0  0.0  0.0  0.0              tau0x,tau1x,thet0,thet1,hpfac                                                               
+ 1.  1.  1.  1.  1.  1.  1.  1.  1.   hlatex(1,im),im=1,nmodes                                                                    
+   FLOOR SLIP ----------------------------------------                                                                            
+ 20                                   nrsx                                                                                        
+ 1.0  0.0  0.0  0.0  0.0              tau0x,tau1x,thet0,thet1,hpfac                                                               
+ 1.  1.  1.  1.  1.  1.  1.  1.  1.   hlatex(1,im),im=1,nmodes                                                                    
+   CHIMNEY EDGE SLIP ----------------------------------------                                                                     
+ 20                                   nrsx                                                                                        
+ 1.0  0.0  0.0  0.0  0.0              tau0x,tau1x,thet0,thet1,hpfac                                                               
+ 1.  1.  1.  1.  1.  1.  1.  1.  1.   hlatex(1,im),im=1,nmodes                                                                    
+   ROOF SLIP ----------------------------------------                                                                             
+ 20                                   nrsx                                                                                        
+ 1.0  0.0  0.0  0.0  0.0              tau0x,tau1x,thet0,thet1,hpfac                                                               
+ 1.  1.  1.  1.  1.  1.  1.  1.  1.   hlatex(1,im),im=1,nmodes                                                                    
+   (130) TWIN ------------------------------------------                                                                          
+ 20                                   nrsx                                                                                        
+  1.  0.  0.  0.   0.                 tau0x,tau1x,thet0,thet1, hpfac                                                              
+ 1.  1.  1.  1.  1.  1.  1.  1.  1.   hlatex(1,im),im=1,nmodes                                                                    
+  1   1   0.10   0.50                 isectw,itwinlaw,thres1,thres2                                                               
+   (172) TWIN -------------------------------------------                                                                         
+ 20                                   nrsx                                                                                        
+  1.  0.  0.  0.   0.                 tau0x,tau1x,thet0,thet1, hpfac                                                              
+ 1.  1.  1.  1.  1.  1.  1.  1.  1.   hlatex(1,im),im=1,nmodes                                                                    
+  1   1   0.10   0.50                 isectw,itwinlaw,thres1,thres2                                                               
+   (112) TWIN ------------------------------------------                                                                          
+ 20                                   nrsx                                                                                        
+  1.  0.  0.  0.   0.                 tau0x,tau1x,thet0,thet1, hpfac                                                              
+ 1.  1.  1.  1.  1.  1.  1.  1.  1.   hlatex(1,im),im=1,nmodes                                                                    
+  1   1   0.10   0.50                 isectw,itwinlaw,thres1,thres2                                                               
+   (197) TWIN ------------------------------------------                                                                          
+ 20                                   nrsx                                                                                        
+  1.  0.  0.  0.   0.                 tau0x,tau1x,thet0,thet1, hpfac                                                              
+ 1.  1.  1.  1.  1.  1.  1.  1.  1.   hlatex(1,im),im=1,nmodes                                                                    
+  1   1   0.10   0.50                 isectw,itwinlaw,thres1,thres2                                                               
 **** END OF CRYSTAL DATA FILE ****
 
 
@@ -169,4 +263,4 @@ B  1000   0
 
 *******   STEP  12      *** THERMO-ELASTIC CALCULATION         
 
- TIME ELAPSED    0.30secs
+ TIME ELAPSED    0.94secs

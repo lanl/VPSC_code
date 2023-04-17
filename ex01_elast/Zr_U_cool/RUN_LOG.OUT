@@ -1,6 +1,6 @@
 
  **** INPUT FILE VPSC.IN FOR THIS RUN ****
-1                          number of elements (nelem)                                                                             
+-1                         iregime (VP=1, ELAST=-1)                                                                               
 2                          number of phases (nph)                                                                                 
 0.5   0.5                  relative vol. fract. of phases (wph(i))                                                                
 *INFORMATION ABOUT PHASE #1                                                                                                       
@@ -39,7 +39,7 @@ ex01_elast\ortho.dif
 0              icubcomp:calculate fcc rolling components?                                                                         
 0              nwrite (frequency of texture downloads)                                                                            
 *MODELING CONDITIONS FOR THE RUN                                                                                                  
--1             interaction (-1:elast,0:FC,1:aff,2:sec,3:neff=10,4:tang,5:SO)                                                      
+-1   10        interaction (-1:elast,0:FC,1:aff,2:sec,3:neff or RDC,4:tan,5:SO), neff                                             
 1  1  1        iupdate: update orient, grain shape, hardening                                                                     
 0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
 0              iflu (0: don't calc, 1: calc fluctuations)                                                                         
@@ -291,42 +291,6 @@ B      4021
  -0.1952E+02  0.1366E+02  0.1291E+03 -0.5099E+02  0.2428E+03  0.4998E+05
 
 
-CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
-  0.1076E+06 -0.3470E+04 -0.1127E+03  0.1213E+04  0.1664E+03 -0.3103E+03
- -0.3470E+04  0.1116E+06  0.7912E+02  0.9202E+03  0.3639E+03  0.2128E+04
- -0.1127E+03  0.7912E+02  0.1119E+06  0.5125E+03 -0.1552E+03  0.1274E+04
-  0.1213E+04  0.9202E+03  0.5125E+03  0.1127E+06  0.9507E+03  0.1058E+02
-  0.1664E+03  0.3639E+03 -0.1552E+03  0.9507E+03  0.1110E+06  0.1475E+03
- -0.3103E+03  0.2128E+04  0.1274E+04  0.1058E+02  0.1475E+03  0.3108E+06
-ITER   1   REL ERROR  0.768E-01
-
-CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
-  0.1071E+06 -0.3396E+04 -0.1135E+03  0.1186E+04  0.1584E+03 -0.3000E+03
- -0.3396E+04  0.1111E+06  0.7027E+02  0.8942E+03  0.3514E+03  0.2040E+04
- -0.1135E+03  0.7027E+02  0.1112E+06  0.4937E+03 -0.1548E+03  0.1244E+04
-  0.1186E+04  0.8942E+03  0.4937E+03  0.1120E+06  0.9202E+03  0.7976E+01
-  0.1584E+03  0.3514E+03 -0.1548E+03  0.9202E+03  0.1105E+06  0.1445E+03
- -0.3000E+03  0.2040E+04  0.1244E+04  0.7976E+01  0.1445E+03  0.3106E+06
-ITER   2   REL ERROR  0.341E-02
-
-CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
-  0.1071E+06 -0.3393E+04 -0.1136E+03  0.1185E+04  0.1580E+03 -0.2995E+03
- -0.3393E+04  0.1110E+06  0.6984E+02  0.8930E+03  0.3509E+03  0.2036E+04
- -0.1136E+03  0.6984E+02  0.1112E+06  0.4928E+03 -0.1548E+03  0.1243E+04
-  0.1185E+04  0.8930E+03  0.4928E+03  0.1119E+06  0.9188E+03  0.7851E+01
-  0.1580E+03  0.3509E+03 -0.1548E+03  0.9188E+03  0.1105E+06  0.1444E+03
- -0.2995E+03  0.2036E+04  0.1243E+04  0.7851E+01  0.1444E+03  0.3106E+06
-ITER   3   REL ERROR  0.155E-03
-
-CELAVx ELASTIC STIFFNESS (b-basis NOTATION)
-  0.1071E+06 -0.3392E+04 -0.1136E+03  0.1185E+04  0.1580E+03 -0.2995E+03
- -0.3392E+04  0.1110E+06  0.6982E+02  0.8929E+03  0.3508E+03  0.2036E+04
- -0.1136E+03  0.6982E+02  0.1112E+06  0.4927E+03 -0.1548E+03  0.1243E+04
-  0.1185E+04  0.8929E+03  0.4927E+03  0.1119E+06  0.9188E+03  0.7846E+01
-  0.1580E+03  0.3508E+03 -0.1548E+03  0.9188E+03  0.1105E+06  0.1444E+03
- -0.2995E+03  0.2036E+04  0.1243E+04  0.7846E+01  0.1444E+03  0.3106E+06
-ITER   4   REL ERROR  0.708E-05
-
 *** LOAD CONDITIONS FOR THIS RUN
    12   8   -50.    900    300      nsteps   ictrl   eqincr   temp_i   temp_f                                                     
 * boundary conditions                                                                                                             
@@ -371,4 +335,4 @@ ITER   4   REL ERROR  0.708E-05
 
 *******   STEP  12      *** THERMO-ELASTIC CALCULATION         
 
- TIME ELAPSED    1.78secs
+ TIME ELAPSED    5.11secs

@@ -342,12 +342,11 @@ C *****************************************************************************
      #          DPCYS(2,-2:NPROBE+3),SPCYS(2,-2:NPROBE+3)
       INTEGER NPART,NPROBEX
       REAL    WRATEREF,STNORM
- 	  LOGICAL STRAINR_PROBE
 
       END MODULE PCYSSAVE
 C *****************************************************************************
 
-      MODULE TABLE
+      MODULE PCYSTABLE
 
       PARAMETER(NPRBMX=20000)
 
@@ -356,6 +355,6 @@ C *****************************************************************************
      #          THGRID(4,NPRBMX),ITHGRID(4,NPRBMX)
       INTEGER ITABLE,NPROBE,NPROBERED
 
-      END MODULE TABLE
+      END MODULE PCYSTABLE
 C *****************************************************************************
 
