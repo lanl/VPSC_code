@@ -1,6 +1,6 @@
 
  **** INPUT FILE VPSC.IN FOR THIS RUN ****
-1                          number of elements (nelem)                                                                             
+-1                         iregime (VP=1, ELAST=-1)                                                                               
 1                          number of phases (nph)                                                                                 
 1.0  0.0                   relative vol. fract. of phases (wph(i))                                                                
 *INFORMATION ABOUT PHASE #1                                                                                                       
@@ -26,7 +26,7 @@ ex01_elast\hcp.dif
 0              icubcomp:calculate fcc rolling components?                                                                         
 0              nwrite (frequency of texture downloads)                                                                            
 *MODELING CONDITIONS FOR THE RUN                                                                                                  
--1             interaction (-1:elast,0:FC,1:aff,2:sec,3:neff=10,4:tang,5:SO)                                                      
+-1   10        interaction (-1:elast,0:FC,1:aff,2:sec,3:neff or RDC,4:tan,5:SO), neff                                             
 1  1  1        iupdate: update orient, grain shape, hardening                                                                     
 0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
 0              iflu (0: don't calc, 1: calc fluctuations)                                                                         
@@ -36,10 +36,6 @@ ex01_elast\hcp.dif
 0                  -->   cooling from 900 K to 300 K with small E33                                                               
 ex01_elast\cooling                                                                                                                
 
-  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  0
-  EULER ANGLES   180.00    90.00   180.00
-  EIGNVAL   1.0000                     1.0000                     1.0000
-  EIGNVEC   1.0000   0.0000   0.0000  -0.0000  -0.0000  -1.0000   0.0000   1.0000   0.0000
 
  **** CRYSTAL DATA FILE ****
 *Material: Be                                                                                                                     
@@ -54,127 +50,13 @@ HEXAGONAL                                crysym
     0.0     0.0     0.0     0.0     0.0   132.8                                                                                   
 *Thermal expansion coefficients of single crystal (in crystal axis)                                                               
  13.9e-6  13.9e-6  10.4e-6   0.0e0   0.0e0   0.0e0                                                                                
-SLIP AND TWINNING MODES     of zirconium !!!!!!!!!!!!!!!!!!!                                                                      
-6                               nmodesx                                                                                           
-4                               nmodes                                                                                            
-1  4  5  6                      mode(i)                                                                                           
-PRISMATIC <a>                                                                                                                     
-  1    3   1   0                       modex,nsmx,isensex,itwtypex                                                                
- 1  0 -1  0    -1  2 -1  0                                                                                                        
- 0 -1  1  0     2 -1 -1  0                                                                                                        
- -1  1  0  0    -1 -1  2  0                                                                                                       
-BASAL <a>                                                                                                                         
-  2    3   1   0                       modex,nsmx,isensex,itwtypex                                                                
- 0  0  0  1     2 -1 -1  0                                                                                                        
- 0  0  0  1    -1  2 -1  0                                                                                                        
- 0  0  0  1    -1 -1  2  0                                                                                                        
-PYRAMIDAL<a>                                                                                                                      
-  3    6   1   0                       modex,nsmx,isensex,itwtypex                                                                
- 1  0 -1  1    -1  2 -1  0                                                                                                        
- 0 -1  1  1     2 -1 -1  0                                                                                                        
- -1  1  0  1    -1 -1  2  0                                                                                                       
- -1  0  1  1    -1  2 -1  0                                                                                                       
- 0  1 -1  1     2 -1 -1  0                                                                                                        
- 1 -1  0  1     1  1 -2  0                                                                                                        
-PYRAMIDAL<c+a>                                                                                                                    
-  4   12   1   0                       modex,nsmx,isensex,itwtypex                                                                
- 1  0 -1  1    -1 -1  2  3                                                                                                        
- 1  0 -1  1    -2  1  1  3                                                                                                        
- 0 -1  1  1     1  1 -2  3                                                                                                        
- 0 -1  1  1    -1  2 -1  3                                                                                                        
- -1  1  0  1     2 -1 -1  3                                                                                                       
- -1  1  0  1     1 -2  1  3                                                                                                       
- -1  0  1  1     2 -1 -1  3                                                                                                       
- -1  0  1  1     1  1 -2  3                                                                                                       
- 0  1 -1  1    -1 -1  2  3                                                                                                        
- 0  1 -1  1     1 -2  1  3                                                                                                        
- 1 -1  0  1    -2  1  1  3                                                                                                        
- 1 -1  0  1    -1  2 -1  3                                                                                                        
-TENSILE TWIN {10-12}                                                                                                              
-  5    6   0   2                       modex,nsmx,isensex,itwtypex                                                                
- 0.167                                 twshx                                                                                      
- 1  0 -1  2    -1  0  1  1                                                                                                        
- 0  1 -1  2     0 -1  1  1                                                                                                        
- -1  1  0  2     1 -1  0  1                                                                                                       
- -1  0  1  2     1  0 -1  1                                                                                                       
- 0 -1  1  2     0  1 -1  1                                                                                                        
- 1 -1  0  2    -1  1  0  1                                                                                                        
-COMPRESSIVE TWIN {11-22}                                                                                                          
-  6    6   0   2                       modex,nsmx,isensex,itwtypex                                                                
- 0.225                                 twshx                                                                                      
- 2 -1 -1  2     2 -1 -1 -3                                                                                                        
- 1  1 -2  2     1  1 -2 -3                                                                                                        
- -1  2 -1  2    -1  2 -1 -3                                                                                                       
- -2  1  1  2    -2  1  1 -3                                                                                                       
- -1 -1  2  2    -1 -1  2 -3                                                                                                       
- 1 -2  1  2     1 -2  1 -3                                                                                                        
-*Constitutive law                                                                                                                 
-   0      Voce=0, MTS=1                                                                                                           
-   1      iratesens (0:rate insensitive, 1:rate sensitive)                                                                        
-   25     grsze --> grain size only matters if HPfactor is non-zero                                                               
- PRISMATIC <a> SLIP -------------------------------------------                                                                   
- 20                               nrsx                                                                                            
-   45.   42.  1290. 25.   0.      tau0x,tau1x,thet0,thet1, hpfac                                                                  
- 1.0    1.0   10.0    2.0         hlatex(1,im),im=1,nmodes                                                                        
- PYRAMIDAL <c+a> SLIP -------------------------------------------                                                                 
- 20                               nrsx                                                                                            
-  495. 100. 1000. 15.   0.        tau0x,tau1x,thet0,thet1, hpfac                                                                  
- 1.0    1.0    2.0   2.0          hlatex(1,im),im=1,nmodes                                                                        
- {10-12} TENSILE TWIN --------------------------------------                                                                      
- 20                               nrsx                                                                                            
-  102.  17.  100. 30.   0.        tau0x,tau1x,thet0,thet1, hpfac                                                                  
- 1.0    1.0    10.0   16.0        hlatex(1,im),im=1,nmodes                                                                        
-  1   1   0.10   0.50             isectw,itwinlaw,thres1,thres2                                                                   
-  {11-22} COMPRESSIVE TWIN --------------------------------------                                                                 
- 20                               nrsx                                                                                            
-  270.  30.  1000. 178.   0.      tau0x,tau1x,thet0,thet1, hpfac                                                                  
- 1.0    1.0    10.0   5.0         hlatex(1,im),im=1,nmodes                                                                        
-  1   1   0.10  0.50              isectw,itwinlaw,thres1,thres2                                                                   
-                                                                                                                                 
 **** END OF CRYSTAL DATA FILE ****
 
 
- CHECKING THAT CELCC*SELCC-ID6=0   0.1174428E-15
+ CHECKING THAT CELCC*SELCC-ID6=0   0.3539886E-15
  *********** PHASE   1
  RANDOM PX BULK & POISSON MODULI     114.489       0.045
  RANDOM PX ELASTIC CTES C11, C12, C44     313.573      14.947     149.313
-
- INSIDE SUBROUTINE DATA_CRYSTAL
- SHEAR MODULUS FOR MODE  1 IN PHASE  1 IS     132.800
- N & B FOR MODE  1 IN PHASE  1
-     0.866     0.500     0.000       -0.500     0.866     0.000
-     0.000    -1.000     0.000        1.000     0.000     0.000
-    -0.866     0.500     0.000       -0.500    -0.866     0.000
- SHEAR MODULUS FOR MODE  2 IN PHASE  1 IS     152.663
- N & B FOR MODE  2 IN PHASE  1
-     0.758     0.438     0.483       -0.269    -0.466     0.843
-     0.758     0.438     0.483       -0.538     0.000     0.843
-     0.000    -0.875     0.483        0.269     0.466     0.843
-     0.000    -0.875     0.483       -0.269     0.466     0.843
-    -0.758     0.438     0.483        0.538     0.000     0.843
-    -0.758     0.438     0.483        0.269    -0.466     0.843
-    -0.758    -0.438     0.483        0.538     0.000     0.843
-    -0.758    -0.438     0.483        0.269     0.466     0.843
-     0.000     0.875     0.483       -0.269    -0.466     0.843
-     0.000     0.875     0.483        0.269    -0.466     0.843
-     0.758    -0.438     0.483       -0.538     0.000     0.843
-     0.758    -0.438     0.483       -0.269     0.466     0.843
- SHEAR MODULUS FOR MODE  3 IN PHASE  1 IS     150.296
- N & B FOR MODE  3 IN PHASE  1
-     0.581     0.336     0.741       -0.642    -0.371     0.671
-     0.000     0.671     0.741        0.000    -0.741     0.671
-    -0.581     0.336     0.741        0.642    -0.371     0.671
-    -0.581    -0.336     0.741        0.642     0.371     0.671
-     0.000    -0.671     0.741        0.000     0.741     0.671
-     0.581    -0.336     0.741       -0.642     0.371     0.671
- SHEAR MODULUS FOR MODE  4 IN PHASE  1 IS     152.367
- N & B FOR MODE  4 IN PHASE  1
-     0.843     0.000     0.538        0.538     0.000    -0.843
-     0.422     0.730     0.538        0.269     0.466    -0.843
-    -0.422     0.730     0.538       -0.269     0.466    -0.843
-    -0.843     0.000     0.538       -0.538     0.000    -0.843
-    -0.422    -0.730     0.538       -0.269    -0.466    -0.843
-     0.422    -0.730     0.538        0.269    -0.466    -0.843
 
  **** CRYST TEXTURE (FIRST FEW LINES) ****
 axes of the ellipsoid                                                                                                             
@@ -200,10 +82,6 @@ B  1000   0
     .........................
  **** END OF CRYST TEXTURE DATA FILE ****
 
-  INSIDE UPD_SHAPE - ELLIPSOID OF PHASE #  1
-  EULER ANGLES   180.00    90.00   180.00
-  EIGNVAL   1.0000                     1.0000                     1.0000
-  EIGNVEC   1.0000   0.0000   0.0000  -0.0000  -0.0000  -1.0000   0.0000   1.0000   0.0000
 
  **** DIFFRACTION FILE ****
 *DIFFRACTING PLANES AND DIRECTION FOR HCP                                                                                         
@@ -242,7 +120,7 @@ B  1000   0
 
 
 *** LOAD CONDITIONS FOR THIS RUN
-   10   8   -60.    900    300      nsteps   ictrl   eqincr   temp_i   temp_f                                                     
+   12   8   -50.    900    300      nsteps   ictrl   eqincr   temp_i   temp_f                                                     
 * boundary conditions                                                                                                             
     0       0       0           iudot     |    flag for vel.grad.                                                                 
     1       0       0                     |    (0:unknown-1:known)                                                                
@@ -281,4 +159,8 @@ B  1000   0
 
 *******   STEP  10      *** THERMO-ELASTIC CALCULATION         
 
- TIME ELAPSED    0.28secs
+*******   STEP  11      *** THERMO-ELASTIC CALCULATION         
+
+*******   STEP  12      *** THERMO-ELASTIC CALCULATION         
+
+ TIME ELAPSED    0.84secs

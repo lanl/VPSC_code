@@ -1,4 +1,4 @@
-1                          number of elements (nelem)                                                                             
+1                          (iregime ; -1=EL , 1=VP)                                                                             
 1                          number of phases (nph)                                                                                 
 1.0  0.0                   relative vol. fract. of phases (wph(i))                                                                
 *INFORMATION ABOUT PHASE #1                                                                                                       
@@ -6,9 +6,9 @@
 1.0  1.0  1.0                 initial ellipsoid ratios (dummy if ishape=4)                                                        
 0.0  0.0  0.0                 init Eul ang ellips axes (dummy if ishape=3,4)                                                      
 * name and path of texture file (filetext)                                                                                        
-ex13_dd_rev\LCsteel\LCsteel.tex                                                                                                   
+ex13_DD_rev\LCsteel\LCsteel.tex                                                                                                   
 * name and path of single crystal file (filecrys)                                                                                 
-ex13_dd_rev\LCsteel\LCsteel#1.sx                                                                                                  
+ex13_DD_rev\LCsteel\LCsteel#1.sx                                                                                                  
 * name and path of grain shape file (dummy if ishape=0) (fileaxes)                                                                
 dummy                                                                                                                             
 * name and path of diffraction file (dummy if idiff=0)                                                                            
@@ -22,9 +22,9 @@ dummy
 0              irecover:read grain states from POSTMORT.IN (1) or not (0)?                                                        
 0              isave:   write grain states in POSTMORT.OUT at step (isave)?                                                       
 0              icubcomp:calculate fcc rolling components?                                                                         
-300              nwrite (frequency of texture downloads)                                                                            
+300            nwrite (frequency of texture downloads)                                                                            
 *MODELING CONDITIONS FOR THE RUN                                                                                                  
-3              interaction (0:FC,1:afinpe,2:secant,3:neff=10,4:tangent,5:SO)                                                      
+3  10.         interaction (0:FC,1:afinpe,2:secant,3:neff=xx,4:tangent,5:SO),neff                                                      
 1  1  1        iupdate: update orient, grain shape, hardening                                                                     
 0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
 0              iflu (0: do not calc, 1: calc fluctuations)                                                                        
@@ -32,6 +32,6 @@ dummy
 2                                                                                                                                 
 *IVGVAR AND PATH\NAME OF FILE FOR EACH PROCESS                                                                                    
 0                                                                                                                                 
-ex13_dd_rev\shear30p.12                                                                                               
+ex13_DD_rev\shear30p.12                                                                                               
 0                                                                                                                                 
-ex13_dd_rev\shear60n.12                                                                                                  
+ex13_DD_rev\shear60n.12                                                                                                  

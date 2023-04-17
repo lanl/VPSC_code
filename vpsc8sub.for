@@ -180,7 +180,7 @@ C *********************************************************************
       END
 C
 C ************************************************************************
-C     SUBROUTINE CHG_BASIS    --->   VERSION 12/OCT/2021
+C     SUBROUTINE CHG_BASIS    --->   VERSION 02/APR/2023
 C
 C     KDIM=5 or 6, FOR DEVIATORIC or DEV+HYDROST TENSORS, RESPECTIVELY.
 C     IOPT=0: INITIALIZES A b-BASIS OF 6 SECOND ORDER TENSORS B(3,3,N).
@@ -227,49 +227,67 @@ C *** INITIALIZES b-BASIS TENSORS B(N)
 
 C *** CALCULATES CARTESIAN SECOND ORDER TENSOR FROM b-COMPONENTS VECTOR.
       IF(IOPT.EQ.1) THEN
-        DO 40 I=1,3
-        DO 40 J=1,3
-        C2(I,J)=0.0
-        DO 40 N=1,KDIM
-   40   C2(I,J)=C2(I,J)+CE2(N)*B(I,J,N)
+        DO I=1,3
+        DO J=1,3
+          C2(I,J)=0.0
+          DO N=1,KDIM
+            C2(I,J)=C2(I,J)+CE2(N)*B(I,J,N)
+          ENDDO
+        ENDDO
+        ENDDO
       ENDIF
 
 C *** CALCULATES KDIMx1 b-COMPONENTS VECTOR FROM SECOND ORDER TENSOR.
       IF(IOPT.EQ.2) THEN
-        DO 50 N=1,KDIM
-        CE2(N)=0.0
-        DO 50 I=1,3
-        DO 50 J=1,3
-   50   CE2(N)=CE2(N)+C2(I,J)*B(I,J,N)
+        DO N=1,KDIM
+          CE2(N)=0.0
+          DO I=1,3
+          DO J=1,3
+            CE2(N)=CE2(N)+C2(I,J)*B(I,J,N)
+          ENDDO
+          ENDDO
+        ENDDO
       ENDIF
 
 C *** CALCULATES FOURTH ORDER TENSOR FROM KDIMxKDIM b-COMPONENTS MATRIX.
       IF(IOPT.EQ.3) THEN
-        DO 20 I=1,3
-        DO 20 J=1,3
-        DO 20 K=1,3
-        DO 20 L=1,3
-        C4(I,J,K,L)=0.0
-        DO 20 N=1,KDIM
-        DO 20 M=1,KDIM
-   20   C4(I,J,K,L)=C4(I,J,K,L)+CE4(N,M)*B(I,J,N)*B(K,L,M)
+        DO I=1,3
+        DO J=1,3
+        DO K=1,3
+        DO L=1,3
+          C4(I,J,K,L)=0.0
+          DO N=1,KDIM
+          DO M=1,KDIM
+            C4(I,J,K,L)=C4(I,J,K,L)+CE4(N,M)*B(I,J,N)*B(K,L,M)
+          ENDDO
+          ENDDO
+        ENDDO
+        ENDDO
+        ENDDO
+        ENDDO
       ENDIF
 
 C *** CALCULATES KDIMxKDIM b-COMPONENTS MATRIX FROM FOURTH ORDER TENSOR.
       IF(IOPT.EQ.4) THEN
-        DO 30 N=1,KDIM
-        DO 30 M=1,KDIM
-        CE4(N,M)=0.0
-        DO 30 I=1,3
-        DO 30 J=1,3
-        DO 30 K=1,3
-        DO 30 L=1,3
-   30   CE4(N,M)=CE4(N,M)+C4(I,J,K,L)*B(I,J,N)*B(K,L,M)
+        DO N=1,KDIM
+        DO M=1,KDIM
+          CE4(N,M)=0.0
+          DO I=1,3
+          DO J=1,3
+          DO K=1,3
+          DO L=1,3
+            CE4(N,M)=CE4(N,M)+C4(I,J,K,L)*B(I,J,N)*B(K,L,M)
+          ENDDO
+          ENDDO
+          ENDDO
+          ENDDO
+        ENDDO
+        ENDDO
       ENDIF
 
       RETURN
       END
-c
+
 c ***********************************************************************
 C     SUBROUTINE CRYSTAL_SYMMETRY   --->   version 17/DEC/2020
 c
@@ -817,8 +835,7 @@ C --> VERIFICATION OF CORRECT STIFFNESS INVERSION
      #              E15.7)')  RESIDUAL 
 
 C *** UPPER BOUND ISOTROPIC ELASTIC CONSTANTS FOR A RANDOM PX
-C *** UPPER BOUND BULK MODULUS (Delta_P/Delta_V/V) FOR A
-C *** TEXTURED POLYCRYSTAL
+C *** UPPER BOUND BULK MODULUS (Delta_P/Delta_V/V) FOR A TEXTURED POLYCRYSTAL
 
       ALF=(CELCCv(1,1,IPH)+CELCCv(2,2,IPH)+CELCCv(3,3,IPH))/3.
       BET=(CELCCv(1,2,IPH)+CELCCv(1,3,IPH)+CELCCv(2,3,IPH))/3.
@@ -1221,8 +1238,8 @@ C *** AA TRANSFORMS FROM SAMPLE TO ELLIPSOID AXES. AAt FROM ELLIPSOID TO SAMPLE
 C -----------------------------------------------------------------
 C     WRITES MORPHOLOGIC TEXTURE FILE INTO 'RUN_LOG.OUT' FILE
         WRITE(10,*)
-        WRITE(10,'('' **** MORPH TEXTURE (FIRST 15 LINES) ****'')')
-        DO IDUM=1,15
+        WRITE(10,'('' **** MORPH TEXTURE (FIRST 20 LINES) ****'')')
+        DO IDUM=1,20
           READ(UNIT=UR3,END=99,FMT='(A)') PROSA
           WRITE(10,'(A)') PROSA
         ENDDO
@@ -1232,16 +1249,15 @@ C     WRITES MORPHOLOGIC TEXTURE FILE INTO 'RUN_LOG.OUT' FILE
         WRITE(10,*)
 C -----------------------------------------------------------------
 
-        READ(UR3,'(A)') PROSA
-        READ(UR3,'(A)') PROSA
-        READ(UR3,'(A)') PROSA
-        READ(UR3,'(A)') PROSA
+        DO IDUMMY=1,6
+		  READ(UR3,'(A)') PROSA
+        ENDDO
 
         DO KKK=ngr(iph-1)+1,ngr(iph)
 
           READ(UR3,*) eul1,eul2,eul3, xwgt, ax(1),ax(2),ax(3)
 
-          call euler(2,eul1,eul2,eul3,AA)
+          CALL EULER(2,eul1,eul2,eul3,AA)
 		  
           do i=1,3
             AXISGR(0,I,KKK)=AX(I)
@@ -2215,7 +2231,7 @@ C --> case of one grain per phase
       END
 
 C **********************************************************************
-C     SUBROUTINE ESHELBY_TENSOR      --->      VERSION 14/APR/2018
+C     SUBROUTINE ESHELBY_TENSOR      --->      VERSION 02/APR/2023
 
 C *** ESHELBY CALCULATION FOR EVERY PHASE OR FOR EVERY GRAIN
 C *** ROTATES STIFNESS TO ELLIPSOID AXES 'EIGB'
@@ -2234,44 +2250,56 @@ C **********************************************************************
       DIMENSION AXB(3),EIGB(3,3)
 
 C *** ROTATION OF STIFFNESS 'C4' FROM SAMPLE TO ELLIPSOID AXES
-            DO 95 I=1,3
-            DO 95 J=1,3
-            DO 95 M=1,3
-            DO 95 N=1,3
+            DO I=1,3
+            DO J=1,3
+            DO M=1,3
+            DO N=1,3
               DUMMY=0.
-              DO 90 I1=1,3
-              DO 90 J1=1,3
-              DO 90 M1=1,3
-              DO 90 N1=1,3
+              DO I1=1,3
+              DO J1=1,3
+              DO M1=1,3
+              DO N1=1,3
                 DUMMY=DUMMY+EIGB(I1,I)*EIGB(J1,J)*EIGB(M1,M)
      #               *EIGB(N1,N)*C4SA(I1,J1,M1,N1)
-   90         CONTINUE
+              ENDDO
+              ENDDO
+              ENDDO
+              ENDDO
               C4GA(I,J,M,N)=DUMMY
               C4GA_FLU(I,J,M,N)=DUMMY     ! to be used later by GET_THEFLU
-   95       CONTINUE
+            ENDDO
+            ENDDO
+            ENDDO
+            ENDDO
 
             CALL ESHELBY (AXB,C4GA,0.,E4GA,R4GA,AUX33,AUX33,
      #                   PDIL,AUX3333,AUX3333,IOPTION)
 
 C *** ROTATES THE ESHELBY TENSOR FOR PHASE OR GRAIN BACK INTO SAMPLE AXES.
-            DO 130 I=1,3
-            DO 130 J=1,3
-            DO 130 M=1,3
-            DO 130 N=1,3
+            DO I=1,3
+            DO J=1,3
+            DO M=1,3
+            DO N=1,3
               DUMMY1=0.
               DUMMY2=0.
-              DO 120 I1=1,3
-              DO 120 J1=1,3
-              DO 120 M1=1,3
-              DO 120 N1=1,3
+              DO I1=1,3
+              DO J1=1,3
+              DO M1=1,3
+              DO N1=1,3
                 DUMMY1=DUMMY1+EIGB(I,I1)*EIGB(J,J1)*EIGB(M,M1)
      #                *EIGB(N,N1)*E4GA(I1,J1,M1,N1)
                 DUMMY2=DUMMY2+EIGB(I,I1)*EIGB(J,J1)*EIGB(M,M1)
      #                *EIGB(N,N1)*R4GA(I1,J1,M1,N1)
-  120         CONTINUE
+              ENDDO
+              ENDDO
+              ENDDO
+              ENDDO
               E4SA(I,J,M,N)=DUMMY1
               R4SA(I,J,M,N)=DUMMY2
-  130       CONTINUE
+            ENDDO
+            ENDDO
+            ENDDO
+            ENDDO
 
 c      call voigt (aux6,aux33,aux66,r4sa,4)
 c      write(10,'(''   R4SA in Voigt notation'')')
@@ -2796,7 +2824,7 @@ c   The solution is symmetric. Numerical deviation from symmetry is averaged.
             enddo
 
       ENDIF
-CFEB
+
       IF(IOPTION.EQ.5) THEN
 
         CALL SO_VOIGT10(A1INV,AINV,1)
@@ -2842,7 +2870,7 @@ c
         CALL SO_VOIGT10(X1,DAINV,2)
 
       ENDIF
-CFEE
+
           ro3=((alpha(case,1,ny)*axis(1))**2+
      #         (alpha(case,2,ny)*axis(2))**2+
      #         (alpha(case,3,ny)*axis(3))**2)**1.5
@@ -3600,7 +3628,7 @@ C *** CALLS Newton-Raphson SUBROUTINE TO CALCULATE GRAIN STRESS
         SGXOLD(I)=SGX(I)
       ENDDO
       ITMX=1000
-      EPS=5.e-04
+      EPS=5.e-04      ! maximum relative error for convergence
 
 c     iprx=0
 c     if(kgx.eq.195 .or. kgx.eq.1288) then
@@ -4696,40 +4724,10 @@ c         write(10,'(''*** NR correction'',5f9.3,f12.5)')
 c    #                 (f(i),i=1,5),rcorr
 c         endif
 
-C **********************************************************************
-C *** THIS BLOCK IS FOR RELAXED CONSTRAINTS CASE (NOT A STANDARD OPTION)
-C *** ENFORCES SG3~sigma23=0 AND SG4~sigma13=0
-          IRC=0
-        IF(IRC.EQ.1) THEN
-          FX(1)=F(1)
-          FX(2)=F(2)
-          FX(3)=F(5)
-          FGRADX(1,1)=FGRAD(1,1)
-          FGRADX(1,2)=FGRAD(1,2)
-          FGRADX(1,3)=FGRAD(1,5)
-          FGRADX(2,1)=FGRAD(2,1)
-          FGRADX(2,2)=FGRAD(2,2)
-          FGRADX(2,3)=FGRAD(2,5)
-          FGRADX(3,1)=FGRAD(5,1)
-          FGRADX(3,2)=FGRAD(5,2)
-          FGRADX(3,3)=FGRAD(5,5)
-          CALL LU_EQSYSTEM (FGRADX,FX,3,ISINGULAR)
-          IF(ISINGULAR.EQ.1) THEN
-            IERROR=1
-            RETURN
-          ENDIF
-          SGX(1)=SGXOLD(1)+FX(1)
-          SGX(2)=SGXOLD(2)+FX(2)
-          SGX(3)=0.
-          SGX(4)=0.
-          SGX(5)=SGXOLD(5)+FX(3)
-        ENDIF
-C **********************************************************************
-
         RERROR=VMISMATCH(SGX,SGXOLD,5)
         IF(RERROR.LT.EPS) RETURN
 
-1000  CONTINUE      ! END OF MASTER DO
+ 1000   CONTINUE      ! end of DO 1000 K=1,KMAX
 C *******************************************************************
 
       IERROR=2
@@ -4738,7 +4736,7 @@ C *******************************************************************
       END
 
 C ************************************************************************
-C     SUBROUTINE PCYS      --->      VERSION 23/MAY/2022
+C     SUBROUTINE PCYS      --->      VERSION 03/APR/2023
 C
 C  IF IOPTION=0 GENERATES AND STORES EQUISPACED STRAIN-RATE VECTORS TO
 C     PROBE THE POLYCRYSTAL YIELD SURFACE IN A SUBSPACE
@@ -4763,11 +4761,12 @@ C ************************************************************************
      #          YSTANG(2),YSNORM(2),TICK(2,NPROBE),ANGN(NPROBE),
      #          RADS(-2:NPROBE+3),ANGS(-2:NPROBE+3),
      #          RADD(-2:NPROBE+3),ANGD(-2:NPROBE+3) 
+ 	  LOGICAL   STRAINR_PROBE
 
       IU=14      ! UNIT FOR WRITING OUTPUT INTO 'PCYS.OUT'
 
       STRAINR_PROBE=.TRUE.      ! strain rate probing --> hardwired
-c      STRAINR_PROBE=.FALSE.    ! activate for stress probing, & SMOD=CRSS(1,1) below 
+c      STRAINR_PROBE=.FALSE.    ! activate for stress probing 
 	  
 C *********************************************************************
       IF(IOPTION.EQ.0) THEN
@@ -4781,14 +4780,18 @@ C *********************************************************************
         IF(ICS.EQ.1) WRITE(10,*) 'CENTRO-SYMMETRIC YIELD SURFACE'
         IF(ICS.EQ.0) WRITE(10,*) 'NON CENTRO-SYMMETRIC YIELD SURFACE'
 
-        DMOD=1.
-        WRITE(10,*)
-        WRITE(10,'(''NORM OF STRAIN-RATE PROBES IS HARDWIRED TO'',
+        IF(STRAINR_PROBE) THEN
+          DMOD=1.
+          WRITE(10,*)
+          WRITE(10,'(''NORM OF STRAIN-RATE PROBES IS HARDWIRED TO'',
      #               E11.3)') DMOD
-
-c        SMOD=13.      --> quick & dirty fixed scaling
-c        SMOD=2.5*CRSS(1,1)    ! system #1 in grain #1 --> quick & dirty scaling
-c        WRITE(10,'(''NORM OF STRESS PROBES HARDWIRED TO'',E11.3)') SMOD
+        ENDIF
+        IF(.NOT.STRAINR_PROBE) THEN
+          SMOD=13.              ! quick & dirty fixed scaling
+          SMOD=2.5*CRSS(1,1)    ! system #1 in grain #1 --> quick & dirty scaling
+          WRITE(10,'(''NORM OF STRESS PROBES HARDWIRED TO'',
+     #               E11.3)') SMOD
+        ENDIF
 
         WRITE(10,*)
         WRITE(10,'(''WILL CALCULATE A'',2I4,''   PCYS PROJECTION'')')
@@ -4836,61 +4839,51 @@ C *********************************************************************
 
       NPROBEX=0
 
-      DO 100 ITH5=ITHETA(1,5),ITHETA(2,5)
+      DO ITH5=ITHETA(1,5),ITHETA(2,5)
         THETA5=ITH5*DANG
         COSTH5=COS(THETA5)
         SINTH5=SIN(THETA5)
 
-      DO 100 ITH4=ITHETA(1,4),ITHETA(2,4)
+      DO ITH4=ITHETA(1,4),ITHETA(2,4)
         THETA4=ITH4*DANG
         COSTH4=COS(THETA4)
         SINTH4=SIN(THETA4)
 
-      DO 100 ITH3=ITHETA(1,3),ITHETA(2,3)
+      DO ITH3=ITHETA(1,3),ITHETA(2,3)
         THETA3=ITH3*DANG
         COSTH3=COS(THETA3)
         SINTH3=SIN(THETA3)
 
-      DO 100 ITH2=ITHETA(1,2),ITHETA(2,2)
+      DO ITH2=ITHETA(1,2),ITHETA(2,2)
         THETA2=ITH2*DANG
 ccc        THETA2=ITH2*DANG2       ! APR2020: activate for fine probing
         COSTH2=COS(THETA2)
         SINTH2=SIN(THETA2)
 
-      IF(INDX.EQ.1) COSTH1=1.
-      IF(INDX.NE.1) COSTH1=0.
+        IF(INDX.EQ.1) COSTH1=1.
+        IF(INDX.NE.1) COSTH1=0.
 	  
-      NPROBEX=NPROBEX+1
+        NPROBEX=NPROBEX+1
 
 C *** CALCULATES NORMALIZED VECTOR COMPONENTS IN 5-D SPACE.
 
-      UNITDIR(1)= COSTH1*SINTH2*SINTH3*SINTH4*SINTH5
-      UNITDIR(2)=        COSTH2*SINTH3*SINTH4*SINTH5
-      UNITDIR(3)=               COSTH3*SINTH4*SINTH5
-      UNITDIR(4)=                      COSTH4*SINTH5
-      UNITDIR(5)=                             COSTH5
+        UNITDIR(1)= COSTH1*SINTH2*SINTH3*SINTH4*SINTH5
+        UNITDIR(2)=        COSTH2*SINTH3*SINTH4*SINTH5
+        UNITDIR(3)=               COSTH3*SINTH4*SINTH5
+        UNITDIR(4)=                      COSTH4*SINTH5
+        UNITDIR(5)=                             COSTH5
 
-      DO I=1,5
-        STRAINR(I,NPROBEX)=DMOD*UNITDIR(I)
-        STRESS (I,NPROBEX)=SMOD*UNITDIR(I)
-      ENDDO
+        DO I=1,5
+          STRAINR(I,NPROBEX)=DMOD*UNITDIR(I)
+          STRESS (I,NPROBEX)=SMOD*UNITDIR(I)
+        ENDDO
 
-C *** AVOID RECALCULATING FOR REDUNDANT COMBINATIONS
-C *** (i.e. IF THETA(5)=0 THEN UNIT1=UNIT2=UNIT3=UNIT4=0 INDEPENDENT OF
-C *** THE VALUE OF ITH1,ITH2,ITH3,ITH4)
-C
-C     IF(ITH5.EQ.0 .AND. ITH4.NE.0)
-C         RESPONSE(ITH2,ITH3,ITH4,ITH5,I)=RESPONSE(ITH2INI,0,0,0,I)
-C
-C     IF(ITH4.EQ.0 .AND. ITH3.NE.0)
-C         RESPONSE(ITH2,ITH3,ITH4,ITH5,I)=RESPONSE(ITH2INI,0,0,ITH5,I)
-C
-C     IF(ITH3.EQ.0 .AND. ITH2.NE.ITH2INI)
-C        RESPONSE(ITH2,ITH3,ITH4,ITH5,I)=RESPONSE(ITH2INI,0,ITH4,ITH5,I)
+      ENDDO      ! end of DO ITH2
+      ENDDO      ! end of DO ITH3
+      ENDDO      ! end of DO ITH4
+      ENDDO      ! end of DO ITH5
 
-  100 CONTINUE
-
-C *** HARDWIRED RUN OPTIONS: FULLY IMPOSED STRAIN RATE OR STRESS PROBES
+C *** HARDWIRED BC RUN OPTIONS: FULLY IMPOSED STRAIN RATE OR STRESS PROBES
 
       IF(STRAINR_PROBE) THEN
         STRAIN_CONTROL=1
@@ -4930,7 +4923,7 @@ C     DEFINE THE STRAIN-RATE OR STRESS PROBE ('DBAR' OR 'SBAR') FOR THE STEP
         CALL CHG_BASIS(SBAR,SBARc,AUX55,AUX3333,1,5)
       ENDIF
 
-      ENDIF
+      ENDIF      ! END OF IOPTION=1
 
 C ***************************************************************************
 C *** STORES THE RESPONSE 'SAV' TO IMPOSED STRAIN-RATE 'DBAR'.
@@ -5035,7 +5028,7 @@ C     FOR ADDING TO THE PLOT AND CHECK NORMALITY RULE
 C ***************************************************************************
 C *** THE FOLLOWING SECTION IS NOT REQUIRED FOR PCYS CALCULATION AND NEEDS
 C     MORE RESEARCH INTO IT.
-C *** FITS A QUADRATIC AT EACH POINT OF THE PCYS. 
+C *** FITS A QUADRATIC AT EACH POINT OF THE PCYS (see CT notes of 2021 07 16) 
 C     TESTS IF CONVEXITY IS VIOLATED.
 C     CALCULATES THE NORMAL AT EACH POINT FOR COMPARING AGAINST THE STRAIN  
 C     RATE GIVEN BY VPSC.
@@ -5145,12 +5138,13 @@ C *** ADDS FIRST STATE AT THE END TO 'CLOSE' THE PCYS FOR GRAPHING
      #     ANGS(1)*180./PI,ANGD(1)*180./PI,ANGN(1)*180./PI  
 
       ENDIF      ! END OF IOPTION=2
+C **************************************************************************
 
       RETURN
       END
 
 C **************************************************************************
-C     SUBROUTINE PCYS_IT      --->      VERSION 04/OCT/2011
+C     SUBROUTINE PCYS_IT      --->      VERSION 26/NOV/2022
 C
 C     IOPTION=0: GENERATES AND STORES EQUISPACED STRAIN-RATE OR STRESS
 C                VECTORS IN 5D DEVIATORIC SPACE TO PROBE THE
@@ -5162,11 +5156,18 @@ C **************************************************************************
       SUBROUTINE PCYS_IT (ISTEP,ISKIP,IOPTION)
 
       USE VPSC8DIM
-      USE TABLE
+      USE PCYSTABLE
 
       DIMENSION ITHETA(2,4)
+ 	  LOGICAL   STRAINR_PROBE
 
       IU=14      ! UNIT FOR WRITING OUTPUT INTO 'PCYS.OUT'
+
+      STRAINR_PROBE=.TRUE.      ! strain rate probing --> hardwired
+C      STRAINR_PROBE=.FALSE.    ! activate for stress probing 
+
+      IF(STRAINR_PROBE)      ITABLE=0 
+      IF(.NOT.STRAINR_PROBE) ITABLE=1 
 
 C ********************************************************************
       IF(IOPTION.EQ.0) THEN
@@ -5177,19 +5178,19 @@ C ********************************************************************
         IF(ICS.EQ.1) WRITE(10,*) 'CENTRO-SYMMETRIC YIELD SURFACE'
         IF(ICS.EQ.0) WRITE(10,*) 'NON CENTRO-SYMMETRIC YIELD SURFACE'
 
-        WRITE(*,*)
-        WRITE(*,*) 'ENTER PROBING MODE itable'
-        WRITE(*,*) '  (0) for STRAIN RATE , (1) FOR STRESS --> '
-        READ (*,*) ITABLE
-        WRITE(*,*)
-        WRITE(*,*) 'ENTER PI/2 PARTITION npart'
-        WRITE(*,*) '  1,2,3,4,5,6  for  90,45,30,22.5,18,15 --> '
-        READ (*,*) NPART
-        DANG=PI/2.D0/FLOAT(NPART)
+C *** HARDWIRES THE ANGULAR INTERVAL USED FOR PROBING. ACTIVATE READ FOR CHOOSING.
+        NPART=4
+
+C        WRITE(*,*)
+C        WRITE(*,*) 'ENTER PI/2 PARTITION npart'
+C        WRITE(*,*) '  1,2,3,4,5,6  for  90,45,30,22.5,18,15 deg --> '
+C        READ (*,*) NPART
         IF(NPART.GT.6) THEN
           WRITE(*,*) 'INCREASE DIMENSION OF ACTION & REACTION ARRAYS !'
           STOP
         ENDIF
+
+        DANG=PI/2.D0/FLOAT(NPART)
 
         WRITE(IU,'('' PCYS INTERPOLATION TABLE'')')
         WRITE(IU,'('' CRYSTAL FILE USED: '',A)') FILECRYS
@@ -5220,22 +5221,22 @@ C *********************************************************************
 
       NPROBE=0
 
-      DO 100 ITH4=ITHETA(1,4),ITHETA(2,4)
+      DO ITH4=ITHETA(1,4),ITHETA(2,4)
         THETA4=ITH4*DANG
         COSTH4=COS(THETA4)
         SINTH4=SIN(THETA4)
 
-      DO 100 ITH3=ITHETA(1,3),ITHETA(2,3)
+      DO ITH3=ITHETA(1,3),ITHETA(2,3)
         THETA3=ITH3*DANG
         COSTH3=COS(THETA3)
         SINTH3=SIN(THETA3)
 
-      DO 100 ITH2=ITHETA(1,2),ITHETA(2,2)
+      DO ITH2=ITHETA(1,2),ITHETA(2,2)
         THETA2=ITH2*DANG
         COSTH2=COS(THETA2)
         SINTH2=SIN(THETA2)
 
-      DO 100 ITH1=ITHETA(1,1),ITHETA(2,1)
+      DO ITH1=ITHETA(1,1),ITHETA(2,1)
         THETA1=ITH1*DANG
         COSTH1=COS(THETA1)
         SINTH1=SIN(THETA1)
@@ -5268,7 +5269,10 @@ C *** CALCULATES NORMALIZED VECTOR COMPONENTS IN 5-D SPACE.
 C       WRITE(IU,'('' ACTION'',I3,3X,5F10.5)')
 C    #      NPROBE,(ACTION(ITH1,ITH2,ITH3,ITH4,i),i=1,5)
 
-  100 CONTINUE
+      ENDDO      ! end of DO ITH1
+      ENDDO      ! end of DO ITH2
+      ENDDO      ! end of DO ITH3
+      ENDDO      ! end of DO ITH4
 
 C *** HARDWIRE RUN PARAMETERS
 
@@ -8262,7 +8266,7 @@ C       rho_deb is no longer debris. It is D now!
             endif
 
             xp(IS,KGX)=0.5d0-0.5d0 * tanh
-     #      (3.d0*((xRho_max(1)+xRho_min(1))/(xRho_max(1)-xRho_min(1)))
+     #      (3.*((xRho_max(1)+xRho_min(1))/(xRho_max(1)-xRho_min(1)))
      #          *((sqrt(rho_deb(IS,kgx))-xrho_infl(1))/xrho_infl(1)))
              
           ENDDO
@@ -11698,15 +11702,17 @@ C     WRITES 'VPSC.IN' FILE INTO 'RUN_LOG.OUT' FILE
       ENDDO
    10 REWIND UR0
       WRITE(10,*)
-C ***********************************************************************
-
-C     READS # OF ELEMENTS, # OF PHASES AND RELATIVE VOLUME OF PHASE IN ELEM.
+C ***************************************************************************
+C     READS REGIME IDENTIFIER: IREGIME=1 (VISCOPLAST); IREGIME=-1 (TH-ELAST)
+C     HARDWIRES THE # OF ELEMENTS: NELEM=1
+C     READS NUMBER OF PHASES AND RELATIVE VOLUME OF PHASE IN EACH ELEMENT.
 C     PHASES ARE LABELED SEQUENTIALLY FOR A MULTIELEMENT RUN (i.e. IF ELEMENT
 C     #1 CONSISTS OF phase1=fcc AND phase2=bcc, THEN phase3 AND phase4 ARE
 C     THE fcc AND bcc PHASES IN ELEMENT #2...AND SO ON)
 
       NELEM=1
-      READ(UR0,*) NELEM
+      READ(UR0,*) IREGIME
+      IF(IREGIME.EQ.-1) INTERACTION=-1      ! ELASTIC CASE
       READ(UR0,*) NPH
       READ(UR0,*) (WPH(I),I=1,NPH)
       IPHBOT=1
@@ -11769,11 +11775,6 @@ C     TEXTURE, GRAIN SHAPE, SLIP SYSTEMS & HARDENING PARAMETERS.
 C     THE LAST TWO ARE NOT REQUIRED FOR A THERMO-ELASTIC SIMULATION.
 C ****************************************************************************
 
-      WRITE(*,*) ' enter 0 if visco-plastic simulation'
-      WRITE(*,*) ' enter 1 if thermo-elastic simulation'
-      READ(*,*)  IELASTIC
-      IF(IELASTIC.EQ.1) INTERACTION=-1
-
       DO IPH=1,NPH
 
         READ(UR0,'(a)') PROSA
@@ -11820,7 +11821,7 @@ C *** READS SLIP AND TWINNING SYSTEMS FOR THE PHASE
         CALL DATA_CRYSTAL (IPH)
 
 C ****************************************************************************
-        IF (INTERACTION.NE.-1) THEN
+        IF (INTERACTION.NE.-1) THEN         ! visco-plastic case
 C ****************************************************************************
 
 C *** READS HARDENING PARAMETERS OF THE HARDENING LAW FOR THIS PHASE
@@ -11912,7 +11913,7 @@ C ***************************************************************************
 
 C *****************************************************************************
 C *** IF INTERACTION=-1 (THERMO-ELASTIC) THE PLASTICITY RELATED PARAMETERS ARE
-C     NOT USED.  READS NEXT 14 LINES IN VPSC.IN AS DUMMY AND RETURNS.
+C     NOT USED.  READS NEXT 14 LINES IN VPSC.IN AS DUMMY AND RETURNS TO MAIN.
 
       IF (INTERACTION.EQ.-1) THEN
         DO IDUMMY=1,14
@@ -11955,7 +11956,7 @@ C *** READS MODELING CONDITIONS
       IFLU   =0
 
       READ(UR0,'(A)') PROSA
-      READ(UR0,*) INTERACTION
+      READ(UR0,*) INTERACTION, NEFFGRX
       READ(UR0,*) IUPDORI,IUPDSHP,IUPDHAR
       READ(UR0,*) NNEIGH
       READ(UR0,*) IFLU
@@ -12018,14 +12019,10 @@ C     CONTROLS THE STRENGTH OF THE GRAIN INTERACTION WITH THE EFF MEDIUM.
 C *** WHEN RUNNING RelDirCompl USES NRS/2 FOR ALL GRAINS ONLY IN 1ST STEP.
 
       IF(INTERACTION.EQ.3) THEN
-        NEFFGRX=NRS(1,1)/2.
         RDCrun=.FALSE.
-        WRITE(*,'('' DEFAULT INTERACTION IS NEFF ='',F8.2)') NEFFGRX
-        WRITE(*,'('' ENTER  '',F8.2,''  OR OTHER VALUE'')')  NEFFGRX
-        WRITE(*,'('' FOR RUNNING RelDirCompl ENTER 0'')')
-        READ (*,*) NEFFGRX
         IF(NEFFGRX.EQ.0.) THEN
-          NEFFGRX=NRS(1,1)/2.
+          WRITE(*,'('' RUNNING RelDirCompl '')')
+          NEFFGRX=NRS(1,1)/2.      ! the 1st step is done with uniform neff
           RDCrun=.TRUE.
         ENDIF
       ENDIF
@@ -12034,7 +12031,7 @@ C *** WHEN RUNNING RelDirCompl USES NRS/2 FOR ALL GRAINS ONLY IN 1ST STEP.
       DO KKK=NGR(IPH-1)+1,NGR(IPH)
         IF(INTERACTION.EQ.1) NEFFGR(KKK)=1.            !affine
         IF(INTERACTION.EQ.2) NEFFGR(KKK)=1.            !secant
-        IF(INTERACTION.EQ.3) NEFFGR(KKK)=NEFFGRX       !neff
+        IF(INTERACTION.EQ.3) NEFFGR(KKK)=NEFFGRX       !neff & RDC
         IF(INTERACTION.EQ.4) NEFFGR(KKK)=NRS(1,1)      !tangent
         IF(INTERACTION.EQ.5) NEFFGR(KKK)=1.            !2nd order
       ENDDO

@@ -1,6 +1,6 @@
 
  **** INPUT FILE VPSC.IN FOR THIS RUN ****
-1                          number of elements (nelem)                                                                             
+1                          VP (1) or ELAST (-1) regime                                                                            
 1                          number of phases (nph)                                                                                 
 1.0  0.0                   relative vol. fract. of phases (wph(i))                                                                
 *INFORMATION ABOUT PHASE #1                                                                                                       
@@ -26,7 +26,7 @@ dummy
 0              icubcomp:calculate fcc rolling components?                                                                         
 0              nwrite (frequency of texture downloads)                                                                            
 *MODELING CONDITIONS FOR THE RUN                                                                                                  
-3              interaction (0:FC,1:affine,2:secant,3:neff=10,4:tangent,5:SO)                                                      
+3  10          interaction (0:FC,1:affine,2:secant,3:neff=xx,4:tangent,5:SO)                                                      
 1  1  1        iupdate: update orient, grain shape, hardening                                                                     
 0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
 0              iflu (0: don't calc, 1: calc fluctuations)                                                                         
@@ -308,7 +308,7 @@ B    9720
    25   0.140E-03   0.907E-03   0.262E-03
 
 *** LOAD CONDITIONS FOR THIS RUN
-   20   1   0.01    300   300   nsteps  ictrl  ctrlincr  temp_i  temp_f                                                           
+   20   1   0.01    76   76   nsteps  ictrl  ctrlincr  temp_i  temp_f                                                             
 * boundary conditions                                                                                                             
     1       1       1           iudot     |    flag for vel.grad.                                                                 
     1       0       1                     |    (0:unknown-1:known)                                                                
@@ -389,4 +389,4 @@ B    9720
 *******   STEP  21      *** N_EFF=cte CALCULATION              
    26   0.757E-04   0.887E-03   0.128E-03
 
- TIME ELAPSED  353.19secs
+ TIME ELAPSED  834.17secs

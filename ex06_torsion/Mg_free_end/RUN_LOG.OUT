@@ -1,6 +1,6 @@
 
  **** INPUT FILE VPSC.IN FOR THIS RUN ****
-1                          number of elements (nelem)                                                                             
+1                          VP (1) or ELAST (-1) regime                                                                            
 1                          number of phases (nph)                                                                                 
 1.0  0.0                   relative vol. fract. of phases (wph(i))                                                                
 *INFORMATION ABOUT PHASE #1                                                                                                       
@@ -26,7 +26,7 @@ dummy
 0              icubcomp:calculate fcc rolling components?                                                                         
 10              nwrite (frequency of texture downloads)                                                                           
 *MODELING CONDITIONS FOR THE RUN                                                                                                  
-3              interaction (0:FC,1:affine,2:secant,3:neff=10,4:tangent,5:SO)                                                      
+3  10          interaction (0:FC,1:aff,2:sec,3:neff or RDC,4:tan,5:SO), neffx                                                     
 1  1  1        iupdate: update orient, grain shape, hardening                                                                     
 0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
 0              iflu (0: don't calc, 1: calc fluctuations)                                                                         
@@ -184,6 +184,9 @@ B 820
  **** END OF CRYST TEXTURE DATA FILE ****
 
 
+*** RUNNING INTERACTION NEFF=   10.00
+
+
  UB THERMAL TENSOR (VOIGT NOTATION)
   0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
 
@@ -227,131 +230,131 @@ B 820
                     0.                   @                                                                                        
                                                                                                                                  
 
-*******   STEP   1      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP   1      *** N_EFF=cte CALCULATION              
   100   0.557E-03   0.114E-01   0.791E-03
  CONVERGENCE FAILED AT STEP   1 RELSGR,RELS,RELD =   0.557E-03   0.114E-01   0.791E-03
 
-*******   STEP   2      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP   2      *** N_EFF=cte CALCULATION              
    78   0.971E-04   0.979E-03   0.290E-03
 
-*******   STEP   3      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP   3      *** N_EFF=cte CALCULATION              
    56   0.307E-03   0.991E-03   0.201E-03
 
-*******   STEP   4      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP   4      *** N_EFF=cte CALCULATION              
    59   0.264E-03   0.952E-03   0.142E-03
 
-*******   STEP   5      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP   5      *** N_EFF=cte CALCULATION              
    50   0.174E-03   0.958E-03   0.111E-03
 
-*******   STEP   6      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP   6      *** N_EFF=cte CALCULATION              
    50   0.221E-03   0.944E-03   0.546E-03
 
-*******   STEP   7      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP   7      *** N_EFF=cte CALCULATION              
    50   0.620E-04   0.849E-03   0.356E-03
 
-*******   STEP   8      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP   8      *** N_EFF=cte CALCULATION              
    52   0.498E-04   0.984E-03   0.210E-03
 
-*******   STEP   9      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP   9      *** N_EFF=cte CALCULATION              
    55   0.533E-04   0.990E-03   0.150E-03
 
-*******   STEP  10      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  10      *** N_EFF=cte CALCULATION              
    53   0.478E-04   0.962E-03   0.780E-04
 
-*******   STEP  11      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  11      *** N_EFF=cte CALCULATION              
    45   0.554E-04   0.964E-03   0.164E-03
 
-*******   STEP  12      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  12      *** N_EFF=cte CALCULATION              
    19   0.189E-03   0.908E-03   0.909E-03
 
-*******   STEP  13      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  13      *** N_EFF=cte CALCULATION              
    28   0.168E-03   0.985E-03   0.506E-03
 
-*******   STEP  14      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  14      *** N_EFF=cte CALCULATION              
    60   0.400E-04   0.982E-03   0.685E-04
 
-*******   STEP  15      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  15      *** N_EFF=cte CALCULATION              
    71   0.384E-04   0.967E-03   0.661E-04
 
-*******   STEP  16      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  16      *** N_EFF=cte CALCULATION              
    79   0.374E-04   0.983E-03   0.631E-04
 
-*******   STEP  17      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  17      *** N_EFF=cte CALCULATION              
    88   0.356E-04   0.963E-03   0.595E-04
 
-*******   STEP  18      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  18      *** N_EFF=cte CALCULATION              
    90   0.367E-04   0.988E-03   0.622E-04
 
-*******   STEP  19      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  19      *** N_EFF=cte CALCULATION              
    86   0.386E-04   0.990E-03   0.689E-04
 
-*******   STEP  20      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  20      *** N_EFF=cte CALCULATION              
    86   0.394E-04   0.989E-03   0.700E-04
 
-*******   STEP  21      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  21      *** N_EFF=cte CALCULATION              
    88   0.389E-04   0.956E-03   0.667E-04
 
-*******   STEP  22      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  22      *** N_EFF=cte CALCULATION              
    86   0.403E-04   0.968E-03   0.657E-04
 
-*******   STEP  23      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  23      *** N_EFF=cte CALCULATION              
    85   0.391E-04   0.958E-03   0.628E-04
 
-*******   STEP  24      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  24      *** N_EFF=cte CALCULATION              
    83   0.406E-04   0.955E-03   0.670E-04
 
-*******   STEP  25      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  25      *** N_EFF=cte CALCULATION              
    77   0.444E-04   0.996E-03   0.801E-04
 
-*******   STEP  26      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  26      *** N_EFF=cte CALCULATION              
    71   0.496E-04   0.978E-03   0.109E-03
 
-*******   STEP  27      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  27      *** N_EFF=cte CALCULATION              
    66   0.546E-04   0.957E-03   0.134E-03
 
-*******   STEP  28      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  28      *** N_EFF=cte CALCULATION              
    61   0.600E-04   0.990E-03   0.164E-03
 
-*******   STEP  29      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  29      *** N_EFF=cte CALCULATION              
    62   0.596E-04   0.983E-03   0.177E-03
 
-*******   STEP  30      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  30      *** N_EFF=cte CALCULATION              
    55   0.559E-04   0.945E-03   0.164E-03
 
-*******   STEP  31      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  31      *** N_EFF=cte CALCULATION              
    51   0.556E-04   0.961E-03   0.158E-03
 
-*******   STEP  32      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  32      *** N_EFF=cte CALCULATION              
    49   0.578E-04   0.989E-03   0.155E-03
 
-*******   STEP  33      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  33      *** N_EFF=cte CALCULATION              
    45   0.608E-04   0.993E-03   0.148E-03
 
-*******   STEP  34      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  34      *** N_EFF=cte CALCULATION              
    39   0.683E-04   0.998E-03   0.150E-03
 
-*******   STEP  35      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  35      *** N_EFF=cte CALCULATION              
    39   0.669E-04   0.948E-03   0.138E-03
 
-*******   STEP  36      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  36      *** N_EFF=cte CALCULATION              
    38   0.705E-04   0.949E-03   0.136E-03
 
-*******   STEP  37      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  37      *** N_EFF=cte CALCULATION              
    35   0.767E-04   0.966E-03   0.136E-03
 
-*******   STEP  38      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  38      *** N_EFF=cte CALCULATION              
    33   0.796E-04   0.935E-03   0.131E-03
 
-*******   STEP  39      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  39      *** N_EFF=cte CALCULATION              
    31   0.834E-04   0.917E-03   0.128E-03
 
-*******   STEP  40      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  40      *** N_EFF=cte CALCULATION              
    29   0.892E-04   0.930E-03   0.126E-03
 
-*******   STEP  41      *** N_EFF=NRS/2 CALCULATION            
+*******   STEP  41      *** N_EFF=cte CALCULATION              
    27   0.941E-04   0.942E-03   0.125E-03
 
  CONVERGENCE FAILED IN ONE OR MORE STEPS
  CHECK RELSGR,RELS,RELD= IN FILE RUN_LOG.OUT
 
- TIME ELAPSED   54.08secs
+ TIME ELAPSED   35.53secs

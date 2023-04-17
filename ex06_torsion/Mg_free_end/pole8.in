@@ -2,7 +2,7 @@
 2
 * path & name of texture files (one per line)  
 ex06_torsion\Mg_AZ31b_extruded.tex
-ex06_torsion\Mg_free_end\tex_ph1.out
+ex06_torsion\Mg_free_end\TEX_PH1.OUT
 * 'ipfig': 0 for PF plot, 1 for IPF plot, -1 for *.SOD file, -2 for *.EPF file
  0
 * single crystal unit cell (N/A if ipfig=-2)

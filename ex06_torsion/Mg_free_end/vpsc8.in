@@ -1,4 +1,4 @@
-1                          number of elements (nelem)
+1                          VP (1) or ELAST (-1) regime
 1                          number of phases (nph)
 1.0  0.0                   relative vol. fract. of phases (wph(i))
 *INFORMATION ABOUT PHASE #1
@@ -24,7 +24,7 @@ dummy
 0              icubcomp:calculate fcc rolling components?
 10              nwrite (frequency of texture downloads)
 *MODELING CONDITIONS FOR THE RUN
-3              interaction (0:FC,1:affine,2:secant,3:neff=10,4:tangent,5:SO)
+3  10          interaction (0:FC,1:aff,2:sec,3:neff or RDC,4:tan,5:SO), neffx
 1  1  1        iupdate: update orient, grain shape, hardening
 0              nneigh (0 for no neighbors, 1 for pairs, etc.)
 0              iflu (0: don't calc, 1: calc fluctuations)

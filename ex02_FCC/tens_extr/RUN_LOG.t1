@@ -1,111 +1,110 @@
 
  **** INPUT FILE VPSC.IN FOR THIS RUN ****
-1                          number of elements (nelem)                           
-1                          number of phases (nph)                               
-1.0  0.0                   relative vol. fract. of phases (wph(i))              
-*INFORMATION ABOUT PHASE #1                                                     
-1   0   25                      grain shape contrl, fragmentn, crit aspect ratio
-1.0  1.0  1.0                 initial ellipsoid ratios (dummy if ishape=4)      
-0.0  0.0  0.0                 init Eul ang ellips axes (dummy if ishape=3,4)    
-* name and path of texture file (filetext)                                      
-ex02_FCC\rand500.tex                                                            
-* name and path of single crystal file (filecrys)                               
-ex02_FCC\fcc.sx                                                                 
-* name and path of grain shape file (dummy if ishape=0) (fileaxes)              
-dummy                                                                           
-* name and path of diffraction file (dummy if idiff=0)                          
-0                                                                               
-dummy                                                                           
-*PRECISION SETTINGS FOR CONVERGENCE PROCEDURES (default values)                 
-0.001 0.001 0.001 0.001    errs,errd,errm,errso                                 
-100 100 25     itmax:   max # of iter, external, internal and SO loops          
-0  2  10  2    irsvar & jrsini,jrsfin,jrstep (dummy if irsvar=0)                
-*INPUT/OUTPUT SETTINGS FOR THE RUN (default is zero)                            
-0              irecover:read grain states from POSTMORT.IN (1) or not (0)?      
-0              isave:   write grain states in POSTMORT.OUT at step 'isave'?     
-0              icubcomp:calculate fcc rolling components?                       
-0              nwrite (frequency of texture downloads)                          
-*MODELING CONDITIONS FOR THE RUN                                                
-1              interaction (0:FC,1:affine,2:secant,3:neff=10,4:tangent,5:SO)    
-1  1  1        iupdate: update orient, grain shape, hardening                   
-0              nneigh (0 for no neighbors, 1 for pairs, etc.)                   
-0              iflu (0: don't calc, 1: calc fluctuations)                       
-*NUMBER OF PROCESSES (Lij const; Lij variable; PCYS ;LANKFORD; rigid rotatn)    
-1                                                                               
-*IVGVAR AND PATH\NAME OF FILE FOR EACH PROCESS                                  
-0                                                                               
-ex02_FCC\tension_extrusion.3                                                    
+1                          VP (1) or ELAST (-1) regime                                                                            
+1                          number of phases (nph)                                                                                 
+1.0  0.0                   relative vol. fract. of phases (wph(i))                                                                
+*INFORMATION ABOUT PHASE #1                                                                                                       
+1   0   25                      grain shape contrl, fragmentn, crit aspect ratio                                                  
+1.0  1.0  1.0                 initial ellipsoid ratios (dummy if ishape=4)                                                        
+0.0  0.0  0.0                 init Eul ang ellips axes (dummy if ishape=3,4)                                                      
+* name and path of texture file (filetext)                                                                                        
+ex02_FCC\rand500.tex                                                                                                              
+* name and path of single crystal file (filecrys)                                                                                 
+ex02_FCC\FCC.sx                                                                                                                   
+* name and path of grain shape file (dummy if ishape=0) (fileaxes)                                                                
+dummy                                                                                                                             
+* name and path of diffraction file (dummy if idiff=0)                                                                            
+0                                                                                                                                 
+dummy                                                                                                                             
+*PRECISION SETTINGS FOR CONVERGENCE PROCEDURES (default values)                                                                   
+0.001 0.001 0.001 0.001    errs,errd,errm,errso                                                                                   
+100 100 25     itmax:   max # of iter, external, internal and SO loops                                                            
+0  2  10  2    irsvar & jrsini,jrsfin,jrstep (dummy if irsvar=0)                                                                  
+*INPUT/OUTPUT SETTINGS FOR THE RUN (default is zero)                                                                              
+0              irecover:read grain states from POSTMORT.IN (1) or not (0)?                                                        
+0              isave:   write grain states in POSTMORT.OUT at step 'isave'?                                                       
+0              icubcomp:calculate fcc rolling components?                                                                         
+0              nwrite (frequency of texture downloads)                                                                            
+*MODELING CONDITIONS FOR THE RUN                                                                                                  
+1  10          interaction (0:FC,1:aff,2:sec,3:neff or RDC,4:tan,5:SO), neffx                                                     
+1  1  1        iupdate: update orient, grain shape, hardening                                                                     
+0              nneigh (0 for no neighbors, 1 for pairs, etc.)                                                                     
+0              iflu (0: don't calc, 1: calc fluctuations)                                                                         
+*NUMBER OF PROCESSES (Lij const; Lij variable; PCYS ;LANKFORD; rigid rotatn)                                                      
+1                                                                                                                                 
+*IVGVAR AND PATH\NAME OF FILE FOR EACH PROCESS                                                                                    
+0                                                                                                                                 
+ex02_FCC\TENSION_extrusion.3                                                                                                      
 
-         EIGNVAL   1.0000   1.0000   1.0000
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
 
  **** CRYSTAL DATA FILE ****
-*Material: AUSTENITIC STEEL                                                     
-cubic           crysym                                                          
-   1.0   1.0   1.0   90.   90.   90.   unit cell axes and angles                
-Elastic stiffness (single crystal [GPa]; scaled=0.85xINTERPOLATED)              
- 205.0   138.0   138.0   000.0   000.0   000.0                                  
- 138.0   205.0   138.0   000.0   000.0   000.0                                  
- 138.0   138.0   205.0   000.0   000.0   000.0                                  
- 000.0   000.0   000.0   126.0   000.0   000.0                                  
- 000.0   000.0   000.0   000.0   126.0   000.0                                  
- 000.0   000.0   000.0   000.0   000.0   126.0                                  
-*Thermal expansion coefficients (single crystal in crystal axis):               
-  1.0e-6   1.0e-6  1.0e-6   0.0e0   0.0e0   0.0e0                               
-*Info about slip & twinning modes in this file:                                 
-  2          nmodesx    (total # of modes listed in file)                       
-  1          nmodes     (# of modes to be used in the calculation)              
-  1          mode(i)    (label of the modes to be used)                         
-  <111>{110} SLIP                                                               
- 1  12  1   0                       modex,nsmx,isensex,itwtypex                 
-   1  1  1        0  1 -1           slip (n & b)                                
-   1  1  1        1  0 -1                                                       
-   1  1  1        1 -1  0                                                       
-  -1  1  1        0  1 -1                                                       
-  -1  1  1        1  0  1                                                       
-  -1  1  1        1  1  0                                                       
-  -1 -1  1        0  1  1                                                       
-  -1 -1  1        1  0  1                                                       
-  -1 -1  1        1 -1  0                                                       
-   1 -1  1        0  1  1                                                       
-   1 -1  1        1  0 -1                                                       
-   1 -1  1        1  1  0                                                       
-  <111>{112} TWIN                                                               
- 2  12  0   2                        modex,nsmx,isensex,itwtypex                
- 0.707                               twshx                                      
-   1  1  1       -2  1  1                                                       
-   1  1  1        1 -2  1                                                       
-   1  1  1        1  1 -2                                                       
-  -1  1  1        2  1  1                                                       
-  -1  1  1       -1 -2  1                                                       
-  -1  1  1       -1  1 -2                                                       
-  -1 -1  1        2 -1  1                                                       
-  -1 -1  1       -1  2  1                                                       
-  -1 -1  1       -1 -1 -2                                                       
-   1 -1  1       -2 -1  1                                                       
-   1 -1  1        1  2  1                                                       
-   1 -1  1        1 -1 -2                                                       
-*Constitutive law                                                               
-   0      Voce=0, MTS=1                                                         
-   1      iratesens (0:rate insensitive, 1:rate sensitive)                      
-   50     grsze --> grain size only matters if HPfactor is non-zero             
-  <111>{110} SLIP -------------------------------------------                   
- 20                               nrsx                                          
- 1.0   0.0   0.0   0.0  0.        tau0x,tau1x,thet0,thet1, hpfac                
- 1.0    1.0                          hlatex(1,im),im=1,nmodes                   
-  <111>{112} TWIN --------------------------------------                        
- 20                               nrsx                                          
- 1.0   0.0    0.   0.   0.        tau0x,tau1x,thet0,thet1, hpfac                
- 1.0    1.0                       hlatex(1,im),im=1,nmodes                      
- 0     0.05   0.50                isectw, thres1,thres2                         
+*Material: AUSTENITIC STEEL                                                                                                       
+cubic           crysym                                                                                                            
+   1.0   1.0   1.0   90.   90.   90.   unit cell axes and angles                                                                  
+Elastic stiffness (single crystal [GPa]; scaled=0.85xINTERPOLATED)                                                                
+ 205.0   138.0   138.0   000.0   000.0   000.0                                                                                    
+ 138.0   205.0   138.0   000.0   000.0   000.0                                                                                    
+ 138.0   138.0   205.0   000.0   000.0   000.0                                                                                    
+ 000.0   000.0   000.0   126.0   000.0   000.0                                                                                    
+ 000.0   000.0   000.0   000.0   126.0   000.0                                                                                    
+ 000.0   000.0   000.0   000.0   000.0   126.0                                                                                    
+*Thermal expansion coefficients (single crystal in crystal axis):                                                                 
+  1.0e-6   1.0e-6  1.0e-6   0.0e0   0.0e0   0.0e0                                                                                 
+*Info about slip & twinning modes in this file:                                                                                   
+  2          nmodesx    (total # of modes listed in file)                                                                         
+  1          nmodes     (# of modes to be used in the calculation)                                                                
+  1          mode(i)    (label of the modes to be used)                                                                           
+  <111>{110} SLIP                                                                                                                 
+ 1  12  1   0                       modex,nsmx,isensex,itwtypex                                                                   
+   1  1  1        0  1 -1           slip (n & b)                                                                                  
+   1  1  1        1  0 -1                                                                                                         
+   1  1  1        1 -1  0                                                                                                         
+  -1  1  1        0  1 -1                                                                                                         
+  -1  1  1        1  0  1                                                                                                         
+  -1  1  1        1  1  0                                                                                                         
+  -1 -1  1        0  1  1                                                                                                         
+  -1 -1  1        1  0  1                                                                                                         
+  -1 -1  1        1 -1  0                                                                                                         
+   1 -1  1        0  1  1                                                                                                         
+   1 -1  1        1  0 -1                                                                                                         
+   1 -1  1        1  1  0                                                                                                         
+  <111>{112} TWIN                                                                                                                 
+ 2  12  0   2                        modex,nsmx,isensex,itwtypex                                                                  
+ 0.707                               twshx                                                                                        
+   1  1  1       -2  1  1                                                                                                         
+   1  1  1        1 -2  1                                                                                                         
+   1  1  1        1  1 -2                                                                                                         
+  -1  1  1        2  1  1                                                                                                         
+  -1  1  1       -1 -2  1                                                                                                         
+  -1  1  1       -1  1 -2                                                                                                         
+  -1 -1  1        2 -1  1                                                                                                         
+  -1 -1  1       -1  2  1                                                                                                         
+  -1 -1  1       -1 -1 -2                                                                                                         
+   1 -1  1       -2 -1  1                                                                                                         
+   1 -1  1        1  2  1                                                                                                         
+   1 -1  1        1 -1 -2                                                                                                         
+*Constitutive law                                                                                                                 
+   0      Voce=0, MTS=1                                                                                                           
+   1      iratesens (0:rate insensitive, 1:rate sensitive)                                                                        
+   50     grsze --> grain size only matters if HPfactor is non-zero                                                               
+  <111>{110} SLIP -------------------------------------------                                                                     
+ 20                               nrsx                                                                                            
+ 1.0   0.0   0.0   0.0  0.        tau0x,tau1x,thet0,thet1, hpfac                                                                  
+ 1.0    1.0                          hlatex(1,im),im=1,nmodes                                                                     
+  <111>{112} TWIN --------------------------------------                                                                          
+ 20                               nrsx                                                                                            
+ 1.0   0.0    0.   0.   0.        tau0x,tau1x,thet0,thet1, hpfac                                                                  
+ 1.0    1.0                       hlatex(1,im),im=1,nmodes                                                                        
+ 0     0.05   0.50                isectw, thres1,thres2                                                                           
 **** END OF CRYSTAL DATA FILE ****
 
 
- CHECKING THAT CELCC*SELCC-ID6=0   0.1878193E-31
+ CHECKING THAT CELCC*SELCC-ID6=0   0.2134069E-31
  *********** PHASE   1
  RANDOM PX BULK & POISSON MODULI     160.333       0.266
  RANDOM PX ELASTIC CTES C11, C12, C44     279.000     101.000      89.000
 
+ INSIDE SUBROUTINE DATA_CRYSTAL
  SHEAR MODULUS FOR MODE  1 IN PHASE  1 IS      64.333
  N & B FOR MODE  1 IN PHASE  1
      0.577     0.577     0.577        0.000     0.707    -0.707
@@ -122,31 +121,32 @@ Elastic stiffness (single crystal [GPa]; scaled=0.85xINTERPOLATED)
      0.577    -0.577     0.577        0.707     0.707     0.000
 
  **** CRYST TEXTURE (FIRST FEW LINES) ****
-dummy                                                                           
-dummy                                                                           
-random texture generated by RANDTEXT.FOR (23/01/97)                             
-B   500                                                                         
-    102.74    119.56     33.65  1.0                                             
-    219.06     36.21     70.51  1.0                                             
-    166.66     28.59     45.80  1.0                                             
-    149.74     86.13     38.68  1.0                                             
-    143.88     72.50      9.75  1.0                                             
-     27.71      7.88    225.69  1.0                                             
-     10.26     81.59    324.82  1.0                                             
-    213.21    156.91    352.41  1.0                                             
-    313.75     60.06    131.59  1.0                                             
-    283.74    137.64    213.65  1.0                                             
-    329.59    158.18    298.33  1.0                                             
-     61.37    171.68    104.65  1.0                                             
-     44.90     68.33     40.28  1.0                                             
-     29.40    114.77    163.14  1.0                                             
-     56.39    115.89    341.90  1.0                                             
-    271.21     76.66    171.67  1.0                                             
+dummy                                                                                                                             
+dummy                                                                                                                             
+random texture generated by RANDTEXT.FOR (23/01/97)                                                                               
+B   500                                                                                                                           
+    102.74    119.56     33.65  1.0                                                                                               
+    219.06     36.21     70.51  1.0                                                                                               
+    166.66     28.59     45.80  1.0                                                                                               
+    149.74     86.13     38.68  1.0                                                                                               
+    143.88     72.50      9.75  1.0                                                                                               
+     27.71      7.88    225.69  1.0                                                                                               
+     10.26     81.59    324.82  1.0                                                                                               
+    213.21    156.91    352.41  1.0                                                                                               
+    313.75     60.06    131.59  1.0                                                                                               
+    283.74    137.64    213.65  1.0                                                                                               
+    329.59    158.18    298.33  1.0                                                                                               
+     61.37    171.68    104.65  1.0                                                                                               
+     44.90     68.33     40.28  1.0                                                                                               
+     29.40    114.77    163.14  1.0                                                                                               
+     56.39    115.89    341.90  1.0                                                                                               
+    271.21     76.66    171.67  1.0                                                                                               
     .........................
  **** END OF CRYST TEXTURE DATA FILE ****
 
-         EIGNVAL   1.0000   1.0000   1.0000
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
+
+*** RUNNING INTERACTION NEFF=    0.00
+
 
  UB THERMAL TENSOR (VOIGT NOTATION)
   0.1000E-05  0.1000E-05  0.1000E-05  0.1482E-23 -0.1622E-23 -0.3991E-23
@@ -172,376 +172,176 @@ B   500
 
 
 *** LOAD CONDITIONS FOR THIS RUN
-  50   3   0.02    298.   298.   nsteps  ictrl  ctrlincr  temp_i  temp_f        
-* boundary conditions                                                           
-    1       1       1           iudot    |    flag for vel.grad.                
-    1       1       1                    |    (0:unknown-1:known)               
-    1       1       1                    |                                      
-                                         |                                      
-   -0.5     0.      0.          udot     |    vel.grad                          
-    0.     -0.5     0.                   |                                      
-    0.      0.      1.0                  |                                      
-                                         |                                      
-    0       0       0           iscau    |    flag for Cauchy                   
-            0       0                    |                                      
-                    0                    |                                      
-                                         |                                      
-    0.      0.      0.          scauchy  |    Cauchy stress                     
-            0.      0.                   |                                      
-                    0.                   @                                      
-                                                                               
+  50   3   0.02    298.   298.   nsteps  ictrl  ctrlincr  temp_i  temp_f                                                          
+* boundary conditions                                                                                                             
+    1       1       1           iudot    |    flag for vel.grad.                                                                  
+    1       1       1                    |    (0:unknown-1:known)                                                                 
+    1       1       1                    |                                                                                        
+                                         |                                                                                        
+   -0.5     0.      0.          udot     |    vel.grad                                                                            
+    0.     -0.5     0.                   |                                                                                        
+    0.      0.      1.0                  |                                                                                        
+                                         |                                                                                        
+    0       0       0           iscau    |    flag for Cauchy                                                                     
+            0       0                    |                                                                                        
+                    0                    |                                                                                        
+                                         |                                                                                        
+    0.      0.      0.          scauchy  |    Cauchy stress                                                                       
+            0.      0.                   |                                                                                        
+                    0.                   @                                                                                        
+                                                                                                                                 
 
 *******   STEP   1      *** AFFINE CALCULATION                 
    10   0.993E-04   0.151E-04   0.407E-04
-         EIGNVAL   0.9900   1.0200   0.9900
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.9900   1.0200   0.9900
-         EIGNVEC   0.2257  -0.0000   0.9742   0.9742   0.0000  -0.2257  -0.0000   1.0000   0.0000
 
 *******   STEP   2      *** AFFINE CALCULATION                 
     4   0.584E-03   0.975E-04   0.681E-03
-         EIGNVAL   0.9801   1.0404   0.9801
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.9801   1.0404   0.9801
-         EIGNVEC   0.9988  -0.0000  -0.0499   0.0499  -0.0000   0.9988  -0.0000  -1.0000  -0.0000
 
 *******   STEP   3      *** AFFINE CALCULATION                 
     9   0.129E-03   0.480E-04   0.420E-03
-         EIGNVAL   0.9703   1.0612   0.9703
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.9703   1.0612   0.9703
-         EIGNVEC   0.9964  -0.0000  -0.0844   0.0844  -0.0000   0.9964  -0.0000  -1.0000  -0.0000
 
 *******   STEP   4      *** AFFINE CALCULATION                 
     9   0.101E-03   0.841E-04   0.754E-03
-         EIGNVAL   0.9606   1.0824   0.9606
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.9606   1.0824   0.9606
-         EIGNVEC   0.9950  -0.0000  -0.1000   0.1000  -0.0000   0.9950  -0.0000  -1.0000  -0.0000
 
 *******   STEP   5      *** AFFINE CALCULATION                 
     9   0.995E-04   0.103E-03   0.943E-03
-         EIGNVAL   0.9510   1.1041   0.9510
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.9510   1.1040   0.9510
-         EIGNVEC   0.9938  -0.0000  -0.1115   0.1115  -0.0000   0.9938  -0.0000  -1.0000  -0.0000
 
 *******   STEP   6      *** AFFINE CALCULATION                 
    10   0.735E-04   0.475E-04   0.445E-03
-         EIGNVAL   0.9415   1.1262   0.9415
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.9415   1.1261   0.9415
-         EIGNVEC   0.9910  -0.0000  -0.1338   0.1338  -0.0000   0.9910  -0.0000  -1.0000  -0.0000
 
 *******   STEP   7      *** AFFINE CALCULATION                 
     5   0.272E-03   0.109E-03   0.890E-03
-         EIGNVAL   0.9321   1.1487   0.9321
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.9321   1.1486   0.9321
-         EIGNVEC   0.9999  -0.0000  -0.0143   0.0143  -0.0000   0.9999  -0.0000  -1.0000  -0.0000
 
 *******   STEP   8      *** AFFINE CALCULATION                 
    10   0.783E-04   0.531E-04   0.503E-03
-         EIGNVAL   0.9227   1.1717   0.9227
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.9228   1.1716   0.9228
-         EIGNVEC   0.9993  -0.0000  -0.0380   0.0380  -0.0000   0.9993  -0.0000  -1.0000  -0.0000
 
 *******   STEP   9      *** AFFINE CALCULATION                 
    10   0.709E-04   0.372E-04   0.354E-03
-         EIGNVAL   0.9135   1.1951   0.9135
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.9135   1.1950   0.9135
-         EIGNVEC   0.9981  -0.0000  -0.0619   0.0619  -0.0000   0.9981  -0.0000  -1.0000  -0.0000
 
 *******   STEP  10      *** AFFINE CALCULATION                 
     5   0.127E-03   0.109E-03   0.992E-03
-         EIGNVAL   0.9044   1.2190   0.9044
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.9044   1.2189   0.9044
-         EIGNVEC   0.9999  -0.0000  -0.0124   0.0124  -0.0000   0.9999  -0.0000  -1.0000  -0.0000
 
 *******   STEP  11      *** AFFINE CALCULATION                 
     9   0.689E-04   0.766E-04   0.780E-03
-         EIGNVAL   0.8953   1.2434   0.8953
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.8954   1.2433   0.8954
-         EIGNVEC   0.9999  -0.0000  -0.0163   0.0163  -0.0000   0.9999  -0.0000  -1.0000  -0.0000
 
 *******   STEP  12      *** AFFINE CALCULATION                 
     9   0.708E-04   0.808E-04   0.837E-03
-         EIGNVAL   0.8864   1.2682   0.8864
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.8864   1.2681   0.8864
-         EIGNVEC   0.9998  -0.0000  -0.0198   0.0198  -0.0000   0.9998  -0.0000  -1.0000  -0.0000
 
 *******   STEP  13      *** AFFINE CALCULATION                 
     9   0.652E-04   0.824E-04   0.866E-03
-         EIGNVAL   0.8775   1.2936   0.8775
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.8776   1.2935   0.8776
-         EIGNVEC   0.9998  -0.0000  -0.0220   0.0220  -0.0000   0.9998  -0.0000  -1.0000  -0.0000
 
 *******   STEP  14      *** AFFINE CALCULATION                 
     9   0.616E-04   0.749E-04   0.800E-03
-         EIGNVAL   0.8687   1.3195   0.8687
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.8688   1.3193   0.8688
-         EIGNVEC   0.9997  -0.0000  -0.0246   0.0246  -0.0000   0.9997  -0.0000  -1.0000  -0.0000
 
 *******   STEP  15      *** AFFINE CALCULATION                 
    10   0.615E-04   0.155E-04   0.153E-03
-         EIGNVAL   0.8601   1.3459   0.8601
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.8601   1.3457   0.8601
-         EIGNVEC   0.9994  -0.0000  -0.0360   0.0360  -0.0000   0.9994  -0.0000  -1.0000  -0.0000
 
 *******   STEP  16      *** AFFINE CALCULATION                 
     5   0.139E-03   0.872E-04   0.923E-03
-         EIGNVAL   0.8515   1.3728   0.8515
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.8515   1.3726   0.8515
-         EIGNVEC   0.9998  -0.0000  -0.0194   0.0194  -0.0000   0.9998  -0.0000  -1.0000  -0.0000
 
 *******   STEP  17      *** AFFINE CALCULATION                 
     5   0.112E-03   0.292E-04   0.273E-03
-         EIGNVAL   0.8429   1.4002   0.8429
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.8430   1.4000   0.8430
-         EIGNVEC   0.9999  -0.0000  -0.0139   0.0139  -0.0000   0.9999  -0.0000  -1.0000  -0.0000
 
 *******   STEP  18      *** AFFINE CALCULATION                 
     5   0.107E-03   0.208E-04   0.174E-03
-         EIGNVAL   0.8345   1.4282   0.8345
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.8346   1.4280   0.8346
-         EIGNVEC   1.0000  -0.0000  -0.0098   0.0098  -0.0000   1.0000  -0.0000  -1.0000  -0.0000
 
 *******   STEP  19      *** AFFINE CALCULATION                 
     9   0.760E-04   0.871E-04   0.997E-03
-         EIGNVAL   0.8262   1.4568   0.8262
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.8262   1.4566   0.8262
-         EIGNVEC   0.9999  -0.0000  -0.0132   0.0132  -0.0000   0.9999  -0.0000  -1.0000  -0.0000
 
 *******   STEP  20      *** AFFINE CALCULATION                 
     5   0.107E-03   0.170E-04   0.140E-03
-         EIGNVAL   0.8179   1.4859   0.8179
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.8180   1.4857   0.8180
-         EIGNVEC   1.0000  -0.0000  -0.0094   0.0094  -0.0000   1.0000  -0.0000  -1.0000  -0.0000
 
 *******   STEP  21      *** AFFINE CALCULATION                 
     5   0.130E-03   0.706E-04   0.811E-03
-         EIGNVAL   0.8097   1.5157   0.8097
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.8098   1.5154   0.8098
-         EIGNVEC   1.0000  -0.0000  -0.0085   0.0085  -0.0000   1.0000  -0.0000  -1.0000  -0.0000
 
 *******   STEP  22      *** AFFINE CALCULATION                 
     5   0.113E-03   0.472E-04   0.543E-03
-         EIGNVAL   0.8016   1.5460   0.8016
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.8017   1.5457   0.8017
-         EIGNVEC   0.9999  -0.0000  -0.0123   0.0123  -0.0000   0.9999  -0.0000  -1.0000  -0.0000
 
 *******   STEP  23      *** AFFINE CALCULATION                 
     5   0.105E-03   0.369E-04   0.421E-03
-         EIGNVAL   0.7936   1.5769   0.7936
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7937   1.5766   0.7937
-         EIGNVEC   0.9998  -0.0000  -0.0200   0.0200  -0.0000   0.9998  -0.0000  -1.0000  -0.0000
 
 *******   STEP  24      *** AFFINE CALCULATION                 
     5   0.116E-03   0.354E-04   0.412E-03
-         EIGNVAL   0.7857   1.6084   0.7857
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7858   1.6081   0.7858
-         EIGNVEC   0.9995  -0.0000  -0.0316   0.0316  -0.0000   0.9995  -0.0000  -1.0000  -0.0000
 
 *******   STEP  25      *** AFFINE CALCULATION                 
     5   0.105E-03   0.407E-04   0.479E-03
-         EIGNVAL   0.7778   1.6406   0.7778
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7779   1.6403   0.7779
-         EIGNVEC   0.9989  -0.0000  -0.0464   0.0464  -0.0000   0.9989  -0.0000  -1.0000  -0.0000
 
 *******   STEP  26      *** AFFINE CALCULATION                 
     5   0.967E-04   0.459E-04   0.548E-03
-         EIGNVAL   0.7700   1.6734   0.7700
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7701   1.6731   0.7701
-         EIGNVEC   0.9980  -0.0000  -0.0631   0.0631  -0.0000   0.9980  -0.0000  -1.0000  -0.0000
 
 *******   STEP  27      *** AFFINE CALCULATION                 
     5   0.946E-04   0.740E-04   0.918E-03
-         EIGNVAL   0.7623   1.7069   0.7623
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7624   1.7066   0.7624
-         EIGNVEC   0.9967  -0.0000  -0.0807   0.0807  -0.0000   0.9967  -0.0000  -1.0000  -0.0000
 
 *******   STEP  28      *** AFFINE CALCULATION                 
     5   0.865E-04   0.713E-04   0.893E-03
-         EIGNVAL   0.7547   1.7410   0.7547
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7548   1.7408   0.7548
-         EIGNVEC   0.9953  -0.0000  -0.0973   0.0973  -0.0000   0.9953  -0.0000  -1.0000  -0.0000
 
 *******   STEP  29      *** AFFINE CALCULATION                 
     5   0.792E-04   0.703E-04   0.891E-03
-         EIGNVAL   0.7472   1.7758   0.7472
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7472   1.7756   0.7472
-         EIGNVEC   0.9937  -0.0000  -0.1120   0.1120  -0.0000   0.9937  -0.0000  -1.0000  -0.0000
 
 *******   STEP  30      *** AFFINE CALCULATION                 
     6   0.501E-04   0.203E-04   0.252E-03
-         EIGNVAL   0.7397   1.8114   0.7397
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7398   1.8112   0.7397
-         EIGNVEC   0.9929  -0.0000  -0.1191   0.1191  -0.0000   0.9929  -0.0000  -1.0000  -0.0000
 
 *******   STEP  31      *** AFFINE CALCULATION                 
     7   0.348E-04   0.399E-04   0.521E-03
-         EIGNVAL   0.7323   1.8476   0.7323
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7324   1.8474   0.7323
-         EIGNVEC   0.9925  -0.0000  -0.1220   0.1220  -0.0000   0.9925  -0.0000  -1.0000  -0.0000
 
 *******   STEP  32      *** AFFINE CALCULATION                 
     7   0.331E-04   0.424E-04   0.560E-03
-         EIGNVAL   0.7250   1.8845   0.7250
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7250   1.8844   0.7250
-         EIGNVEC   0.9922  -0.0000  -0.1244   0.1244  -0.0000   0.9922  -0.0000  -1.0000  -0.0000
 
 *******   STEP  33      *** AFFINE CALCULATION                 
     7   0.316E-04   0.446E-04   0.595E-03
-         EIGNVAL   0.7177   1.9222   0.7177
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7178   1.9221   0.7178
-         EIGNVEC   0.9920  -0.0000  -0.1264   0.1264  -0.0000   0.9920  -0.0000  -1.0000  -0.0000
 
 *******   STEP  34      *** AFFINE CALCULATION                 
     7   0.367E-04   0.395E-04   0.532E-03
-         EIGNVAL   0.7106   1.9607   0.7106
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7106   1.9605   0.7106
-         EIGNVEC   0.9917   0.0000  -0.1288   0.1288  -0.0000   0.9917  -0.0000  -1.0000  -0.0000
 
 *******   STEP  35      *** AFFINE CALCULATION                 
     2   0.581E-03   0.797E-04   0.744E-03
-         EIGNVAL   0.7034   1.9999   0.7034
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.7035   1.9998   0.7035
-         EIGNVEC   0.9913   0.0000  -0.1318   0.1318  -0.0000   0.9913   0.0000  -1.0000  -0.0000
 
 *******   STEP  36      *** AFFINE CALCULATION                 
     5   0.631E-04   0.588E-04   0.800E-03
-         EIGNVAL   0.6964   2.0399   0.6964
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6964   2.0398   0.6964
-         EIGNVEC   0.9906   0.0000  -0.1365   0.1365  -0.0000   0.9906   0.0000  -1.0000  -0.0000
 
 *******   STEP  37      *** AFFINE CALCULATION                 
     6   0.514E-04   0.673E-04   0.930E-03
-         EIGNVAL   0.6894   2.0807   0.6894
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6895   2.0806   0.6895
-         EIGNVEC   0.9903   0.0000  -0.1392   0.1392  -0.0000   0.9903   0.0000  -1.0000  -0.0000
 
 *******   STEP  38      *** AFFINE CALCULATION                 
     2   0.475E-03   0.487E-04   0.225E-03
-         EIGNVAL   0.6826   2.1223   0.6826
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6826   2.1223   0.6826
-         EIGNVEC   0.9924   0.0000  -0.1231   0.1231  -0.0000   0.9924   0.0000  -1.0000  -0.0000
 
 *******   STEP  39      *** AFFINE CALCULATION                 
     6   0.588E-04   0.657E-04   0.923E-03
-         EIGNVAL   0.6757   2.1647   0.6757
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6757   2.1647   0.6757
-         EIGNVEC   0.9920   0.0000  -0.1263   0.1263  -0.0000   0.9920   0.0000  -1.0000  -0.0000
 
 *******   STEP  40      *** AFFINE CALCULATION                 
     2   0.441E-03   0.423E-04   0.192E-03
-         EIGNVAL   0.6690   2.2080   0.6690
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6690   2.2080   0.6690
-         EIGNVEC   0.9947   0.0000  -0.1031   0.1031  -0.0000   0.9947   0.0000  -1.0000  -0.0000
 
 *******   STEP  41      *** AFFINE CALCULATION                 
     7   0.361E-04   0.294E-04   0.420E-03
-         EIGNVAL   0.6623   2.2522   0.6623
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6623   2.2522   0.6623
-         EIGNVEC   0.9944   0.0000  -0.1056   0.1056  -0.0000   0.9944   0.0000  -1.0000  -0.0000
 
 *******   STEP  42      *** AFFINE CALCULATION                 
     2   0.400E-03   0.519E-04   0.534E-03
-         EIGNVAL   0.6557   2.2972   0.6557
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6557   2.2972   0.6557
-         EIGNVEC   0.9969   0.0000  -0.0783   0.0783  -0.0000   0.9969   0.0000  -1.0000  -0.0000
 
 *******   STEP  43      *** AFFINE CALCULATION                 
     6   0.403E-04   0.530E-04   0.767E-03
-         EIGNVAL   0.6491   2.3432   0.6491
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6491   2.3432   0.6491
-         EIGNVEC   0.9968   0.0000  -0.0794   0.0794  -0.0000   0.9968   0.0000  -1.0000  -0.0000
 
 *******   STEP  44      *** AFFINE CALCULATION                 
     2   0.365E-03   0.509E-04   0.538E-03
-         EIGNVAL   0.6426   2.3901   0.6426
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6426   2.3901   0.6426
-         EIGNVEC   0.9987   0.0000  -0.0511   0.0511  -0.0000   0.9987   0.0000  -1.0000  -0.0000
 
 *******   STEP  45      *** AFFINE CALCULATION                 
     7   0.274E-04   0.324E-04   0.476E-03
-         EIGNVAL   0.6362   2.4379   0.6362
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6362   2.4379   0.6362
-         EIGNVEC   0.9986   0.0000  -0.0526   0.0526  -0.0000   0.9986   0.0000  -1.0000  -0.0000
 
 *******   STEP  46      *** AFFINE CALCULATION                 
     2   0.350E-03   0.549E-04   0.629E-03
-         EIGNVAL   0.6298   2.4866   0.6298
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6298   2.4866   0.6298
-         EIGNVEC   0.9997   0.0000  -0.0240   0.0240  -0.0000   0.9997   0.0000  -1.0000  -0.0000
 
 *******   STEP  47      *** AFFINE CALCULATION                 
     6   0.339E-04   0.629E-04   0.938E-03
-         EIGNVAL   0.6235   2.5363   0.6235
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6235   2.5364   0.6235
-         EIGNVEC   0.9997   0.0000  -0.0237   0.0237  -0.0000   0.9997   0.0000  -1.0000  -0.0000
 
 *******   STEP  48      *** AFFINE CALCULATION                 
     2   0.323E-03   0.471E-04   0.475E-03
-         EIGNVAL   0.6173   2.5871   0.6173
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6173   2.5871   0.6173
-         EIGNVEC   1.0000   0.0000   0.0040  -0.0040  -0.0000   1.0000   0.0000  -1.0000  -0.0000
 
 *******   STEP  49      *** AFFINE CALCULATION                 
     6   0.290E-04   0.554E-04   0.837E-03
-         EIGNVAL   0.6111   2.6388   0.6111
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6111   2.6389   0.6111
-         EIGNVEC   1.0000   0.0000   0.0045  -0.0045  -0.0000   1.0000   0.0000  -1.0000  -0.0000
 
 *******   STEP  50      *** AFFINE CALCULATION                 
     2   0.299E-03   0.490E-04   0.532E-03
-         EIGNVAL   0.6050   2.6916   0.6050
-         EIGNVEC   1.0000  -0.0000   0.0000   0.0000  -0.0000   1.0000   0.0000  -1.0000   0.0000
-         EIGNVAL   0.6050   2.6916   0.6050
-         EIGNVEC   0.9995   0.0000   0.0311  -0.0311  -0.0000   0.9995   0.0000  -1.0000  -0.0000
 
 *******   STEP  51      *** AFFINE CALCULATION                 
     6   0.250E-04   0.491E-04   0.751E-03
 
- TIME ELAPSED    6.20secs
+ TIME ELAPSED    5.70secs
